@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>提示</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="box box-default">
+                <header class="box-header">警告框</header>
+                <div class="box-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="这里是提示内容">左侧提示</button>
+                    <div class="alert alert-info">温馨提示：有新版本可以更新。</div>
+                    <div class="alert alert-warning">注意，内容删除后不可恢复</div>
+                    <div class="alert alert-danger">操作失败！</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="box box-default">
+                <header class="box-header">警告框</header>
+                <div class="box-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <div class="alert alert-info alert-dismissable">带关闭按钮的警告框
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    </div>
+                    <div class="alert alert-info">温馨提示：有新版本可以更新。 <a class="alert-link" href="#">查看新版本</a></div>
+                    <div class="alert alert-warning"><i class="fa fa-warning"></i> 注意，内容删除后不可恢复</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('.cur-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+	$('.cat-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+});
+
+</script>
+</body>
+</html>

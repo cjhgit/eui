@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 公共元素 */
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+body {
+	font-family: 微软雅黑;
+	overflow: hidden;
+}
+/* 头部 */
+.header {
+	height: 120px;
+	border-bottom: #e1e1e1 solid 1px;
+}
+.logo {
+	margin-left: 50px;}
+.header .menu {
+	float: right;
+	margin-right: 200px;
+}
+.header .menu li {
+	float: left;
+}
+.header .menu li a {
+	padding: 0 20px;
+	color: #333;
+	line-height: 120px;
+}
+/* 内容 */
+.slide {
+	position: absolute;
+	width: 100%;
+}
+.slide img {
+	width: 100%;
+}
+.left {
+	float: left;
+	position: relative;
+	top: -500px;
+	left: 100px;
+	width: 100px;
+	height: 100px;
+	background: #f00;
+}
+.right {
+	float: right;
+	position: relative;
+	top: -500px;
+	right: 100px;
+	width: 100px;
+	height: 100px;
+	background: #f00;
+}

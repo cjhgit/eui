@@ -1,0 +1,36 @@
+/* LESS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@theme_color: #f90;
+
+/* 测试一下儿 */
+@width: 100px;
+@height: 300px;
+@font_size: 12px;
+
+.rounded-corners (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.test {
+	width:@width;
+	height:@height;
+	font-size:@font_size;
+	background: #f00;
+	.rounded-corners(10px);
+	
+	.in {
+		width: 50px;
+		height: 50px;
+		background: @theme_color;
+		.rounded-corners(25px);
+    }
+}

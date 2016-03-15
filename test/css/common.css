@@ -1,0 +1,17 @@
+.gohome a {
+    height: 38px;
+    width: 38px;
+    display: block;
+    background: #2f4050;
+    padding: 9px 8px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    opacity: .5;
+}
+.gohome {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}

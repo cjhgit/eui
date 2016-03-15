@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>文字排版</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <header class="panel-heading">标题</header>
+                <div class="panel-body">
+                    <h1>一级标题</h1>
+                    <h2>二级标题</h2>
+                    <h3>三级标题</h3>
+                    <h4>四级标题</h4>
+                    <h5>五级标题</h5>
+                    <h6>六级标题</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <header class="panel-heading">段落</header>
+                <div class="panel-body">
+                    <p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文字。</p>
+                    <p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文字。</p>
+                    <p>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文字。</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <header class="panel-heading">无序列表</header>
+                <div class="panel-body">
+                    <ul>
+                        <li>这是列表项</li>
+                        <li>这是列表项</li>
+                        <li>这是列表项</li>
+                        <li>这是列表项</li>
+                        <li>这是列表项</li>
+                    </ul> 
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <header class="panel-heading">文字颜色</header>
+                <div class="panel-body">
+                    <p class="text-primary">这是一段文字。</p>
+                    <p class="text-success">这是一段文字。</p>
+                    <p class="text-info">这是一段文字。</p>
+                    <p class="text-warning">这是一段文字。</p>
+                    <p class="text-danger">这是一段文字。</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('.cur-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+	$('.cat-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+});
+
+</script>
+</body>
+</html>

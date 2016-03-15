@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>徽章</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <header class="panel-heading">徽章</header>
+                <div class="panel-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <p>
+                        <span class="badge">Badge</span>
+                    </p>
+                    <p>
+                        <span class="badge badge-default">Badge</span>
+                    </p>
+                    <p>
+                        <span class="badge badge-primary">Badge</span>
+                    </p>
+                    <p>
+                        <button class="btn btn-success" type="button">消息<span class="badge">10</span></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('.cur-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+	$('.cat-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+});
+
+</script>
+</body>
+</html>

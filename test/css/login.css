@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+
+.content {
+	width: 1000px;
+	margin-left: 100px;
+	padding-top: 50px;
+	overflow: hidden;
+}
+
+/* 广告 */
+.ad {
+	float: left;
+	width: 400px;
+}
+.ad img {
+	width: 400px;
+	height: 300px;
+}
+
+/* 登陆框 */
+.login {
+	float: right;
+	width: 400px;
+	height: 260px;
+	padding: 20px;
+	border: #e1e1e1 solid 1px;
+}
+input[type="text"],
+input[type="password"] {
+	width: 100%;
+	height: 50px;
+	padding-left: 15px;
+	margin-bottom: 20px;
+	font-size: 16px;
+	border: #e1e1e1 solid 1px;
+	outline: none;
+	box-sizing: border-box;
+}
+.login-account {
+}
+.login-password {	
+}
+.login-submit {
+	width: 100%;
+	height: 45px;
+	margin-top: 20px;
+	padding-left: 15px;
+	color: #fff;
+	font-size: 18px;
+	background: #f63;
+	border: #f90 solid 1px;
+	outline: none;
+	box-sizing: border-box;
+}
+.login-submit:hover {
+	background: #f60;
+	cursor: pointer;
+}
+.forget-password {
+	float: left;
+	margin-top: 10px;
+}
+.register {
+	float: right;
+	margin-top: 10px;
+}
+.tip {
+	display: none;
+	width: 100%;
+	height: 30px;
+	margin-bottom: 10px;
+	padding: 0 10px 0 36px;
+	border: 1px solid #e5debc;
+	border-radius: 2px;
+	background: #fff7d1 url(../images/login.png) no-repeat -324px -150px;
+	line-height: 30px;
+	color: #999;
+	box-sizing: border-box;
+	overflow: hidden;
+}

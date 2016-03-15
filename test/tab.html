@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>tab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/admin_common.css" />
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">tab</div>
+                <div class="panel-body">
+                    <ul id="myTab" class="nav nav-tabs">
+                       <li class="active">
+                          <a href="#home" data-toggle="tab">通用信息</a>
+                       </li>
+                       <li><a href="#ios" data-toggle="tab">文章内容</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <h3>标题</h3>
+                            <p>这是一段文字。</p>
+                        </div>
+                        <div class="tab-pane fade" id="ios">
+                            <div>
+                                <h3>标题2</h3>
+                                <p>这是一段文字。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script src="../dep/metis-menu/metisMenu.min.js"></script>
+<script src="../dist/js/eui.js"></script>
+</body>
+</html>

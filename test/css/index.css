@@ -1,0 +1,167 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 导航 */
+.nav {
+	min-width: 1200px;
+	overflow: auto;
+}
+
+
+/* 导航-轮播 */
+.flexslider {
+	float: left;
+	position: relative;
+	width: 700px;
+	height: 395px;
+	margin-left: 275px;
+	overflow: hidden;
+	zoom: 1;
+}
+.flexslider .slides li {
+	width: 100%;
+	height: 100%;
+}
+
+.flex-direction-nav a {
+	width: 70px;
+	height: 70px;
+	line-height: 99em;
+	overflow: hidden;
+	margin: -35px 0 0;
+	display: block;
+	background: url(../images/ad_ctr.png) no-repeat;
+	position: absolute;
+	top: 50%;
+	z-index: 10;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: all .3s ease;
+	border-radius: 35px;
+}
+
+.flex-direction-nav .flex-next {
+	background-position: 0 -70px;
+	right: 0;
+}
+
+.flex-direction-nav .flex-prev {
+	left: 0;
+}
+
+.flexslider:hover .flex-next {
+	opacity: 0.8;
+	filter: alpha(opacity=25);
+}
+
+.flexslider:hover .flex-prev {
+	opacity: 0.8;
+	filter: alpha(opacity=25);
+}
+
+.flexslider:hover .flex-next:hover,
+.flexslider:hover .flex-prev:hover {
+	opacity: 1;
+	filter: alpha(opacity=50);
+}
+
+.flex-control-nav {
+	width: 100%;
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+}
+
+.flex-control-nav li {
+	margin: 0 2px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+.flex-control-paging li a {
+	background: url(../images/dot.png) no-repeat 0 -16px;
+	display: block;
+	height: 16px;
+	overflow: hidden;
+	text-indent: -99em;
+	width: 16px;
+	cursor: pointer;
+}
+
+.flex-control-paging li a.flex-active,
+.flex-control-paging li.active a {
+	background-position: 0 0;
+}
+
+.flexslider .slides a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.flexslider .slides a img {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+/* 公告 */
+.notices {
+	float: left;
+	margin: 0 10px;
+}
+.notices li {
+	padding: 5px 0;
+}
+.notices li a {}
+
+/* 主要内容 */
+.content {
+	padding: 0 30px;
+}
+.big-title {
+	color: #b61d1d;
+	font-size: 25px;
+	border-bottom: #b61d1d solid 2px;
+}
+.goods-list {
+	overflow: auto;
+}
+.goods-list li {
+	float: left;
+	width: 25%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.goods-image {
+	width: 100%;
+	height: 250px;
+}
+.goods-name {}
+.goods-price {
+	color: #f00;
+}
+/* 主要内容-内容4 */
+.content4 {
+	padding: 0 20px;
+}
+.content .tags {}
+.content .tags li {
+	width: 25%;
+	height: 54px;
+	float: left;
+}
+.content .tag1 {
+	background: url(../images/service_items_1.png) no-repeat;
+}
+.content .tag2 {
+	background: url(../images/service_items_2.png) no-repeat;
+}
+.content .tag3 {
+	background: url(../images/service_items_3.png) no-repeat;
+}
+.content .tag4 {
+	background: url(../images/service_items_4.png) no-repeat;
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Eshop管理中心</title>
+<link rel="stylesheet" href="css/admin_common.css" />
+<link rel="stylesheet" href="css/admin.css" />
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/demo.css" />
+</head>
+
+<body>
+<header class="header">
+	<a href="index.html"><img class="logo" src="images/admin/logo.jpg" alt="图标" /></a>
+    <ul class="header-menu">
+    	
+        
+        <li>
+        	<a id="refresh" href="javascript:;"><img src="images/admin/icon_refresh.png" alt="刷新" /><p>刷新</p></a>
+        </li>
+        <li>
+        	<a href="admin_setting.html" target="frame"><img src="images/admin/icon_setting.png" alt="设置" /><p>设置</p></a>
+        </li>
+        <li>
+        	<a href="admin_note.html" target="frame" title="查看备忘"><img src="images/admin/icon_note.png" alt="备忘录" /><p>备忘录</p></a>
+        </li>
+        <li>
+        	<a href="admin_messageboard.html" target="frame" onClick="saveUrl(this)"><img src="images/admin/icon_messageboard.png" alt="留言" /><p>留言</p></a>
+        </li>
+        <li>
+        	<a href="index.html" target="_blank" title="进入eshop首页"><img src="images/admin/icon_shop.png" alt="查看网店" /><p>查看网店</p></a>
+        </li>
+         <li>
+        	<a href="admin_help.html" target="frame"><img src="images/admin/icon_help.png" alt="帮助" /><p>帮助</p></a>
+        </li>
+        <li>
+        	<a href="admin_about.html" target="frame"><img src="images/admin/icon_about.png" alt="关于" /><p>关于Eshop</p></a>
+        </li>
+        <li>
+        	<a id="exit" href="javascript:;"><img src="images/admin/icon_exit.png" alt="退出" /><p>退出</p></a>
+        </li>
+        
+    </ul>
+</header>
+<div class="content clearfix">
+	<div class="left">
+    	
+    
+    </div>
+    <div class="right">
+    	<iframe id="right-frame" class="right-frame" name="frame" src="admin_index.html"></iframe>
+    </div>
+</div>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script>
+var iframeUrl; // iframe当期网址，用于刷新
+
+/* 适配当前屏幕大小 */
+function resize() {
+	$('.content').height($(this).height() - 127);
+	$('.right').css('width', ($(this).width() - $('.left').width() - 2) + 'px');	
+}
+
+$(document).ready(function() {
+	// 左侧菜单点击事件
+	$('.left-menu>li>a').click(function(e) {
+		if (!$(this).parent().find('.left-sub-menu').is(':hidden')) {
+			//alert("已经显示");
+			$(this).parent().find('.left-sub-menu').toggle(1);
+		} else {
+			$(this).parent().parent().find('.left-sub-menu').hide();
+			$(this).parent().find('.left-sub-menu').toggle(1);
+		}
+    });	
+	
+	// 适配当前屏幕大小
+	resize();
+	
+	// 窗口大小改变时，网页重新适配窗口
+	$(window).resize(function() {
+		resize();
+	});
+
+	// 刷新
+	$('#refresh').click(function(e) {
+		$('.right-frame').attr('src', iframeUrl);
+    });	
+	
+	// 退出登陆
+	$('#exit').click(function(e) {
+		window.location.href = 'admin_login.html';
+    });	
+
+	// iframe网址变换了，保存起来，便于刷新
+	$('a[target="frame"]').click(function(e) {
+        iframeUrl = $(elem).attr('href');
+    });
+});
+
+
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

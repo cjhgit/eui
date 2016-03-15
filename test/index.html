@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="eadmin,后台主题,后台框架,响应式">
+<meta name="description" content="eAdmin 是一个基于 html5 和 css3 的响应式后台UI框架，基于 Bootstrap3 最新版本开发的扁平化主题">
+<title>eAdmin管理平台</title>
+<!--[if lt IE 9]>
+    <script src="../dep/html5shiv/html5shiv.js"></script>
+    <script src="../dep/respond/respond.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<!-- 侧栏 -->
+<aside class="esidebar" id="sidebar">
+    <ul class="emenu" id="menu">
+        <div class="emenu-header">
+            <div>
+                <img class="emenu-manager-img" src="img/user1.jpg">
+                <a class="emenu-manager-name" href=""><span>小丽（超级管理员）</span><i></i></a>
+            </div>
+        </div>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">Bootstrap元素</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="button.html" target="frame"><span class="menu-lable">按钮</span></a></li>
+                <li><a href="input.html" target="frame"><span class="menu-lable">输入框</span></a></li>
+                <li><a href="badge.html" target="frame"><span class="menu-lable">徽章</span></a></li>
+                <li><a href="label.html" target="frame"><span class="menu-lable">标签</span></a></li>
+                <li><a href="progress.html" target="frame"><span class="menu-lable">进度条</span></a></li>
+                <li><a href="widget.html" target="frame"><span class="menu-lable">小部件</span></a></li>
+                <li><a href="panel.html" target="frame"><span class="menu-lable">面板</span></a></li>
+                <li><a href="alert.html" target="frame"><span class="menu-lable">警告框</span></a></li>
+                <li><a href="tooltip.html" target="frame"><span class="menu-lable">提示</span></a></li>
+                <li><a href="modal.html" target="frame"><span class="menu-lable">模态框</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-expanded="true"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">Bootstrap布局</span><i class="fa arrow"></i></a>
+            <ul aria-expanded="true">
+                <li><a href="text.html" target="frame"><span class="menu-lable">文字排版</span></a></li>
+                <li><a href="table.html" target="frame"><span class="menu-lable">表格</span></a></li>
+                <li><a href="tab.html" target="frame"><span class="menu-lable">Tab</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-expanded="true"><i class="menu-icon fa fa-envelope"></i><span class="menu-lable">信箱</span><span class="label label-info pull-right">10</span></a>
+            <ul>
+                <li><a href="mail-box.html" target="frame"><span class="menu-lable">收件箱</span></a></li>
+                <li><a href="mail-detail.html" target="frame"><span class="menu-lable">查看邮件</span></a></li>
+                <li><a href="mail-new.html" target="frame"><span class="menu-lable">写信</span></a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#"><i class="menu-icon fa fa-picture-o"></i><span class="menu-lable">相册</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页示例1</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">eUI布局</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="box.html" target="frame"><span class="menu-lable">盒子</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">eUI元素</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="widget.html" target="frame"><span class="menu-lable">插件</span></a></li>
+                <li><a href="box.html" target="frame"><span class="menu-lable">加载动画</span><span class="label label-info pull-right">Hot</span></a></li>
+                <li><a href="totop.html" target="frame"><span class="menu-lable">返回顶部</span></a></li>
+            </ul>
+        </li>
+
+        <li><a href="javascript:void(0)"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">图标字体</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="fontawesome.html" target="frame"><span class="menu-lable">fontAwesome</span></a></li>
+                <li><a href="iconfont.html" target="frame"><span class="menu-lable">iconfont</span></a></li>
+                <li><a href="glyphicons.html" target="frame"><span class="menu-lable">glyphicons</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">第三方库</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="animation.html" target="frame"><span class="menu-lable">动画</span><span class="label label-info pull-right">Hot</span></a></li>
+                <li><a href="umeditor.html" target="frame"><span class="menu-lable">umeditor</span></a></li>
+                <li><a href="addtab.html" target="frame"><span class="menu-lable">addTabs</span></a></li>
+                <li><a href="toastr.html" target="frame"><span class="menu-lable">toastr</span></a></li>
+                <li><a href="toastr.html" target="frame"><span class="menu-lable">toastr</span></a></li>
+                <li><a href="javascript:void(0)"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">图表</span><i class="fa arrow"></i></a>
+                    <ul>
+                        <li><a href="echar.html" target="frame"><span class="menu-lable">echar</span></a></li>
+                        <li><a href="iconfont.html" target="frame"><span class="menu-lable">iconfont</span></a></li>
+                        <li><a href="glyphicons.html" target="frame"><span class="menu-lable">glyphicons</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">表单</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="form.html" target="frame"><span class="menu-lable">基本表单</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">页面</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="login.html"><span class="menu-lable">主页</span><i class="fa arrow"></i></a>
+                    <ul>
+                        <li><a href="animation.html" target="frame"><span class="menu-lable">主页示例1</span></a></li>
+                        <li><a href="500.html" target="frame"><span class="menu-lable">文章详情</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="404.html" target="frame"><span class="menu-lable">404页面</span></a></li>
+                <li><a href="500.html" target="frame"><span class="menu-lable">500页面</span></a></li>
+                <li><a href="login.html" target="frame"><span class="menu-lable">登陆界面</span></a></li>
+                <li><a href="register.html" target="frame"><span class="menu-lable">注册界面</span></a></li>
+                <li><a href="login.html"><span class="menu-lable">博客</span><i class="fa arrow"></i></a>
+                    <ul>
+                        <li><a href="animation.html" target="frame"><span class="menu-lable">文章列表</span></a></li>
+                        <li><a href="500.html" target="frame"><span class="menu-lable">文章详情</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">多级菜单</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="animation.html" target="frame"><span class="menu-lable">二级菜单</span></a></li>
+                <li><a href="500.html" target="frame"><span class="menu-lable">二级菜单</span></a></li>
+                <li><a href="login.html"><span class="menu-lable">下面还有</span><i class="fa arrow"></i></a>
+                    <ul>
+                        <li><a href="animation.html" target="frame"><span class="menu-lable">三级菜单</span></a></li>
+                        <li><a href="500.html" target="frame"><span class="menu-lable">三级菜单</span></a></li>
+                    </ul>
+
+
+                </li>
+                <li><a href="register.html"><span class="menu-lable">注册界面</span></a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+<!-- /侧栏 -->
+<!-- 主体内容 -->
+<div class="econtent">
+    <nav class="econtent-header navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-form">
+                <a id="menu-minimalize" class="btn btn-primary"><i class="fa fa-bars"></i></a>
+            </div>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="mail-box.html" target="frame"><i class="fa fa-envelope"></i> <span class="label label-warning">16</span></a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-bell"></i> <span class="label label-primary">8</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">你有 16 条未读消息</a></li>
+                    <li><a href="#">10 条新回复</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">查看所有 </a></li>
+                </ul>
+            </li>
+            <li class="dropdown pull-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                    主题 <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">jmeter</a></li>
+                    <li><a href="#">EJB</a></li>
+                    <li><a href="#">Jasper Report</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">分离的链接</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">另一个分离的链接</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <iframe id="right-frame" class="econtent-body main-frame" name="frame" src="description.html"></iframe>
+    <footer class="efooter">
+        <p class="efooter-copyright">Theme by <a href="#">eAdmin</a></p>
+    </footer>
+</div>
+<!-- /主体内容 -->
+<!-- 右下角悬浮按钮 -->
+<div class="float-btn btn btn-primary btn-circle">
+    1
+</div>
+
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script> 
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script src="../dep/metis-menu/metisMenu.min.js"></script>
+<script src="../dep/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../dist/js/eui.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>面板</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <header class="panel-heading">默认</header>
+                <div class="panel-body">
+                    <p>通过 .panel-heading 可以很简单地为面板加入一个标题容器。你也可以通过添加设置了 .panel-title 类的标签，添加一个预定义样式的标题。 为了给链接设置合适的颜色，务必将链接放到带有 .panel-title 类的标题标签内。</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <header class="panel-heading">主要</header>
+                <div class="panel-body">
+                    <p>通过 .panel-heading 可以很简单地为面板加入一个标题容器。你也可以通过添加设置了 .panel-title 类的标签，添加一个预定义样式的标题。 为了给链接设置合适的颜色，务必将链接放到带有 .panel-title 类的标题标签内。</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-success">
+                <header class="panel-heading">成功</header>
+                <div class="panel-body">
+                    <p>通过 .panel-heading 可以很简单地为面板加入一个标题容器。你也可以通过添加设置了 .panel-title 类的标签，添加一个预定义样式的标题。 为了给链接设置合适的颜色，务必将链接放到带有 .panel-title 类的标题标签内。</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-info">
+                <header class="panel-heading">信息</header>
+                <div class="panel-body">
+                    <p>通过 .panel-heading 可以很简单地为面板加入一个标题容器。你也可以通过添加设置了 .panel-title 类的标签，添加一个预定义样式的标题。 为了给链接设置合适的颜色，务必将链接放到带有 .panel-title 类的标题标签内。</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-warning">
+                <header class="panel-heading">警告</header>
+                <div class="panel-body">
+                    <p>通过 .panel-heading 可以很简单地为面板加入一个标题容器。你也可以通过添加设置了 .panel-title 类的标签，添加一个预定义样式的标题。 为了给链接设置合适的颜色，务必将链接放到带有 .panel-title 类的标题标签内。</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-danger">
+                <header class="panel-heading">危险</header>
+                <div class="panel-body">
+                    <p>通过 .panel-heading 可以很简单地为面板加入一个标题容器。你也可以通过添加设置了 .panel-title 类的标签，添加一个预定义样式的标题。 为了给链接设置合适的颜色，务必将链接放到带有 .panel-title 类的标题标签内。</p>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('.cur-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+	$('.cat-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+});
+
+</script>
+</body>
+</html>

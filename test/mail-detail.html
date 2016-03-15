@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>收件箱 - eAdmin管理平台</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/mail.css">
+<style>
+</style>
+</head>
+
+<body>
+<div class="mycontainer">
+	<div class="row">
+    	<div class="col-sm-3">
+            <div class="ibox">
+                <div class="ibox-body">
+                    <div>
+                        <a class="btn btn-primary btn-block" href="mail-new.html">写信</a>
+                        <div class="">
+                            <h5>文件夹</h5>
+                            <ul class="folder-list">
+                                <li class="folder-item">
+                                    <i class="fa fa-inbox"></i>
+                                    <a class="" href="#">收件箱</a>
+                                    <span class="label label-warning pull-right">13</span>
+                                </li>
+                                <li class="folder-item">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <a class="" href="#">发信</a>
+                                </li>
+                                <li class="folder-item">
+                                    <i class="fa fa-file-text-o"></i>
+                                    <a class="" href="#">草稿</a>
+                                    <span class="label label-danger pull-right">2</span>
+                                </li>
+                                <li class="folder-item">
+                                    <i class="fa fa-trash-o"></i>
+                                    <a class="" href="#">垃圾箱</a>
+                                </li>
+                            </ul>
+                            <h5>分类</h5>
+                            <ul class="category-list">
+                                <li><i class="fa fa-circle"></i> <a href="#">工作</a></li>
+                                <li><i class="fa fa-circle"></i> <a href="#">文档</a></li>
+                                <li><i class="fa fa-circle"></i> <a href="#">社交</a></li>
+                                <li><i class="fa fa-circle"></i> <a href="#">广告</a></li>
+                                <li><i class="fa fa-circle"></i> <a href="#">其他</a></li>
+                            </ul>
+                            <h5>标签</h5>
+                            <ul class="category-list">
+                                <li><a href="#"><i class="fa fa-tag"></i> 朋友</a></li>
+                                <li><a href="#"><i class="fa fa-tag"></i> 工作</a></li>
+                                <li><a href="#"><i class="fa fa-tag"></i> 家庭</a></li>
+                                <li><a href="#"><i class="fa fa-tag"></i> 孩子</a></li>
+                                <li><a href="#"><i class="fa fa-tag"></i> 假期</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+        	<div class="mail-box">
+                <div class="mail-box-header">
+                    <div class="pull-right">
+                        <button class="btn btn-default btn-sm" title="回复"><i class="fa fa-reply"></i> 回复</button>
+                        <button class="btn btn-default btn-sm" title="打印"><i class="fa fa-print"></i></button>
+                        <button class="btn btn-default btn-sm" title="标记为垃圾邮件"><i class="fa fa-trash-o"></i></button>
+                    </div>
+
+                    <h2>查看邮件</h2>
+                    <div class="">
+                        <div>主题： XXX</div>
+                        <div>发件人：123456@qq.com</div>
+                    </div>
+
+                    <div class="btn-group">
+
+                    </div>
+                </div>
+                <div class="main-box-body">
+                    <p>邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件。
+                        内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容。
+                    </p>
+                    <p>内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容邮件内容</p>
+                </div>
+                <div class="pull-right">
+                    <button class="btn btn-default btn-sm" title="回复"><i class="fa fa-reply"> 回复</i></button>
+                    <button class="btn btn-default btn-sm" title="下一封邮件"><i class="fa fa-arrow-right"></i> 下一封</button>
+                    <button class="btn btn-default btn-sm" title="删除"><i class="fa fa-trash-o"></i> 删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dist/js/eui.js"></script>
+<script src="js/common.js"></script>
+<script>
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>模态框</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <header class="panel-heading">模态框</header>
+                <div class="panel-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">登陆</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">登陆</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="account">账号</label>
+                        <div class="col-sm-6">
+                            <input id="account" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+                            <label class="control-label col-sm-4" for="password">密码</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input id="password" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success">登陆</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /模态框 -->
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script src="../dep/metis-menu/metisMenu.min.js"></script>
+<script src="../dep/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../dist/js/eui.js"></script>
+<script>
+    //$("#example").popover();
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.mail-box {
+    background: #fff;
+    border: 1px solid #e7eaec;
+    border-radius: 3px;
+}
+.mail-box-header {
+    padding: 10px;
+}
+.form-mail {
+    max-width: 300px;
+}
+.category-list .fa-circle {
+    margin-right: 10px;
+}
+.fa-circle {
+    color: #0000f6;
+}
+.category-list li:nth-child(5x) {
+    color: #0000cc;
+
+}
+.category-list li:nth-child(5x+1) {
+    color: #0000cc;
+}

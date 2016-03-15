@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>反馈管理</title>
+<link rel="stylesheet" href="css/admin_common.css" />
+<link rel="stylesheet" href="css/admin_feedback.css" />
+<style>
+
+</style>
+</head>
+
+<body>
+<div class="admin-content">
+	<div class="admin-section">
+    	<a href="admin.html">Eshop管理平台</a> - <a href="admin_feedback.html">反馈列表</a>
+    </div>
+	<div class="admin-section">
+    	<img class="search-icon" src="images/admin/icon_search.gif" alt="搜索图标" />
+        <select id="article-cat" name="selectAge">   
+            <option value="0">全部分类</option>  
+            <option value="1">水果</option>   
+            <option value="2">  香蕉</option>   
+            <option value="3">  苹果</option>   
+            <option value="4">    红富士</option>   
+            <option value="5">    青苹果</option>
+            <option value="6">家具</option>
+            <option value="7">  椅子</option>
+        </select>
+        <label>文章标题</label><input id="search-input" class="admin-input margin-left-10px" type="text" /><input class="admin-btn margin-left-10px" type="submit" value="搜索" />
+    </div> 
+    
+	<div class="admin-table-section">
+    	<table class="admin-table">
+            <thead>
+                <tr>
+                	<th class="column-id"><input id="select-all" type="checkbox" value="0" />编号</th>
+                    <th class="column-type">类型</th>
+                    <th class="column-content">反馈内容</th>
+                    <th class="column-user">用户</th>
+                    <th class="column-time">反馈日期</th>
+                    <th class="column-is-read">是否已读</th>
+                    <th class="column-operate">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                	<td class="no-records" colspan="7">没有找到任何记录</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div> 
+    <div class="page">
+        总计 27 个记录，分为 2 页，当前第 1 页，每页<input type="text" value="15" />
+        <a href="">第一页</a><a href="">上一页</a><a href="">下一页</a><a href="">最末页</a>
+        <select name="select-page" id="select-page">   
+            <option value="1">1</option>  
+            <option value="2">2</option>   
+            <option value="3">3</option>   
+        </select>
+    </div>
+	<div class="operate">
+    	<select name="selectAge" id="operate-type">   
+            <option value="0">请选择...</option>  
+            <option value="1">批量删除</option>   
+            <option value="2">转移到分类</option>   
+        </select>
+        <a id="operate-ok" class="admin-btn" href="javascript:;">确定</a>
+    </div>
+    <div class="admin-section margin-top-10px">
+    	<p class="copyright">版权所有 © 2015-2016 Eshop</p>
+    </div>
+</div>
+<script src="js/jquery-1.10.2.min.js"></script>
+
+<script>
+function operateOk() {
+
+}
+
+function deleteFeedback(id) {
+	if (confirm("你确定删除该商品吗？")) {
+		alert("删除" + id);
+	}
+}
+
+function read(id) {
+	alert("已读" + id);
+}
+
+function unread(id) {
+	alert("未读" + id);
+}
+
+$(document).ready(function(e) {
+	/* 全选操作 */
+	$("#select-all").click(function() {
+		if ($(this).is(':checked') == true) {
+			// 全选
+			$("input[name='article-select']").attr("checked",true);	
+		} else {
+			$("input[name='article-select']").attr("checked",false);
+		}
+	});
+	
+	/* 批量操作确定 */
+	$("#operate-ok").click(function() {
+
+		var type = $("#operate-type").children('option:selected').val();
+		if (type == 0) {
+			alert("请选择操作类型");	
+		} else if (type == 1) {
+			alert("批量删除");	
+			$("input[name='article-select']:checked").each(function(){
+				alert($(this).val());
+			});	
+		} else if (type == 2) {
+			alert("批量移动");	
+		}
+
+
+	});
+	
+	$("#search-input").click(function() {
+		var type = $("#article-cat").children('option:selected').val();
+		if (type == 0) {
+			alert("全部");	
+		} else if (type == 1) {
+			
+			
+		} else if (type == 2) {
+			alert("批量移动");	
+		}
+
+	});
+
+	/* 选择页数 */
+	$('#select-page').change(function() { 
+		var page = $(this).children('option:selected').val(); // 选中的页数
+		window.location.href = "admin/feedback?page=" + page;
+	});
+	
+});
+
+</script>
+</body>
+</html>

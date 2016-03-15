@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>基本表单</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <ul class="breadcrumb">
+            <li><a href="#">首页</a></li>
+            <li class="active">添加商品</li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">内联表单</div>
+                <div class="panel-body">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="用户名">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="密码">
+                        </div>
+                        <label class="control-label"><input type="checkbox">记住密码</label>
+                        <input class="btn btn-primary" type="submit" value="登陆">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="box">
+                <div class="box-header">弹出表单</div>
+                <div class="box-body">
+                    <form class="form-inline">
+                        <input class="btn btn-primary" type="submit" value="登陆">
+                        <input class="btn btn-primary" type="submit" value="取消">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">所有表单</div>
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">姓名</label>
+                            <div class="col-md-6">
+                                <p class="form-control-static">张三</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="name">类别名称</label>
+                            <div class="col-md-6">
+                                <input type="text" id="name" class="form-control" /><span class="required-field">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="select">select</label>
+                            <div class="col-md-2">
+                                <select id="select" class="form-control" name="catt">
+                                    <option value="1">水果</option>  
+                                    <option value="2">家具</option>  
+                                    <option value="7">鞋子</option>  
+                                    <option value="19">文具</option>  
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="selectmultiple">Select Multiple</label>
+                            <div class="col-md-4">
+                                <select id="selectmultiple" class="form-control" name="selectmultiple" multiple="multiple">
+                                    <option>Option one</option>
+                                    <option>Option two</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="name">类别描述</label>
+                            <div class="col-md-6">
+                                <input type="text" id="name" class="form-control" /><p class="tip">对该类别的描述</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="name">textarea</label>
+                            <div class="col-md-6">
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="name">头像</label>
+                            <div class="col-md-6">
+                                <input class="form-control" type="file" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="name">头像</label>
+                            <div class="col-md-6">
+                                <img class="form-img img-rounded" src="img/user1.jpg" alt="安踏"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="name">头像</label>
+                            <div class="col-md-6">
+                                <input class="form-control" type="file" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="name">头像</label>
+                            <div class="col-md-6">
+                            	<img class="form-img img-rounded" src="img/user1.jpg" alt="安踏"/>
+                                <input class="form-control" type="file" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">性别</label>
+                            <div class="col-md-6">
+                                <label class="radio-inline"><input type="radio" name="sex"> 男</label>
+                                <label class="radio-inline"><input type="radio" name="sex"> 女</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">性别</label>
+                            <div class="col-md-6">
+                                <div class="radio">
+                                    <label><input type="radio" name="sex"> 男</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="sex"> 女</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">爱好</label>
+                            <div class="col-md-6">
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">运动</label>
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">读书</label>
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">旅游</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">爱好</label>
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label><input class="" type="checkbox" name="hobby">运动</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input  class="" type="checkbox" name="hobby">读书</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label class=""><input class="" type="checkbox" name="hobby">旅游</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary" type="submit">确定</button>
+                                <button class="btn btn-default" type="submit">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">表单样式</div>
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <div class="form-group has-success">
+                            <label class="col-md-2 control-label" for="name">通过验证</label>
+                            <div class="col-md-6">
+                                <input type="text" id="name" class="form-control" /><span class="required-field">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group has-warning">
+                            <label class="col-md-2 control-label" for="name">未填写</label>
+                            <div class="col-md-6">
+                                <input type="text" id="name" class="form-control" /><span class="required-field">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group has-error">
+                            <label class="col-md-2 control-label" for="name">通过验证</label>
+                            <div class="col-md-6">
+                                <input type="text" id="name" class="form-control" /><span class="required-field">*</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

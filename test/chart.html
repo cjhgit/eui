@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>文章编辑</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/admin_common.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/admin_article_edit.css" />
+<link rel="stylesheet" href="css/plugins/animate.min.css" />
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+    	<div class="">
+        	<p class="bounce">Animation.css</p>
+            <a href="http://daneden.github.io/animate.css/" target="_blank">github</a>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../dep/umeditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../dep/umeditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../dep/umeditor/umeditor.min.js"></script>
+<script type="text/javascript" src="../dep/umeditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+/* 适配当前屏幕大小 */
+function resize() {
+	UM.getEditor('myEditor').setWidth($(this).width() - 100);
+}
+
+$(document).ready(function(e) {
+	//实例化编辑器
+    var um = UM.getEditor('myEditor');
+	
+	// 保存文章
+    $('#btn-save').click(function(e) {
+        if (!UM.getEditor('myEditor').hasContents()) {
+			alert("请输入内容");
+			return;
+		}
+		alert('内容是：' + UM.getEditor('myEditor').getPlainTxt());
+    });
+	
+	// 初始化tab
+	jQuery.jqtab = function(tabtit,tabcon) {
+        $(tabcon).hide();
+        $(tabtit+" li:first").addClass("thistab").show();
+        $(tabcon+":first").show();
+    
+        $(tabtit+" li").click(function() {
+            $(tabtit+" li").removeClass("thistab");
+            $(this).addClass("thistab");
+            $(tabcon).hide();
+            var activeTab = $(this).find("a").attr("tab");
+            $("#"+activeTab).fadeIn();
+            return true;
+        });
+        
+    };
+	$.jqtab('#tabs', '.tab_con');
+	
+	// 适配当前屏幕大小
+	resize();
+	
+	// 窗口大小改变时，网页重新适配窗口
+	$(window).resize(function() {
+		resize();
+	});
+	
+	
+});
+
+</script>
+
+</body>
+</html>

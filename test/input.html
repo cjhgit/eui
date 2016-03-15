@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单增强</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">按钮颜色</header>
+                <div class="panel-body">
+                    <h5>表单增强</h5>
+                    <form>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">￥</span>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" type="text">
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input id="prependedInput" class="form-control" type="text" placeholder="用户名">
+                                <div class="input-group-btn">
+                                    <input class="btn btn-primary" type="submit" value="搜索">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <header class="panel-heading">输入框大小</header>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control input-lg" type="text" placeholder="input-lg">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control input-sm" type="text" placeholder="input-sm">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">输入框宽度</header>
+                <div class="panel-body">
+                    <h5>表单增强</h5>
+                    <p>表单元素宽度都是100%，通过限制父容器宽度来限制表单宽度</p>
+                    <form>
+                        <div class="form-group">
+                            <row>
+                                <div class="col-sm-2">
+                                    <input class="form-control" type="text" placeholder="col-sm-2">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input class="form-control" type="text" placeholder="col-sm-3">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="text" placeholder="col-sm-4">
+                                </div>
+                            </row>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('.cur-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+	$('.cat-select').change(function() { 
+		$(this).removeClass('cur-select');
+		$(this).removeAttr('name');
+		var sel = $('<select class="admin-select cat-select cur-select"></select>');
+		for (var i = 0; i < 4; i++) {
+			var opt = $('<option value="1">水果</option>');
+			sel.append(opt);
+		}
+		$('#cat-list').append(sel);
+	});
+});
+
+</script>
+</body>
+</html>

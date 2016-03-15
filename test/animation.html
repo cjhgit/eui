@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>按钮</title>
+    <link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="../dep/animate/animate.min.css">
+    <link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>CSS动画 <small>http://daneden.github.io/animate.css/</small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="javascript:;">选项1</a>
+                            </li>
+                            <li><a href="javascript:;">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content text-center css-animation-box">
+                    <h1 class="text-navy">
+                        Animation.css
+                    </h1>
+                    <p>
+                        Animation.css是一个迷人的动画库，它提供了一堆很酷的，有趣的，跨浏览器的动画，你可以在项目中调用它们。
+                    </p>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+
+                            <h4 class="m-b-lg">
+                                动画效果示例框
+                            </h4>
+
+                            <div id="animation_box" class="animated">
+                                <div class="text-center wrapper-content animation-text-box">
+                                    <h2>48%</h2>
+                                    <p>市场销售额</p>
+                                </div>
+                                <div id="rickshaw_multi" class="rickshaw_graph"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 animation-efect-links text-center">
+                            <h4 class="m-b-lg">
+                                点击下面按钮，可以从“动画效果示例框”中预览效果
+                            </h4>
+
+                            <!--<h5 class="text-navy">Attention Seekers</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounce">bounce</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="flash">flash</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="pulse">pulse</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rubberBand">rubberBand</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="shake">shake</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="swing">swing</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="tada">tada</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="wobble">wobble</a>
+
+
+                            <!--<h5 class="text-navy">Bouncing Entrances</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceIn">bounceIn</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceInDown">bounceInDown</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceInLeft">bounceInLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceInRight">bounceInRight</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceInUp">bounceInUp</a>
+
+
+                            <!--<h5 class="text-navy">Bouncing Exits</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceOut">bounceOut</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceOutDown">bounceOutDown</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceOutLeft">bounceOutLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceOutRight">bounceOutRight</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="bounceOutUp">bounceOutUp</a>
+                            <!--<h5 class="text-navy">Fading Entrances</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeIn">fadeIn</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeInDown">fadeInDown</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeInDownBig">fadeInDownBig</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeInLeft">fadeInLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeInLeftBig">fadeInLeftBig</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeInRight">fadeInRight</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeInRightBig">fadeInRightBig</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeInUp">fadeInUp</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeInUpBig">fadeInUpBig</a>
+                            <!--<h5 class="text-navy">Fading Exits</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeOut">fadeOut</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeOutDown">fadeOutDown</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeOutDownBig">fadeOutDownBig</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeOutLeft">fadeOutLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeOutLeftBig">fadeOutLeftBig</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeOutRight">fadeOutRight</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeOutRightBig">fadeOutRightBig</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeOutUp">fadeOutUp</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="fadeOutUpBig">fadeOutUpBig</a>
+                            <!--<h5 class="text-navy">Flippers</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="flip">flip</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="flipInX">flipInX</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="flipInY">flipInY</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="flipOutX">flipOutX</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="flipOutY">flipOutY</a>
+
+                            <!--<h5 class="text-navy">Lightspeed</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="lightSpeedIn">lightSpeedIn</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="lightSpeedOut">lightSpeedOut</a>
+                            <!--<h5 class="text-navy">Rotating Entrances</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateIn">rotateIn</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateInDownLeft">rotateInDownLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateInDownRight">rotateInDownRight</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateInUpLeft">rotateInUpLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateInUpRight">rotateInUpRight</a>
+
+
+                            <!--<h5 class="text-navy">Rotating Exits</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateOut">rotateOut</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateOutDownLeft">rotateOutDownLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateOutDownRight">rotateOutDownRight</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateOutUpLeft">rotateOutUpLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rotateOutUpRight">rotateOutUpRight</a>
+
+                            <!--<h5 class="text-navy">Sliders</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="slideInDown">slideInDown</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="slideInLeft">slideInLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="slideInRight">slideInRight</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="slideOutLeft">slideOutLeft</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="slideOutRight">slideOutRight</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="slideOutUp">slideOutUp</a>
+                            <!--<h5 class="text-navy">Specials</h5>-->
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="hinge">hinge</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rollIn">rollIn</a>
+                            <a href="javascript:;" class="btn btn-default anim-select" data-anim="rollOut">rollOut</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".anim-select").click(function () {
+            $("#animation_box").removeAttr("class").attr("class", "");
+            var animation = $(this).data("anim");
+            $("#animation_box").addClass("animated");
+            $("#animation_box").addClass(animation);
+            return false
+        });
+    });
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+</body>
+</html>

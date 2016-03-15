@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注册 - eAdmin管理平台</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+<style>
+    body {
+        background-color: #f8f8f8;
+    }
+    .login-panel {
+        margin-top: 25%;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+    	<div class="col-md-4 col-md-offset-4">
+        	<div class="panel panel-default login-panel">
+            <div class="panel-heading">
+                <h2 class="panel-title">登陆</h2>
+            </div>
+            <div class="panel-body">
+                <form action="index.html" role="form">
+                    <div class="form-group">
+                        <input id="account" class="form-control" type="text" placeholder="用户名" required> 
+                    </div>
+                    <div class="form-group">
+                        <input id="password" class="form-control" type="email" placeholder="邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <input id="password" class="form-control" type="text" placeholder="密码" required>
+                    </div>
+                    <div class="form-group">
+                        <input id="password" class="form-control" type="text" placeholder="确认密码" required>
+                    </div>
+                    <div class="form-group">
+                         <div class="checkbox">
+                            <label><input class="checkbox" type="checkbox">我同意 <a href="#">注册协议</a></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input id="login" type="submit" class="btn btn-lg btn-success btn-block" value="登陆" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    	
+    </div>
+</div>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	
+	$("#login").click(function() {
+		var account = $("#account").val();
+		var password = $("#password").val();
+		/*
+		if (account == "") {
+			alert("账号不能为空");
+			return;
+		}
+		if (password == "") {
+			alert("密码不能为空");
+			return;
+		}
+		*/
+		// TODO 
+		window.location.href = "index.html";
+	});
+	
+});
+</script>
+</body>
+</html>

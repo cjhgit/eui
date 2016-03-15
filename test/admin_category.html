@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品分类</title>
+<link rel="stylesheet" href="css/admin_common.css" />
+<style>
+.column-id {
+	width: 100px;
+}
+.column-name {
+	width: 150px;
+}
+.column-parent {
+	width: 150px;
+}
+.column-desc {
+}
+.column-operate {
+	width: 100px;
+}
+</style>
+</head>
+
+<body>
+<div class="admin-content">
+	<div class="admin-section">
+    	<a href="admin.html" target="_blank">Eshop管理平台</a> - <a href="admin_category.html">商品类别列表</a>
+        <a class="admin-btn float-right" href="admin_category_edit.html">添加商品类别</a>
+    </div>
+	<div class="admin-section">
+    	<img class="search-icon" src="images/admin/icon_search.gif" alt="搜索图标" />
+        <select class="admin-select" id="article-cat" name="selectAge">   
+            <option value="0">全部分类</option>  
+            <option value="1">水果</option>   
+            <option value="2">  香蕉</option>   
+            <option value="3">  苹果</option>   
+            <option value="4">    红富士</option>   
+            <option value="5">    青苹果</option>
+            <option value="6">家具</option>
+            <option value="7">  椅子</option>
+        </select>
+        <label class="admin-label">类别名称</label>
+        <input id="search-input" class="admin-input" type="text" />
+        <input class="admin-btn" type="submit" value="搜索" />
+    </div> 
+	<div class="admin-table-section">
+    	<table class="admin-table">
+            <thead>
+            	<tr>
+                	<th class="column-id"><input id="select-all" type="checkbox" value="0" />编号</th>
+                    <th class="column-name">名称</th>
+                    <th class="column-parent">所属分类</th>
+                    <th class="column-desc">分类描述</th>
+                    <th class="column-operate">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="category1">
+                	<td><input type="checkbox" name="article-select" value="1" />1</td>
+                    <td>水果</td>
+                    <td>顶级分类</td>
+                    <td>这是描述</td>
+                    <td>
+                        <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a>
+                        <a href="javascript:;" onClick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
+                    </td>
+                </tr>
+                <tr class="category1">
+                	<td><input type="checkbox" name="article-select" value="1" />1</td>
+                    <td>水果</td>
+                    <td>顶级分类</td>
+                    <td>这是描述</td>
+                    <td>
+                        <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a>
+                        <a href="javascript:;" onClick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+	<div class="page">
+    	<span class="page-text">共 27 个记录，第 </span>
+        <select class="admin-select" id="select-page">   
+            <option value="1">1</option>  
+            <option value="2">2</option>   
+            <option value="3">3</option>   
+        </select>
+        <span class="page-text"> / 2页，每页 </span>
+        <input class="admin-input page-size" type="text" value="15" />
+        <span class="page-unable">第一页</span>
+        <span class="page-unable">上一页</span>
+        <a class="page-enable" href="">下一页</a>
+        <a class="page-enable" href="">最末页</a>
+    </div>
+	<div class="operate">
+    	<select class="admin-select" name="selectAge" id="operate-type">   
+            <option value="0">请选择...</option>  
+            <option value="1">批量删除</option>   
+            <option value="2">转移到分类</option>   
+        </select>
+        <a id="operate-ok" class="admin-btn" href="javascript:;">确定</a>
+    </div>
+    <div class="admin-section margin-top-10px">
+    	<p class="copyright">版权所有 © 2015-2016 Eshop</p>
+    </div>
+</div>
+</body>
+</html>
