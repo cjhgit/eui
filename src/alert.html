@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>按钮</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">按钮组</header>
+                <div class="panel-body">
+                    <button id="alert" class="btn btn-default">提示</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script src="eui.alert.js"></script>
+<script>
+    $('#alert').on('click', function(){
+        qiao.bs.msg('普通消息提示条！');
+
+    });
+
+</script>
+</body>
+</html>
