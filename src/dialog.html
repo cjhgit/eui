@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>按钮</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">按钮组</header>
+                <div class="panel-body">
+                    <button id="alert" class="btn btn-default">普通提示框</button>
+                    <button id="alert2" class="btn btn-default">自定义提示框</button>
+                    <button id="alert3" class="btn btn-default">带回调的提示框</button>
+
+                    <button id="confirm" class="btn btn-default">普通提示框</button>
+                    <button id="confirm2" class="btn btn-default">自定义提示框</button>
+                    <button id="confirm3" class="btn btn-default">带回调的提示框</button>
+
+                    <div class="btn-group">
+                        <button class="btn btn-default">坐标</button>
+                        <button class="btn btn-default">右边</button>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-default">坐标</button>
+                        <button class="btn btn-default">之间</button>
+                        <button class="btn btn-default">右边</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script src="eui.dialog.js"></script>
+<script>
+    $('#alert').on('click', function(){
+    });
+    $('#alert2').on('click', function(){
+        eui.bs.alert({
+            okbtn	: '自定义文字等',
+            msg		: '自定义提示框！',
+            big		: true
+        });
+
+    });
+    $('#alert3').on('click', function(){
+        eui.bs.alert('带回调提示框！',function(){
+            alert('点击了确定！');
+        });
+
+    });
+    $('#confirm').on('click', function(){
+        eui.bs.confirm('普通提示框！');
+    });
+
+    $('#confirm2').on('click', function(){
+        eui.bs.confirm({
+            okbtn	: '自定义文字等',
+            msg		: '自定义确认框',
+            big		: true
+        });
+
+    });
+
+    $('#confirm3').on('click', function(){
+        eui.bs.confirm('带回调确认框！',function(){
+            alert('点击了确定！');
+        },function(){
+            alert('点击了取消！');
+        });
+
+    });
+</script>
+</body>
+</html>
