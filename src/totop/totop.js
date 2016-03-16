@@ -1,51 +1,36 @@
 /**
- * Created by cjh1 on 2016/3/9.
+ * è¿”å›žé¡¶éƒ¨æ’ä»¶
+ * æ—¶é—´ï¼š2016-3-16 23:45:37
  */
-// ·µ»Ø¶¥²¿Ð¡²å¼þ
 (function($) {
 
-    $.fn.backToTop = function(options) {
+    $.fn.euiToTop = function(options) {
 
         var defaults = {
-            topOffset: 300, // ¿ªÊ¼ÏÔÊ¾·µ»Ø¶¥²¿Á´½ÓÊ±ÓëÒ³Ãæ¶¥²¿µÄ¾àÀë£¨ÏñËØ£©
-            opacityOffset: 1200, // ¿ªÊ¼±ä°ëÍ¸Ã÷Ê±ÓëÒ³Ãæ¶¥²¿µÄ¾àÀë£¨ÏñËØ£©
-            duration: 700, // ·µ»Ø¶¥²¿¹ö¶¯µÄÊ±¼ä(ms)
+            topOffset: 300, // æ»šåŠ¨æ¡è·ç¦»é¡¶éƒ¨å¤šå°‘åƒç´ æ—¶æ˜¾ç¤ºè¿”å›žé¡¶éƒ¨æŒ‰é’®
+            duration: 700, // è¿”å›žé¡¶éƒ¨æ»šåŠ¨æ—¶é—´(ms)
         };
-        var opts = $.extend(defaults, options);
+        var opts = $.extend({}, defaults, options);
 
-        var $elem = $(this); // ·µ»Ø¶¥²¿Á´½Ó
+        var $elem = $(this);
 
-        // Òþ²Ø»òÏÔÊ¾·µ»Ø¶¥²¿Á´½Ó
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > opts.topOffset) {
-                $elem.show();
-                //$elem.css('
-                //$elem.addClass('cd-is-visible')
-            } else {
-                //$elem.removeClass('cd-is-visible cd-fade-out');
-                $elem.hide();
-            }
-
-            if ($(this).scrollTop() > opts.opacityOffset) {
-                //$elem.addClass('cd-fade-out');
-            }
-        });
-
-        // Æ½»¬·µ»Ø¶¥²¿
-        $elem.on('click', function(event) {
+        $elem.hide().on('click', function(event) {
             event.preventDefault();
             $('body,html').animate({
-                    scrollTop: 0 ,
+                    scrollTop: 0
                 },
                 opts.duration
             );
         });
 
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > opts.topOffset) {
+                $elem.fadeIn();
+            } else {
+                $elem.fadeOut();
+            }
+        });
+
         return this;
     }
 })(jQuery);
-
-$(document).ready(function($) {
-    // ·µ»Ø¶¥²¿
-    $('.to-top').backToTop();
-});
