@@ -26,19 +26,23 @@ module.exports = function (grunt) {
                 dest: 'dist/js/eui.js'
             }
         },
-        cssmin: {  
-            options: {  
-                keepSpecialComments: 0  
-            },  
-            compress: {  
-                files: {  
+        cssmin: {
+            options: {
+                keepSpecialComments: 0
+            },
+            compress: {
+                files: {
                     'dist/css/eui.css': [
                         "src/base.css",
                         "src/box/box.css",
                         "src/totop/totop.css"
-                    ]  
-                }  
-            }  
+                    ],
+                    'dist/css/bootstrap.min.css': [
+                        "dist/css/bootstrap.css"
+                    ]
+                }
+            }
+
         },
         watch: {
             scripts: {
@@ -53,9 +57,11 @@ module.exports = function (grunt) {
                     yuicompress: false
                 },
                 files: {
+                    "dist/css/bootstrap.css": "less/bootstrap.less",
                     "src/index.css": "src/index.less"
                 }
             }
+
         }
     });
 
@@ -66,5 +72,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
 
     grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
-    //grunt.registerTask('lessc',['less:task1']);
+    grunt.registerTask('lessc',['less:task1', 'cssmin']);
 };

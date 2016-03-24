@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>按钮</title>
+<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Bootstrap eUI 指南</h1>
+            <div class="panel panel-default">
+                <header class="panel-heading">按钮颜色</header>
+                <div class="panel-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <p>
+                        <button class="btn btn-default" type="button">btn-default</button>
+                        <button class="btn btn-primary" type="button">btn-primary</button>
+                        <button class="btn btn-success" type="button">btn-success</button>
+                        <button class="btn btn-info" type="button">btn-info</button>
+                        <button class="btn btn-warning" type="button">btn-warning</button>
+                        <button class="btn btn-danger" type="button">btn-danger</button>
+                        <button class="btn btn-link" type="button">btn-link</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">按钮大小</header>
+                <div class="panel-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <div>
+                        <button class="btn btn-primary btn-lg" type="button">btn-lg</button>
+                        <button class="btn btn-primary" type="button">默认</button>
+                        <button class="btn btn-primary btn-sm" type="button">btn-sm</button>
+                        <button class="btn btn-primary btn-xs" type="button">btn-xs</button>
+                        <button class="btn btn-primary btn-block" type="button">btn-block</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">线性按钮</header>
+                <div class="panel-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <p>
+                        <button class="btn btn-outline btn-default" type="button">btn-default</button>
+                        <button class="btn btn-outline btn-primary" type="button">btn-primary</button>
+                        <button class="btn btn-outline btn-success" type="button">btn-success</button>
+                        <button class="btn btn-outline btn-info" type="button">btn-info</button>
+                        <button class="btn btn-outline btn-warning" type="button">btn-warning</button>
+                        <button class="btn btn-outline btn-danger" type="button">btn-danger</button>
+                        <button class="btn btn-outline btn-link" type="button">btn-link</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">按钮组</header>
+                <div class="panel-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+
+                    <div class="btn-toolbar" role="toolbar">
+                         <div class="btn-group">
+                            <button class="btn btn-default" type="button" title="切换到列表试图"><i class="fa fa-bars"></i></button>
+                            <button class="btn btn-default" type="button" title="切换到图标视图"><i class="fa fa-th-large" title=""></i></button>
+                        </div>
+                        <div class="btn-group-vertical btn-group-lg">
+                            <button class="btn btn-default" type="button" title="切换到列表试图"><i class="fa fa-bars"></i></button>
+                            <button class="btn btn-default" type="button" title="切换到图标视图"><i class="fa fa-th-large" title=""></i></button>
+                        </div>
+                    </div>
+                    <p>只要给.btn-group加上.btn-group-*，而不是给组中每个按钮都应用大小类</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">图标按钮</header>
+                <div class="panel-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <h3>图标文字按钮</h3>
+                    <p>
+                        <button class="btn btn-success" type="button"><i class="fa fa-check"></i> 提交</button>
+                        <button class="btn btn-primary" type="button"><i class="fa fa-upload"></i> 上传</button>
+                        <button class="btn btn-warning" type="button"><i class="fa fa-warning"></i> 警告</button>
+                        <button class="btn btn-danger" type="button"><i class="fa fa-warning"></i> 删除</button>
+                        <button class="btn btn-warning" type="button">btn-warning</button>
+                        <button class="btn btn-danger" type="button">btn-danger</button>
+                        <button class="btn btn-link" type="button">btn-link</button>
+                    </p>
+                    <h3>图标按钮</h3>
+                    <p>
+                        <button class="btn btn-default"><i class="fa fa-warning"></i></button>
+                        <button class="btn btn-primary"><i class="fa fa-warning"></i></button>
+                        <button class="btn btn-success"><i class="fa fa-warning"></i></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">圆形按钮</header>
+                <div class="panel-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <p>
+                        <button class="btn btn-primary btn-circle" type="button"><i class="fa fa-warning"></i></button>
+                        <button class="btn btn-success btn-circle" type="button"><i class="fa fa-check"></i></button>
+                        <button class="btn btn-success btn-outline btn-circle" type="button"><i class="fa fa-check"></i></button>
+                        <button class="btn btn-primary btn-circle btn-lg" type="button"><i class="fa fa-warning"></i></button>
+                        <button class="btn btn-success btn-circle btn-lg" type="button"><i class="fa fa-check"></i></button>
+                        <button class="btn btn-success btn-outline btn-circle btn-lg" type="button"><i class="fa fa-check"></i></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">圆角按钮</header>
+                <div class="panel-body">
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <p>
+                        <button class="btn btn-primary btn-rounded" type="button"><i class="fa fa-warning"></i></button>
+                        <button class="btn btn-success btn-rounded" type="button"><i class="fa fa-check"></i></button>
+                        <button class="btn btn-success btn-rounded" type="button">确定</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">菜单按钮</header>
+                <div class="panel-body">
+                    <div class="btn-group">
+                        <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+                            Warning <i class="fa fa-angle-down"></i>
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-warning">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">按钮组</header>
+                <div class="panel-body">
+                    <div class="btn-group">
+                        <button class="btn btn-default">坐标</button>
+                        <button class="btn btn-default">右边</button>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-default">坐标</button>
+                        <button class="btn btn-default">之间</button>
+                        <button class="btn btn-default">右边</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script>
+</script>
+</body>
+</html>
