@@ -2,10 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>提示</title>
-<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
-<link rel="stylesheet" href="../dist/css/eui.css">
+<title>工具提示</title>
+    <link rel="stylesheet" href="../dist/css/eui.min.css">
+    <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
 </head>
 
 <body>
@@ -13,12 +12,14 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-default">
-                <header class="panel-heading">提示框</header>
+                <header class="panel-heading">工具提示（Tooltip）</header>
                 <div class="panel-body">
-                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <p>工具提示是一种简短的工具说明，主要用来说明该按钮、图标的用途。有四种弹出方位，可以将文字替换成图标。</p>
                     <button type="button" class="btn btn-default" data-toggle="tooltip" title="这里是提示内容">默认提示</button>
                     <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="这里是提示内容">上面提示</button>
                     <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="这里是提示内容">左侧提示</button>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="这里是提示内容">右侧提示</button>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="这里是提示内容">下面提示</button>
                 </div>
             </div>
         </div>
@@ -38,7 +39,7 @@
     </div>
 </div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
-<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script src="../dist/js/eui.min.js"></script>
 <script src="../dep/metis-menu/metisMenu.min.js"></script>
 <script src="../dep/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="../dist/js/eui.js"></script>

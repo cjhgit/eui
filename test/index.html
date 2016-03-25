@@ -11,9 +11,10 @@
     <script src="../dep/html5shiv/html5shiv.js"></script>
     <script src="../dep/respond/respond.js"></script>
 <![endif]-->
-<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
 <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
-<link rel="stylesheet" href="../dist/css/eui.css">
+
 </head>
 
 <body>
@@ -27,7 +28,16 @@
             </div>
         </div>
         <li>
-            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">Bootstrap元素</span><i class="fa arrow"></i></a>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">介绍</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="description.html" target="frame"><span class="menu-lable">介绍</span></a></li>
+                <li><a href="start.html" target="frame"><span class="menu-lable">使用</span></a></li>
+                <li><a href="guideline.html" target="frame"><span class="menu-lable">UI 设计规范</span></a></li>
+                <li><a href="eadmin.html" target="frame"><span class="menu-lable">eAdmin 后台UI框架</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">元素</span><i class="fa arrow"></i></a>
             <ul>
                 <li><a href="button.html" target="frame"><span class="menu-lable">按钮</span></a></li>
                 <li><a href="input.html" target="frame"><span class="menu-lable">输入框</span></a></li>
@@ -37,16 +47,25 @@
                 <li><a href="widget.html" target="frame"><span class="menu-lable">小部件</span></a></li>
                 <li><a href="panel.html" target="frame"><span class="menu-lable">面板</span></a></li>
                 <li><a href="alert.html" target="frame"><span class="menu-lable">警告框</span></a></li>
-                <li><a href="tooltip.html" target="frame"><span class="menu-lable">提示</span></a></li>
+                <li><a href="tooltip.html" target="frame"><span class="menu-lable">工具提示</span></a></li>
                 <li><a href="modal.html" target="frame"><span class="menu-lable">模态框</span></a></li>
+                <li><a href="form.html" target="frame"><span class="menu-lable">基本表单</span></a></li>
+                <li><a href="other.html" target="frame"><span class="menu-lable">其他</span></a></li>
             </ul>
         </li>
         <li>
-            <a href="#" aria-expanded="true"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">Bootstrap布局</span><i class="fa arrow"></i></a>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">组件</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="totop.html" target="frame"><span class="menu-lable">返回顶部</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-expanded="true"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">布局</span><i class="fa arrow"></i></a>
             <ul aria-expanded="true">
                 <li><a href="text.html" target="frame"><span class="menu-lable">文字排版</span></a></li>
                 <li><a href="table.html" target="frame"><span class="menu-lable">表格</span></a></li>
                 <li><a href="tab.html" target="frame"><span class="menu-lable">Tab</span></a></li>
+                <li><a href="box.html" target="frame"><span class="menu-lable">盒子</span></a></li>
             </ul>
         </li>
         <li>
@@ -66,25 +85,9 @@
                 <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
             </ul>
         </li>
-
-        <li>
-            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">eUI布局</span><i class="fa arrow"></i></a>
-            <ul>
-                <li><a href="box.html" target="frame"><span class="menu-lable">盒子</span></a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">eUI元素</span><i class="fa arrow"></i></a>
-            <ul>
-                <li><a href="widget.html" target="frame"><span class="menu-lable">插件</span></a></li>
-                <li><a href="box.html" target="frame"><span class="menu-lable">加载动画</span><span class="label label-info pull-right">Hot</span></a></li>
-                <li><a href="totop.html" target="frame"><span class="menu-lable">返回顶部</span></a></li>
-            </ul>
-        </li>
-
         <li><a href="javascript:void(0)"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">图标字体</span><i class="fa arrow"></i></a>
             <ul>
-                <li><a href="fontawesome.html" target="frame"><span class="menu-lable">fontAwesome</span></a></li>
+                <li><a href="font-awesome.html" target="frame"><span class="menu-lable">fontAwesome</span></a></li>
                 <li><a href="iconfont.html" target="frame"><span class="menu-lable">iconfont</span></a></li>
                 <li><a href="glyphicons.html" target="frame"><span class="menu-lable">glyphicons</span></a></li>
             </ul>
@@ -104,14 +107,6 @@
                         <li><a href="glyphicons.html" target="frame"><span class="menu-lable">glyphicons</span></a></li>
                     </ul>
                 </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">表单</span><i class="fa arrow"></i></a>
-            <ul>
-                <li><a href="form.html" target="frame"><span class="menu-lable">基本表单</span></a></li>
-                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
-                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
             </ul>
         </li>
         <li>
@@ -206,11 +201,11 @@
     1
 </div>
 
-<script src="../dep/jquery/jquery-1.10.2.min.js"></script> 
-<script src="../dep/bootstrap/bootstrap.min.js"></script>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dist/js/eui.min.js"></script>
+<script src="../src/eadmin/eadmin.js"></script>
+<script src="js/index.js"></script>
 <script src="../dep/metis-menu/metisMenu.min.js"></script>
 <script src="../dep/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="../dist/js/eui.js"></script>
-<script src="js/index.js"></script>
 </body>
 </html>

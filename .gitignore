@@ -3,3 +3,4 @@ dep/
 dist/
 .idea/
 node_modules/
+/tmp
