@@ -1,39 +1,5 @@
 /* base.css */
 
-/* reset */
-li {
-	list-style: none;
-}
-
-a {
-	display: inline-block;
-	color: #666;
-	text-decoration: none;
-	text-align: center;
-	vertical-align: central;
-}
-a:hover {
-	color: #b61d1d;
-}
-a {
-    text-decoration: none;
-}
-a:active,
-a:hover {
-    text-decoration: none;
-}
-
-body {
-	color: #000;
-	font-family: 微软雅黑;
-	font-size: 14px;
-}
-h1,
-h2,
-h3 {
-	font-weight: normal;
-}
-
 /* 布局 */
 .mycontainer {
     padding: 50px 30px;
@@ -41,29 +7,6 @@ h3 {
     margin-left: auto;
     background: #f8f8f8;
 }
-
-
-/*  */
-.bg-blue,
-.bg-green,
-.bg-orange,
-.bg-red {
-    color: #fff !important;
-}
-.bg-blue {
-    background-color: #00c0ef;
-}
-.bg-green {
-    background-color: #00a65a;
-}
-.bg-orange {
-    background-color: #f39c12;
-}
-.bg-red {
-    background-color: #dd4b39;
-}
-
-
 
 /* 拓展 Bootstrap */
 .form-img {

@@ -140,7 +140,25 @@ mark,
   .bg-variant(@state-danger-bg);
 }
 
-// 对于颜色的拓展
+// 对于颜色的拓展（一般情况下使用语义化的场景色，没必要情况下不要使用）
+.bg-blue,
+.bg-green,
+.bg-orange,
+.bg-red {
+  color: #fff !important;
+}
+.bg-blue {
+  background-color: #00c0ef;
+}
+.bg-green {
+  background-color: #00a65a;
+}
+.bg-orange {
+  background-color: #f39c12;
+}
+.bg-red {
+  background-color: #dd4b39;
+}
 
 // Inverse
 // Todo: redo this as a proper class
@@ -169,8 +187,10 @@ mark,
 // Unordered and Ordered lists
 ul,
 ol {
+  padding-left: 0;
   margin-top: 0;
   margin-bottom: (@line-height-computed / 2);
+  list-style: none;
   ul,
   ol {
     margin-bottom: 0;

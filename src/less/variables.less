@@ -5,6 +5,13 @@
 
 //== Colors
 //
+
+// 标准颜色（统一颜色）
+@color-blue:            #0e9aef;
+@color-green:           #5cb85c;
+@color-red:             #ec4758;
+@color-orange:          #f7a54a;
+
 //## Gray and brand colors for use across Bootstrap.
 
 @gray-base:              #000;
@@ -15,12 +22,12 @@
 @gray-lighter:          #eceeef;
 @gray-lightest:         #f7f7f9;
 
-
-@brand-primary:         darken(#428bca, 6.5%); // #337ab7
-@brand-success:         #5cb85c;
+@brand-primary:         @color-blue;
+@brand-success:         @color-green;
 @brand-info:            #5bc0de;
-@brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
+@brand-warning:         @color-orange;
+@brand-danger:          @color-red;
+
 
 
 //== Scaffolding
@@ -30,23 +37,31 @@
 //** Background color for `<body>`.
 @body-bg:               #fff;
 //** Global text color on `<body>`.
-@text-color:            @gray-dark;
+@text-color:            @gray-dark; // TODO
 
 //** Global textual link color.
 @link-color:            @brand-primary;
 //** Link hover color set via `darken()` function.
 @link-hover-color:      darken(@link-color, 15%);
 //** Link hover decoration.
-@link-hover-decoration: underline;
+@link-hover-decoration: underline; // TODO no?
 
 
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family-serif:       Georgia, "Times New Roman", Times, serif;
-@font-family-eui:         "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "΢���ź�", Arial, sans-serif;
+//@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+//@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+// 中文字体：
+// IOS/MAC 优先：PingFang SC
+// 备用字体：Hiragino Sans GB
+// 常用字体：Microsoft YaHei
+// 英文字体：
+// 优先字体：Helvetica Neue
+// 备用字体：Helvetica
+// 次级备用字体：Arial
+@font-family-eui:         "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-eui;
@@ -70,7 +85,7 @@
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    inherit;
 @headings-font-weight:    500;
-@headings-line-height:    1.1;
+@headings-line-height:    1.1; // font-weight: normal; TODO ?
 @headings-color:          inherit;
 
 

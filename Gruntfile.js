@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
-        // Ԫ����
+        // 元数据
         pkg: grunt.file.readJSON('package.json'),
         banner: '/*!\n' +
                  ' * Bootstrap v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
@@ -9,7 +9,6 @@ module.exports = function (grunt) {
                  ' * Licensed under the <%= pkg.license %> license\n' +
                  ' */\n',
 
-        // ��������
         uglify: {
             options: {
                 stripBanners: true,
@@ -18,7 +17,15 @@ module.exports = function (grunt) {
             build: {
                 src: 'dist/js/eui.js',
                 dest: 'dist/js/eui.min.js'
-            }
+            },
+            dist: {
+                options: {
+                    stripBanners: true,
+                    banner: '/*! bootstrap v3.3.6 | MIT License | getbootstrap.com */\n'
+                },
+                src: 'src/js/affix.js',
+                dest: 'dist/js/affix.min.js'
+            },
         },
         concat: {
             options: {
@@ -26,7 +33,7 @@ module.exports = function (grunt) {
                 stripBanners: true,
                 banner: '/*! hello - v1.2.3 - 2014-2-4 */'
             },
-            dist: {
+            test: {
                 src: [
                     'src/js/affix.js',
                     'src/js/alert.js',
@@ -46,6 +53,19 @@ module.exports = function (grunt) {
                     'src/hover-dropdown.js'
                 ],
                 dest: 'dist/js/eui.js'
+            },
+            dist: {
+                options: {
+                    stripBanners: true,
+                    banner: '/*! bootstrap v3.3.6 | MIT License | getbootstrap.com */\n'
+                    //mangle: false, //不混淆变量名
+                    //preserveComments: 'all', //不删除注释，还可以为 false（删除全部注释），some（保留@preserve @license @cc_on等注释）
+                    //footer:'\n/*! <%= pkg.name %> 最后修改于： <%= grunt.template.today("yyyy-mm-dd") %> */'//添加footer
+                },
+                src: [
+                    'src/js/affix.js',
+                ],
+                dest: 'dist/js/affix.js'
             }
         },
         cssmin: {
@@ -83,11 +103,22 @@ module.exports = function (grunt) {
                 },
                 files: {
                     "dist/css/eui.css": "src/less/bootstrap.less",
-                    "src/index.css": "src/index.less"
+                }
+            },
+            dist: {
+                options: {
+                    compress: true,
+                    yuicompress: false
+                },
+                files: {
+                    "dist/css/glyphicons.min.css": "src/less/glyphicons.less",
                 }
             }
-
-        }
+        },
+        clean: {
+            dist: 'dist/js',
+            docs: 'docs/dist'
+        },
     });
 
 
@@ -96,6 +127,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
-    grunt.registerTask('lessc',['less:task1', 'cssmin', 'concat', 'uglify']);
+    // 测试
+    grunt.registerTask('default',['less:task1', 'cssmin', 'concat:test', 'uglify:build']);
+    // 发布
+    grunt.registerTask('dist', ['less:dist', 'concat:dist', 'uglify:dist']);
+    //grunt.registerTask('clean', ['clean:dist']);
 };
