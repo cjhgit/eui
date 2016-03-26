@@ -233,8 +233,9 @@
   margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
 
   > li > a {
-    padding-top:    10px;
+    padding-top: 10px;
     padding-bottom: 10px;
+    color: @gray-dark;
     line-height: @line-height-computed;
   }
 
@@ -391,18 +392,37 @@
 // Alternate navbars
 // --------------------------------------------------
 
-// Default navbar
-.navbar-default {
-  background-color: @navbar-default-bg;
-  border-color: @navbar-default-border;
-
+// Dark links against a light background
+.navbar-light {
   .navbar-brand {
-    color: @navbar-default-brand-color;
-    &:hover,
-    &:focus {
-      color: @navbar-default-brand-hover-color;
-      background-color: @navbar-default-brand-hover-bg;
+    color: @navbar-light-active-color;
+
+  @include hover-focus {
+    color: @navbar-light-active-color;
+  }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: @navbar-light-color;
+
+    @include hover-focus {
+      color: @navbar-light-hover-color;
     }
+    }
+
+    .open > .nav-link,
+    .active > .nav-link,
+    .nav-link.open,
+    .nav-link.active {
+    @include plain-hover-focus {
+      color: @navbar-light-active-color;
+    }
+    }
+  }
+
+  .navbar-divider {
+    background-color: rgba(0,0,0,.075);
   }
 
   .navbar-text {
@@ -424,7 +444,6 @@
       &:hover,
       &:focus {
         color: @navbar-default-link-active-color;
-        background-color: @navbar-default-link-active-bg;
       }
     }
     > .disabled > a {
@@ -438,11 +457,6 @@
   }
 
   .navbar-toggle {
-    border-color: @navbar-default-toggle-border-color;
-    &:hover,
-    &:focus {
-      background-color: @navbar-default-toggle-hover-bg;
-    }
     .icon-bar {
       background-color: @navbar-default-toggle-icon-bar-bg;
     }
@@ -495,52 +509,39 @@
       }
     }
   }
-
-
-  // Links in navbars
-  //
-  // Add a class to ensure links outside the navbar nav are colored correctly.
-
-  .navbar-link {
-    color: @navbar-default-link-color;
-    &:hover {
-      color: @navbar-default-link-hover-color;
-    }
-  }
-
-  .btn-link {
-    color: @navbar-default-link-color;
-    &:hover,
-    &:focus {
-      color: @navbar-default-link-hover-color;
-    }
-    &[disabled],
-    fieldset[disabled] & {
-      &:hover,
-      &:focus {
-        color: @navbar-default-link-disabled-color;
-      }
-    }
-  }
 }
 
-// Inverse navbar
-
-.navbar-inverse {
-  background-color: @navbar-inverse-bg;
-  border-color: @navbar-inverse-border;
-
+// White links against a dark background
+.navbar-dark {
   .navbar-brand {
-    color: @navbar-inverse-brand-color;
-    &:hover,
-    &:focus {
-      color: @navbar-inverse-brand-hover-color;
-      background-color: @navbar-inverse-brand-hover-bg;
+    color: @navbar-dark-active-color;
+
+  @include hover-focus {
+    color: @navbar-dark-active-color;
+  }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: @navbar-dark-color;
+
+    @include hover-focus {
+      color: @navbar-dark-hover-color;
+    }
+    }
+
+    .open > .nav-link,
+    .active > .nav-link,
+    .nav-link.open,
+    .nav-link.active {
+    @include plain-hover-focus {
+      color: @navbar-dark-active-color;
+    }
     }
   }
 
-  .navbar-text {
-    color: @navbar-inverse-color;
+  .navbar-divider {
+    background-color: rgba(255,255,255,.075);
   }
 
   .navbar-nav {
@@ -558,7 +559,6 @@
       &:hover,
       &:focus {
         color: @navbar-inverse-link-active-color;
-        background-color: @navbar-inverse-link-active-bg;
       }
     }
     > .disabled > a {
@@ -573,11 +573,6 @@
 
   // Darken the responsive nav toggle
   .navbar-toggle {
-    border-color: @navbar-inverse-toggle-border-color;
-    &:hover,
-    &:focus {
-      background-color: @navbar-inverse-toggle-hover-bg;
-    }
     .icon-bar {
       background-color: @navbar-inverse-toggle-icon-bar-bg;
     }

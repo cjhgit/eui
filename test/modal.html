@@ -14,14 +14,16 @@
                 <header class="panel-heading">模态框</header>
                 <div class="panel-body">
                     <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">登陆</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-form">表单模态框</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-simple">普通模态框</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-notitle">无头部模态框</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- 模态框 -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- 表单模态框 -->
+<div id="modal-form" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -47,13 +49,43 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success">登陆</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-success">登陆</button>
             </div>
         </div>
     </div>
 </div>
 <!-- /模态框 -->
+<!-- 普通模态框 -->
+<div id="modal-simple" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">这是标题</h4>
+            </div>
+            <div class="modal-body">
+                <p>这是内容</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 无标题模态框 -->
+<div id="modal-notitle" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p>这是内容</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 </body>

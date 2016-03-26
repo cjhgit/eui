@@ -56,7 +56,10 @@
         <li>
             <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">组件</span><i class="fa arrow"></i></a>
             <ul>
+                <li><a href="navbar.html" target="frame"><span class="menu-lable">导航条</span></a></li>
+                <li><a href="media.html" target="frame"><span class="menu-lable">媒体对象</span></a></li>
                 <li><a href="totop.html" target="frame"><span class="menu-lable">返回顶部</span></a></li>
+                <li><a href="carousel.html" target="frame"><span class="menu-lable">轮播图</span></a></li>
             </ul>
         </li>
         <li>
@@ -151,7 +154,7 @@
 <!-- /侧栏 -->
 <!-- 主体内容 -->
 <div class="econtent">
-    <nav class="econtent-header navbar navbar-default" role="navigation">
+    <nav class="econtent-header navbar navbar-dark bg-primary" role="navigation">
         <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
                 <span class="sr-only">切换导航</span>
@@ -200,7 +203,46 @@
 <div class="float-btn btn btn-primary btn-circle">
     1
 </div>
-
+<!-- -->
+<div class="sidebar-container">
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active">
+            <a href="#tab71" data-toggle="tab"><i class="fa fa-laptop"></i>主题</a>
+        </li>
+        <li><a href="#tab72" data-toggle="tab">通知</a></li>
+        <li><a href="#tab73" data-toggle="tab">项目进度</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="tab71" class="tab-pane fade in active">
+            <h3>标题</h3>
+            <p>这是一段文字。</p>
+            <div class="settings-item">
+                <a id="theme-blue" href="">蓝色主题</a>
+            </div>
+            <div class="settings-item">
+                <a id="theme-green" href="">绿色主题</a>
+            </div>
+            <div class="settings-item">
+                <a id="theme-purple" href="">紫色主题</a>
+            </div>
+            <div class="settings-item">
+                <a id="theme-default" href="">默认主题</a>
+            </div>
+        </div>
+        <div id="tab72" class="tab-pane fade">
+            <div>
+                <h3>标题2</h3>
+                <p>这是一段文字。</p>
+            </div>
+        </div>
+        <div id="tab73" class="tab-pane fade">
+            <div>
+                <h3>标题2</h3>
+                <p>这是一段文字。</p>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 <script src="../src/eadmin/eadmin.js"></script>
