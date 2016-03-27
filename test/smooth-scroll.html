@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>平滑滚动</title>
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+</head>
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <a id="id1" href="#id2">跳转到2</a>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <a id="id2" href="#id1">跳转到1</a>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+    </div>
+</div>
+<a id="to-top" href="#top" class="to-top" style="display: block;"><i class="fa fa-angle-up"></i></a>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dist/js/eui.min.js"></script>
+<script>
+    // 平滑滚动插件，使页面内的所有锚点链接平滑滚动
+    (function($){
+        $.extend($.fn,{
+            scrollTo:function(time, to){
+                time=time||800;
+                to=to||1;
+
+                $('a[href*=#]', document).click(function(){
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                        location.hostname == this.hostname) {
+                        var $target = $(this.hash);
+                        $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+                        if ($target.length) {
+                            if (to == 1) {
+                                $('html,body').animate({
+                                    scrollTop: $target.offset().top
+                                }, time);
+                            }
+                            else if(to==2){
+                                $('html,body').animate({
+                                    scrollLeft: $target.offset().left
+                                }, time);
+                            }else{
+                                alert('argument error');
+                            }
+                            return false;
+                        }
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    $(function(){
+        $(document).scrollTo(700);
+        //$('body').scrollspy({target: '#navbar-example' })
+    });
+</script>
+</body>
+</html>

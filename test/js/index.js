@@ -46,4 +46,14 @@ $(function() {
         width: $('#sidebar').width(),
         height: $(window).height()
     });
+    /*
+    $("#chat-box-body").slimScroll({
+        height: "120px",
+        railOpacity: .4
+    });
+    */
+    $('#chat-box').hide();
+    $('#chat-box-toggle').on('click', function() {
+        $('#chat-box').toggle();
+    });
 });

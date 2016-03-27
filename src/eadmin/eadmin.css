@@ -242,9 +242,11 @@
     position: fixed;
     top: 50px;
     right: 0;
+    bottom: 0;
     z-index: 1000;
     width: 260px;
     background-color: #fa0000;
+    overflow: hidden;
 }
 .sidebar-container ul.nav-tabs li.active a {
     border: none;

@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../dist/css/eui.min.css">
 <link rel="stylesheet" href="../src/eadmin/eadmin.css">
 <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
-
+<link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -73,6 +73,12 @@
                 <li><a href="tab.html" target="frame"><span class="menu-lable">标签页</span></a></li>
                 <li><a href="step.html" target="frame"><span class="menu-lable">步骤条</span></a></li>
                 <li><a href="box.html" target="frame"><span class="menu-lable">盒子</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">工具</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="smooth-scroll.html" target="frame"><span class="menu-lable">平滑滚动</span></a></li>
             </ul>
         </li>
         <li>
@@ -204,10 +210,10 @@
 </div>
 <!-- /主体内容 -->
 <!-- 右下角悬浮按钮 -->
-<div class="float-btn btn btn-primary btn-circle">
+<div id="chat-box-toggle" class="float-btn btn btn-primary btn-circle">
     1
 </div>
-<!-- -->
+<!-- 设置 -->
 <div class="sidebar-container">
     <ul class="nav nav-tabs nav-justified">
         <li class="active">
@@ -247,11 +253,93 @@
         </div>
     </div>
 </div>
+<!-- 聊天窗口 -->
+<div id="chat-box" class="chat-box fadeInRight animated active">
+    <div class="chat-box-header" draggable="true">
+        <small class="chat-date pull-right">
+            2015.9.1
+        </small> 与 Beau-zihan 聊天中
+    </div>
+    <div id="chat-box-body" class="chat-box-body">
+        <div class="left">
+            <div class="author-name">
+                Beau-zihan <small class="chat-date">
+                10:02
+            </small>
+            </div>
+            <div class="chat-message active">
+                你好
+            </div>
+
+        </div>
+        <div class="right">
+            <div class="author-name">
+                游客
+                <small class="chat-date">
+                    11:24
+                </small>
+            </div>
+            <div class="chat-message">
+                你好，请问H+有帮助文档吗？
+            </div>
+        </div>
+        <div class="left">
+            <div class="author-name">
+                Beau-zihan
+                <small class="chat-date">
+                    08:45
+                </small>
+            </div>
+            <div class="chat-message active">
+                有，购买的H+源码包中有帮助文档，位于docs文件夹下
+            </div>
+        </div>
+        <div class="right">
+            <div class="author-name">
+                游客
+                <small class="chat-date">
+                    11:24
+                </small>
+            </div>
+            <div class="chat-message">
+                那除了帮助文档还提供什么样的服务？
+            </div>
+        </div>
+        <div class="left">
+            <div class="author-name">
+                Beau-zihan
+                <small class="chat-date">
+                    08:45
+                </small>
+            </div>
+            <div class="chat-message active">
+                1.所有源码(未压缩、带注释版本)；
+                <br> 2.说明文档；
+                <br> 3.终身免费升级服务；
+                <br> 4.必要的技术支持；
+                <br> 5.付费二次开发服务；
+                <br> 6.授权许可；
+                <br> ……
+                <br>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="form-chat">
+        <div class="input-group input-group-sm">
+            <input type="text" class="form-control"> <span class="input-group-btn"> <button
+            class="btn btn-primary" type="button">发送
+        </button> </span>
+        </div>
+    </div>
+</div>
+<!-- /聊天窗口 -->
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 <script src="../src/eadmin/eadmin.js"></script>
-<script src="js/index.js"></script>
 <script src="../dep/metis-menu/metisMenu.min.js"></script>
 <script src="../dep/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

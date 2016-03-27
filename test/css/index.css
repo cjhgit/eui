@@ -1,167 +1,115 @@
 @charset "utf-8";
 /* CSS Document */
 
-/* 导航 */
-.nav {
-	min-width: 1200px;
-	overflow: auto;
+.chat-box {
+    display: block;
+    position: fixed;
+    bottom: 50px;
+    right: 80px;
+    z-index: 10000;
+    background: #fff;
+    border: 1px solid #e7eaec;
+    width: 230px;
+    height: 320px;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-
-/* 导航-轮播 */
-.flexslider {
-	float: left;
-	position: relative;
-	width: 700px;
-	height: 395px;
-	margin-left: 275px;
-	overflow: hidden;
-	zoom: 1;
-}
-.flexslider .slides li {
-	width: 100%;
-	height: 100%;
+.chat-box:active {
+    display: block;
 }
 
-.flex-direction-nav a {
-	width: 70px;
-	height: 70px;
-	line-height: 99em;
-	overflow: hidden;
-	margin: -35px 0 0;
-	display: block;
-	background: url(../images/ad_ctr.png) no-repeat;
-	position: absolute;
-	top: 50%;
-	z-index: 10;
-	cursor: pointer;
-	opacity: 0;
-	filter: alpha(opacity=0);
-	-webkit-transition: all .3s ease;
-	border-radius: 35px;
+.chat-box {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 80px;
+    background: #fff;
+    border: 1px solid #e7eaec;
+    width: 230px;
+    height: 320px;
+    border-radius: 4px;
 }
 
-.flex-direction-nav .flex-next {
-	background-position: 0 -70px;
-	right: 0;
+.chat-box.ng-small-chat {
+    display: block;
 }
 
-.flex-direction-nav .flex-prev {
-	left: 0;
+.body-small .chat-box {
+    bottom: 70px;
+    right: 20px;
 }
 
-.flexslider:hover .flex-next {
-	opacity: 0.8;
-	filter: alpha(opacity=25);
+.chat-box.active {
+    display: block;
 }
 
-.flexslider:hover .flex-prev {
-	opacity: 0.8;
-	filter: alpha(opacity=25);
+.chat-box-header {
+    background: #2f4050;
+    padding: 8px 15px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 14px;
 }
 
-.flexslider:hover .flex-next:hover,
-.flexslider:hover .flex-prev:hover {
-	opacity: 1;
-	filter: alpha(opacity=50);
+.chat-box .chat-date {
+    opacity: .6;
+    font-size: 10px;
+    font-weight: 400
 }
 
-.flex-control-nav {
-	width: 100%;
-	position: absolute;
-	bottom: 10px;
-	text-align: center;
+.chat-box-body {
+    height: 225px;
+    padding: 15px;
+    overflow: auto;
 }
 
-.flex-control-nav li {
-	margin: 0 2px;
-	display: inline-block;
-	zoom: 1;
-	*display: inline;
+.chat-box-body .author-name {
+    font-weight: 700;
+    margin-bottom: 3px;
+    font-size: 11px
 }
 
-.flex-control-paging li a {
-	background: url(../images/dot.png) no-repeat 0 -16px;
-	display: block;
-	height: 16px;
-	overflow: hidden;
-	text-indent: -99em;
-	width: 16px;
-	cursor: pointer;
+.chat-box-body > div {
+    padding-bottom: 20px
 }
 
-.flex-control-paging li a.flex-active,
-.flex-control-paging li.active a {
-	background-position: 0 0;
+.chat-box-body .chat-message {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    line-height: 14px;
+    max-width: 80%;
+    background: #f3f3f4;
+    margin-bottom: 10px;
 }
 
-.flexslider .slides a {
-	display: block;
-	width: 100%;
-	height: 100%;
+.chat-box-body .chat-message.active {
+    background: #1ab394;
+    color: #fff;
 }
 
-.flexslider .slides a img {
-	width: 100%;
-	height: 100%;
-	display: block;
+.chat-box-body .left {
+    text-align: left;
+    clear: both;
 }
 
-/* 公告 */
-.notices {
-	float: left;
-	margin: 0 10px;
+.chat-box-body .left .chat-message {
+    float: left;
 }
-.notices li {
-	padding: 5px 0;
-}
-.notices li a {}
 
-/* 主要内容 */
-.content {
-	padding: 0 30px;
+.chat-box-body .right {
+    text-align: right;
+    clear: both;
 }
-.big-title {
-	color: #b61d1d;
-	font-size: 25px;
-	border-bottom: #b61d1d solid 2px;
+
+.chat-box-body .right .chat-message {
+    float: right;
 }
-.goods-list {
-	overflow: auto;
-}
-.goods-list li {
-	float: left;
-	width: 25%;
-	padding: 10px;
-	box-sizing: border-box;
-}
-.goods-image {
-	width: 100%;
-	height: 250px;
-}
-.goods-name {}
-.goods-price {
-	color: #f00;
-}
-/* 主要内容-内容4 */
-.content4 {
-	padding: 0 20px;
-}
-.content .tags {}
-.content .tags li {
-	width: 25%;
-	height: 54px;
-	float: left;
-}
-.content .tag1 {
-	background: url(../images/service_items_1.png) no-repeat;
-}
-.content .tag2 {
-	background: url(../images/service_items_2.png) no-repeat;
-}
-.content .tag3 {
-	background: url(../images/service_items_3.png) no-repeat;
-}
-.content .tag4 {
-	background: url(../images/service_items_4.png) no-repeat;
+
+.chat-box .form-chat {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+
 }
