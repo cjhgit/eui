@@ -10,7 +10,7 @@
 <body>
 <div class="mycontainer">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-12">
             <div class="panel panel-default">
                 <header class="panel-heading">工具提示（Tooltip）</header>
                 <div class="panel-body">
@@ -23,15 +23,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-12">
             <div class="panel panel-default">
-                <header class="panel-heading">弹出框</header>
+                <header class="panel-heading">弹出框（Popover）</header>
                 <div class="panel-body">
-                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
-                    <a href="#" id="example" class="btn btn-success" rel="popover" data-toggle="popover" data-content="It's so simple to create a tooltop for my website!" data-original-title="Bootstrap Popover">hover for popover</a>
-                    <a href="#" id="example" class="btn btn-success" rel="popover" data-toggle="popover" data-content="It's so simple to create a tooltop for my website!" data-original-title="Bootstrap Popover">可消失的弹出框</a>
+                    <p>弹出框主要用于较长文本的解释说明。需要根据实际情况进行选择使用。</p>
+                    <a href="#" id="example" class="btn btn-success" rel="popover" data-toggle="popover" data-content="It's so simple to create a tooltop for my website!" data-original-title="Bootstrap Popover">右侧弹出</a>
+                    <a href="#" id="example" class="btn btn-success" rel="popover" data-toggle="popover" data-content="这是内容" data-original-title="这是标题">可消失的弹出框</a>
+                    <a href="#" id="example" class="btn btn-success" rel="popover" data-toggle="popover" data-content="这是内容">没标题的弹出框</a>
 
-                    <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">  
+                    <a tabindex="0" class="btn btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">  
                     可消失的弹出框</a>  
                 </div>
             </div>
