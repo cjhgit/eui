@@ -2,204 +2,229 @@
 // Buttons
 // --------------------------------------------------
 
-
 // Base styles
 // --------------------------------------------------
 
 .btn {
-  display: inline-block;
-  margin-bottom: 0; // For input.btn
-  font-weight: @btn-font-weight;
-  text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
-  white-space: nowrap;
-  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
-  .user-select(none);
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    font-weight: @btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    white-space: nowrap;
+    .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
+    .user-select(none);
 
-  &,
-  &:active,
-  &.active {
+    &,
+    &:active,
+    &.active {
+        &:focus,
+        &.focus {
+            .tab-focus();
+        }
+    }
+
+    &:hover,
     &:focus,
     &.focus {
-      .tab-focus();
+        color: @btn-default-color;
+        text-decoration: none;
     }
-  }
 
-  &:hover,
-  &:focus,
-  &.focus {
-    color: @btn-default-color;
-    text-decoration: none;
-  }
+    &:active,
+    &.active {
+        outline: 0;
+        background-image: none;
+        .box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+    }
 
-  &:active,
-  &.active {
-    outline: 0;
-    background-image: none;
-    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
-    .opacity(.65);
-    .box-shadow(none);
-  }
-
-  a& {
     &.disabled,
+    &[disabled],
     fieldset[disabled] & {
-      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+        cursor: @cursor-disabled;
+        .opacity(.65);
+        .box-shadow(none);
     }
-  }
-}
 
+    a& {
+        &.disabled,
+        fieldset[disabled] & {
+            pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+        }
+    }
+}
 
 // Alternate buttons
 // --------------------------------------------------
 
 .btn-default {
-  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
-}
-.btn-primary {
-  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
-}
-// Success appears as green
-.btn-success {
-  .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
-}
-// Info appears as blue-green
-.btn-info {
-  .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
-}
-// Warning appears as orange
-.btn-warning {
-  .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
-}
-// Danger and error appear as red
-.btn-danger {
-  .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+    .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 }
 
+.btn-primary {
+    .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+
+// Success appears as green
+.btn-success {
+    .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+}
+
+// Info appears as blue-green
+.btn-info {
+    .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+}
+
+// Warning appears as orange
+.btn-warning {
+    .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+}
+
+// Danger and error appear as red
+.btn-danger {
+    .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+}
 
 // Link buttons
 // -------------------------
 
 // Make a button look and behave like a link
 .btn-link {
-  color: @link-color;
-  font-weight: normal;
-  border-radius: 0;
+    color: @link-color;
+    font-weight: normal;
+    border-radius: 0;
 
-  &,
-  &:active,
-  &.active,
-  &[disabled],
-  fieldset[disabled] & {
-    background-color: transparent;
-    .box-shadow(none);
-  }
-  &,
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: transparent;
-  }
-  &:hover,
-  &:focus {
-    color: @link-hover-color;
-    text-decoration: @link-hover-decoration;
-    background-color: transparent;
-  }
-  &[disabled],
-  fieldset[disabled] & {
+    &,
+    &:active,
+    &.active,
+    &[disabled],
+    fieldset[disabled] & {
+        background-color: transparent;
+        .box-shadow(none);
+    }
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: transparent;
+    }
     &:hover,
     &:focus {
-      color: @btn-link-disabled-color;
-      text-decoration: none;
+        color: @link-hover-color;
+        text-decoration: @link-hover-decoration;
+        background-color: transparent;
     }
-  }
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus {
+            color: @btn-link-disabled-color;
+            text-decoration: none;
+        }
+    }
 }
-
 
 // Button Sizes
 // --------------------------------------------------
 
 .btn-lg {
-  // line-height: ensure even-numbered height of button next to large input
-  .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @btn-border-radius-large);
-}
-.btn-sm {
-  // line-height: ensure proper height of button next to small input
-  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
-}
-.btn-xs {
-  .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+    // line-height: ensure even-numbered height of button next to large input
+    .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @btn-border-radius-large);
 }
 
+.btn-sm {
+    // line-height: ensure proper height of button next to small input
+    .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+}
+
+.btn-xs {
+    .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+}
 
 // Block button
 // --------------------------------------------------
 
 .btn-block {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 }
 
 // Vertically space out multiple block buttons
 .btn-block + .btn-block {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 // Specificity overrides
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.btn-block {
-    width: 100%;
-  }
+    &.btn-block {
+        width: 100%;
+    }
 }
 
-// 线性按钮
+// 线性按钮 TODO 以后的版本中改成类似 btn-primary-outline btn-info-outline 的类名称
 // --------------------------------------------------
 
 .btn-outline {
-  color: inherit;
-  background-color: transparent;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+    color: inherit;
+    background-color: transparent;
+    .transition(all .3s);
+}
+
+.btn-line {
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+    .transition(all .3s);
+
+    &:hover {
+        color: @gray-dark;
+        background-color: #fff;
+    }
+}
+
+.btn-line-inverse {
+    color: @gray-dark;
+    background-color: #fff;
+    border-color: #fff;
+    .transition(all .3s);
+
+    &:hover {
+        color: #fff;
+        background-color: transparent;
+    }
 }
 
 // 圆形按钮
 // --------------------------------------------------
 
 .btn-circle {
-  width: 30px;
-  height: 30px;
-  padding: 6px 0;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.428571429;
+    width: 30px;
+    height: 30px;
+    padding: 6px 0;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.428571429;
 }
 
 .btn-circle.btn-lg {
-  width: 50px;
-  height: 50px;
-  padding: 10px 16px;
-  border-radius: 25px;
-  font-size: 18px;
-  line-height: 1.33;
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 18px;
+    line-height: 1.33;
 }
 
 // 圆角按钮
 // --------------------------------------------------
 
 .btn-rounded {
-  border-radius: 50px;
+    border-radius: 50px;
 }
