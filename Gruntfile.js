@@ -32,7 +32,8 @@ module.exports = function (grunt) {
                     banner: '/*! <%=pkg.name%> <%= pkg.version %> | MIT License | chenjianhang.com/ */\n'
                 },
                 files: {
-                    'dist/js/totop.min.js': ['src/totop/totop.js']
+                    'dist/js/totop.min.js': ['src/totop/totop.js'],
+                    'dist/js/eui.dialog.min.js': ['src/eui.dialog.js']
                 }
             },
         },
