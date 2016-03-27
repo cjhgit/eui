@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页 - 企业模板</title>
+<link rel="stylesheet" href="../../dist/css/eui.css">
+<link rel="stylesheet" href="../../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../../dist/css/glyphicons.min.css">
+<link rel="stylesheet" href="asset/css/common.css">
+</head>
+
+<body data-spy="scroll" data-target="#navbar-example" data-offset="50">
+<!-- 头部 -->
+<header id="navbar-example" class="navbar navbar-light bg-faded navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">eUI站</a>
+    </div>
+    <div id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav pull-right">
+            <li class="active"><a href="#banner">首页</a> </li>
+            <li><a href="#about">关于</a> </li>
+            <li><a href="#service">服务</a> </li>
+            <li><a href="#info">客户</a> </li>
+            <li><a href="#contact">联系</a> </li>
+        </ul>
+    </div>
+</header>
+<!-- /头部 -->
+<!-- 主体内容 -->
+<div>
+    <div id="banner" class="banner">
+    <div class="text-center">
+        <h1>欢迎访问</h1>
+        <h3>欢迎访问极客标签</h3>
+        <button class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-hand-down"></i> 了解更多</button>
+    </div>
+</div>
+    <div id="about" class="about">
+        <div class="container">
+            <div class="col-sm-6">
+                <img class="about-logo" src="asset/img/logo.png" alt="logo">
+            </div>
+            <div class="col-sm-6">
+                <h2>关于我们</h2>
+                <p>这是文章</p>
+            </div>
+        </div>
+    </div>
+    <div id="service" class="service">
+        <div class="container">
+            <h2 class="text-center">我们的服务</h2>
+            <hr>
+            <div class="row text-center">
+                <div class="col-sm-3 col-xs-6">
+                    <i class="glyphicon glyphicon-cloud"></i>
+                    <h4>服务1</h4>
+                    <p>这是服务1</p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <i class="glyphicon glyphicon-cloud"></i>
+                    <h4>服务1</h4>
+                    <p>这是服务1</p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <i class="glyphicon glyphicon-cloud"></i>
+                    <h4>服务1</h4>
+                    <p>这是服务1</p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <i class="glyphicon glyphicon-cloud"></i>
+                    <h4>服务1</h4>
+                    <p>这是服务1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="info" class="info">
+    </div>
+</div>
+<div id="contact" class="footer">
+    <div class="container">
+        <div class="text-right">Copyright © gbtags.com 2014</div>
+    </div>
+</div>
+<script src="../../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../../dist/js/eui.min.js"></script>
+<script src="../../dist/js/affix.min.js"></script>
+<script>
+    // 平滑滚动插件，使页面内的所有锚点链接平滑滚动
+    (function($){
+        $.extend($.fn,{
+            scrollTo:function(time, to){
+                time=time||800;
+                to=to||1;
+
+                $('a[href*=#]', this).click(function(){
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                            location.hostname == this.hostname) {
+                        var $target = $(this.hash);
+                        $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+                        if ($target.length) {
+                            if (to == 1) {
+                                $('html,body').animate({
+                                    scrollTop: $target.offset().top
+                                }, time);
+                            }
+                            else if(to==2){
+                                $('html,body').animate({
+                                    scrollLeft: $target.offset().left
+                                }, time);
+                            }else{
+                                alert('argument error');
+                            }
+                            return false;
+                        }
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    $(function(){
+        $(document).scrollTo(700);
+        //$('body').scrollspy({target: '#navbar-example' })
+    });
+</script>
+</body>
+</html>

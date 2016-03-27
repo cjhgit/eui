@@ -1,0 +1,102 @@
+li {
+	list-style: none;
+}
+body {
+	padding-top: 30px;
+	color: #333;
+	font-family: 'microsoft yahei', Arial, sans-serif;
+}
+
+/* banner */
+.banner {
+	height: 100%;
+	min-height: 600px;
+	padding-top: 200px;
+	color: #fff;
+	background: url("../img/banner.jpg") fixed;
+	background-size: 100% 100%;
+}
+.banner h1 {
+	font-size: 100px;
+}
+.about {
+	padding-top: 50px;
+}
+.service {
+	height: 500px;
+	padding-top: 50px;
+	color: #fff;
+	background-color: #306d9f;
+}
+.service .glyphicon{
+	width: 140px;
+	height: 140px;
+	font-size: 50px;
+	line-height: 140px;
+	border: 2px solid #fff;
+	border-radius: 70px;
+}
+.info {
+	height: 100%;
+	min-height: 500px;
+	background: url("../img/info.jpg") fixed;
+	background-size: 100% 100%;
+}
+/* 头部 */ 
+.ef-header {
+	height: 50px;
+	background: #f90;
+}
+
+/* 页脚 */
+.footer {
+	padding: 20px 0;
+}
+
+/* 工具栏 */
+.toolbar-list {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: #f1f1f1;
+}
+.toolbar-item {
+	display: inline-block;
+	width: 20%;
+}
+.toolbar-icon {
+	display: block;
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+}
+.toolbar-name {
+	text-align: center;
+}
+
+/* 侧栏工具栏 */
+.sidetool-list {
+	position: fixed;
+	right: 0;
+	top: 20%;
+	background: #f9f9f9;
+}
+.sidetool-item {
+	width: 100px;
+	height: 100px;
+	padding: 20px;
+	border-bottom: 1px solid #ccc;
+}
+.sidetool-item:hover {
+	background: #f1f1f1;
+}
+.sidetool-icon {
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+}
+.sidetool-name {
+	text-align: center;
+	color: #999;
+}
