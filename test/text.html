@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>文字排版</title>
 <link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
 <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
 </head>
 
@@ -43,9 +44,9 @@
                         <li>这是列表项</li>
                         <li>这是列表项</li>
                         <li>这是列表项</li>
-                    </ul> 
+                    </ul>
                 </div>
-                
+
             </div>
         </div>
         <div class="col-sm-4">
@@ -58,7 +59,7 @@
                     <p class="text-warning">这是一段文字。</p>
                     <p class="text-danger">这是一段文字。</p>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -67,7 +68,7 @@
 <script src="../dist/js/eui.min.js"></script>
 <script>
 $(document).ready(function(e) {
-	$('.cur-select').change(function() { 
+	$('.cur-select').change(function() {
 		$(this).removeClass('cur-select');
 		$(this).removeAttr('name');
 		var sel = $('<select class="admin-select cat-select cur-select"></select>');
@@ -77,7 +78,7 @@ $(document).ready(function(e) {
 		}
 		$('#cat-list').append(sel);
 	});
-	$('.cat-select').change(function() { 
+	$('.cat-select').change(function() {
 		$(this).removeClass('cur-select');
 		$(this).removeAttr('name');
 		var sel = $('<select class="admin-select cat-select cur-select"></select>');

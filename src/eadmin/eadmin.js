@@ -24,4 +24,9 @@ $(document).ready(function(){
 
         $('body').removeClass(thtmes);
     });
+
+    $(function() {
+        $("[data-toggle='tooltip']").tooltip();
+        $('[data-toggle="popover"]').popover();
+    });
 });

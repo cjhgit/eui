@@ -69,10 +69,18 @@
     font-size: 18px;
 }
 
+/* 布局 */
+.mycontainer {
+    padding: 50px 30px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #f8f8f8;
+}
+
 /* 页码 */
 .page {
     float: right;
-    width: 800xp;
+    width: 800px;
     margin-top: 5px;
 }
 .page-enable {
@@ -278,4 +286,11 @@
 }
 .theme-green .emenu-header {
     background-color: #18a689 !important;
+}
+
+/* 拓展 Bootstrap */
+.form-img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #adadad;
 }

@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>面板</title>
-    <link rel="stylesheet" href="../dist/css/eui.min.css">
-    <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
 </head>
 
 <body>
@@ -58,14 +59,14 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
 </div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 <script>
 $(document).ready(function(e) {
-	$('.cur-select').change(function() { 
+	$('.cur-select').change(function() {
 		$(this).removeClass('cur-select');
 		$(this).removeAttr('name');
 		var sel = $('<select class="admin-select cat-select cur-select"></select>');
@@ -75,7 +76,7 @@ $(document).ready(function(e) {
 		}
 		$('#cat-list').append(sel);
 	});
-	$('.cat-select').change(function() { 
+	$('.cat-select').change(function() {
 		$(this).removeClass('cur-select');
 		$(this).removeAttr('name');
 		var sel = $('<select class="admin-select cat-select cur-select"></select>');

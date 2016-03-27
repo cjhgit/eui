@@ -47,7 +47,6 @@ module.exports = function (grunt) {
                     'src/js/scrollspy.js',
                     'src/js/tab.js',
                     'src/js/transition.js',
-                    'src/base.js',
                     'src/box/box.js',
                     'src/totop/totop.js',
                     'src/hover-dropdown.js'
@@ -76,7 +75,6 @@ module.exports = function (grunt) {
                 files: {
                     'dist/css/eui.min.css': [
                         "dist/css/eui.css",
-                        "src/base.css",
                         "src/box/box.css",
                         "src/totop/totop.css"
                     ]
