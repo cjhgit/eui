@@ -26,6 +26,15 @@ module.exports = function (grunt) {
                 src: 'src/js/affix.js',
                 dest: 'dist/js/affix.min.js'
             },
+            dist2: {
+                options: {
+                    stripBanners: true,
+                    banner: '/*! <%=pkg.name%> <%= pkg.version %> | MIT License | chenjianhang.com/ */\n'
+                },
+                files: {
+                    'dist/js/totop.min.js': ['src/totop/totop.js']
+                }
+            },
         },
         concat: {
             options: {
@@ -35,7 +44,6 @@ module.exports = function (grunt) {
             },
             test: {
                 src: [
-                    'src/js/affix.js',
                     'src/js/alert.js',
                     'src/js/button.js',
                     'src/js/carousel.js',
@@ -47,6 +55,7 @@ module.exports = function (grunt) {
                     'src/js/scrollspy.js',
                     'src/js/tab.js',
                     'src/js/transition.js',
+                    // eUI 组件
                     'src/box/box.js',
                     'src/totop/totop.js',
                     'src/hover-dropdown.js'
@@ -128,6 +137,6 @@ module.exports = function (grunt) {
     // 测试
     grunt.registerTask('default',['less:task1', 'cssmin', 'concat:test', 'uglify:build']);
     // 发布
-    grunt.registerTask('dist', ['less:dist', 'concat:dist', 'uglify:dist']);
+    grunt.registerTask('dist', ['less:dist', 'concat:dist', 'uglify:dist', 'uglify:dist2']);
     //grunt.registerTask('clean', ['clean:dist']);
 };

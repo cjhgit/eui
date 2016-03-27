@@ -12,9 +12,9 @@
         };
         var opts = $.extend({}, defaults, options);
 
-        var $elem = $(this);
+        var $this = $(this);
 
-        $elem.hide().on('click', function(event) {
+        $this.hide().on('click', function(event) {
             event.preventDefault();
             $('body,html').animate({
                     scrollTop: 0
@@ -25,9 +25,9 @@
 
         $(window).scroll(function() {
             if ($(this).scrollTop() > opts.topOffset) {
-                $elem.fadeIn();
+                $this.fadeIn();
             } else {
-                $elem.fadeOut();
+                $this.fadeOut();
             }
         });
 

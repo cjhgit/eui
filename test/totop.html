@@ -77,8 +77,13 @@
         <p>呵呵</p>
     </div>
 </div>
-<a href="#" class="to-top" style="display: block;"><i class="fa fa-angle-up"></i></a>
+<a id="to-top" href="#" class="to-top" style="display: block;"><i class="fa fa-angle-up"></i></a>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#to-top').euiToTop();
+});
+</script>
 </body>
 </html>
