@@ -1,0 +1,226 @@
+/**
+ * 时间轴组件
+ * 1.0.0
+ */
+
+.timeline {
+    position: relative;
+    margin-bottom: 20px;
+
+    &:before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 18px;
+        height: 100%;
+        width: 4px;
+        background: #f1f1f1;
+    }
+}
+
+.timeline.timeline-light:before {
+    background: #e7eaec;
+}
+
+.timeline-dark .timeline-content:before {
+    border-color: transparent #f5f5f5 transparent transparent;
+}
+
+.timeline-dark.center-orientation .timeline-content:before {
+    border-color: transparent transparent transparent #f5f5f5;
+}
+
+.timeline-dark .timeline-item:nth-child(2n) .timeline-content:before, .timeline-dark.center-orientation .timeline-item:nth-child(2n) .timeline-content:before {
+    border-color: transparent #f5f5f5 transparent transparent;
+}
+
+.timeline-dark .timeline-content, .timeline-dark.center-orientation .timeline-content {
+    background: #f5f5f5;
+}
+
+@media only screen and (min-width: 1170px) {
+    .timeline.center-orientation {
+        margin-top: 3em;
+        margin-bottom: 3em;
+    }
+
+    .timeline.center-orientation:before {
+        left: 50%;
+        margin-left: -2px;
+    }
+}
+
+@media only screen and (max-width: 1170px) {
+    .center-orientation.timeline-dark .timeline-content:before {
+        border-color: transparent #f5f5f5 transparent transparent;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin: 2em 0;
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 1170px) {
+    .center-orientation .timeline-item {
+        margin: 4em 0;
+    }
+
+    .center-orientation .timeline-item:first-child {
+        margin-top: 0;
+    }
+
+    .center-orientation .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.timeline-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    background: #eee;
+    border: 3px solid #f1f1f1;
+    border-radius: 50%;
+    text-align: center;
+}
+
+// TODO 重构
+.timeline-icon i {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -9px;
+}
+
+@media only screen and (min-width: 1170px) {
+    .center-orientation .timeline-icon {
+        width: 50px;
+        height: 50px;
+        left: 50%;
+        margin-left: -25px;
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        font-size: 19px;
+    }
+
+    .center-orientation .timeline-icon i {
+        margin-left: -12px;
+        margin-top: -10px;
+    }
+
+    .center-orientation .cssanimations .timeline-icon.is-hidden {
+        visibility: hidden;
+    }
+}
+
+.timeline-content {
+    position: relative;
+    margin-left: 60px;
+    background: #fff;
+    border-radius: .25em;
+    padding: 1em;
+
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+
+    &:before {
+        content: ' ';
+        position: absolute;
+        top: 16px;
+        right: 100%;
+        height: 0;
+        width: 0;
+        border: 7px solid transparent;
+        border-right: 7px solid #fff;
+    }
+
+    .vertical-date {
+        float: left;
+        font-weight: 500;
+    }
+}
+
+
+.vertical-date small {
+    color: #1ab394;
+    font-weight: 400;
+}
+
+@media only screen and (min-width: 1170px) {
+    .center-orientation {
+        .timeline-content {
+            margin-left: 0;
+            padding: 1.6em;
+            width: 45%;
+        }
+
+        .timeline-content::before {
+            top: 24px;
+            left: 100%;
+            border-color: transparent;
+            border-left-color: #fff;
+        }
+
+        .timeline-content .vertical-date {
+            position: absolute;
+            width: 100%;
+            left: 122%;
+            top: 2px;
+            font-size: 14px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            float: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            top: 24px;
+            left: auto;
+            right: 100%;
+            border-color: transparent;
+            border-right-color: #fff;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content .btn {
+            float: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content .vertical-date {
+            left: auto;
+            right: 122%;
+            text-align: right;
+        }
+
+        .cssanimations .timeline-content.is-hidden {
+            visibility: hidden;
+        }
+    }
+
+}
+
+

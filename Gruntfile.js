@@ -111,6 +111,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     "dist/css/eui.css": "src/less/bootstrap.less",
+                    "dist/css/timeline.css": "src/less/timeline.less"
                 }
             },
             dist: {

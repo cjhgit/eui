@@ -15,3 +15,32 @@
     right: 10px;
     z-index: 100;
 }
+
+.navy-bg {
+    background-color: #1ab394;
+    color: #fff;
+}
+
+.blue-bg {
+    background-color: #1c84c6;
+    color: #fff;
+}
+.lazur-bg {
+    background-color: #23c6c8;
+    color: #fff;
+}
+.yellow-bg {
+    background-color: #f8ac59;
+    color: #fff;
+}
+.lazur-bg {
+    background-color: #23c6c8;
+    color: #fff;
+}
+
+.gray-bg {
+    background-color: #f3f3f4;
+}
+.bg-white {
+    background-color: #fff;
+}
