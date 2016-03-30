@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>小工具</title>
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-4">
+            <div id="panel" class="panel panel-default">
+                <header class="panel-heading">删除功能</header>
+                <div class="panel-body">
+                    <p>需要引入tool.js</p>
+                    <p>添加 data-remove-target="selector" 可以达到点击删除某元素的功能，其中 selector 是想要删除的元素。</p>
+                    <button class="btn btn-warning" data-remove-target="#panel">删除panel</button>
+                    <button class="btn btn-warning" data-remove-target=".btn">删除所有按钮</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div  class="panel panel-default">
+                <header class="panel-heading">显示隐藏功能</header>
+                <div class="panel-body">
+                    <p>添加 data-hide-target="selector" 可以达到点击隐藏某元素的功能。</p>
+                    <p>添加 data-hide-target="selector" 可以达到点击显示某元素的功能。</p>
+                    <p>添加 data-hide-target="selector" 可以达到点击显示/隐藏某元素的功能。</p>
+                    <button class="btn btn-warning" data-show-target="#text">显示文字</button>
+                    <button class="btn btn-warning" data-hide-target="#text">隐藏文字</button>
+                    <button class="btn btn-warning" data-toggle-target="#text">显示/隐藏文字</button>
+                    <p id="text">这是一段文字。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dist/js/eui.min.js"></script>
+<script src="../src/tool.js"></script>
+</body>
+</html>
