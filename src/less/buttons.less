@@ -1,9 +1,8 @@
-//
-// Buttons
-// --------------------------------------------------
+/**
+ * 按钮
+ */
 
-// Base styles
-// --------------------------------------------------
+// 基本样式
 
 .btn {
     display: inline-block;
@@ -18,13 +17,16 @@
     white-space: nowrap;
     .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
     .user-select(none);
+    .transition(background-color .25s);
 
     &,
     &:active,
     &.active {
+
         &:focus,
         &.focus {
-            .tab-focus();
+            outline: none;
+            //.tab-focus();
         }
     }
 
@@ -37,9 +39,8 @@
 
     &:active,
     &.active {
-        outline: 0;
+        outline: none;
         background-image: none;
-        .box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
     }
 
     &.disabled,
@@ -47,7 +48,6 @@
     fieldset[disabled] & {
         cursor: @cursor-disabled;
         .opacity(.65);
-        .box-shadow(none);
     }
 
     a& {
@@ -58,8 +58,7 @@
     }
 }
 
-// Alternate buttons
-// --------------------------------------------------
+// 按钮颜色
 
 .btn-default {
     .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
@@ -69,28 +68,23 @@
     .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
 }
 
-// Success appears as green
 .btn-success {
     .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
 }
 
-// Info appears as blue-green
 .btn-info {
     .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
 }
 
-// Warning appears as orange
 .btn-warning {
     .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
 }
 
-// Danger and error appear as red
 .btn-danger {
     .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
 }
 
-// Link buttons
-// -------------------------
+// 链接按钮
 
 // Make a button look and behave like a link
 .btn-link {
@@ -104,7 +98,6 @@
     &[disabled],
     fieldset[disabled] & {
         background-color: transparent;
-        .box-shadow(none);
     }
     &,
     &:hover,
@@ -128,8 +121,7 @@
     }
 }
 
-// Button Sizes
-// --------------------------------------------------
+// 按钮大小
 
 .btn-lg {
     // line-height: ensure even-numbered height of button next to large input
@@ -145,8 +137,7 @@
     .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
 }
 
-// Block button
-// --------------------------------------------------
+// 块状按钮
 
 .btn-block {
     display: block;
@@ -168,19 +159,16 @@ input[type="button"] {
 }
 
 // 线性按钮 TODO 以后的版本中改成类似 btn-primary-outline btn-info-outline 的类名称
-// --------------------------------------------------
 
 .btn-outline {
     color: inherit;
     background-color: transparent;
-    .transition(all .3s);
 }
 
 .btn-line {
     color: #fff;
     background-color: transparent;
     border-color: #fff;
-    .transition(all .3s);
 
     &:hover {
         color: @gray-dark;
@@ -192,7 +180,6 @@ input[type="button"] {
     color: @gray-dark;
     background-color: #fff;
     border-color: #fff;
-    .transition(all .3s);
 
     &:hover {
         color: #fff;
@@ -201,7 +188,6 @@ input[type="button"] {
 }
 
 // 圆形按钮
-// --------------------------------------------------
 
 .btn-circle {
     width: 30px;
@@ -223,7 +209,6 @@ input[type="button"] {
 }
 
 // 圆角按钮
-// --------------------------------------------------
 
 .btn-rounded {
     border-radius: 50px;
