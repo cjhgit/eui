@@ -1,10 +1,10 @@
-/* ========================================================================
+/**
  * Bootstrap: popover.js v3.3.6
  * http://getbootstrap.com/javascript/#popovers
- * ========================================================================
+ *
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+ */
 
 
 +function ($) {
@@ -31,8 +31,7 @@
     });
 
 
-    // NOTE: POPOVER EXTENDS tooltip.js
-    // ================================
+    // NOTE: POPOVER 继承 tooltip.js
 
     Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype);
 
@@ -56,11 +55,13 @@
 
         // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
         // this manually by checking the contents.
-        if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide();
+        if (!$tip.find('.popover-title').html()) {
+            $tip.find('.popover-title').hide();
+        }
     };
 
     Popover.prototype.hasContent = function () {
-        return this.getTitle() || this.getContent()
+        return this.getTitle() || this.getContent();
     };
 
     Popover.prototype.getContent = function () {
@@ -70,7 +71,7 @@
         return $e.attr('data-content')
             || (typeof o.content == 'function' ?
                 o.content.call($e[0]) :
-                o.content)
+                o.content);
     };
 
     Popover.prototype.arrow = function () {
@@ -104,13 +105,9 @@
     $.fn.popover = Plugin;
     $.fn.popover.Constructor = Popover;
 
-
-    // POPOVER NO CONFLICT
-    // ===================
-
     $.fn.popover.noConflict = function () {
         $.fn.popover = old;
-        return this
+        return this;
     }
 
 }(jQuery);

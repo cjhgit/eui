@@ -16,6 +16,7 @@
                 <header class="panel-heading">工具提示（Tooltip）</header>
                 <div class="panel-body">
                     <p>工具提示是一种简短的工具说明，主要用来说明该按钮、图标的用途。有四种弹出方位，可以将文字替换成图标。</p>
+                    <p>使用：添加代码 $("[data-toggle='tooltip']").tooltip();</p>
                     <button type="button" class="btn btn-default" data-toggle="tooltip" title="这里是提示内容">默认提示</button>
                     <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="这里是提示内容">上面提示</button>
                     <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="这里是提示内容">左侧提示</button>
@@ -29,9 +30,10 @@
                 <header class="panel-heading">弹出框（Popover）</header>
                 <div class="panel-body">
                     <p>弹出框主要用于较长文本的解释说明。需要根据实际情况进行选择使用。</p>
-                    <a href="#" id="example" class="btn btn-success" rel="popover" data-toggle="popover" data-content="It's so simple to create a tooltop for my website!" data-original-title="Bootstrap Popover">右侧弹出</a>
-                    <a href="#" id="example" class="btn btn-success" rel="popover" data-toggle="popover" data-content="这是内容" data-original-title="这是标题">可消失的弹出框</a>
-                    <a href="#" id="example" class="btn btn-success" rel="popover" data-toggle="popover" data-content="这是内容">没标题的弹出框</a>
+                    <p>使用：添加代码 $('[data-toggle="popover"]').popover();</p>
+                    <a href="#" class="btn btn-success" rel="popover" data-toggle="popover" data-content="It's so simple to create a tooltop for my website!" data-original-title="Bootstrap Popover">右侧弹出</a>
+                    <a href="#" class="btn btn-success" rel="popover" data-toggle="popover" data-content="这是内容" data-original-title="这是标题">可消失的弹出框</a>
+                    <a href="#" class="btn btn-success" rel="popover" data-toggle="popover" data-content="这是内容">没标题的弹出框</a>
 
                     <a tabindex="0" class="btn btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">
                     可消失的弹出框</a>
@@ -42,9 +44,9 @@
 </div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
+<script src="../src/eadmin/eadmin.js"></script>
 <script src="../dep/metis-menu/metisMenu.min.js"></script>
 <script src="../dep/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="../dist/js/eui.js"></script>
 <script>
     //$("#example").popover();
 </script>

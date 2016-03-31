@@ -104,10 +104,6 @@
     $.fn.button = Plugin;
     $.fn.button.Constructor = Button;
 
-
-// BUTTON NO CONFLICT
-// ==================
-
     $.fn.button.noConflict = function () {
         $.fn.button = old;
         return this;

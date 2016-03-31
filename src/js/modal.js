@@ -71,7 +71,7 @@
         this.escape();
         this.resize();
 
-        //为包含data-dismiss="modal"属性的元素注册关闭处理器(比如点x按钮,就隐藏模态框功能)
+        // 包含 data-dismiss="modal" 属性的元素注册关闭处理器
         this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this));
 
         this.$dialog.on('mousedown.dismiss.bs.modal', function () {
