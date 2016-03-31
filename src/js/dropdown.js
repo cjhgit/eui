@@ -48,7 +48,8 @@
                 return;
             }
 
-            if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) {
+            if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName)
+                && $.contains($parent[0], e.target)) {
                 return;
             }
 
@@ -66,7 +67,9 @@
     Dropdown.prototype.toggle = function (e) {
         var $this = $(this);
 
-        if ($this.is('.disabled, :disabled')) return;
+        if ($this.is('.disabled, :disabled')) {
+            return;
+        }
 
         var $parent = getParent($this);
         var isActive = $parent.hasClass('open');
