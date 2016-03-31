@@ -104,13 +104,14 @@ module.exports = function (grunt) {
             }
         },
         less: {
-            task1:{
+            default:{
                 options: {
                     compress: false,
                     yuicompress: false
                 },
                 files: {
                     "dist/css/eui.css": "src/less/bootstrap.less",
+                    "dist/css/toastr.css": "src/toastr/toastr.less",
                     "dist/css/timeline.css": "src/less/timeline.less"
                 }
             },
@@ -137,7 +138,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
 
     // 测试
-    grunt.registerTask('default',['less:task1', 'cssmin', 'concat:test', 'uglify:build']);
+    grunt.registerTask('default',['less:default', 'cssmin', 'concat:test', 'uglify:build']);
     // 发布
     grunt.registerTask('dist', ['less:dist', 'concat:dist', 'uglify:dist', 'uglify:dist2']);
     //grunt.registerTask('clean', ['clean:dist']);
