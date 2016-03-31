@@ -32,18 +32,81 @@
 
 
     </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">方法</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>方法</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>eui.alert(options)</td>
+                            <td>功能类似 Javascript 的 alert。</td>
+                        </tr>
+                        <tr>
+                            <td>eui.alert('msg')</td>
+                            <td>显示一段文本。</td>
+                        </tr>
+                        <tr>
+                            <td>eui.confirm(options)</td>
+                            <td>功能类似 Javascript 的 confirm。</td>
+                        </tr>
+                        <tr>
+                            <td>eui.confirm('msg')</td>
+                            <td>显示一段文本。</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">参数介绍</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>选项</th>
+                            <th>默认值</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>title</td>
+                            <td>string</td>
+                            <td>对话框标题</td>
+                        </tr>
+                        <tr>
+                            <td>msg</td>
+                            <td>string</td>
+                            <td>对话框内容</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 <script src="../src/eui.dialog.js"></script>
 <script>
     $('#alert').on('click', function(){
-        eui.bs.alert({
-            msg: '哈哈'
-        });
+        eui.alert('哈哈');
     });
     $('#alert2').on('click', function(){
-        eui.bs.alert({
+        eui.alert({
             okbtn	: '自定义文字等',
             msg		: '自定义提示框！',
             big		: true
@@ -51,17 +114,17 @@
 
     });
     $('#alert3').on('click', function(){
-        eui.bs.alert('带回调提示框！',function(){
+        eui.alert('带回调提示框！',function(){
             alert('点击了确定！');
         });
 
     });
     $('#confirm').on('click', function(){
-        eui.bs.confirm('普通提示框！');
+        eui.confirm('普通提示框！');
     });
 
     $('#confirm2').on('click', function(){
-        eui.bs.confirm({
+        eui.confirm({
             okbtn	: '自定义文字等',
             msg		: '自定义确认框',
             big		: true
@@ -70,7 +133,7 @@
     });
 
     $('#confirm3').on('click', function(){
-        eui.bs.confirm('带回调确认框！',function(){
+        eui.confirm('带回调确认框！',function(){
             alert('点击了确定！');
         },function(){
             alert('点击了取消！');

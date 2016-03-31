@@ -2,7 +2,6 @@
  * Created by cjh1 on 2016/3/15.
  */
 
-
 if (!eui) {
     var eui = {};
 }
@@ -11,20 +10,21 @@ eui.on = function (obj, event, func) {
     $(document).off(event, obj).on(event, obj, func);
 };
 
-eui.bs = {};
-eui.bs.modaloptions = {
+eui.modaloptions = {
     id: 'bsmodal',
-    close: true,
+    close: true, // 是否显示关闭按钮
     title: 'title',
     showHeader: true, // 是否显示头部
     showFooter: true, // 是否显示脚部
     btn: false, // 是否显示两个按钮
     okbtn: '确定',
     qubtn: '取消',
-    msg: 'msg',
+    msg: '',
+    backdrop: 'static'
 };
-eui.bs.modalstr = function (opt) {
-    var start = '<div class="modal fade" id="' + opt.id + '" tabindex="-1" role="dialog" aria-labelledby="bsmodaltitle" aria-hidden="true" style="position:fixed;top:20px;">';
+
+eui.modalstr = function (opt) {
+    var start = '<div class="modal fade" id="' + opt.id + '" style="position:fixed;top:20px;">';
     start += '<div class="modal-dialog"><div class="modal-content">';
     var end = '</div></div></div>';
 
@@ -51,41 +51,46 @@ eui.bs.modalstr = function (opt) {
     return start + head + body + foot + end;
 };
 
-eui.bs.alert = function (options, func) {
+eui.alert = function (options, func) {
     // options
-    var opt = $.extend({}, eui.bs.modaloptions);
+    var opts = $.extend({}, eui.modaloptions);
 
-    opt.title = '提示';
+    opts.title = '提示';
+    opts.close = false;
+
     if (typeof options == 'string') {
-        opt.msg = options;
+        opts.msg = options;
     } else {
-        $.extend(opt, options);
+        $.extend(opts, options);
     }
 
     // add
-    $('body').append(eui.bs.modalstr(opt));
+    $('body').append(eui.modalstr(opts));
 
     // init
-    var $modal = $('#' + opt.id);
-    $modal.modal(opt);
+    var $modal = $('#' + opts.id);
+    $modal.modal(opts);
 
     // bind
     eui.on('button.bsok', 'click', function () {
         if (func) func();
         $modal.modal('hide');
     });
-    eui.on('#' + opt.id, 'hidden.bs.modal', function () {
+    eui.on('#' + opts.id, 'hidden.bs.modal', function () {
         $modal.remove();
     });
 
     // show
-    $modal.modal('show');
+    //$modal.modal();
 };
 
-eui.bs.confirm = function (options, ok, cancel) {
-    var opt = $.extend({}, eui.bs.modaloptions);
+eui.confirm = function (options, ok, cancel) {
 
-    opt.title = '确认操作';
+    var opt = $.extend({}, eui.modaloptions);
+
+    opt.title = '确认';
+    opt.close = false;
+
     if (typeof options == 'string') {
         opt.msg = options;
     } else {
@@ -94,7 +99,7 @@ eui.bs.confirm = function (options, ok, cancel) {
     opt.btn = true;
 
     // 添加到body
-    $('body').append(eui.bs.modalstr(opt));
+    $('body').append(eui.modalstr(opt));
 
     // 初始化
     var $modal = $('#' + opt.id);
