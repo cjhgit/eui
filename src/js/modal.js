@@ -1,18 +1,16 @@
-/* ========================================================================
+/**
  * Bootstrap: modal.js v3.3.6
  * http://getbootstrap.com/javascript/#modals
- * ========================================================================
+ *
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+ */
 
 
 +function ($) {
     'use strict';
 
-    // MODAL CLASS DEFINITION
-    // ======================
-
+    // 对话框类
     var Modal = function (element, options) {
         this.options = options;
         this.$body = $(document.body);
@@ -24,6 +22,7 @@
         this.scrollbarWidth = 0;
         this.ignoreBackdropClick = false;
 
+        // 如果是远程内容,就加载,并触发loaded.bs.modal事件
         if (this.options.remote) {
             this.$element
                 .find('.modal-content')
@@ -39,32 +38,40 @@
     Modal.BACKDROP_TRANSITION_DURATION = 150;
 
     Modal.DEFAULTS = {
-        backdrop: true,
-        keyboard: true,
-        show: true
+        backdrop: true, // 点击对话框周围位置隐藏对话框
+        keyboard: true, // 按 esc 键关闭对话框
+        show: true // 模态框初始化之后就立即显示出来
     };
 
     Modal.prototype.toggle = function (_relatedTarget) {
         return this.isShown ? this.hide() : this.show(_relatedTarget)
     };
 
+    // 显示对话框
     Modal.prototype.show = function (_relatedTarget) {
         var that = this;
         var e = $.Event('show.bs.modal', {relatedTarget: _relatedTarget});
 
-        this.$element.trigger(e);
+        this.$element.trigger(e); // 触发show.bs.modal事件
 
-        if (this.isShown || e.isDefaultPrevented()) return;
+        // 如果已经显示了, 或者上面事件回调中调用了e.preventDefault 就 直接不处理,直接返回
+        if (this.isShown || e.isDefaultPrevented()) {
+            return;
+        }
 
         this.isShown = true;
 
+        // 有滚动条的话,就设置滚动条的宽度
         this.checkScrollbar();
+        // padding-right 属性在原来的基础上 + 上面算出来的滚动条的宽度
         this.setScrollbar();
         this.$body.addClass('modal-open');
 
+        //如果options.keyboard配置为true则监听keyup.dismiss.bs.modal事件, 功能就是按esc键,就调用hide方法
         this.escape();
         this.resize();
 
+        //为包含data-dismiss="modal"属性的元素注册关闭处理器(比如点x按钮,就隐藏模态框功能)
         this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this));
 
         this.$dialog.on('mousedown.dismiss.bs.modal', function () {
@@ -73,19 +80,22 @@
             })
         });
 
+        // backdrop函数:背景逻辑, 回调函数功能:显示model逻辑
         this.backdrop(function () {
+            // 浏览器是否支持动画 & model的元素包含fade class
             var transition = $.support.transition && that.$element.hasClass('fade');
 
+            // 没有父元素(例:还未append的$("<div></div>")),则将model附加到body上,
             if (!that.$element.parent().length) {
                 that.$element.appendTo(that.$body); // don't move modals dom position
             }
 
-            that.$element
-                .show()
-                .scrollTop(0);
+            // 将model元素设置成显示(jq.show方法), 并移动到最上面
+            that.$element.show().scrollTop(0);
 
             that.adjustDialog();
 
+            //动画效果准备
             if (transition) {
                 that.$element[0].offsetWidth; // force reflow
             }
@@ -106,14 +116,19 @@
         });
     };
 
+    // 隐藏对话框
     Modal.prototype.hide = function (e) {
-        if (e) e.preventDefault();
+        if (e) {
+            e.preventDefault();
+        }
 
         e = $.Event('hide.bs.modal');
 
         this.$element.trigger(e);
 
-        if (!this.isShown || e.isDefaultPrevented()) return;
+        if (!this.isShown || e.isDefaultPrevented()) {
+            return;
+        }
 
         this.isShown = false;
 
@@ -147,6 +162,7 @@
             }, this))
     };
 
+    // 按 esc 键隐藏对话框
     Modal.prototype.escape = function () {
         if (this.isShown && this.options.keyboard) {
             this.$element.on('keydown.dismiss.bs.modal', $.proxy(function (e) {
@@ -161,7 +177,7 @@
         if (this.isShown) {
             $(window).on('resize.bs.modal', $.proxy(this.handleUpdate, this))
         } else {
-            $(window).off('resize.bs.modal')
+            $(window).off('resize.bs.modal');
         }
     };
 
@@ -172,13 +188,13 @@
             that.$body.removeClass('modal-open');
             that.resetAdjustments();
             that.resetScrollbar();
-            that.$element.trigger('hidden.bs.modal')
+            that.$element.trigger('hidden.bs.modal');
         })
     };
 
     Modal.prototype.removeBackdrop = function () {
         this.$backdrop && this.$backdrop.remove();
-        this.$backdrop = null
+        this.$backdrop = null;
     };
 
     Modal.prototype.backdrop = function (callback) {
@@ -200,7 +216,7 @@
                 if (e.target !== e.currentTarget) return;
                 this.options.backdrop == 'static'
                     ? this.$element[0].focus()
-                    : this.hide()
+                    : this.hide();
             }, this));
 
             if (doAnimate) this.$backdrop[0].offsetWidth; // force reflow
@@ -222,23 +238,23 @@
 
             var callbackRemove = function () {
                 that.removeBackdrop();
-                callback && callback()
+                callback && callback();
             };
             $.support.transition && this.$element.hasClass('fade') ?
                 this.$backdrop
                     .one('bsTransitionEnd', callbackRemove)
                     .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
-                callbackRemove()
+                callbackRemove();
 
         } else if (callback) {
-            callback()
+            callback();
         }
     };
 
-    // these following methods are used to handle overflowing modals
+    // 下面的方法用来处理内容溢出的对话框
 
     Modal.prototype.handleUpdate = function () {
-        this.adjustDialog()
+        this.adjustDialog();
     };
 
     Modal.prototype.adjustDialog = function () {
@@ -257,38 +273,43 @@
         })
     };
 
+    // 检查是否有滚动条,并计算滚动条宽度
     Modal.prototype.checkScrollbar = function () {
         var fullWindowWidth = window.innerWidth;
         if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
             var documentElementRect = document.documentElement.getBoundingClientRect();
-            fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
+            fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left);
         }
         this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth;
-        this.scrollbarWidth = this.measureScrollbar()
+        this.scrollbarWidth = this.measureScrollbar();
     };
 
+    //设置又内边距(估计和滚动条有关)
     Modal.prototype.setScrollbar = function () {
         var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10);
         this.originalBodyPad = document.body.style.paddingRight || '';
-        if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
+        if (this.bodyIsOverflowing) {
+            this.$body.css('padding-right', bodyPad + this.scrollbarWidth);
+        }
     };
 
+    // 还原上面内边距设置
     Modal.prototype.resetScrollbar = function () {
-        this.$body.css('padding-right', this.originalBodyPad)
+        this.$body.css('padding-right', this.originalBodyPad);
     };
 
+    // 计算滚动条宽度的一种方法
     Modal.prototype.measureScrollbar = function () { // thx walsh
         var scrollDiv = document.createElement('div');
         scrollDiv.className = 'modal-scrollbar-measure';
         this.$body.append(scrollDiv);
         var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
         this.$body[0].removeChild(scrollDiv);
-        return scrollbarWidth
+        return scrollbarWidth;
     };
 
 
-    // MODAL PLUGIN DEFINITION
-    // =======================
+    // 对话框插件定义
 
     function Plugin(option, _relatedTarget) {
         return this.each(function () {
@@ -296,9 +317,14 @@
             var data = $this.data('bs.modal');
             var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option);
 
-            if (!data) $this.data('bs.modal', (data = new Modal(this, options)));
-            if (typeof option == 'string') data[option](_relatedTarget);
-            else if (options.show) data.show(_relatedTarget)
+            if (!data) {
+                $this.data('bs.modal', (data = new Modal(this, options)));
+            }
+            if (typeof option == 'string') {
+                data[option](_relatedTarget);
+            } else if (options.show) {
+                data.show(_relatedTarget);
+            }
         })
     }
 
@@ -308,17 +334,15 @@
     $.fn.modal.Constructor = Modal;
 
 
-    // MODAL NO CONFLICT
-    // =================
+    // 模态框 防冲突
 
     $.fn.modal.noConflict = function () {
         $.fn.modal = old;
-        return this
+        return this;
     };
 
 
     // MODAL DATA-API
-    // ==============
 
     $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
         var $this = $(this);
@@ -326,7 +350,9 @@
         var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); // strip for ie7
         var option = $target.data('bs.modal') ? 'toggle' : $.extend({remote: !/#/.test(href) && href}, $target.data(), $this.data());
 
-        if ($this.is('a')) e.preventDefault();
+        if ($this.is('a')) {
+            e.preventDefault();
+        }
 
         $target.one('show.bs.modal', function (showEvent) {
             if (showEvent.isDefaultPrevented()) return; // only register focus restorer if modal will actually get shown

@@ -10,14 +10,114 @@
 <body>
 <div class="mycontainer">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="panel panel-default">
                 <header class="panel-heading">模态框</header>
                 <div class="panel-body">
                     <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-form">表单模态框</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-simple">普通模态框</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-notitle">无头部模态框</button>
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-form">表单模态框</button>
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-simple">普通模态框</button>
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-notitle">无头部模态框</button>
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-event">事件</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">参数介绍</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>选项</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>backdrop</td>
+                                <td>true</td>
+                                <td>点击对话框周围位置隐藏对话框</td>
+                            </tr>
+                            <tr>
+                                <td>keyboard</td>
+                                <td>true</td>
+                                <td>按 esc 键关闭对话框</td>
+                            </tr>
+                            <tr>
+                                <td>show</td>
+                                <td>true</td>
+                                <td>按 esc 键关闭对话框</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">模态框</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>方法</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>$(selector).modal(options);</td>
+                                <td>初始化模态框（初始化之后默认显示模态框）</td>
+                            </tr>
+                            <tr>
+                                <td>$(selector).modal('toggle');</td>
+                                <td>切换模态框</td>
+                            </tr>
+                            <tr>
+                                <td>$(selector).modal('show');</td>
+                                <td>显示模态框</td>
+                            </tr>
+                            <tr>
+                                <td>$(selector).modal('hide');</td>
+                                <td>隐藏模态框</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">事件</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>事件</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>show.bs.modal</td>
+                            <td>当 show 实例方法被调用之后，该事件被触发。</td>
+                        </tr>
+                        <tr>
+                            <td>shown.bs.modal</td>
+                            <td>当模态框显示出来之后（同时 CSS 过渡效果也已执行完毕），该事件被触发。</td>
+                        </tr>
+                        <tr>
+                            <td>hide.bs.modal</td>
+                            <td>当 hide 实例方法被调用之后，该事件被触发。</td>
+                        </tr>
+                        <tr>
+                            <td>hidden.bs.modal</td>
+                            <td>当模态框向用户隐藏之后（同时 CSS 过渡效果也已执行完毕），该事件被触发。</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -87,7 +187,36 @@
         </div>
     </div>
 </div>
+<!-- 事件模态框 -->
+<div id="modal-event" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p>这是内容</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#modal-event').on('show.bs.modal', function() {
+            alert('准备显示');
+        });
+        $('#modal-event').on('shown.bs.modal', function() {
+            alert('已经显示');
+        });
+        $('#modal-event').on('hide.bs.modal', function() {
+            alert('准备隐藏');
+        });
+        $('#modal-event').on('hidden.bs.modal', function() {
+            alert('已经隐藏');
+        });
+    });
+</script>
 </body>
 </html>
