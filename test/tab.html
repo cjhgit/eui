@@ -18,9 +18,9 @@
                 <div class="panel-body">
                     <p>这种标签页主要用于不同内容的页面切换。</p>
                     <ul class="nav nav-tabs">
-                        <div class="nav-item active"><a href="#tab11" data-toggle="tab">两字</a></div>
-                        <div class="nav-item"><a href="#tab12" data-toggle="tab">三个字</a></div>
-                        <div class="nav-item"><a href="#tab13" data-toggle="tab">四个字啊</a></div>
+                        <div class="nav-item active"><a class="nav-link" href="#tab11" data-toggle="tab">两字</a></div>
+                        <div class="nav-item"><a class="nav-link" href="#tab12" data-toggle="tab">三个字</a></div>
+                        <div class="nav-item"><a class="nav-link" href="#tab13" data-toggle="tab">四个字啊</a></div>
                     </ul>
                     <div class="tab-content">
                         <div id="tab11" class="tab-pane fade in active">
@@ -49,11 +49,11 @@
                 <div class="panel-body">
                     <p>这种标签页用于分类内容的切换。</p>
                     <ul class="nav nav-pills">
-                        <li class="active">
-                            <a href="#tab21" data-toggle="tab">两字</a>
-                        </li>
-                        <li><a href="#tab22" data-toggle="tab">三个字</a></li>
-                        <li><a href="#tab23" data-toggle="tab">四个字啊</a></li>
+                        <div class="nav-item active">
+                            <a class="nav-link" href="#tab21" data-toggle="tab">两字</a>
+                        </div>
+                        <div class="nav-item"><a class="nav-link" href="#tab22" data-toggle="tab">三个字</a></div>
+                        <div class="nav-item"><a class="nav-link" href="#tab23" data-toggle="tab">四个字啊</a></div>
                     </ul>
                     <div class="tab-content">
                         <div id="tab21" class="tab-pane fade in active">
@@ -73,6 +73,107 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">方法</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>方法</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>$(selector).tab(options)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>$(selector).tab('show')</td>
+                            <td>显示tab的某一项，其中selector是nav-tabs里面的链接。</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">选项</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>选项</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>interval</td>
+                            <td>number</td>
+                            <td>5000</td>
+                            <td>自动循环每个项目之间延迟的时间（毫秒）。如果为 false，轮播将不会自动循环。</td>
+                        </tr>
+                        <tr>
+                            <td>pause</td>
+                            <td>string</td>
+                            <td>hover</td>
+                            <td>鼠标进入时暂停轮播循环，鼠标离开时恢复轮播循环。</td>
+                        </tr>
+                        <tr>
+                            <td>wrap</td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>轮播是否连续循环。</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">事件</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>事件</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>show.bs.tab</td>
+                            <td>该事件在标签页显示时触发，但是必须在新标签页被显示之前。分别使用 event.target 和 event.relatedTarget 来定位到激活的标签页和前一个激活的标签页。</td>
+                        </tr>
+                        <tr>
+                            <td>shown.bs.tab</td>
+                            <td>该事件在标签页显示时触发，但是必须在某个标签页已经显示之后。分别使用 event.target 和 event.relatedTarget 来定位到激活的标签页和前一个激活的标签页。</td>
+                        </tr>
+                        <tr>
+                            <td>hide.bs.show</td>
+                            <td>该事件在标签页隐藏之前触发。</td>
+                        </tr>
+                        <tr>
+                            <td>hiden.bs.show</td>
+                            <td>该事件在标签页隐藏之后触发。</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

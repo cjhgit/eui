@@ -2,20 +2,16 @@
 // 导航
 //
 
-// Base class
-
 .nav {
     margin-bottom: 0;
-    padding-left: 0; // Override default ul/ol
+    padding-left: 0; // 覆盖默认的 ul/ol
     list-style: none;
     &:extend(.clearfix all);
 
-    > li, // TODO delete
     .nav-item {
         position: relative;
         display: block;
 
-        > a, // TODO delete
         .nav-link {
             position: relative;
             display: block;
@@ -28,7 +24,6 @@
         }
 
         // Disabled state sets text to gray and nukes hover/tab effects
-        &.disabled > a, // TODO delete
         &.disabled > .nav-link {
             color: @nav-disabled-link-color;
 
@@ -43,7 +38,6 @@
     }
 
     // Open dropdowns
-    .open > a,
     .open .nav-link {
         &,
         &:hover,
@@ -65,7 +59,6 @@
     // Prevent IE8 from misplacing imgs
     //
     // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
-    > li > a > img,
     .nav-item .nav-link > img {
         max-width: none;
     }
@@ -76,13 +69,13 @@
 // Give the tabs something to sit on
 .nav-tabs {
     border-bottom: 1px solid @nav-tabs-border-color;
-    > li {
+    .nav-item {
         float: left;
         // Make the list-items overlay the bottom border
         margin-bottom: -1px;
 
         // Actual tabs (as links)
-        > a {
+        .nav-link {
             margin-right: 2px;
             color: @nav-tabs-active-link-hover-color;
             line-height: @line-height-base;
@@ -94,7 +87,7 @@
         }
 
         // Active state, and its :hover to override normal :hover
-        &.active > a {
+        &.active .nav-link {
             &,
             &:hover,
             &:focus {
@@ -111,7 +104,7 @@
 // 步骤条
 .nav-steps {
     border-bottom: 1px solid @nav-tabs-border-color;
-    > li {
+    .nav-item {
         float: left;
         // Make the list-items overlay the bottom border
         margin-bottom: -1px;
@@ -133,7 +126,7 @@
         }
 
         // Active state, and its :hover to override normal :hover
-        &.active > a {
+        &.active .nav-link {
             &,
             &:hover,
             &:focus {
@@ -147,37 +140,36 @@
     }
 }
 
-.step-done a {
+.step-done .nav-link {
     color: @brand-success !important;
     border-bottom-color: @brand-success !important;
 }
 
-.step-error a {
+.step-error .nav-link {
     color: @brand-danger !important;
     border-bottom-color: @brand-danger !important;
 }
 
-.step-undo a {
+.step-undo .nav-link {
     color: @nav-tabs-active-link-hover-color !important;
     border-bottom-color: @nav-tabs-active-link-hover-color !important;
 }
 
 // Pills
-// -------------------------
 .nav-pills {
-    > li {
+    .nav-item {
         float: left;
 
         // Links rendered as pills
-        > a {
+        .nav-link {
             border-radius: @nav-pills-border-radius;
         }
-        + li {
+        + .nav-item {
             margin-left: 2px;
         }
 
         // Active state
-        &.active > a {
+        &.active .nav-link {
             &,
             &:hover,
             &:focus {
@@ -190,9 +182,9 @@
 
 // Stacked pills
 .nav-stacked {
-    > li {
+    .nav-item {
         float: none;
-        + li {
+        + .nav-item {
             margin-top: 2px;
             margin-left: 0; // no need for this gap between nav items
         }
@@ -208,9 +200,9 @@
 .nav-justified {
     width: 100%;
 
-    > li {
+    .nav-item {
         float: none;
-        > a {
+        .nav-link {
             text-align: center;
             margin-bottom: 5px;
         }
@@ -222,10 +214,10 @@
     }
 
     @media (min-width: @screen-sm-min) {
-        > li {
+        .nav-item {
             display: table-cell;
             width: 1%;
-            > a {
+            .nav-link {
                 margin-bottom: 0;
             }
         }
