@@ -96,7 +96,21 @@
                         </tr>
                         <tr>
                             <td>$(selector).tab('show')</td>
-                            <td>显示tab的某一项，其中selector是nav-tabs里面的链接。</td>
+                            <td>
+                                显示tab的某一项，其中selector是nav-tabs里面的链接。
+                                <pre><code>// 通过名称选取标签页
+$('#myTab a[href="#profile"]').tab('show')
+
+// 选取第一个标签页
+$('#myTab a:first').tab('show')
+
+// 选取最后一个标签页
+$('#myTab a:last').tab('show')
+
+// 选取第三个标签页（从 0 开始索引）
+$('#myTab li:eq(2) a').tab('show')</code></pre>
+
+                            </td>
                         </tr>
                         </tbody>
                     </table>

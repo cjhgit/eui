@@ -110,10 +110,9 @@
         margin-bottom: -1px;
 
         // Actual tabs (as links)
-        > span,
-        > a {
-            margin-right: 2px;
+        .nav-link {
             //color: #55595c; TODO
+            font-size: 16px;
             line-height: @line-height-base;
             border: 1px solid transparent;
             border-radius: @border-radius-base @border-radius-base 0 0;
@@ -123,10 +122,16 @@
                 background: transparent;
                 border-color: transparent;
             }
+
+
         }
 
         // Active state, and its :hover to override normal :hover
         &.active .nav-link {
+            .badge {
+                background-color: @brand-success;
+            }
+
             &,
             &:hover,
             &:focus {
@@ -138,21 +143,36 @@
             }
         }
     }
+
+
 }
 
-.step-done .nav-link {
-    color: @brand-success !important;
-    border-bottom-color: @brand-success !important;
+.step-done {
+    .nav-link {
+        color: @brand-success !important;
+        border-bottom-color: @brand-success !important;
+    }
+    .badge {
+        background-color: @brand-success;
+    }
 }
 
-.step-error .nav-link {
-    color: @brand-danger !important;
-    border-bottom-color: @brand-danger !important;
+.step-error {
+    .nav-link {
+        color: @brand-danger !important;
+        border-bottom-color: @brand-danger !important;
+    }
 }
 
-.step-undo .nav-link {
-    color: @nav-tabs-active-link-hover-color !important;
-    border-bottom-color: @nav-tabs-active-link-hover-color !important;
+.step-undo {
+    .nav-link {
+        color: @gray !important;
+        border-bottom-color: @nav-tabs-active-link-hover-color !important;
+    }
+
+    .badge {
+        background-color: @gray-light;
+    }
 }
 
 // Pills
