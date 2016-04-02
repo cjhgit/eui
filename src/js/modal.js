@@ -54,7 +54,6 @@
 
         this.$element.trigger(e); // 触发show.bs.modal事件
 
-        // 如果已经显示了, 或者上面事件回调中调用了e.preventDefault 就 直接不处理,直接返回
         if (this.isShown || e.isDefaultPrevented()) {
             return;
         }
@@ -76,8 +75,10 @@
 
         this.$dialog.on('mousedown.dismiss.bs.modal', function () {
             that.$element.one('mouseup.dismiss.bs.modal', function (e) {
-                if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true
-            })
+                if ($(e.target).is(that.$element)) {
+                    that.ignoreBackdropClick = true;
+                }
+            });
         });
 
         // backdrop函数:背景逻辑, 回调函数功能:显示model逻辑
@@ -211,7 +212,7 @@
             this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
                 if (this.ignoreBackdropClick) {
                     this.ignoreBackdropClick = false;
-                    return
+                    return;
                 }
                 if (e.target !== e.currentTarget) return;
                 this.options.backdrop == 'static'
@@ -219,7 +220,9 @@
                     : this.hide();
             }, this));
 
-            if (doAnimate) this.$backdrop[0].offsetWidth; // force reflow
+            if (doAnimate) {
+                this.$backdrop[0].offsetWidth; // force reflow
+            }
 
             this.$backdrop.addClass('in');
 
@@ -284,7 +287,7 @@
         this.scrollbarWidth = this.measureScrollbar();
     };
 
-    //设置又内边距(估计和滚动条有关)
+    // 设置又内边距(估计和滚动条有关)
     Modal.prototype.setScrollbar = function () {
         var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10);
         this.originalBodyPad = document.body.style.paddingRight || '';
@@ -310,7 +313,6 @@
 
 
     // 对话框插件定义
-
     function Plugin(option, _relatedTarget) {
         return this.each(function () {
             var $this = $(this);
@@ -318,14 +320,15 @@
             var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option);
 
             if (!data) {
-                $this.data('bs.modal', (data = new Modal(this, options)));
+                data = new Modal(this, options);
+                $this.data('bs.modal', data);
             }
             if (typeof option == 'string') {
                 data[option](_relatedTarget);
             } else if (options.show) {
                 data.show(_relatedTarget);
             }
-        })
+        });
     }
 
     var old = $.fn.modal;
@@ -333,16 +336,10 @@
     $.fn.modal = Plugin;
     $.fn.modal.Constructor = Modal;
 
-
-    // 模态框 防冲突
-
     $.fn.modal.noConflict = function () {
         $.fn.modal = old;
         return this;
     };
-
-
-    // MODAL DATA-API
 
     $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
         var $this = $(this);
@@ -355,10 +352,12 @@
         }
 
         $target.one('show.bs.modal', function (showEvent) {
-            if (showEvent.isDefaultPrevented()) return; // only register focus restorer if modal will actually get shown
+            if (showEvent.isDefaultPrevented()) {
+                return; // only register focus restorer if modal will actually get shown
+            }
             $target.one('hidden.bs.modal', function () {
                 $this.is(':visible') && $this.trigger('focus');
-            })
+            });
         });
         Plugin.call($target, option, this);
     });

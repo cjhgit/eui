@@ -1,18 +1,15 @@
-/* ========================================================================
+/**
  * Bootstrap: button.js v3.3.6
  * http://getbootstrap.com/javascript/#buttons
- * ========================================================================
+ *
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
+ */
 
 +function ($) {
     'use strict';
 
-    // BUTTON PUBLIC CLASS DEFINITION
-    // ==============================
-
+    // 按钮类定义
     var Button = function (element, options) {
         this.$element = $(element);
         this.options = $.extend({}, Button.DEFAULTS, options);
@@ -77,10 +74,7 @@
         }
     };
 
-
-// BUTTON PLUGIN DEFINITION
-// ========================
-
+    // 按钮插件定义
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
@@ -94,7 +88,7 @@
             if (option == 'toggle') {
                 data.toggle();
             } else if (option) {
-                data.setState(option)
+                data.setState(option);
             }
         })
     }
@@ -108,10 +102,6 @@
         $.fn.button = old;
         return this;
     };
-
-
-// BUTTON DATA-API
-// ===============
 
     $(document)
         .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {

@@ -59,7 +59,7 @@ module.exports = function (grunt) {
                     // eUI 组件
                     'src/box/box.js',
                     'src/totop/totop.js',
-                    'src/hover-dropdown.js'
+                    //'src/hover-dropdown.js'
                 ],
                 dest: 'dist/js/eui.js'
             },

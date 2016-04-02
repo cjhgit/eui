@@ -38,6 +38,7 @@
     padding: 5px 0;
     margin: 2px 0 0; // override default ul
     list-style: none;
+    color: #f1f1f1;
     font-size: @font-size-base;
     text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
     background-color: @dropdown-bg;
@@ -68,18 +69,20 @@
         line-height: @line-height-base;
         color: @dropdown-link-color;
         white-space: nowrap; // prevent links from randomly breaking onto new lines
+
+        // Hover/Focus state
+        .dropdown-menu > li > a {
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                color: @dropdown-link-hover-color;
+                background-color: @dropdown-link-hover-bg;
+            }
+        }
     }
 }
 
-// Hover/Focus state
-.dropdown-menu > li > a {
-    &:hover,
-    &:focus {
-        text-decoration: none;
-        color: @dropdown-link-hover-color;
-        background-color: @dropdown-link-hover-bg;
-    }
-}
+
 
 // Active state
 .dropdown-menu > .active > a {
@@ -156,6 +159,10 @@
     line-height: @line-height-base;
     color: @dropdown-header-color;
     white-space: nowrap; // as with > li > a
+}
+
+.dropdown-content {
+    padding: 10px 15px;
 }
 
 // Backdrop to catch body clicks on mobile, etc.

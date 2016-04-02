@@ -1,24 +1,21 @@
-/* ========================================================================
+/**
  * Bootstrap: carousel.js v3.3.6
  * http://getbootstrap.com/javascript/#carousel
- * ========================================================================
+ *
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
+ */
 
 +function ($) {
     'use strict';
 
-    // CAROUSEL CLASS DEFINITION
-    // =========================
-
+    // 轮播图类
     var Carousel = function (element, options) {
         this.$element = $(element);
         this.$indicators = this.$element.find('.carousel-indicators');
         this.options = options;
-        this.paused = null;
-        this.sliding = null;
+        this.paused = null; // 是否已经停止滑动
+        this.sliding = null; // 是否正在滑动
         this.interval = null;
         this.$active = null;
         this.$items = null;
@@ -42,7 +39,9 @@
     };
 
     Carousel.prototype.keydown = function (e) {
-        if (/input|textarea/i.test(e.target.tagName)) return;
+        if (/input|textarea/i.test(e.target.tagName)) {
+            return;
+        }
         switch (e.which) {
             case 37:
                 this.prev();
@@ -51,7 +50,7 @@
                 this.next();
                 break;
             default:
-                return
+                return;
         }
 
         e.preventDefault()
@@ -66,7 +65,7 @@
         && !this.paused
         && (this.interval = setInterval($.proxy(this.next, this), this.options.interval));
 
-        return this
+        return this;
     };
 
     Carousel.prototype.getItemIndex = function (item) {
@@ -78,24 +77,34 @@
         var activeIndex = this.getItemIndex(active);
         var willWrap = (direction == 'prev' && activeIndex === 0)
             || (direction == 'next' && activeIndex == (this.$items.length - 1));
-        if (willWrap && !this.options.wrap) return active;
+        if (willWrap && !this.options.wrap) {
+            return active;
+        }
         var delta = direction == 'prev' ? -1 : 1;
         var itemIndex = (activeIndex + delta) % this.$items.length;
         return this.$items.eq(itemIndex)
     };
 
+    // 滑动到某个轮播项
     Carousel.prototype.to = function (pos) {
         var that = this;
         var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'));
 
-        if (pos > (this.$items.length - 1) || pos < 0) return;
+        if (pos > (this.$items.length - 1) || pos < 0) {
+            return;
+        }
 
-        if (this.sliding)       return this.$element.one('slid.bs.carousel', function () {
-            that.to(pos)
-        });// yes, "slid"
-        if (activeIndex == pos) return this.pause().cycle();
+        if (this.sliding) {
+            return this.$element.one('slid.bs.carousel', function () {
+                that.to(pos)
+            });
+        }// yes, "slid"
 
-        return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos))
+        if (activeIndex == pos) {
+            return this.pause().cycle();
+        }
+
+        return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos));
     };
 
     Carousel.prototype.pause = function (e) {
@@ -103,24 +112,34 @@
 
         if (this.$element.find('.next, .prev').length && $.support.transition) {
             this.$element.trigger($.support.transition.end);
-            this.cycle(true)
+            this.cycle(true);
         }
 
         this.interval = clearInterval(this.interval);
 
-        return this
+        return this;
     };
 
     Carousel.prototype.next = function () {
-        if (this.sliding) return;
-        return this.slide('next')
+        if (this.sliding) {
+            return;
+        }
+        return this.slide('next');
     };
 
     Carousel.prototype.prev = function () {
-        if (this.sliding) return;
-        return this.slide('prev')
+        if (this.sliding) {
+            return;
+        }
+        return this.slide('prev');
     };
 
+    /**
+     * 切换
+     * @param type
+     * @param next
+     * @returns {*}
+     */
     Carousel.prototype.slide = function (type, next) {
         var $active = this.$element.find('.item.active');
         var $next = next || this.getItemForDirection(type, $active);
@@ -128,7 +147,9 @@
         var direction = type == 'next' ? 'left' : 'right';
         var that = this;
 
-        if ($next.hasClass('active')) return (this.sliding = false);
+        if ($next.hasClass('active')) {
+            return (this.sliding = false);
+        }
 
         var relatedTarget = $next[0];
         var slideEvent = $.Event('slide.bs.carousel', {
@@ -136,7 +157,9 @@
             direction: direction
         });
         this.$element.trigger(slideEvent);
-        if (slideEvent.isDefaultPrevented()) return;
+        if (slideEvent.isDefaultPrevented()) {
+            return;
+        }
 
         this.sliding = true;
 
@@ -176,10 +199,7 @@
         return this;
     };
 
-
     // CAROUSEL PLUGIN DEFINITION
-    // ==========================
-
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
@@ -188,7 +208,8 @@
             var action = typeof option == 'string' ? option : options.slide;
 
             if (!data) {
-                $this.data('bs.carousel', (data = new Carousel(this, options)));
+                data = new Carousel(this, options);
+                $this.data('bs.carousel', data);
             }
             if (typeof option == 'number') {
                 data.to(option);
@@ -205,18 +226,10 @@
     $.fn.carousel = Plugin;
     $.fn.carousel.Constructor = Carousel;
 
-
-    // CAROUSEL NO CONFLICT
-    // ====================
-
     $.fn.carousel.noConflict = function () {
         $.fn.carousel = old;
         return this;
     };
-
-
-    // CAROUSEL DATA-API
-    // =================
 
     var clickHandler = function (e) {
         var href;

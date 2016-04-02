@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default">
-                <header class="panel-heading">菜单按钮</header>
+                <header class="panel-heading">下拉菜单</header>
                 <div class="panel-body">
                     <div class="btn-group">
                         <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
@@ -60,9 +60,77 @@
                         </button>
 
                         <ul class="dropdown-menu">
-                            <button class="btn btn-success" type="button">呵呵</button>
+                            <div class="dropdown-header"><h4>操作</h4></div>
+                            <div class="dropdown-content">
+                                <p>请选择一下操作：</p>
+                                <button class="btn btn-success" type="button">登陆</button>
+                                <button class="btn btn-success" type="button">注册</button>
+                                <button class="btn btn-success" type="button">退出</button>
+                            </div>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">hover</header>
+                <div class="panel-body">
+                    <div class="btn-group">
+                        <button class="btn btn-info dropdown-toggle" data-hover="dropdown">
+                            Warning <i class="fa fa-angle-down"></i>
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-warning">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-success dropdown-toggle" data-hover="dropdown">
+                            Warning <i class="fa fa-angle-down"></i>
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-warning">
+                            <div class="dropdown-header"><h3>标题</h3></div>
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">方法</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>方法</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>$(selector).dropdown('toggle')</td>
+                            <td>
+                                显示或隐藏下拉菜单。
+                                <p>如：$('.dropdown-toggle').dropdown('toggle')</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -70,6 +138,7 @@
 </div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
+
 <script>
 </script>
 </body>

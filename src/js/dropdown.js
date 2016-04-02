@@ -1,22 +1,21 @@
-/* ========================================================================
+/**
  * Bootstrap: dropdown.js v3.3.6
  * http://getbootstrap.com/javascript/#dropdowns
- * ========================================================================
+ *
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
+ */
 
 +function ($) {
     'use strict';
 
-    // DROPDOWN CLASS DEFINITION
-    // =========================
+    // 下拉菜单类定义
 
     var backdrop = '.dropdown-backdrop';
     var toggle = '[data-toggle="dropdown"]';
+
     var Dropdown = function (element) {
-        $(element).on('click.bs.dropdown', this.toggle)
+        $(element).on('click.bs.dropdown', this.toggle);
     };
 
     Dropdown.VERSION = '3.3.6';
@@ -31,9 +30,10 @@
 
         var $parent = selector && $(selector);
 
-        return $parent && $parent.length ? $parent : $this.parent()
+        return $parent && $parent.length ? $parent : $this.parent();
     }
 
+    // 请空页面上所有显示出来的下拉菜单
     function clearMenus(e) {
         if (e && e.which === 3) {
             return;
@@ -64,6 +64,7 @@
         })
     }
 
+    // 显示/隐藏下拉菜单
     Dropdown.prototype.toggle = function (e) {
         var $this = $(this);
 
@@ -82,13 +83,15 @@
                 $(document.createElement('div'))
                     .addClass('dropdown-backdrop')
                     .insertAfter($(this))
-                    .on('click', clearMenus)
+                    .on('click', clearMenus);
             }
 
             var relatedTarget = {relatedTarget: this};
             $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget));
 
-            if (e.isDefaultPrevented()) return;
+            if (e.isDefaultPrevented()) {
+                return;
+            }
 
             $this
                 .trigger('focus')
@@ -96,56 +99,78 @@
 
             $parent
                 .toggleClass('open')
-                .trigger($.Event('shown.bs.dropdown', relatedTarget))
+                .trigger($.Event('shown.bs.dropdown', relatedTarget));
         }
 
-        return false
-    }
+        return false;
+    };
 
     Dropdown.prototype.keydown = function (e) {
-        if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return;
+        if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) {
+            return;
+        }
 
         var $this = $(this);
 
         e.preventDefault();
         e.stopPropagation();
 
-        if ($this.is('.disabled, :disabled')) return;
+        if ($this.is('.disabled, :disabled')) {
+            return;
+        }
 
         var $parent = getParent($this);
         var isActive = $parent.hasClass('open');
 
         if (!isActive && e.which != 27 || isActive && e.which == 27) {
-            if (e.which == 27) $parent.find(toggle).trigger('focus');
+            if (e.which == 27) {
+                $parent.find(toggle).trigger('focus');
+            }
             return $this.trigger('click');
         }
 
         var desc = ' li:not(.disabled):visible a';
         var $items = $parent.find('.dropdown-menu' + desc);
 
-        if (!$items.length) return;
+        if (!$items.length) {
+            return;
+        }
 
         var index = $items.index(e.target);
 
-        if (e.which == 38 && index > 0)                 index--;        // up
-        if (e.which == 40 && index < $items.length - 1) index++;         // down
-        if (!~index)                                    index = 0;
+        // up
+        if (e.which == 38 && index > 0) {
+            index--;
+        }
+        // down
+        if (e.which == 40 && index < $items.length - 1) {
+            index++;
+        }
+        if (!~index){
+            index = 0;
+        }
 
-        $items.eq(index).trigger('focus')
+        $items.eq(index).trigger('focus');
     };
 
+    Dropdown.prototype.hoverover = function(e) {
+        toggle(e);
+    };
 
-    // DROPDOWN PLUGIN DEFINITION
-    // ==========================
-
+    // 下拉菜单插件定义
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
             var data = $this.data('bs.dropdown');
 
-            if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)));
-            if (typeof option == 'string') data[option].call($this);
-        })
+            if (!data) {
+                data = new Dropdown(this);
+                $this.data('bs.dropdown', data);
+            }
+            if (typeof option == 'string') {
+                data[option].call($this);
+            }
+        });
     }
 
     var old = $.fn.dropdown;
@@ -153,26 +178,19 @@
     $.fn.dropdown = Plugin;
     $.fn.dropdown.Constructor = Dropdown;
 
-
-    // DROPDOWN NO CONFLICT
-    // ====================
-
     $.fn.dropdown.noConflict = function () {
         $.fn.dropdown = old;
         return this;
     };
 
-
-    // APPLY TO STANDARD DROPDOWN ELEMENTS
-    // ===================================
-
     $(document)
         .on('click.bs.dropdown.data-api', clearMenus)
         .on('click.bs.dropdown.data-api', '.dropdown form', function (e) {
-            e.stopPropagation()
+            e.stopPropagation();
         })
         .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
         .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
         .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+        //.on('mouseover', '[data-hover="dropdown"]', Dropdown.prototype.hoverover);
 
 }(jQuery);
