@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>固定元素</title>
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+</head>
+
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <button id="sticky1" class="btn btn-success">浮动</button>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <button id="sticky2" class="btn btn-success">浮动</button>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+        <p>呵呵</p>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">方法</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>方法</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>$(selector).sticky(options)</td>
+                            <td>使元素在顶部悬停。</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">选项</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>选项</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>offset</td>
+                            <td>number</td>
+                            <td>0</td>
+                            <td>悬停位置距页面顶部的距离（px）。</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../src/sticky.js"></script>
+<script>
+$(document).ready(function(){
+    $('#sticky1').posfixed();
+
+    $('#sticky2').posfixed({
+        offset: 100,
+    });
+});
+</script>
+</body>
+</html>
