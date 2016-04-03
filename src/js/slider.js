@@ -1,6 +1,6 @@
 /**
- * Bootstrap: carousel.js v3.3.6
- * http://getbootstrap.com/javascript/#carousel
+ * 轮播插件
+ * v1.0.0
  *
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -9,10 +9,16 @@
 +function ($) {
     'use strict';
 
+    var SELETOR_INDICATORS = '.eui-slider-indicators';
+    var SELECTOR_ITEM = '.item';
+    var CLASS_SLIDER = 'eui-slider';
+    var EVENT_SLID = 'slid.eui.slider';
+    var EVENT_SLIDER = 'slide.eui.slider';
+
     // 轮播图类
-    var Carousel = function (element, options) {
+    var Slider = function (element, options) {
         this.$element = $(element);
-        this.$indicators = this.$element.find('.carousel-indicators');
+        this.$indicators = this.$element.find(SELETOR_INDICATORS);
         this.options = options;
         this.paused = null; // 是否已经停止滑动
         this.sliding = null; // 是否正在滑动
@@ -20,25 +26,25 @@
         this.$active = null;
         this.$items = null;
 
-        this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this));
+        this.options.keyboard && this.$element.on('keydown.eui.slider', $.proxy(this.keydown, this));
 
         this.options.pause == 'hover' && !('ontouchstart' in document.documentElement) && this.$element
-            .on('mouseenter.bs.carousel', $.proxy(this.pause, this))
-            .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
+            .on('mouseenter.eui.slider', $.proxy(this.pause, this))
+            .on('mouseleave.eui.slider', $.proxy(this.cycle, this))
     };
 
-    Carousel.VERSION = '3.3.6';
+    Slider.VERSION = '3.3.6';
 
-    Carousel.TRANSITION_DURATION = 600;
+    Slider.TRANSITION_DURATION = 600;
 
-    Carousel.DEFAULTS = {
+    Slider.DEFAULTS = {
         interval: 5000,
         pause: 'hover',
         wrap: true,
         keyboard: true
     };
 
-    Carousel.prototype.keydown = function (e) {
+    Slider.prototype.keydown = function (e) {
         if (/input|textarea/i.test(e.target.tagName)) {
             return;
         }
@@ -56,7 +62,7 @@
         e.preventDefault()
     };
 
-    Carousel.prototype.cycle = function (e) {
+    Slider.prototype.cycle = function (e) {
         e || (this.paused = false);
 
         this.interval && clearInterval(this.interval);
@@ -68,12 +74,12 @@
         return this;
     };
 
-    Carousel.prototype.getItemIndex = function (item) {
-        this.$items = item.parent().children('.item');
+    Slider.prototype.getItemIndex = function (item) {
+        this.$items = item.parent().children(SELECTOR_ITEM);
         return this.$items.index(item || this.$active);
     };
 
-    Carousel.prototype.getItemForDirection = function (direction, active) {
+    Slider.prototype.getItemForDirection = function (direction, active) {
         var activeIndex = this.getItemIndex(active);
         var willWrap = (direction == 'prev' && activeIndex === 0)
             || (direction == 'next' && activeIndex == (this.$items.length - 1));
@@ -86,16 +92,16 @@
     };
 
     // 滑动到某个轮播项
-    Carousel.prototype.to = function (pos) {
+    Slider.prototype.to = function (pos) {
         var that = this;
-        var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'));
+        var activeIndex = this.getItemIndex(this.$active = this.$element.find(SELECTOR_ITEM + '.active'));
 
         if (pos > (this.$items.length - 1) || pos < 0) {
             return;
         }
 
         if (this.sliding) {
-            return this.$element.one('slid.bs.carousel', function () {
+            return this.$element.one(EVENT_SLID, function () {
                 that.to(pos)
             });
         }// yes, "slid"
@@ -107,7 +113,7 @@
         return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos));
     };
 
-    Carousel.prototype.pause = function (e) {
+    Slider.prototype.pause = function (e) {
         e || (this.paused = true);
 
         if (this.$element.find('.next, .prev').length && $.support.transition) {
@@ -120,14 +126,14 @@
         return this;
     };
 
-    Carousel.prototype.next = function () {
+    Slider.prototype.next = function () {
         if (this.sliding) {
             return;
         }
         return this.slide('next');
     };
 
-    Carousel.prototype.prev = function () {
+    Slider.prototype.prev = function () {
         if (this.sliding) {
             return;
         }
@@ -140,8 +146,8 @@
      * @param next
      * @returns {*}
      */
-    Carousel.prototype.slide = function (type, next) {
-        var $active = this.$element.find('.item.active');
+    Slider.prototype.slide = function (type, next) {
+        var $active = this.$element.find(SELECTOR_ITEM + '.active');
         var $next = next || this.getItemForDirection(type, $active);
         var isCycling = this.interval;
         var direction = type == 'next' ? 'left' : 'right';
@@ -152,7 +158,7 @@
         }
 
         var relatedTarget = $next[0];
-        var slideEvent = $.Event('slide.bs.carousel', {
+        var slideEvent = $.Event(EVENT_SLIDER, {
             relatedTarget: relatedTarget,
             direction: direction
         });
@@ -171,7 +177,7 @@
             $nextIndicator && $nextIndicator.addClass('active')
         }
 
-        var slidEvent = $.Event('slid.bs.carousel', {relatedTarget: relatedTarget, direction: direction}); // yes, "slid"
+        var slidEvent = $.Event(EVENT_SLID, {relatedTarget: relatedTarget, direction: direction}); // yes, "slid"
         if ($.support.transition && this.$element.hasClass('slide')) {
             $next.addClass(type);
             $next[0].offsetWidth;// force reflow
@@ -184,9 +190,9 @@
                     that.sliding = false;
                     setTimeout(function () {
                         that.$element.trigger(slidEvent)
-                    }, 0)
+                    }, 0);
                 })
-                .emulateTransitionEnd(Carousel.TRANSITION_DURATION);
+                .emulateTransitionEnd(Slider.TRANSITION_DURATION);
         } else {
             $active.removeClass('active');
             $next.addClass('active');
@@ -199,17 +205,17 @@
         return this;
     };
 
-    // CAROUSEL PLUGIN DEFINITION
+    // 轮播插件定义
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
-            var data = $this.data('bs.carousel');
-            var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option);
+            var data = $this.data('eui.slider');
+            var options = $.extend({}, Slider.DEFAULTS, $this.data(), typeof option == 'object' && option);
             var action = typeof option == 'string' ? option : options.slide;
 
             if (!data) {
-                data = new Carousel(this, options);
-                $this.data('bs.carousel', data);
+                data = new Slider(this, options);
+                $this.data('eui.slider', data);
             }
             if (typeof option == 'number') {
                 data.to(option);
@@ -218,16 +224,16 @@
             } else if (options.interval) {
                 data.pause().cycle();
             }
-        })
+        });
     }
 
-    var old = $.fn.carousel;
+    var old = $.fn.slider;
 
-    $.fn.carousel = Plugin;
-    $.fn.carousel.Constructor = Carousel;
+    $.fn.slider = Plugin;
+    $.fn.slider.Constructor = Slider;
 
-    $.fn.carousel.noConflict = function () {
-        $.fn.carousel = old;
+    $.fn.slider.noConflict = function () {
+        $.fn.slider = old;
         return this;
     };
 
@@ -235,9 +241,10 @@
         var href;
         var $this = $(this);
         var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')); // strip for ie7
-        if (!$target.hasClass('carousel')) {
+        if (!$target.hasClass(CLASS_SLIDER)) {
             return;
         }
+
         var options = $.extend({}, $target.data(), $this.data());
         var slideIndex = $this.attr('data-slide-to');
         if (slideIndex) {
@@ -247,21 +254,20 @@
         Plugin.call($target, options);
 
         if (slideIndex) {
-            $target.data('bs.carousel').to(slideIndex);
+            $target.data('eui.slider').to(slideIndex);
         }
 
         e.preventDefault();
     };
 
     $(document)
-        .on('click.bs.carousel.data-api', '[data-slide]', clickHandler)
-        .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandler);
+        .on('click.eui.slider.data-api', '[data-slide]', clickHandler)
+        .on('click.eui.slider.data-api', '[data-slide-to]', clickHandler);
 
     $(window).on('load', function () {
-        $('[data-ride="carousel"]').each(function () {
-            var $carousel = $(this);
-            Plugin.call($carousel, $carousel.data());
+        $('[data-ride="slider"]').each(function () {
+            var $slider = $(this);
+            Plugin.call($slider, $slider.data());
         });
     });
-
 }(jQuery);

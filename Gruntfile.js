@@ -14,7 +14,7 @@ module.exports = function (grunt) {
                 stripBanners: true,
                 banner: '/*! <%=pkg.name%>-<%=pkg.version%>.js <%=grunt.template.today("yyyy-mm-dd") %>*/\n'
             },
-            build: {
+            test: {
                 src: 'dist/js/eui.js',
                 dest: 'dist/js/eui.min.js'
             },
@@ -47,7 +47,7 @@ module.exports = function (grunt) {
                 src: [
                     'src/js/alert.js',
                     'src/js/button.js',
-                    'src/js/carousel.js',
+                    'src/js/slider.js',
                     'src/js/collapse.js',
                     'src/js/dropdown.js',
                     'src/js/modal.js',
@@ -138,7 +138,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
 
     // 测试
-    grunt.registerTask('default',['less:default', 'cssmin', 'concat:test', 'uglify:build']);
+    grunt.registerTask('default',['less:default', 'cssmin', 'concat:test', 'uglify:test']);
     // 发布
     grunt.registerTask('dist', ['less:dist', 'concat:dist', 'uglify:dist', 'uglify:dist2']);
     //grunt.registerTask('clean', ['clean:dist']);

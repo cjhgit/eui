@@ -1,13 +1,13 @@
 //
-// Carousel
-// --------------------------------------------------
+// slider 轮播
+//
 
 // Wrapper for the slide container and indicators
-.carousel {
+.eui-slider {
     position: relative;
 }
 
-.carousel-inner {
+.eui-slider-inner {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -91,18 +91,18 @@
 // Left/right controls for nav
 // ---------------------------
 
-.carousel-control {
+.eui-slider-control {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    width: @carousel-control-width;
-    .opacity(@carousel-control-opacity);
-    font-size: @carousel-control-font-size;
-    color: @carousel-control-color;
+    width: @slider-control-width;
+    .opacity(@slider-control-opacity);
+    font-size: @slider-control-font-size;
+    color: @slider-control-color;
     text-align: center;
     background-color: rgba(0, 0, 0, 0); // Fix IE9 click-thru bug
-    // We can't have this transition here because WebKit cancels the carousel
+    // We can't have this transition here because WebKit cancels the slider
     // animation if you trip this while in the middle of another animation.
 
     // Set gradients for backgrounds
@@ -119,7 +119,7 @@
     &:hover,
     &:focus {
         outline: 0;
-        color: @carousel-control-color;
+        color: @slider-control-color;
         text-decoration: none;
         .opacity(.9);
     }
@@ -168,9 +168,9 @@
 // Optional indicator pips
 //
 // Add an unordered list with the following class and add a list item for each
-// slide your carousel holds.
+// slide your slider holds.
 
-.carousel-indicators {
+.eui-slider-indicators {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -187,7 +187,7 @@
         height: 10px;
         margin: 1px;
         text-indent: -999px;
-        border: 1px solid @carousel-indicator-border-color;
+        border: 1px solid @slider-indicator-border-color;
         border-radius: 10px;
         cursor: pointer;
 
@@ -207,14 +207,14 @@
         margin: 0;
         width: 12px;
         height: 12px;
-        background-color: @carousel-indicator-active-bg;
+        background-color: @slider-indicator-active-bg;
     }
 }
 
 // Optional captions
 // -----------------------------
 // Hidden by default for smaller viewports
-.carousel-caption {
+.eui-slider-caption {
     position: absolute;
     left: 15%;
     right: 15%;
@@ -222,11 +222,10 @@
     z-index: 10;
     padding-top: 20px;
     padding-bottom: 20px;
-    color: @carousel-caption-color;
+    color: @slider-caption-color;
     text-align: center;
-    text-shadow: @carousel-text-shadow;
     & .btn {
-        text-shadow: none; // No shadow for button elements in carousel-caption
+        text-shadow: none; // No shadow for button elements in slider-caption
     }
 }
 
@@ -234,35 +233,35 @@
 @media screen and (min-width: @screen-sm-min) {
 
     // Scale up the controls a smidge
-    .carousel-control {
+    .eui-slider-control {
         .glyphicon-chevron-left,
         .glyphicon-chevron-right,
         .icon-prev,
         .icon-next {
-            width: (@carousel-control-font-size * 1.5);
-            height: (@carousel-control-font-size * 1.5);
-            margin-top: (@carousel-control-font-size / -2);
-            font-size: (@carousel-control-font-size * 1.5);
+            width: (@slider-control-font-size * 1.5);
+            height: (@slider-control-font-size * 1.5);
+            margin-top: (@slider-control-font-size / -2);
+            font-size: (@slider-control-font-size * 1.5);
         }
         .glyphicon-chevron-left,
         .icon-prev {
-            margin-left: (@carousel-control-font-size / -2);
+            margin-left: (@slider-control-font-size / -2);
         }
         .glyphicon-chevron-right,
         .icon-next {
-            margin-right: (@carousel-control-font-size / -2);
+            margin-right: (@slider-control-font-size / -2);
         }
     }
 
     // Show and left align the captions
-    .carousel-caption {
+    .eui-slider-caption {
         left: 20%;
         right: 20%;
         padding-bottom: 30px;
     }
 
     // Move up the indicators
-    .carousel-indicators {
+    .eui-slider-indicators {
         bottom: 20px;
     }
 }
