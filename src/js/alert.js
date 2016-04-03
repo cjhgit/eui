@@ -1,19 +1,20 @@
-/* ========================================================================
- * Bootstrap: alert.js v3.3.6
- * http://getbootstrap.com/javascript/#alerts
- * ========================================================================
+/**
+ * Alert
+ * v1.0.0
+ *
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
+ */
 
 +function ($) {
     'use strict';
 
-    // ALERT CLASS DEFINITION
-    // ======================
-
     var dismiss = '[data-dismiss="alert"]';
+    var SELECTOR_ALERT = '.eui-alert';
+    var EVEMT_CLOSE = 'close.eui.alert';
+    var EVEMT_CLOSED = 'closed.eui.alert';
+
+    // ALERT CLASS DEFINITION
     var Alert = function (el) {
         $(el).on('click', dismiss, this.close)
     };
@@ -38,10 +39,10 @@
         }
 
         if (!$parent.length) {
-            $parent = $this.closest('.alert');
+            $parent = $this.closest(SELECTOR_ALERT);
         }
 
-        $parent.trigger(e = $.Event('close.bs.alert'));
+        $parent.trigger(e = $.Event(EVEMT_CLOSE));
 
         if (e.isDefaultPrevented()) {
             return;
@@ -51,7 +52,7 @@
 
         function removeElement() {
             // detach from parent, fire event then clean up data
-            $parent.detach().trigger('closed.bs.alert').remove();
+            $parent.detach().trigger(EVEMT_CLOSED).remove();
         }
 
         $.support.transition && $parent.hasClass('fade') ?
@@ -68,10 +69,11 @@
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
-            var data = $this.data('bs.alert');
+            var data = $this.data('eui.alert');
 
             if (!data) {
-                $this.data('bs.alert', (data = new Alert(this)));
+                data = new Alert(this);
+                $this.data('eui.alert', data);
             }
             if (typeof option == 'string') {
                 data[option].call($this)
@@ -97,6 +99,6 @@
     // ALERT DATA-API
     // ==============
 
-    $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close);
+    $(document).on('click.eui.alert.data-api', dismiss, Alert.prototype.close);
 
 }(jQuery);
