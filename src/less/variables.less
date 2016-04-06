@@ -48,7 +48,7 @@
 //** Link hover color set via `darken()` function.
 @link-hover-color:      darken(@link-color, 15%);
 //** Link hover decoration.
-@link-hover-decoration: underline; // TODO no?
+@link-hover-decoration: underline; // underline
 
 
 //== Typography
@@ -374,9 +374,7 @@
 @container-lg:                 @container-large-desktop;
 
 
-//== Navbar
-//
-//##
+// Navbar 导航栏
 
 // Basics of a navbar
 @navbar-height:                    50px;
@@ -386,65 +384,52 @@
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
-@navbar-default-color:             #777;
-@navbar-default-bg:                #f8f8f8;
-@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
-
-// Navbar links
-@navbar-default-link-color:                #777;
-@navbar-default-link-hover-color:          #333;
-@navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
-@navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
-@navbar-default-link-disabled-color:       #ccc;
-@navbar-default-link-disabled-bg:          transparent;
-
-// Navbar brand label
-@navbar-default-brand-color:               @navbar-default-link-color;
-@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
-@navbar-default-brand-hover-bg:            transparent;
-
-// Navbar toggle
-@navbar-default-toggle-hover-bg:           #ddd;
-@navbar-default-toggle-icon-bar-bg:        #888;
-@navbar-default-toggle-border-color:       #ddd;
-
-
-//=== Inverted navbar
-// Reset inverted navbar basics
-@navbar-inverse-color:                      lighten(@gray-light, 15%);
-@navbar-inverse-bg:                         #222;
-@navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
-
-// Inverted navbar links
-@navbar-inverse-link-color:                 lighten(@gray-light, 15%);
-@navbar-inverse-link-hover-color:           #fff;
-@navbar-inverse-link-hover-bg:              transparent;
-@navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
-@navbar-inverse-link-active-bg:             darken(@navbar-inverse-bg, 10%);
-@navbar-inverse-link-disabled-color:        #444;
-@navbar-inverse-link-disabled-bg:           transparent;
-
-// Inverted navbar brand label
-@navbar-inverse-brand-color:                @navbar-inverse-link-color;
-@navbar-inverse-brand-hover-color:          #fff;
-@navbar-inverse-brand-hover-bg:             transparent;
-
-// Inverted navbar toggle
-@navbar-inverse-toggle-hover-bg:            #333;
-@navbar-inverse-toggle-icon-bar-bg:         #fff;
-@navbar-inverse-toggle-border-color:        #333;
-
-// TODO 兼容性
-@navbar-dark-color:                 rgba(255,255,255,.6);
-@navbar-dark-hover-color:           rgba(255,255,255,.75);
-@navbar-dark-active-color:          rgba(255,255,255,1);
-@navbar-dark-disabled-color:        rgba(255,255,255,.25);
-
-@navbar-light-color:                rgba(0,0,0,.3);
+// navbar-light
+@navbar-light-color:             #777;
+@navbar-light-bg:                #f8f8f8;
+@navbar-light-border:            #d1d0d0;
 @navbar-light-hover-color:          rgba(0,0,0,.6);
 @navbar-light-active-color:         rgba(0,0,0,.8);
-@navbar-light-disabled-color:       rgba(0,0,0,.15);
+
+@navbar-light-link-color:                #777;
+@navbar-light-link-hover-color:          #333;
+@navbar-light-link-hover-bg:             transparent;
+@navbar-light-link-active-color:         #555;
+@navbar-light-link-active-bg:            darken(@navbar-light-bg, 6.5%);
+@navbar-light-link-disabled-color:       #ccc;
+@navbar-light-link-disabled-bg:          transparent;
+
+@navbar-light-brand-color:                @navbar-light-link-color;
+@navbar-light-brand-hover-color:         darken(@navbar-light-brand-color, 10%);
+@navbar-light-brand-hover-bg:            transparent;
+
+@navbar-light-toggle-hover-bg:           #ddd;
+@navbar-light-toggle-icon-bar-bg:        #888;
+@navbar-light-toggle-border-color:       #ddd;
+
+
+// navbar-dark
+@navbar-dark-color:                      lighten(@gray-light, 15%);
+@navbar-dark-bg:                         #222;
+@navbar-dark-border:                     #c4c9cd;
+@navbar-dark-hover-color:           rgba(255,255,255,.75);
+@navbar-dark-active-color:          rgba(255,255,255,1);
+
+@navbar-dark-link-color:                 #e1e6eb;
+@navbar-dark-link-hover-color:           #fff;
+@navbar-dark-link-hover-bg:              transparent;
+@navbar-dark-link-active-color:         @navbar-dark-link-hover-color;
+@navbar-dark-link-active-bg:             transparent;
+@navbar-dark-link-disabled-color:        #444;
+@navbar-dark-link-disabled-bg:           transparent;
+
+@navbar-dark-brand-color:                 #fff;
+@navbar-dark-brand-hover-color:          #fff;
+@navbar-dark-brand-hover-bg:             transparent;
+
+@navbar-dark-toggle-hover-bg:            #333;
+@navbar-dark-toggle-icon-bar-bg:         #fff;
+@navbar-dark-toggle-border-color:        #333;
 
 //== Navs
 //

@@ -418,45 +418,45 @@
     }
 
     .navbar-text {
-        color: @navbar-default-color;
+        color: @navbar-light-color;
     }
 
     .navbar-nav {
         .nav-item .nav-link {
-            color: @navbar-default-link-color;
+            color: @navbar-light-link-color;
 
             &:hover,
             &:focus {
-                color: @navbar-default-link-hover-color;
-                background-color: @navbar-default-link-hover-bg;
+                color: @navbar-light-link-hover-color;
+                background-color: @navbar-light-link-hover-bg;
             }
         }
         > .active .nav-link {
             &,
             &:hover,
             &:focus {
-                color: @navbar-default-link-active-color;
+                color: @navbar-light-link-active-color;
             }
         }
         > .disabled .nav-link {
             &,
             &:hover,
             &:focus {
-                color: @navbar-default-link-disabled-color;
-                background-color: @navbar-default-link-disabled-bg;
+                color: @navbar-light-link-disabled-color;
+                background-color: @navbar-light-link-disabled-bg;
             }
         }
     }
 
     .navbar-toggle {
         .icon-bar {
-            background-color: @navbar-default-toggle-icon-bar-bg;
+            background-color: @navbar-light-toggle-icon-bar-bg;
         }
     }
 
     .navbar-collapse,
     .navbar-form {
-        border-color: @navbar-default-border;
+        border-color: @navbar-light-border;
     }
 
     // Dropdown menu items
@@ -466,8 +466,8 @@
             &,
             &:hover,
             &:focus {
-                background-color: @navbar-default-link-active-bg;
-                color: @navbar-default-link-active-color;
+                background-color: @navbar-light-link-active-bg;
+                color: @navbar-light-link-active-color;
             }
         }
 
@@ -475,27 +475,27 @@
             // Dropdowns get custom display when collapsed
             .open .dropdown-menu {
                 > li > a {
-                    color: @navbar-default-link-color;
+                    color: @navbar-light-link-color;
                     &:hover,
                     &:focus {
-                        color: @navbar-default-link-hover-color;
-                        background-color: @navbar-default-link-hover-bg;
+                        color: @navbar-light-link-hover-color;
+                        background-color: @navbar-light-link-hover-bg;
                     }
                 }
                 > .active > a {
                     &,
                     &:hover,
                     &:focus {
-                        color: @navbar-default-link-active-color;
-                        background-color: @navbar-default-link-active-bg;
+                        color: @navbar-light-link-active-color;
+                        background-color: @navbar-light-link-active-bg;
                     }
                 }
                 > .disabled > a {
                     &,
                     &:hover,
                     &:focus {
-                        color: @navbar-default-link-disabled-color;
-                        background-color: @navbar-default-link-disabled-bg;
+                        color: @navbar-light-link-disabled-color;
+                        background-color: @navbar-light-link-disabled-bg;
                     }
                 }
             }
@@ -517,9 +517,9 @@
         .nav-link {
             color: @navbar-dark-color;
 
-            @include hover-focus {
-                color: @navbar-dark-hover-color;
-            }
+        @include hover-focus {
+            color: @navbar-dark-hover-color;
+        }
         }
 
         .open > .nav-link,
@@ -538,27 +538,27 @@
 
     .navbar-nav {
         .nav-item .nav-link {
-            color: @navbar-inverse-link-color;
+            color: @navbar-dark-link-color;
 
             &:hover,
             &:focus {
-                color: @navbar-inverse-link-hover-color;
-                background-color: @navbar-inverse-link-hover-bg;
+                color: @navbar-dark-link-hover-color;
+                background-color: @navbar-dark-link-hover-bg;
             }
         }
         > .active .nav-link {
             &,
             &:hover,
             &:focus {
-                color: @navbar-inverse-link-active-color;
+                color: @navbar-dark-link-active-color;
             }
         }
         > .disabled .nav-link {
             &,
             &:hover,
             &:focus {
-                color: @navbar-inverse-link-disabled-color;
-                background-color: @navbar-inverse-link-disabled-bg;
+                color: @navbar-dark-link-disabled-color;
+                background-color: @navbar-dark-link-disabled-bg;
             }
         }
     }
@@ -566,13 +566,13 @@
     // Darken the responsive nav toggle
     .navbar-toggle {
         .icon-bar {
-            background-color: @navbar-inverse-toggle-icon-bar-bg;
+            background-color: @navbar-dark-toggle-icon-bar-bg;
         }
     }
 
     .navbar-collapse,
     .navbar-form {
-        border-color: darken(@navbar-inverse-bg, 7%);
+        border-color: @navbar-dark-border;
     }
 
     // Dropdowns
@@ -581,8 +581,8 @@
             &,
             &:hover,
             &:focus {
-                background-color: @navbar-inverse-link-active-bg;
-                color: @navbar-inverse-link-active-color;
+                background-color: @navbar-dark-link-active-bg;
+                color: @navbar-dark-link-active-color;
             }
         }
 
@@ -590,33 +590,33 @@
             // Dropdowns get custom display
             .open .dropdown-menu {
                 > .dropdown-header {
-                    border-color: @navbar-inverse-border;
+                    border-color: @navbar-dark-border;
                 }
                 .divider {
-                    background-color: @navbar-inverse-border;
+                    background-color: @navbar-dark-border;
                 }
                 > li > a {
-                    color: @navbar-inverse-link-color;
+                    color: @navbar-dark-link-color;
                     &:hover,
                     &:focus {
-                        color: @navbar-inverse-link-hover-color;
-                        background-color: @navbar-inverse-link-hover-bg;
+                        color: @navbar-dark-link-hover-color;
+                        background-color: @navbar-dark-link-hover-bg;
                     }
                 }
                 > .active > a {
                     &,
                     &:hover,
                     &:focus {
-                        color: @navbar-inverse-link-active-color;
-                        background-color: @navbar-inverse-link-active-bg;
+                        color: @navbar-dark-link-active-color;
+                        background-color: @navbar-dark-link-active-bg;
                     }
                 }
                 > .disabled > a {
                     &,
                     &:hover,
                     &:focus {
-                        color: @navbar-inverse-link-disabled-color;
-                        background-color: @navbar-inverse-link-disabled-bg;
+                        color: @navbar-dark-link-disabled-color;
+                        background-color: @navbar-dark-link-disabled-bg;
                     }
                 }
             }
@@ -624,23 +624,23 @@
     }
 
     .navbar-link {
-        color: @navbar-inverse-link-color;
+        color: @navbar-dark-link-color;
         &:hover {
-            color: @navbar-inverse-link-hover-color;
+            color: @navbar-dark-link-hover-color;
         }
     }
 
     .btn-link {
-        color: @navbar-inverse-link-color;
+        color: @navbar-dark-link-color;
         &:hover,
         &:focus {
-            color: @navbar-inverse-link-hover-color;
+            color: @navbar-dark-link-hover-color;
         }
         &[disabled],
         fieldset[disabled] & {
             &:hover,
             &:focus {
-                color: @navbar-inverse-link-disabled-color;
+                color: @navbar-dark-link-disabled-color;
             }
         }
     }
