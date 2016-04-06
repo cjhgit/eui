@@ -70,14 +70,11 @@
         color: @dropdown-link-color;
         white-space: nowrap; // prevent links from randomly breaking onto new lines
 
-        // Hover/Focus state
-        .dropdown-menu > li > a {
-            &:hover,
-            &:focus {
-                text-decoration: none;
-                color: @dropdown-link-hover-color;
-                background-color: @dropdown-link-hover-bg;
-            }
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            color: @dropdown-link-hover-color;
+            background-color: @dropdown-link-hover-bg;
         }
     }
 }
