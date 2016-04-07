@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单验证 - eUI</title>
+<link rel="stylesheet" href="../dist/css/glyphicons.min.css">
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+    <style>
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<div class="mycontainer">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">插件介绍</div>
+                <div class="panel-body">
+                    <p>jQuery validate 是一个表单验证插件。。。</p>
+                    <a href="http://www.runoob.com/jquery/jquery-plugin-validate.html">更多介绍</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">所有表单</div>
+                <div class="panel-body">
+                    <form id="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">姓名</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control" name="name" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">密码</label>
+                            <div class="col-md-6">
+                                <input id="password" class="form-control" name="password" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">确认密码</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control" name="password2" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">性别</label>
+
+                            <div class="col-md-6">
+                                <div class="radio">
+                                    <label><input type="radio" name="sex"> 男</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="sex"> 女</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">爱好</label>
+
+                            <div class="col-md-6">
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">运动</label>
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">读书</label>
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">旅游</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">爱好</label>
+
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label><input class="" type="checkbox" name="hobby">运动</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input class="" type="checkbox" name="hobby">读书</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label class=""><input class="" type="checkbox" name="hobby">旅游</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary" type="submit">确定</button>
+                                <button class="btn btn-default" type="submit">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">插件介绍</div>
+                <div class="panel-body">
+                    <p>jQuery validate 是一个表单验证插件。。。</p>
+                    <a href="http://www.runoob.com/jquery/jquery-plugin-validate.html">更多介绍</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">所有表单</div>
+                <div class="panel-body">
+                    <form id="myform" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">姓名</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control" name="name" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">密码</label>
+                            <div class="col-md-6">
+                                <input class="form-control" name="password" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">确认密码</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control" name="password2" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">性别</label>
+
+                            <div class="col-md-6">
+                                <div class="radio">
+                                    <label><input type="radio" name="sex"> 男</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="sex"> 女</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">爱好</label>
+
+                            <div class="col-md-6">
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">运动</label>
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">读书</label>
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">旅游</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">爱好</label>
+
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label><input class="" type="checkbox" name="hobby">运动</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input class="" type="checkbox" name="hobby">读书</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label class=""><input class="" type="checkbox" name="hobby">旅游</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button id="submit" class="btn btn-primary" type="submit">确定</button>
+                                <button class="btn btn-default" type="submit">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dist/js/eui.min.js"></script>
+<script src="../dep/validate/jquery.validate.min.js"></script>
+<script>
+    /*
+     * Translated default messages for the jQuery validation plugin.
+     * Locale: ZH (Chinese, 中文 (Zhōngwén), 汉语, 漢語)
+     */
+    $.extend($.validator.messages, {
+        required: "这是必填字段",
+        remote: "请修正此字段",
+        email: "请输入有效的电子邮件地址",
+        url: "请输入有效的网址",
+        date: "请输入有效的日期",
+        dateISO: "请输入有效的日期 (YYYY-MM-DD)",
+        number: "请输入有效的数字",
+        digits: "只能输入数字",
+        creditcard: "请输入有效的信用卡号码",
+        equalTo: "你的输入不相同",
+        extension: "请输入有效的后缀",
+        maxlength: $.validator.format("最多可以输入 {0} 个字符"),
+        minlength: $.validator.format("最少要输入 {0} 个字符"),
+        rangelength: $.validator.format("请输入长度在 {0} 到 {1} 之间的字符串"),
+        range: $.validator.format("请输入范围在 {0} 到 {1} 之间的数值"),
+        max: $.validator.format("请输入不大于 {0} 的数值"),
+        min: $.validator.format("请输入不小于 {0} 的数值")
+    });
+    $.validator.setDefaults({
+        highlight: function (e) {
+            $(e).closest(".form-group").removeClass("has-success").addClass("has-error")
+        },
+        success: function (e) {
+            e.closest(".form-group").removeClass("has-error").addClass("has-success")
+        },
+        errorElement: "span", errorPlacement: function (e, r) {
+            e.appendTo(r.is(":radio") || r.is(":checkbox") ? r.parent().parent().parent() : r.parent())
+        },
+        errorClass: "help-block m-b-none",
+        validClass: "help-block m-b-none"
+    });
+
+        $(document).ready(function() {
+        $('#form').validate({
+            rules:{
+                name:{
+                    required: true
+                },
+                password:{
+                    required: true,
+                    rangelength:[3,10]
+                },
+                password2:{
+                    required: true,
+                    equalTo: '#password'
+                },
+                email:{
+                    required:true,
+                    email:true
+                },
+
+                confirm_password:{
+                    equalTo:"#password"
+                }
+            },
+            messages:{
+                name:{
+                    required: "请输入姓名",
+                    minlength: "密码不能小于个字符"
+                },
+                password:{
+                    required: "请输入密码",
+                    rangelength: '密码长度必须是3-10个字符'
+                },
+                email:{
+                    required:"必填",
+                    email:"E-Mail格式不正确"
+                },
+            }
+            ,submitHandler: function() {
+                alert("提交事件!");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
