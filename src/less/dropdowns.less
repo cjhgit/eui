@@ -216,3 +216,66 @@
         }
     }
 }
+
+// 子菜单
+.dropdown-submenu {
+    position: relative;
+
+    &:hover > a,
+    &:focus > a {
+        background-color: @dropdown-link-hover-bg;
+    }
+
+    > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        margin-left: -1px;
+        border-radius: 0 6px 6px 6px;
+    }
+
+    &:hover > .dropdown-menu {
+        display: block;
+    }
+
+    > a:after {
+        display: block;
+        float: right;
+        width: 0;
+        height: 0;
+        margin-top: 5px;
+        margin-right: -10px;
+        border-color: transparent;
+        border-left-color: #cccccc;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        content: " ";
+    }
+
+    &:hover > a:after {
+        border-left-color: #ffffff;
+    }
+}
+
+.dropup .dropdown-submenu > .dropdown-menu {
+    top: auto;
+    bottom: 0;
+    margin-top: 0;
+    margin-bottom: -2px;
+    border-radius: 5px 5px 5px 0;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+
+    > .dropdown-menu {
+        left: -100%;
+        margin-left: 10px;
+        border-radius: 6px 0 6px 6px;
+    }
+}
+
+// 鼠标指向时显示下拉菜单
+.navbar ul.nav li:hover > ul.dropdown-menu {
+    //display: block; // 如果需要导航栏的下拉菜单鼠标指向时自动展开，取消这注释
+}
