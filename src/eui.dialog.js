@@ -1,5 +1,7 @@
 /**
- * Created by cjh1 on 2016/3/15.
+ * 对话框插件
+ *
+ * v1.0.0
  */
 
 if (!eui) {
@@ -73,7 +75,9 @@ eui.alert = function (options, func) {
 
     // bind
     eui.on('button.bsok', 'click', function () {
-        if (func) func();
+        if (func) {
+            func();
+        }
         $modal.modal('hide');
     });
     eui.on('#' + opts.id, 'hidden.bs.modal', function () {
@@ -124,4 +128,40 @@ eui.confirm = function (options, ok, cancel) {
 
     // 显示
     $modal.modal('show');
+};
+
+eui.info = function (options, func) {
+    // options
+    var opts = $.extend({}, eui.modaloptions);
+
+    opts.title = '提示';
+    opts.close = false;
+    opts.backdrop = true;
+
+    if (typeof options == 'string') {
+        opts.msg = options;
+    } else {
+        $.extend(opts, options);
+    }
+
+    // add
+    $('body').append(eui.modalstr(opts));
+
+    // init
+    var $modal = $('#' + opts.id);
+    $modal.modal(opts);
+
+    // bind
+    eui.on('button.bsok', 'click', function () {
+        if (func) {
+            func();
+        }
+        $modal.modal('hide');
+    });
+    eui.on('#' + opts.id, 'hidden.bs.modal', function () {
+        $modal.remove();
+    });
+
+    // show
+    //$modal.modal();
 };

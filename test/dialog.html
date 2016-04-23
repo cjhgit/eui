@@ -17,15 +17,17 @@
                 <header class="panel-heading">alert</header>
                 <div class="panel-body">
                     <div class="alert alert-warning">使用时需要引入eui.dialog.min.js。</div>
-                    <p>通过调用 eui.bs.alert() 来模拟原生 alert() 的效果。使用简单，效果美观。</p>
+                    <p>通过调用 eui.alert() 来模拟原生 alert() 的效果。使用简单，效果美观。</p>
                     <p>不过从用户体验角度来说，应该尽可能避免这类打断用户的交互方式。</p>
                     <button id="alert" class="btn btn-default">普通alert</button>
                     <button id="alert2" class="btn btn-default">自定义alert</button>
                     <button id="alert3" class="btn btn-default">带回调的alert</button>
-                    <p>通过调用 eui.bs.confirm() 来模拟原生 confirm() 的效果。</p>
+                    <p>通过调用 eui.confirm() 来模拟原生 confirm() 的效果。</p>
                     <button id="confirm" class="btn btn-default">普通confirm</button>
                     <button id="confirm2" class="btn btn-default">自定义confirm</button>
                     <button id="confirm3" class="btn btn-default">带回调的confirm</button>
+                    <p>通过调用 eui.info() 来显示提示对话框（点击对话框外可隐藏对话框）</p>
+                    <button id="info" class="btn btn-default">普通info</button>
                 </div>
             </div>
         </div>
@@ -139,6 +141,9 @@
             alert('点击了取消！');
         });
 
+    });
+    $('#info').on('click', function(){
+        eui.info('哈哈');
     });
 </script>
 </body>
