@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bootstrap - 简洁、直观、强悍、移动设备优先的前端开发框架，让web开发更迅速、简单。">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="译者：王赛 <wangsai@bootcss.com>">
+    <title>帮助文档 - eUI 中文文档</title>
+    <link rel="stylesheet" href="../dist/css/eui.min.css">
+    <link href="../edoc/edoc.css" rel="stylesheet">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico">
+    <script>
+        var _hmt = _hmt || [];
+    </script>
+</head>
+<body>
+<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+<!-- Docs master nav -->
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="" class="navbar-brand">eUI</a>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../getting-started/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-起步'])">起步</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../css/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-全局CSS样式'])">全局 CSS 样式</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../components/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-组件'])">组件</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../javascript/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-JavaScript插件'])">JavaScript 插件</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../customize/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-定制'])">定制</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="http://expo.bootcss.com" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-网站实例'])" target="_blank">网站实例</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item"><a class="nav-link" href="http://www.bootcss.com/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-Bootstrap中文网'])" target="_blank">Bootstrap中文网</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<!-- Docs page layout -->
+<div class="eui-banner" id="content" tabindex="-1">
+    <div class="container">
+        <h1>EUI组件</h1>
+        <p>无数可复用的组件，包括字体图标、下拉菜单、导航、警告框、弹出框等更多功能。</p>
+    </div>
+</div>
+
+<div class="container bs-docs-container">
+
+    <div class="row">
+        <div class="col-md-9" role="main">
+            <div class="bs-docs-section">
+                <h1 id="alert" class="page-header">eui.alert</h1>
+                <h2 id="alert-use">使用</h2>
+                <p>layer.alert(content, options, yes) - 普通信息框</p>
+                <p>包括250多个来自 Glyphicon Halflings 的字体图标。<a href="http://glyphicons.com/">Glyphicons</a> Halflings 一般是收费的，但是他们的作者允许 Bootstrap 免费使用。为了表示感谢，希望你在使用时尽量为 <a href="http://glyphicons.com/">Glyphicons</a> 添加一个友情链接。</p>
+
+                <h2 id="alert-param">参数</h2>
+                <p>出于性能的考虑，所有图标都需要一个基类和对应每个图标的类。把下面的代码放在任何地方都可以正常使用。注意，为了设置正确的内补（padding），务必在图标和文本之间添加一个空格。</p>
+                <div class="bs-callout bs-callout-danger" id="callout-glyphicons-dont-mix">
+                    <h4>注意标题</h4>
+                    <p>注意内容</p>
+                </div>
+                <div class="bs-callout bs-callout-info" id="callout-glyphicons-location">
+                    <h4>信息标题</h4>
+                    <p>信息内容</p>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-search"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span></code></pre></div>
+
+
+                <h2 id="alert-examples">实例</h2>
+                <p>这是一个简单的实例。</p>
+                <div class="bs-example" data-example-id="glyphicons-general">
+                    <button id="btn1" class="btn btn-warning">初体验</button>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html">eui.alert('内容');</code></pre></div>
+
+                <p>带回调参数的alert：</p>
+                <div class="bs-example" data-example-id="glyphicons-general">
+                    <button id="alert-callback" class="btn btn-warning">初体验</button>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html">eui.alert('内容', function() {
+    eui.alert('这是回调函数的内容');
+});</code></pre></div>
+
+            </div>
+
+            <div class="bs-docs-section">
+                <h1 id="confirm" class="page-header">Confirm</h1>
+
+                <h2 id="confirm-examples">实例</h2>
+                <p>这是一个简单的实例。</p>
+                <div class="bs-example" data-example-id="glyphicons-general">
+                    <button id="btn-confirm" class="btn btn-warning">初体验</button>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html">eui.alert('内容');</code></pre></div>
+
+                <p>带回调参数的alert：</p>
+                <div class="bs-example" data-example-id="glyphicons-general">
+                    <button id="alert-callback2" class="btn btn-warning">初体验</button>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html">eui.alert('内容', function() {
+                    eui.alert('这是回调函数的内容');
+                    });</code></pre></div>
+
+
+                <h1 id="link-message" class="page-header">Message</h1>
+
+                <h2 id="link-message-examples">实例</h2>
+                <p>这是一个简单的实例。</p>
+                <div class="bs-example" data-example-id="glyphicons-general">
+                    <button id="btn-msg" class="btn btn-warning">初体验</button>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html">eui.msg('你好啊');</code></pre></div>
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>选项</th>
+                        <th>默认值</th>
+                        <th>说明</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>对话框标题</td>
+                    </tr>
+                    <tr>
+                        <td>msg</td>
+                        <td>string</td>
+                        <td>对话框内容</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="navbar-default">默认样式的导航条</h2>
+                <p>导航条是在您的应用或网站中作为导航页头的响应式基础组件。它们在移动设备上可以折叠（并且可开可关），且在视口（viewport）宽度增加时逐渐变为水平展开模式。</p>
+                <p><strong class="text-danger">两端对齐的导航条导航链接已经被弃用了。</strong></p>
+
+                <div class="bs-callout bs-callout-warning" id="callout-navbar-overflow">
+                    <h4>导航条内所包含元素溢出</h4>
+                    <p>由于 Bootstrap 并不知道你在导航条内放置的元素需要占据多宽的空间，你可能会遇到导航条中的内容折行的情况（也就是导航条占据两行）。解决办法如下：</p>
+                    <ol type="a">
+                        <li>减少导航条内所有元素所占据的宽度。</li>
+                        <li>在某些尺寸的屏幕上（利用 <a href="../css/#responsive-utilities">响应式工具类</a>）隐藏导航条内的一些元素。</li>
+                        <li>修改导航条在水平排列和折叠排列互相转化时，触发这个转化的最小屏幕宽度值。可以通过修改 <code>@grid-float-breakpoint</code> 变量实现，或者自己重写相关的媒体查询代码，覆盖 Bootstrap 的默认值。</li>
+                    </ol>
+                </div>
+
+
+                <h2 id="navbar-brand-image">品牌图标</h2>
+                <p>将导航条内放置品牌标志的地方替换为  <code>&lt;img&gt;</code> 元素即可展示自己的品牌图标。由于 <code>.navbar-brand</code> 已经被设置了内补（padding）和高度（height），你需要根据自己的情况添加一些 CSS 代码从而覆盖默认设置。</p>
+                <div class="bs-example">
+                    <div class="bs-example" data-example-id="navbar-with-image-brand">
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="#">
+                                    <img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+                                </a>
+                            </div>
+                    </div>
+                    </nav>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-default"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"Brand"</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;/a&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/nav&gt;</span></code></pre></div>
+
+
+                <h2 id="navbar-forms">表单</h2>
+                <p>将表单放置于 <code>.navbar-form</code> 之内可以呈现很好的垂直对齐，并在较窄的视口（viewport）中呈现折叠状态。 使用对齐选项可以规定其在导航条上出现的位置。</p>
+                <p>注意，<code>.navbar-form</code> 和 <code>.form-inline</code> 的大部分代码都一样，内部实现使用了 mixin。 <strong class="text-danger">某些表单组件，例如输入框组，可能需要设置一个固定宽度，从而在导航条内有合适的展现。</strong></p>
+                <div class="bs-example" data-example-id="navbar-form">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">Brand</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                                <form class="navbar-form navbar-left" role="search">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"navbar-form navbar-left"</span> <span class="na">role=</span><span class="s">"search"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Search"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+                    <span class="nt">&lt;/form&gt;</span></code></pre></div>
+
+                <div class="bs-callout bs-callout-warning" id="callout-navbar-mobile-caveats">
+                    <h4>移动设备上的注意事项</h4>
+                    <p>在移动设备上，对于在 fixed 定位的元素内使用表单控件的情况有一些注意事项。<a href="../getting-started/#support-fixed-position-keyboards">请参考我们提供的浏览器支持情况相关的文档</a> 。</p>
+                </div>
+
+                <div class="bs-callout bs-callout-warning" id="callout-navbar-form-labels">
+                    <h4>为输入框添加 <code>label</code> 标签</h4>
+                    <p>如果你没有为输入框添加 <code>label</code> 标签，屏幕阅读器将会遇到问题。对于导航条内的表单，可以通过添加 <code>.sr-only</code> 类隐藏 <code>label</code> 标签。</p>
+                </div>
+
+
+
+                <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-inverse"</span><span class="nt">&gt;</span>
+                    ...
+                    <span class="nt">&lt;/nav&gt;</span></code></pre></div>
+            </div>
+
+
+
+            <div class="bs-docs-section">
+                <h1 id="page-header" class="page-header">页头</h1>
+
+                <p>页头组件能够为 <code>h1</code> 标签增加适当的空间，并且与页面的其他部分形成一定的分隔。它支持 <code>h1</code> 标签内内嵌 <code>small</code> 元素的默认效果，还支持大部分其他组件（需要增加一些额外的样式）。</p>
+                <div class="bs-example" data-example-id="simple-page-header">
+                    <div class="page-header">
+                        <h1>Example page header <small>Subtext for header</small></h1>
+                    </div>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"page-header"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h1&gt;</span>Example page header <span class="nt">&lt;small&gt;</span>Subtext for header<span class="nt">&lt;/small&gt;&lt;/h1&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span></code></pre></div>
+            </div>
+
+
+
+
+        </div>
+
+        <div class="col-md-3">
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+                <ul class="nav bs-docs-sidenav">
+
+                    <li>
+                        <a href="#alert">Alert</a>
+                        <ul class="nav">
+                            <li><a href="#alert-use">使用</a></li>
+                            <li><a href="#alert-param">参数</a></li>
+                            <li><a href="#alert-examples">示例</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#confirm">Confirm</a>
+                    </li>
+                    <li><a href="#breadcrumbs">路径导航</a></li>
+                    <li><a href="#responsive-embed">具有响应式特性的嵌入内容</a></li>
+                    <li><a href="#wells">Well</a></li>
+
+
+                </ul>
+                <a class="back-to-top" href="#top">
+                    返回顶部
+                </a>
+
+                <a href="#" class="bs-docs-theme-toggle" role="button">
+                    主题预览
+                </a>
+
+            </nav>
+        </div>
+
+    </div>
+</div>
+
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+
+        <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> and <a href="https://twitter.com/fat" target="_blank">@fat</a>.</p>
+        <p>Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
+        <p>本项目源码受 <a rel="license" href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>开源协议保护，文档受 <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a> 开源协议保护。</p>
+        <ul class="bs-docs-footer-links text-muted">
+            <li>当前版本： v1.0</li>
+            <li>&middot;</li>
+            <li><a href="https://github.com/twbs/bootstrap">GitHub 仓库</a></li>
+            <li>&middot;</li>
+            <li><a href="../getting-started/#examples">实例精选</a></li>
+            <li>&middot;</li>
+            <li><a href="http://v2.bootcss.com/">v2.3.2 中文文档</a></li>
+            <li>&middot;</li>
+            <li><a href="../about/">关于</a></li>
+            <li>&middot;</li>
+            <li><a href="http://expo.bootcss.com">优站精选</a></li>
+            <li>&middot;</li>
+            <li><a href="http://blog.getbootstrap.com">官方博客</a></li>
+            <li>&middot;</li>
+            <li><a href="https://github.com/twbs/bootstrap/issues">Issues</a></li>
+            <li>&middot;</li>
+            <li><a href="https://github.com/twbs/bootstrap/releases">历史版本</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dist/js/eui.min.js"></script>
+<script src="../dist/js/affix.js"></script>
+<script src="../edoc/docs.js"></script>
+<script src="../layer/layer.js"></script>
+<script src="../dep/zero-clipboard/ZeroClipboard.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#btn1').on('click', function() {
+            eui.alert('内容');
+        });
+        $('#alert-callback').on('click', function() {
+            eui.alert('内容', function() {
+                eui.alert('这是回调函数的内容');
+            });
+        });
+        $('#btn2').on('click', function() {
+            eui.msg('内容');
+        });
+        $('#btn-confirm').on('click', function() {
+            eui.confirm('is not?', {icon: 3, title:'提示'}, function(index){
+                eui.close(index);
+            });
+        });
+        $('#btn-msg').on('click', function() {
+            eui.msg('你好啊');
+        });
+    });
+</script>
+</body>
+</html>

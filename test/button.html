@@ -102,6 +102,18 @@
         </div>
         <div class="col-sm-12">
             <div class="panel panel-default">
+                <header class="panel-heading">单选按钮组</header>
+                <div class="panel-body">
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <button class="btn btn-primary"><i class="glyphicon glyphicon-align-left"></i></button>
+                        <button class="btn btn-primary"><i class="glyphicon glyphicon-align-center"></i> </button>
+                        <button class="btn btn-primary"><i class="glyphicon glyphicon-align-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
                 <header class="panel-heading">图标按钮</header>
                 <div class="panel-body">
                     <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
@@ -162,11 +174,90 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">按钮</header>
+                <div class="panel-body">
+                    <button class="btn btn-primary" data-toggle="button">点击切换状态</button>
+                    <!--
+                    <input type="checkbox" id="toggle" data-toggle="button">
+                    <label for="toggle" class="btn">Single Toggle</label>
+                    -->
+                    <div class="btn-group" data-toggle="buttons-checkbox">
+                        <input type="checkbox" id="group1" data-toggle="button">
+                        <label class="btn btn-primary" for="group1">Left</label>
+
+                        <input type="checkbox" id="group2" data-toggle="button">
+                        <label class="btn btn-primary" for="group2">Middle</label>
+
+                        <input type="checkbox" id="group3" data-toggle="button">
+                        <label class="btn btn-primary" for="group3">Right</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <header class="panel-heading">按钮</header>
+                <div class="panel-body">
+                    <button id="test-btn" class="btn btn-primary">点击登陆</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">方法</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>方法</th>
+                            <th>说明</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>$(selector).button('toggle')</td>
+                            <td>切换按钮状态。</td>
+                        </tr>
+                        <tr>
+                            <td>$(selector).button('loading')</td>
+                            <td>该方法设置按钮状态为 loading - 即将按钮置为禁用状态并将文字内容切换为 loading。通过使用 'data-loading-text' 属性可以在按钮元素上定义 loading 文本。</td>
+                        </tr>
+                        <tr>
+                            <td>$(selector).button('reset')</td>
+                            <td>该方法重置按钮状态，并将按钮上的文本还原为原始值。</td>
+                        </tr>
+                        <tr>
+                            <td>$(selector).button(string)</td>
+                            <td>该方法重置按钮状态，并将按钮上的文本重置为传入的值。</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 <script>
+    $(document).ready(function() {
+        $('#test-btn').on('click', function() {
+            $('#test-btn').button({
+                loadingText: '发送中...'
+            });
+            $('#test-btn').button('loading');
+            setInterval(function(){
+                $('#test-btn').button('reset');
+            }, 3000);
+        });
+
+        $('#test').button();
+
+    });
 </script>
 </body>
 </html>

@@ -1,0 +1,18 @@
+.eui-demo {
+    padding: 20px;
+    border-bottom: 1px solid #f00;
+    overflow: hidden;
+}
+.eui-demo:after {
+}
+.demo-content {
+    float: left;
+    width: 50%;
+}
+.eui-demo pre {
+    float: left;
+    width: 50%;
+}
+.eui-code {
+    width: 50%;
+}

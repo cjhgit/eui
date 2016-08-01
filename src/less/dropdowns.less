@@ -38,7 +38,7 @@
     padding: 5px 0;
     margin: 2px 0 0; // override default ul
     list-style: none;
-    color: #f1f1f1;
+    color: #555;
     font-size: @font-size-base;
     text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
     background-color: @dropdown-bg;
@@ -46,7 +46,7 @@
     border: 1px solid @dropdown-border;
     border-radius: @border-radius-base;
     background-clip: padding-box;
-
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
     // Aligns the dropdown menu to right
     //
     // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
