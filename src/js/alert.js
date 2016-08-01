@@ -16,7 +16,7 @@
 
     // ALERT CLASS DEFINITION
     var Alert = function (el) {
-        $(el).on('click', dismiss, this.close)
+        $(el).on('click', dismiss, this.close);
     };
 
     Alert.VERSION = '3.3.6';

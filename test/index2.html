@@ -5,13 +5,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>eAdmin</title>
-<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
-<link rel="stylesheet" href="../dist/css/eui.css">
+
 <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dep/datatable/dataTables.bootstrap.css">
+<link rel="stylesheet" href="css/index.css">
 <style>
 .column-id {
     width: 80px;
@@ -37,129 +40,137 @@
 </head>
 
 <body>
-<!-- 侧栏开始 -->
-<aside class="sidebar">
-    <nav class="sidebar-nav">
-        <ul class="emenu" id="menu">
-            <li class="active">
-            	<a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页</span><i class="fa arrow"></i></a>
-                <ul aria-expanded="true">
-                    <li><a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页示例1</span></a></li>
-                    <li><a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
-                    <li><a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
-                </ul>
-            </li>
-            <li>
-            	<a href="#" aria-expanded="true"><i class="menu-icon fa fa-columns"></i><span class="menu-lable">布局</span></a>
-            </li>
-            <li>
-            	<a href="#" aria-expanded="true"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">图标统计</span><i class="fa arrow"></i></a>
-                <ul aria-expanded="true">
-                    <li><a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页1</span></a></li>
-                    <li><a href="widget.html" target="frame" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">插件</span></a></li>
-                    <li><a href="table.html" target="frame" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">表格</span></a></li>
-                    <li><a href="tab.html" target="frame" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">Tab</span></a></li>
-                </ul>
-            </li>
-            <li>
-            	<a href="#" aria-expanded="true"><i class="menu-icon fa fa-envelope"></i><span class="menu-lable">信箱</span><span class="label label-info pull-right">10</span></a>
-                <ul>
-                    <li><a href="mail-box.html" target="frame"><span class="menu-lable">收件箱</span></a></li>
-                    <li><a href="mail-detail.html" target="frame"><span class="menu-lable">查看邮件</span></a></li>
-                    <li><a href="mail-new.html" target="frame"><span class="menu-lable">写信</span></a></li>
-                </ul>
-            </li>
-            <li>
-            	<a href="#"><i class="menu-icon fa fa-picture-o"></i><span class="menu-lable">相册</span><i class="fa arrow"></i></a>
-                <ul>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页示例1</span></a></li>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
-                </ul>
-            </li>
-            <li>
-            	<a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">元素</span><i class="fa arrow"></i></a>
-                <ul>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页示例1</span></a></li>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
-                </ul>
-            </li>
-            <li>
-            	<a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">表单</span><i class="fa arrow"></i></a>
-                <ul>
-                    <li><a href="form.html" target="frame"><span class="menu-lable">基本表单</span></a></li>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
-                </ul>
-            </li>
-            <li>
-            	<a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">页面</span><i class="fa arrow"></i></a>
-                <ul>
-                    <li><a href="404.html" target="frame"><span class="menu-lable">404页面</span></a></li>
-                    <li><a href="500.html" target="frame"><span class="menu-lable">500页面</span></a></li>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
-                    <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
-                </ul>
-            </li>
-            <li>
-            	<a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">其他</span><i class="fa arrow"></i></a>
-                <ul>
-                    <li><a href="animation.html" target="frame"><span class="menu-lable">动画</span></a></li>
-                    <li><a href="500.html" target="frame"><span class="menu-lable">500页面</span></a></li>
-                    <li><a href="login.html"><span class="menu-lable">登陆界面</span></a></li>
-                    <li><a href="register.html"><span class="menu-lable">注册界面</span></a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">多级菜单</span><i class="fa arrow"></i></a>
-                <ul>
-                    <li><a href="animation.html" target="frame"><span class="menu-lable">二级菜单</span></a></li>
-                    <li><a href="500.html" target="frame"><span class="menu-lable">二级菜单</span></a></li>
-                    <li><a href="login.html"><span class="menu-lable">下面还有</span><i class="fa arrow"></i></a>
-                        <ul>
-                            <li><a href="animation.html" target="frame"><span class="menu-lable">三级菜单</span></a></li>
-                            <li><a href="500.html" target="frame"><span class="menu-lable">三级菜单</span></a></li>
-                        </ul>
+<!-- 侧栏 -->
+<nav class="esidebar" id="sidebar">
+    <ul class="eui-sidemenu" id="menu">
+        <div class="emenu-header">
+            <div>
+                <img class="emenu-manager-img" src="img/user1.jpg">
+            </div>
+        </div>
+        <div class="emenu-header-small">
+            <div class="emenu-small-icon">EUI</div>
+        </div>
+        <li class="active">
+            <a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页</span><i class="fa arrow"></i></a>
+            <ul aria-expanded="true">
+                <li><a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页示例1</span></a></li>
+                <li><a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
+                <li><a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-expanded="true"><i class="menu-icon fa fa-columns"></i><span class="menu-lable">布局</span></a>
+        </li>
+        <li>
+            <a href="#" aria-expanded="true"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">图标统计</span><i class="fa arrow"></i></a>
+            <ul aria-expanded="true">
+                <li><a href="#" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页1</span></a></li>
+                <li><a href="widget.html" target="frame" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">插件</span></a></li>
+                <li><a href="table.html" target="frame" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">表格</span></a></li>
+                <li><a href="tab.html" target="frame" aria-expanded="true"><i class="menu-icon fa fa-home"></i><span class="menu-lable">Tab</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-expanded="true"><i class="menu-icon fa fa-envelope"></i><span class="menu-lable">信箱</span><span class="label label-info pull-right">10</span></a>
+            <ul>
+                <li><a href="mail-box.html" target="frame"><span class="menu-lable">收件箱</span></a></li>
+                <li><a href="mail-detail.html" target="frame"><span class="menu-lable">查看邮件</span></a></li>
+                <li><a href="mail-new.html" target="frame"><span class="menu-lable">写信</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-picture-o"></i><span class="menu-lable">相册</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页示例1</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">元素</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页示例1</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">表单</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="form.html" target="frame"><span class="menu-lable">基本表单</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">页面</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="404.html" target="frame"><span class="menu-lable">404页面</span></a></li>
+                <li><a href="500.html" target="frame"><span class="menu-lable">500页面</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页2</span></a></li>
+                <li><a href="#"><i class="menu-icon fa fa-home"></i><span class="menu-lable">主页3</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">其他</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="animation.html" target="frame"><span class="menu-lable">动画</span></a></li>
+                <li><a href="500.html" target="frame"><span class="menu-lable">500页面</span></a></li>
+                <li><a href="login.html"><span class="menu-lable">登陆界面</span></a></li>
+                <li><a href="register.html"><span class="menu-lable">注册界面</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">多级菜单</span><i class="fa arrow"></i></a>
+            <ul>
+                <li><a href="animation.html" target="frame"><span class="menu-lable">二级菜单</span></a></li>
+                <li><a href="500.html" target="frame"><span class="menu-lable">二级菜单</span></a></li>
+                <li><a href="login.html"><span class="menu-lable">下面还有</span><i class="fa arrow"></i></a>
+                    <ul>
+                        <li><a href="animation.html" target="frame"><span class="menu-lable">三级菜单</span></a></li>
+                        <li><a href="500.html" target="frame"><span class="menu-lable">三级菜单</span></a></li>
+                    </ul>
 
 
-                    </li>
-                    <li><a href="register.html"><span class="menu-lable">注册界面</span></a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    
-	
-</aside>
-<div id="content">
-    <nav class="navbar navbar-default" role="navigation">
+                </li>
+                <li><a href="register.html"><span class="menu-lable">注册界面</span></a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!-- /侧栏 -->
+<div id="content" class="econtent">
+    <nav class="econtent-header navbar navbar-default" role="navigation">
     	<div class="navbar-header">
-          <a class="navbar-brand" href="#">W3Cschool</a>
+            <div class="navbar-form">
+                <a id="menu-minimalize" class="btn btn-primary btn-min"><i class="fa fa-bars"></i></a>
+                <input class="form-control" placeholder="请输入您需要查找的内容 ...">
+            </div>
        </div>
        <div>
-          <ul class="nav navbar-nav">
-             <li class="active"><a href="#">iOS</a></li>
-             <li><a href="#">SVN</a></li>
-             <li class="dropdown pull-right">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                   Java 
-                   <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                   <li><a href="#">jmeter</a></li>
-                   <li><a href="#">EJB</a></li>
-                   <li><a href="#">Jasper Report</a></li>
-                   <li class="divider"></li>
-                   <li><a href="#">分离的链接</a></li>
-                   <li class="divider"></li>
-                   <li><a href="#">另一个分离的链接</a></li>
-                </ul>
-             </li>
+          <ul class="nav navbar-nav navbar-right">
+             <li class="nav-item active"><a class="nav-link" href="#">iOS</a></li>
+             <li class="nav-item"><a class="nav-link" href="#">SVN</a></li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                      主题 <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="#">jmeter</a></li>
+                      <li><a href="#">EJB</a></li>
+                      <li><a href="#">Jasper Report</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">分离的链接</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">另一个分离的链接</a></li>
+                  </ul>
+              </li>
           </ul>
        </div>
     </nav>
-	<div class="mycontainer">
+
+    <div class="econtent-body mycontainer">
         <div class="row">
             <ul class="breadcrumb pull-left">
                 <li><a href="#">首页</a></li>
@@ -172,33 +183,33 @@
         <div class="row">
             <form class="form-inline" role="form">
                 <div class="form-group">
-                    <select class="form-control" id="category" name="">   
-                        <option value="0">全部分类</option>  
-                        <option value="1">水果</option>   
-                        <option value="2">  香蕉</option>   
-                        <option value="3">  苹果</option>   
-                        <option value="4">    红富士</option>   
+                    <select class="form-control" id="category" name="">
+                        <option value="0">全部分类</option>
+                        <option value="1">水果</option>
+                        <option value="2">  香蕉</option>
+                        <option value="3">  苹果</option>
+                        <option value="4">    红富士</option>
                         <option value="5">    青苹果</option>
                         <option value="6">家具</option>
                         <option value="7">  椅子</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" id="brand" name="">   
-                        <option value="0">全部品牌</option>  
-                        <option value="1">特步</option>   
-                        <option value="2">三星</option>   
-                        <option value="3">小米</option>   
-                        <option value="4">苹果</option>   
+                    <select class="form-control" id="brand" name="">
+                        <option value="0">全部品牌</option>
+                        <option value="1">特步</option>
+                        <option value="2">三星</option>
+                        <option value="3">小米</option>
+                        <option value="4">苹果</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" id="type" name="">   
-                        <option value="0">全部</option>  
-                        <option value="1">新品</option>   
-                        <option value="2">热销</option>   
-                        <option value="3">精品</option>   
-                        <option value="4">特价</option>   
+                    <select class="form-control" id="type" name="">
+                        <option value="0">全部</option>
+                        <option value="1">新品</option>
+                        <option value="2">热销</option>
+                        <option value="3">精品</option>
+                        <option value="4">特价</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -209,90 +220,52 @@
             </form>
         </div>
         <div class="row">
-            <table class="table table-bordered table-hover table-striped">
+            <table class="table table-bordered table-hover eui-table table-condensed">
                 <thead>
                     <tr>
-                        <th class="column-id"><input id="select-all" type="checkbox" value="0" />编号</th>
-                        <th class="column-name">名称</th>
-                        <th class="column-category">分类</th>
-                        <th class="column-price">价格</th>
-                        <th class="column-num">库存</th>
-                        <th class="column-on-sale">上架</th>
-                        <th class="column-on-sale">新品</th>
-                        <th class="column-on-sale">热销</th>
-                        <th class="column-on-sale">特价</th>
+                        <th class="column-id"><input id="select-all" type="checkbox" value="0" /></th>
+                        <th class="column-schoolid">学号</th>
+                        <th class="column-name">姓名</th>
+                        <th class="column-class">班级</th>
                         <th class="column-operate">操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><input type="checkbox" name="article-select" value="1" />1</td>
-                        <td>苹果</td>
-                        <td>水果</td>
-                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                        <td>14.0</td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td> 
+                        <td>13551101001</td>
+                        <td>张三</td>
+                        <td>外语A班</td>
                         <td>
-                            <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
+                            <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>
+
                         </td>
                     </tr>
                     <tr>
                         <td><input type="checkbox" name="article-select" value="1" />1</td>
-                        <td>苹果</td>
-                        <td>水果</td>
-                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                        <td>14.0</td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td> 
+                        <td>13551101001</td>
+                        <td>张三</td>
+                        <td>外语A班</td>
                         <td>
-                            <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
+                            <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>
                         </td>
                     </tr>
                     <tr>
                         <td><input type="checkbox" name="article-select" value="1" />1</td>
-                        <td>苹果</td>
-                        <td>水果</td>
-                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                        <td>14.0</td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td> 
+                        <td>13551101001</td>
+                        <td>张三</td>
+                        <td>外语A班</td>
                         <td>
-                            <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
+                            <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>
                         </td>
                     </tr>
                     <tr>
                         <td><input type="checkbox" name="article-select" value="1" />1</td>
-                        <td>苹果</td>
-                        <td>水果</td>
-                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                        <td>14.0</td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td> 
+                        <td>13551101001</td>
+                        <td>张三</td>
+                        <td>外语A班</td>
                         <td>
-                            <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="article-select" value="1" />1</td>
-                        <td>苹果</td>
-                        <td>水果</td>
-                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                        <td>14.0</td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                        <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td> 
-                        <td>
-                            <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
+                            <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>
                         </td>
                     </tr>
                 </tbody>
@@ -300,10 +273,10 @@
         </div>
         <div class="row">
             <div class="form-inline pull-left">
-                <select class="form-control" name="selectAge" id="operate-type">   
-                    <option value="0">请选择...</option>  
-                    <option value="1">批量删除</option>   
-                    <option value="2">转移到分类</option>   
+                <select class="form-control" name="selectAge" id="operate-type">
+                    <option value="0">请选择...</option>
+                    <option value="1">批量删除</option>
+                    <option value="2">转移到分类</option>
                 </select>
                 <a id="operate-ok" class="btn btn-default" href="javascript:;">确定</a>
             </div>
@@ -311,10 +284,10 @@
         <div class="row">
             <div class="page pull-right">
                 <span class="page-text">共 27 个记录，第 </span>
-                <select class="admin-select" id="select-page">   
-                    <option value="1">1</option>  
-                    <option value="2">2</option>   
-                    <option value="3">3</option>   
+                <select class="admin-select" id="select-page">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
                 <span class="page-text"> / 2页，每页 </span>
                 <input class="admin-input page-size" type="text" value="15" />
@@ -325,26 +298,23 @@
             </div>
 
         </div>
-        
-        
-        <div class="admin-section margin-top-10px">
-            <p class="copyright">版权所有 © 2015-2016 Eshop</p>
-        </div>
+
     </div>
+
+    <footer class="econtent-footer">
+        <p class="efooter-copyright">Theme by <a href="#">eAdmin</a></p>
+    </footer>
 </div>
-<footer id="footer">
-	<div>11</div>
-</footer>
-<!-- 侧栏结束 -->
 
 
-<script src="../dep/jquery/jquery-1.10.2.min.js"></script> 
-<script src="../dep/metis-menu/metisMenu.min.js"></script>
+
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
-<script>
-    $(function() {
-      $('#menu').metisMenu();
-    });
-  </script>
+<script src="../dep/metis-menu/metisMenu.js"></script>
+<script src="../dep/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../dep/datatable/jquery.dataTables.js"></script>
+<script src="../dep/slimscroll/jquery.slimscroll.min.js"></script>
+
+<script src="js/index.js"></script>
 </body>
 </html>

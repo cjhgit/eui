@@ -188,14 +188,17 @@
 <div class="econtent">
     <nav class="econtent-header navbar navbar-light navbar-fix-top" role="navigation">
         <div class="navbar-header">
-            <!--<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
                 <span class="sr-only">切换导航</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            </button>-->
-            <a id="menu-minimalize" class="btn btn-primary navbar-btn btn-min"><i class="fa fa-bars"></i></a>
+            </button>
+            <div class="navbar-form">
+                <a id="menu-minimalize" class="btn btn-primary btn-min"><i class="fa fa-bars"></i></a>
+            </div>
         </div>
+        <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="nav-item active"><a class="nav-link" href="description.html" target="frame">网站首页</a></li>
                 <li class="nav-item dropdown">
@@ -228,8 +231,36 @@
                     </ul>
                 </li>
             </ul>
+        </div>
 
     </nav>
+    <div class="econtent-tab"></div>
+    <div class="row content-tabs">
+        <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
+        </button>
+        <nav class="page-tabs J_menuTabs">
+            <div class="page-tabs-content" style="margin-left: 0px;">
+                <a href="javascript:;" class="J_menuTab" data-id="index_v1.html">首页</a>
+                <a href="javascript:;" class="J_menuTab" data-id="form_basic.html">基本表单 <i class="fa fa-times-circle"></i></a><a href="javascript:;" class="J_menuTab active" data-id="form_validate.html">表单验证 <i class="fa fa-times-circle"></i></a><a href="javascript:;" class="J_menuTab" data-id="form_advanced.html">高级插件 <i class="fa fa-times-circle"></i></a></div>
+        </nav>
+        <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
+        </button>
+        <div class="btn-group roll-nav roll-right">
+            <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+
+            </button>
+            <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                <li class="J_tabShowActive"><a>定位当前选项卡</a>
+                </li>
+                <li class="divider"></li>
+                <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
+                </li>
+                <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
+                </li>
+            </ul>
+        </div>
+        <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+    </div>
     <iframe id="right-frame" class="econtent-body econtent-frame" name="frame" src="description.html"></iframe>
     <footer class="econtent-footer">
         <p class="efooter-copyright">Theme by <a href="#">eAdmin</a></p>

@@ -8860,7 +8860,7 @@ $.extend(Datepicker.prototype, {
 		return [position.left, position.top];
 	},
 
-	/* Hide the date picker from view.
+	/* Hide the date picker from init.
 	 * @param  input  element - the input field attached to the date picker
 	 */
 	_hideDatepicker: function(input) {
@@ -10435,8 +10435,8 @@ var dialog = $.widget( "ui.dialog", {
 		this._on( this.uiDialogTitlebar, {
 			mousedown: function( event ) {
 				// Don't prevent click on close button (#8838)
-				// Focusing a dialog that is partially scrolled out of view
-				// causes the browser to scroll it into view, preventing the click event
+				// Focusing a dialog that is partially scrolled out of init
+				// causes the browser to scroll it into init, preventing the click event
 				if ( !$( event.target ).closest( ".ui-dialog-titlebar-close" ) ) {
 					// Dialog isn't getting focus when dragging (#8063)
 					this.uiDialog.focus();

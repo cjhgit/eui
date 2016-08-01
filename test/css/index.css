@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
+/* 聊天窗口 */
 .chat-box {
     display: block;
     position: fixed;

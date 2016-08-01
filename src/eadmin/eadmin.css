@@ -11,10 +11,10 @@
     background: #e9e9e9;
 }
 ::-webkit-scrollbar-thumb {
-    background: #01d5ac;
+    background: #384e64;
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(255,0,0,0.4);
+    background: #384e64;
 }
 
 /* 悬浮按钮 */
@@ -70,11 +70,11 @@
 }
 
 /* 布局 */
+
 .mycontainer {
     padding: 50px 30px;
     margin-right: auto;
     margin-left: auto;
-    background: #f8f8f8;
 }
 
 /* 页码 */
@@ -103,70 +103,89 @@
 
 .esidebar {
     position: fixed;
+    top: 0;
+    bottom: 0;
     z-index: 1000;
     float: left;
     width: 220px;
-    height: 600px;
-    overflow: hidden;
+    height: 100% !important; /* 防止被 slimsroll 破坏样式 */
     background: #2f4050;
+    overflow: hidden;
 }
-/* 侧栏菜单 */
-.emenu {
+
+/* 侧栏菜单组件 */
+.eui-sidemenu {
     position: relative;
     z-index: 1000;
     width: 220px;
     height: 100%;
     background: #2f4050;
 }
-.emenu:after {
+.eui-sidemenu:after {
     content: "";
     clear: both;
 }
-.emenu li {
+.eui-sidemenu li {
     width: 220px;
 }
-.emenu li > a {
+.eui-sidemenu > li > a {
     display: inline-block;
     width: 100%;
     padding: 12px;
     text-align: left;
 }
-.emenu > li a:hover {
+.eui-sidemenu > li a:hover {
     color: #fff;
-    background: #555;
+    background: #293949;
+    text-decoration: none;
 }
-.emenu > li a:hover .fa{
+.eui-sidemenu > li a:hover .fa{
     color: #fff;
 }
-.emenu .active {
+.eui-sidemenu .active {
     background: #293846;
 }
-.emenu .active > a {
+.eui-sidemenu .active > a {
     background: #2f4050;
 }
-.emenu .fa {
+.eui-sidemenu .fa {
     color: #a7b1c2;
 }
-.emenu a {
+.eui-sidemenu a {
     color: #a7b1c2;
+    text-decoration: none;
 }
-.emenu ul {
+/* 菜单-子菜单 */
+.eui-sidemenu ul {
+    width: 100%;
+}
+.eui-sidemenu ul li > a {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 10px 10px 30px;
+    text-align: left;
+}
+.eui-sidemenu ul li > a:hover {
+    color: #fff;
+    background-color: transparent;
+}
+.eui-sidemenu ul li ul {
     padding-left: 10px;
 }
-.emenu .menu-icon {
+.eui-sidemenu .menu-icon {
     font-size: 18px;
     margin-right: 5px;
 }
-.emenu .menu-lable {
+.eui-sidemenu .menu-lable {
     margin-left: 10px;
 }
-.emenu .active>a>.fa.arrow:before {
+.eui-sidemenu .active>a>.fa.arrow:before {
     content: "\f107";
 }
-.emenu .fa.arrow {
+.eui-sidemenu .fa.arrow {
     float: right;
 }
-.emenu .fa.arrow:before {
+.eui-sidemenu .fa.arrow:before {
     content: "\f104";
 }
 
@@ -186,51 +205,103 @@
 }
 .emenu-header {
     padding-top: 20px;
+    padding-bottom: 20px;
 }
+.emenu-header-small {
+    display: none;
+    background-color: #293949;
+}
+.emenu-small-icon {
+    color: #eee;
+    height: 60px;
+    padding-left: 20px;
+    line-height: 60px;
+    font-size: 18px;
+}
+
+/* 菜单缩小 */
 .emenu-min {}
 .emenu-min .emenu-header {
     display: none;
 }
-
-/* */
-.main-frame {
+.emenu-min .emenu-header-small {
     display: block;
-    width: 100%;
-    height: 500px;
-    min-height: 100%;
-    border: none;
 }
+.emenu-min .menu-icon {
+    font-size: 16px;
+    padding: 5px 15px;
+}
+.emenu-min .eui-sidemenu {
+    /*width: 70px;*/
+}
+.emenu-min .eui-sidemenu > li > a > .menu-lable {
+    display: none;
+}
+.emenu-min .eui-sidemenu ul {
+    display: none;
+}
+.emenu-min .eui-sidemenu > li {
+    /*width: 70px;*/
+}
+/* 菜单缩小时也可以查看子菜单 */
+/*.emenu-min .eui-sidemenu > li:hover ul {
+    position: absolute;
+    left: 20px;
+    display: block;
+    background: #f00;
+    z-index: 99999;
+}*/
 
+/* 主体框架 */
 .econtent {
     position: absolute;
-    z-index: 900;
     top: 0;
-    left: 0;
-    bottom: 0;
-    display: block;
+    right: 0;
+    left: 220px;
     float:right;
-    width: 100%;
     height: 100%;
-    padding-left: 220px;
+    display: block;
     overflow: hidden;
 }
 .econtent-header {
-    position: fixed;
-    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 5px 15px;
     background: #eee;
 }
 .econtent-body {
-    margin-top: 15px;
+    position: absolute;
+    top: 60px;
+    bottom: 40px;
+    width: 100%;
 }
+.econtent-frame {
+    width: 100%;
+    min-height: 100%;
+    border: none;
+}
+.econtent-tab {
 
-/* 首页页脚 */
-.efooter {
+}
+.econtent-footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 40px;
     background: #eee;
 }
+
+/* 头部 */
+.econtent-header .form-control {
+    background: none;
+    border: none;
+    outline: none;
+}
+.econtent-header .badge {
+}
+
+/* 首页页脚 */
 .efooter-copyright {
     width: 200px;
     margin-top: 10px;
@@ -240,54 +311,87 @@
 
 .sidebar-container {
     position: fixed;
-    top: 50px;
+    top: 60px;
     right: 0;
     bottom: 0;
     z-index: 1000;
+    display: none;
     width: 260px;
-    background-color: #fa0000;
+    background-color: #f1f1f1;
+    border: 1px solid #e7eaec;
     overflow: hidden;
 }
-.sidebar-container ul.nav-tabs li.active a {
-    border: none;
-    background: #fa0000;
-    color: #676a6c;
-    font-weight: 700;
-}
-.sidebar-container ul.nav-tabs li a {
-    border: none;
-    padding: 12px 10px;
-    margin: 0;
-    border-radius: 0;
-    background: #2f4050;
-    color: #fff;
-    text-align: center;
-    border-right: 1px solid #334556;
+.sidebar-container .tab-content {
+    padding: 15px;
 }
 
+.right-menu {
+    z-index: 5000;
+    position: relative;
+    top: -20px;
+    float: right;
+}
 .settings-item {
-    width: 100%;
-    height: 50px;
+    float: left;
+    margin-right: 10px;
+}
+.settings-item a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
 }
 
-/* 主题 */
-.theme-blue .efooter{
+/* 主题设置 */
+.settings-item .theme-blue {
+    background-color: #0e9aef;
+}
+.settings-item .theme-default {
+    background-color: #2f4050;
+}
+.settings-item .theme-green {
+    background-color: #5cb85c;
+}
+
+/* 默认主题 */
+.theme-default .btn-min {
+    background-color: #293949 !important;
+    border-color: #293949 !important;
+}
+.theme-default .emenu-header-small {
+    background-color: #293949 !important;
+}
+
+/* 蓝色主题 */
+.theme-blue .econtent-footer {
     color: #0e9aef !important;
 }
 .theme-blue .navbar-toggle {
     background: #0e9aef !important;
 }
-.theme-blue .sidebar-container {
-    background-color: #0e9aef !important;
-}
 .theme-blue .emenu-header {
+    background: url("header-green.png");
     background-color: #0e9aef !important;
 }
-.theme-green {
-    background-color: #18a689 !important;
+.theme-blue .emenu-header-small {
+    background-color: #0e9aef !important;
 }
+.theme-blue .eui-sidemenu > li a:hover {
+    background-color: #0e9aef !important;
+}
+
+/* 绿色主题 */
+.theme-green .btn-min {
+    background-color: #5cb85c !important;
+    border-color: #5cb85c !important;
+}
+
 .theme-green .emenu-header {
-    background-color: #18a689 !important;
+    background-color: #5cb85c !important;
+}
+
+.theme-green .emenu-header-small {
+    background-color: #5cb85c !important;
 }
 
 /* 拓展 Bootstrap */
@@ -302,3 +406,71 @@
     height: 50px;
 }
 .img-sm {}
+
+/* 表格 */
+.eui-table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* tab */
+.content-tabs {
+    border-bottom: solid 2px #2f4050;
+}
+.content-tabs {
+    position: absolute;
+    top: 70px;
+    z-index: 99999;
+    width: 100%;
+    height: 42px;
+    background: #fafafa;
+    line-height: 40px;
+    overflow: hidden;
+}
+.page-tabs a.active {
+    background: #2f4050;
+    color: #a7b1c2;
+}
+.page-tabs a {
+    color: #999;
+}
+.page-tabs a {
+    display: block;
+    float: left;
+    border-right: solid 1px #eee;
+    padding: 0 15px;
+}
+.J_menuTab {
+    -webkit-transition: all .3s ease-out 0s;
+    transition: all .3s ease-out 0s;
+}
+.content-tabs button {
+    background: #fff;
+    border: 0;
+    height: 40px;
+    width: 40px;
+    outline: 0;
+}
+.roll-right.btn-group button {
+    width: 80px;
+}
+.roll-right.btn-group {
+    right: 60px;
+    width: 80px;
+    padding: 0;
+}
+.page-tabs a {
+    color: #999;
+}
+.page-tabs a {
+    display: block;
+    float: left;
+    border-right: solid 1px #eee;
+    padding: 0 15px;
+}
+nav.page-tabs {
+    float: left;
+    margin-left: 40px;
+    height: 40px;
+    overflow: hidden;
+}

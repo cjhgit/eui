@@ -94,8 +94,14 @@ module.exports = function (grunt) {
                     ]
                     */
                 }
+            },
+            simple: {
+                files: {
+                    'dist/css/simple/eui.min.css': [
+                        "dist/css/simple/eui.css",
+                    ]
+                }
             }
-
         },
         watch: {
             scripts: {
@@ -113,6 +119,15 @@ module.exports = function (grunt) {
                     "dist/css/eui.css": "src/less/bootstrap.less",
                     "dist/css/toastr.css": "src/toastr/toastr.less",
                     "dist/css/timeline.css": "src/less/timeline.less"
+                }
+            },
+            simple:{
+                options: {
+                    compress: false,
+                    yuicompress: false
+                },
+                files: {
+                    "dist/css/simple/eui.css": "src/less/bootstrap-simple.less",
                 }
             },
             dist: {
@@ -141,5 +156,8 @@ module.exports = function (grunt) {
     grunt.registerTask('default',['less:default', 'cssmin', 'concat:test', 'uglify:test']);
     // 发布
     grunt.registerTask('dist', ['less:dist', 'concat:dist', 'uglify:dist', 'uglify:dist2']);
+
+    // 精简
+    grunt.registerTask('simple', ['less:simple', 'cssmin:simple']);
     //grunt.registerTask('clean', ['clean:dist']);
 };

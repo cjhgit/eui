@@ -4,29 +4,39 @@
 
 $(document).ready(function(){
     var thtmes = 'theme-default theme-blue theme-green';
+    function selectTheme(theme) {
+        if (theme === 'blue') {
+            $('body').removeClass(thtmes);
+            $('body').addClass('theme-blue');
+        } else if (theme === 'green') {
+            $('body').removeClass(thtmes);
+            $('body').addClass('theme-green');
+        } else {
+            $('body').removeClass(thtmes);
+            $('body').addClass('theme-default');
+        }
+    }
 
     $('#theme-blue').on('click', function(e){
         e.preventDefault();
 
-        $('body').removeClass(thtmes);
-        $('body').addClass('theme-blue');
+        selectTheme('blue');
     });
 
     $('#theme-green').on('click', function(e){
         e.preventDefault();
 
-        $('body').removeClass(thtmes);
-        $('body').addClass('theme-green');
+        selectTheme('green');
     });
 
     $('#theme-default').on('click', function(e){
         e.preventDefault();
 
-        $('body').removeClass(thtmes);
+        selectTheme('default')
     });
 
-    $(function() {
-        $("[data-toggle='tooltip']").tooltip();
-        $('[data-toggle="popover"]').popover();
-    });
+    $("[data-toggle='tooltip']").tooltip();
+    $('[data-toggle="popover"]').popover();
+
+
 });
