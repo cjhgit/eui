@@ -2,42 +2,65 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>弹出框</title>
+<title>弹出框 - eUI</title>
 <link rel="stylesheet" href="../dist/css/eui.min.css">
 <link rel="stylesheet" href="../src/eadmin/eadmin.css">
 <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
 </head>
-
 <body>
 <div class="mycontainer">
     <div class="row">
-
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <div class="panel panel-default">
-                <header class="panel-heading">alert</header>
+                <header class="panel-heading">模态框</header>
                 <div class="panel-body">
-                    <div class="alert alert-warning">使用时需要引入eui.dialog.min.js。</div>
-                    <p>通过调用 eui.alert() 来模拟原生 alert() 的效果。使用简单，效果美观。</p>
-                    <p>不过从用户体验角度来说，应该尽可能避免这类打断用户的交互方式。</p>
-                    <button id="alert" class="btn btn-default">普通alert</button>
-                    <button id="alert2" class="btn btn-default">自定义alert</button>
-                    <button id="alert3" class="btn btn-default">带回调的alert</button>
-                    <p>通过调用 eui.confirm() 来模拟原生 confirm() 的效果。</p>
-                    <button id="confirm" class="btn btn-default">普通confirm</button>
-                    <button id="confirm2" class="btn btn-default">自定义confirm</button>
-                    <button id="confirm3" class="btn btn-default">带回调的confirm</button>
-                    <p>通过调用 eui.info() 来显示提示对话框（点击对话框外可隐藏对话框）</p>
-                    <button id="info" class="btn btn-default">普通info</button>
+                    <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-form">表单模态框</button>
+                    <button id="show-login-dialog" class="btn btn-primary" type="button">表单模态框</button>
+
+
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-simple">普通模态框</button>
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-notitle">无头部模态框</button>
+                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-event">事件</button>
                 </div>
             </div>
         </div>
-
-
-    </div>
-    <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">
-                <header class="panel-heading">方法</header>
+                <header class="panel-heading">参数介绍</header>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>选项</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>backdrop</td>
+                                <td>true</td>
+                                <td>点击对话框周围位置隐藏对话框</td>
+                            </tr>
+                            <tr>
+                                <td>keyboard</td>
+                                <td>true</td>
+                                <td>按 esc 键关闭对话框</td>
+                            </tr>
+                            <tr>
+                                <td>show</td>
+                                <td>true</td>
+                                <td>按 esc 键关闭对话框</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <header class="panel-heading">模态框</header>
                 <div class="panel-body">
                     <table class="table">
                         <thead>
@@ -47,51 +70,54 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>eui.alert(options)</td>
-                            <td>功能类似 Javascript 的 alert。</td>
-                        </tr>
-                        <tr>
-                            <td>eui.alert('msg')</td>
-                            <td>显示一段文本。</td>
-                        </tr>
-                        <tr>
-                            <td>eui.confirm(options)</td>
-                            <td>功能类似 Javascript 的 confirm。</td>
-                        </tr>
-                        <tr>
-                            <td>eui.confirm('msg')</td>
-                            <td>显示一段文本。</td>
-                        </tr>
+                            <tr>
+                                <td>$(selector).modal(options);</td>
+                                <td>初始化模态框（初始化之后默认显示模态框）</td>
+                            </tr>
+                            <tr>
+                                <td>$(selector).modal('toggle');</td>
+                                <td>切换模态框</td>
+                            </tr>
+                            <tr>
+                                <td>$(selector).modal('show');</td>
+                                <td>显示模态框</td>
+                            </tr>
+                            <tr>
+                                <td>$(selector).modal('hide');</td>
+                                <td>隐藏模态框</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">
-                <header class="panel-heading">参数介绍</header>
+                <header class="panel-heading">事件</header>
                 <div class="panel-body">
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>选项</th>
-                            <th>默认值</th>
+                            <th>事件</th>
                             <th>说明</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>title</td>
-                            <td>string</td>
-                            <td>对话框标题</td>
+                            <td>show.bs.modal</td>
+                            <td>当 show 实例方法被调用之后，该事件被触发。</td>
                         </tr>
                         <tr>
-                            <td>msg</td>
-                            <td>string</td>
-                            <td>对话框内容</td>
+                            <td>shown.bs.modal</td>
+                            <td>当模态框显示出来之后（同时 CSS 过渡效果也已执行完毕），该事件被触发。</td>
+                        </tr>
+                        <tr>
+                            <td>hide.bs.modal</td>
+                            <td>当 hide 实例方法被调用之后，该事件被触发。</td>
+                        </tr>
+                        <tr>
+                            <td>hidden.bs.modal</td>
+                            <td>当模态框向用户隐藏之后（同时 CSS 过渡效果也已执行完毕），该事件被触发。</td>
                         </tr>
                         </tbody>
                     </table>
@@ -100,50 +126,130 @@
         </div>
     </div>
 </div>
+<!-- 表单模态框 -->
+<div id="modal-form" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">登陆</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="account">账号</label>
+                        <div class="col-sm-6">
+                            <input id="account" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+                            <label class="control-label col-sm-4" for="password">密码</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input id="password" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-success">登陆</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /模态框 -->
+<!-- 普通模态框 -->
+<div id="modal-simple" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">这是标题</h4>
+            </div>
+            <div class="modal-body">
+                <p>这是内容</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 无标题模态框 -->
+<div id="modal-notitle" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p>这是内容</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 事件模态框 -->
+<div id="modal-event" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p>这是内容</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="login-form" class="form-horizontal" role="form">
+    <div class="form-group">
+        <label class="control-label col-sm-4" for="account">账号</label>
+        <div class="col-sm-6">
+            <input id="account" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="">
+            <label class="control-label col-sm-4" for="password">密码</label>
+        </div>
+        <div class="col-sm-6">
+            <input id="password" class="form-control">
+        </div>
+    </div>
+</form>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
-<script src="../src/eui.dialog.js"></script>
 <script>
-    $('#alert').on('click', function(){
-        eui.alert('哈哈');
-    });
-    $('#alert2').on('click', function(){
-        eui.alert({
-            okbtn	: '自定义文字等',
-            msg		: '自定义提示框！',
-            big		: true
+    $(document).ready(function() {
+        $('#show-login-dialog').on('click', function () {
+            eui.dialog({
+                type: 1,
+                shade: false,
+                title: false, //不显示标题
+                content: $('#login-form'), //捕获的元素
+                cancel: function(index){
+                    eui.close(index);
+                    this.content.show();
+                    eui.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', {time: 5000, icon:6});
+                }
+            });
+
+        })
+        $('#modal-event').on('show.bs.modal', function() {
+            alert('准备显示');
         });
-
-    });
-    $('#alert3').on('click', function(){
-        eui.alert('带回调提示框！',function(){
-            alert('点击了确定！');
+        $('#modal-event').on('shown.bs.modal', function() {
+            alert('已经显示');
         });
-
-    });
-    $('#confirm').on('click', function(){
-        eui.confirm('普通提示框！');
-    });
-
-    $('#confirm2').on('click', function(){
-        eui.confirm({
-            okbtn	: '自定义文字等',
-            msg		: '自定义确认框',
-            big		: true
+        $('#modal-event').on('hide.bs.modal', function() {
+            alert('准备隐藏');
         });
-
-    });
-
-    $('#confirm3').on('click', function(){
-        eui.confirm('带回调确认框！',function(){
-            alert('点击了确定！');
-        },function(){
-            alert('点击了取消！');
+        $('#modal-event').on('hidden.bs.modal', function() {
+            alert('已经隐藏');
         });
-
-    });
-    $('#info').on('click', function(){
-        eui.info('哈哈');
     });
 </script>
 </body>

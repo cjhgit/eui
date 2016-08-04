@@ -45,12 +45,14 @@ module.exports = function (grunt) {
             },
             test: {
                 src: [
+                    'src/js/base.js',
                     'src/js/alert.js',
                     'src/js/button.js',
                     'src/js/slider.js',
                     'src/js/collapse.js',
+                    'src/js/dialog.js',
                     'src/js/dropdown.js',
-                    'src/js/modal.js',
+                    //'src/js/modal.js',
                     'src/js/tooltip.js',
                     'src/js/popover.js',
                     'src/js/scrollspy.js',
@@ -58,7 +60,9 @@ module.exports = function (grunt) {
                     'src/js/transition.js',
                     // eUI 组件
                     'src/box/box.js',
-                    'src/totop/totop.js',
+                    'src/totop/totop.js'
+                    // 封装
+
                     //'src/hover-dropdown.js'
                 ],
                 dest: 'dist/js/eui.js'
@@ -121,22 +125,12 @@ module.exports = function (grunt) {
                     "dist/css/timeline.css": "src/less/timeline.less"
                 }
             },
-            simple:{
-                options: {
-                    compress: false,
-                    yuicompress: false
-                },
-                files: {
-                    "dist/css/simple/eui.css": "src/less/bootstrap-simple.less",
-                }
-            },
             dist: {
                 options: {
                     compress: true,
                     yuicompress: false
                 },
                 files: {
-                    "dist/css/glyphicons.min.css": "src/less/glyphicons.less",
                 }
             }
         },
@@ -157,7 +151,5 @@ module.exports = function (grunt) {
     // 发布
     grunt.registerTask('dist', ['less:dist', 'concat:dist', 'uglify:dist', 'uglify:dist2']);
 
-    // 精简
-    grunt.registerTask('simple', ['less:simple', 'cssmin:simple']);
     //grunt.registerTask('clean', ['clean:dist']);
 };

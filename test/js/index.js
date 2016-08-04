@@ -135,7 +135,7 @@ $(function() {
         } else if (windowWidth < 768) {
             minMenu();
         } else {
-            showMenu();
+            //showMenu();
         }
     });
 

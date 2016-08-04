@@ -86,78 +86,9 @@ mark,
   padding: .2em;
 }
 
-// Alignment
-.text-left           { text-align: left; }
-.text-right          { text-align: right; }
-.text-center         { text-align: center; }
-.text-justify        { text-align: justify; }
-.text-nowrap         { white-space: nowrap; }
-
-// Transformation
-.text-lowercase      { text-transform: lowercase; }
-.text-uppercase      { text-transform: uppercase; }
-.text-capitalize     { text-transform: capitalize; }
-
 // Contextual colors
 .text-muted {
   color: @text-muted;
-}
-.text-primary {
-  .text-emphasis-variant(@brand-primary);
-}
-.text-success {
-  .text-emphasis-variant(@state-success-text);
-}
-.text-info {
-  .text-emphasis-variant(@state-info-text);
-}
-.text-warning {
-  .text-emphasis-variant(@state-warning-text);
-}
-.text-danger {
-  .text-emphasis-variant(@state-danger-text);
-}
-
-// Contextual backgrounds
-// For now we'll leave these alongside the text classes until v4 when we can
-// safely shift things around (per SemVer rules).
-.bg-primary {
-  // Given the contrast here, this is the only class to have its color inverted
-  // automatically.
-  color: #fff;
-  .bg-variant(@brand-primary);
-}
-.bg-success {
-  .bg-variant(@state-success-bg);
-}
-.bg-info {
-  .bg-variant(@state-info-bg);
-}
-.bg-warning {
-  .bg-variant(@state-warning-bg);
-}
-.bg-danger {
-  .bg-variant(@state-danger-bg);
-}
-
-// 对于颜色的拓展（一般情况下使用语义化的场景色，没必要情况下不要使用）
-.bg-blue,
-.bg-green,
-.bg-orange,
-.bg-red {
-  color: #fff !important;
-}
-.bg-blue {
-  background-color: #00c0ef;
-}
-.bg-green {
-  background-color: #00a65a;
-}
-.bg-orange {
-  background-color: #f39c12;
-}
-.bg-red {
-  background-color: #dd4b39;
 }
 
 // Inverse
@@ -267,10 +198,6 @@ abbr[title],
 abbr[data-original-title] {
   cursor: help;
   border-bottom: 1px dotted @abbr-border-color;
-}
-.initialism {
-  font-size: 90%;
-  .text-uppercase();
 }
 
 // Blockquotes

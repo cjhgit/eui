@@ -1,0 +1,679 @@
+//
+// 对话框
+//
+/*
+#layui_layer_skinlayercss {
+    display: none;
+    position: absolute;
+    width: 1989px;
+}
+*/
+// common
+.eui-dialog-shade, .eui-dialog {
+    position: fixed;
+    pointer-events: auto;
+}
+
+.eui-dialog-shade {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.eui-dialog {
+    top: 150px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, .3);
+}
+
+.eui-dialog-close {
+    position: absolute;
+}
+
+.eui-dialog-body {
+    position: relative;
+}
+
+.eui-dialog-border {
+    border: 1px solid #B2B2B2;
+    border: 1px solid rgba(0, 0, 0, .3);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+}
+
+.eui-dialog-moves {
+    position: absolute;
+    border: 3px solid #666;
+    border: 3px solid rgba(0, 0, 0, .5);
+    cursor: move;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, .3);
+    filter: alpha(opacity=50);
+}
+
+.eui-dialog-load {
+    background: url(img/loading-0.gif) #fff center center no-repeat;
+}
+
+.eui-dialog-ico {
+    background: url(img/icon.png) no-repeat;
+}
+
+.eui-dialog-dialog .eui-dialog-ico,
+.eui-dialog-setwin a,
+.eui-dialog-footer a {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* 动画 */
+.eui-dialog {
+    border-radius: 2px;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+}
+
+@-webkit-keyframes bounceIn {
+    /* 默认 */
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.5);
+        transform: scale(.5)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.5);
+        transform: scale(.5)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+.eui-anim {
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn
+}
+
+@-webkit-keyframes bounceOut {
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(.7);
+        transform: scale(.7)
+    }
+    30% {
+        -webkit-transform: scale(1.03);
+        transform: scale(1.03)
+    }
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceOut {
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(.7);
+        transform: scale(.7)
+    }
+    30% {
+        -webkit-transform: scale(1.03);
+        transform: scale(1.03)
+    }
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+.eui-anim-close {
+    -webkit-animation-name: bounceOut;
+    animation-name: bounceOut;
+    -webkit-animation-duration: .2s;
+    animation-duration: .2s;
+}
+
+@-webkit-keyframes zoomInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.1) translateY(-2000px);
+        transform: scale(.1) translateY(-2000px);
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale(.475) translateY(60px);
+        transform: scale(.475) translateY(60px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out
+    }
+}
+
+@keyframes zoomInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.1) translateY(-2000px);
+        transform: scale(.1) translateY(-2000px);
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale(.475) translateY(60px);
+        transform: scale(.475) translateY(60px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out
+    }
+}
+
+.eui-anim-01 {
+    -webkit-animation-name: zoomInDown;
+    animation-name: zoomInDown
+}
+
+@-webkit-keyframes fadeInUpBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(2000px);
+        transform: translateY(2000px)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes fadeInUpBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(2000px);
+        transform: translateY(2000px)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+.eui-anim-02 {
+    -webkit-animation-name: fadeInUpBig;
+    animation-name: fadeInUpBig
+}
+
+@-webkit-keyframes zoomInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.1) translateX(-2000px);
+        transform: scale(.1) translateX(-2000px);
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale(.475) translateX(48px);
+        transform: scale(.475) translateX(48px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out
+    }
+}
+
+@keyframes zoomInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.1) translateX(-2000px);
+        transform: scale(.1) translateX(-2000px);
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale(.475) translateX(48px);
+        transform: scale(.475) translateX(48px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out
+    }
+}
+
+.eui-anim-03 {
+    -webkit-animation-name: zoomInLeft;
+    animation-name: zoomInLeft
+}
+
+@-webkit-keyframes rollIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100%) rotate(-120deg);
+        transform: translateX(-100%) rotate(-120deg)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0px) rotate(0deg);
+        transform: translateX(0px) rotate(0deg)
+    }
+}
+
+@keyframes rollIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100%) rotate(-120deg);
+        transform: translateX(-100%) rotate(-120deg)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0px) rotate(0deg);
+        transform: translateX(0px) rotate(0deg)
+    }
+}
+
+.eui-anim-04 {
+    -webkit-animation-name: rollIn;
+    animation-name: rollIn
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.eui-anim-05 {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn
+}
+
+@-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px)
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px)
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px)
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px)
+    }
+}
+
+.eui-anim-06 {
+    -webkit-animation-name: shake;
+    animation-name: shake
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+/* 标题栏 */
+.eui-dialog-header {
+    padding: 0 80px 0 20px;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #F8F8F8;
+    border-radius: 2px 2px 0 0;
+}
+
+.eui-dialog-setwin {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 0;
+    line-height: initial;
+}
+
+.eui-dialog-setwin a {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    font-size: 12px;
+    _overflow: hidden;
+}
+
+.eui-dialog-setwin .eui-dialog-min cite {
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    left: 0;
+    top: 50%;
+    margin-top: -1px;
+    background-color: #2E2D3C;
+    cursor: pointer;
+    _overflow: hidden;
+}
+
+.eui-dialog-setwin .eui-dialog-min:hover cite {
+    background-color: #2D93CA;
+}
+
+.eui-dialog-setwin .eui-dialog-max {
+    background-position: -32px -40px;
+}
+
+.eui-dialog-setwin .eui-dialog-max:hover {
+    background-position: -16px -40px;
+}
+
+.eui-dialog-setwin .eui-dialog-maxmin {
+    background-position: -65px -40px;
+}
+
+.eui-dialog-setwin .eui-dialog-maxmin:hover {
+    background-position: -49px -40px;
+}
+
+.eui-dialog-setwin .eui-dialog-close1 {
+    background-position: 0 -40px;
+    cursor: pointer;
+}
+
+.eui-dialog-setwin .eui-dialog-close1:hover {
+    opacity: 0.7;
+}
+
+.eui-dialog-setwin .eui-dialog-close2 {
+    position: absolute;
+    right: -28px;
+    top: -28px;
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+    background-position: -149px -31px;
+    _display: none;
+}
+
+.eui-dialog-setwin .eui-dialog-close2:hover {
+    background-position: -180px -31px;
+}
+
+/* 按钮栏 */
+.eui-dialog-footer {
+    text-align: right;
+    padding: 0 10px 12px;
+    pointer-events: auto;
+}
+
+.eui-dialog-footer a {
+    height: 28px;
+    line-height: 28px;
+    margin: 0 6px;
+    padding: 0 15px;
+    border: 1px #dedede solid;
+    background-color: #f1f1f1;
+    color: #333;
+    border-radius: 2px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.eui-dialog-footer a:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+.eui-dialog-footer a:active {
+    opacity: 0.7;
+}
+
+.eui-dialog-footer .eui-dialog-footer0 {
+    border-color: #4898d5;
+    background-color: #2e8ded;
+    color: #fff;
+}
+
+/* 定制化 */
+.eui-dialog-dialog {
+    min-width: 260px;
+}
+
+.eui-dialog-dialog .eui-dialog-body {
+    position: relative;
+    padding: 20px;
+    line-height: 24px;
+    word-break: break-all;
+    overflow: hidden;
+    font-size: 14px;
+    overflow: auto;
+}
+
+.eui-dialog-dialog .eui-dialog-body .eui-dialog-ico {
+    position: absolute;
+    top: 16px;
+    left: 15px;
+    _left: -40px;
+    width: 30px;
+    height: 30px;
+}
+
+.eui-dialog-ico1 {
+    background-position: -30px 0
+}
+
+.eui-dialog-ico2 {
+    background-position: -60px 0;
+}
+
+.eui-dialog-ico3 {
+    background-position: -90px 0;
+}
+
+.eui-dialog-ico4 {
+    background-position: -120px 0;
+}
+
+.eui-dialog-ico5 {
+    background-position: -150px 0;
+}
+
+.eui-dialog-ico6 {
+    background-position: -180px 0;
+}
+
+.eui-dialog-rim {
+    border: 6px solid #8D8D8D;
+    border: 6px solid rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.eui-dialog-msg {
+    min-width: 180px;
+    border: 1px solid #D3D4D3;
+    box-shadow: none;
+}
+
+.eui-dialog-hui {
+    min-width: 100px;
+    background-color: #000;
+    filter: alpha(opacity=60);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+}
+
+.eui-dialog-hui .eui-dialog-body {
+    padding: 12px 25px;
+    text-align: center;
+}
+
+.eui-dialog-dialog .eui-dialog-padding {
+    padding: 20px 20px 20px 55px;
+    text-align: left;
+}
+
+.eui-dialog-page .eui-dialog-body {
+    position: relative;
+    overflow: auto;
+}
+
+.eui-dialog-page .eui-dialog-footer, .eui-dialog-iframe .eui-dialog-footer {
+    padding-top: 10px;
+}
+
+.eui-dialog-nobg {
+    background: none;
+}
+
+.eui-dialog-iframe .eui-dialog-body {
+    overflow: hidden;
+}
+
+.eui-dialog-iframe iframe {
+    display: block;
+    width: 100%;
+}
+
+.eui-dialog-loading {
+    border-radius: 100%;
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+.eui-dialog-loading .eui-dialog-body {
+    width: 60px;
+    height: 24px;
+    background: url(img/loading-0.gif) no-repeat;
+}
+
+.eui-dialog-loading .eui-dialog-loading1 {
+    width: 37px;
+    height: 37px;
+    background: url(img/loading-1.gif) no-repeat;
+}
+
+.eui-dialog-loading .eui-dialog-loading2, .eui-dialog-ico16 {
+    width: 32px;
+    height: 32px;
+    background: url(img/loading-2.gif) no-repeat;
+}
+
+.eui-dialog-tips {
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+.eui-dialog-tips .eui-dialog-body {
+    position: relative;
+    line-height: 22px;
+    min-width: 12px;
+    padding: 5px 10px;
+    font-size: 12px;
+    _float: left;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+    background-color: #FF9900;
+    color: #fff;
+}
+
+.eui-dialog-tips .eui-dialog-close {
+    right: -2px;
+    top: -1px;
+}
+
+.eui-dialog-tips i.eui-dialog-TipsG {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 8px;
+    border-color: transparent;
+    border-style: dashed;
+}
+
+.eui-dialog-tips i.eui-dialog-TipsT, .eui-dialog-tips i.eui-dialog-TipsB {
+    left: 5px;
+    border-right-style: solid;
+    border-right-color: #FF9900;
+}
+
+.eui-dialog-tips i.eui-dialog-TipsT {
+    bottom: -8px;
+}
+
+.eui-dialog-tips i.eui-dialog-TipsB {
+    top: -8px;
+}
+
+.eui-dialog-tips i.eui-dialog-TipsR, .eui-dialog-tips i.eui-dialog-TipsL {
+    top: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #FF9900;
+}
+
+.eui-dialog-tips i.eui-dialog-TipsR {
+    left: -8px;
+}
+
+.eui-dialog-tips i.eui-dialog-TipsL {
+    right: -8px;
+}
+
+/* prompt模式 */
+.eui-dialog-prompt .eui-dialog-input {
+    display: block;
+    width: 220px;
+    height: 30px;
+    margin: 0 auto;
+    line-height: 30px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .1) inset;
+    color: #333;
+}
+
+.eui-dialog-prompt textarea.eui-dialog-input {
+    width: 300px;
+    height: 100px;
+    line-height: 20px;
+}

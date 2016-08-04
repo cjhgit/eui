@@ -10176,7 +10176,7 @@ var dialog = $.widget( "ui.dialog", {
 
 	_init: function() {
 		if ( this.options.autoOpen ) {
-			this.open();
+			this.dialog();
 		}
 	},
 

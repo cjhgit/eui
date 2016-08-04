@@ -1,0 +1,73 @@
+.card-ex {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.card-ex .card-header {
+    position: relative;
+    padding: 5px 15px;
+}
+
+.card-ex .card-title {
+    float: left;
+    max-width: calc(100% - 180px);
+    line-height: 30px;
+}
+
+.card-ex .card-tool-list {
+    position: relative;
+    right: 0;
+    display: inline-block;
+    float: right;
+    min-width: initial;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    background: transparent;
+}
+.card-ex .card-tool-list > li {
+    display: inline-block;
+    margin-left: 10px;
+}
+.card-tool-list > li > a {
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+    outline: 0;
+    text-align: center;
+    width: 30px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.card-ex > .card-header:after {
+    clear: both;
+}
+
+.card-tool-icon {
+    color: #666;
+    top: 0;
+    line-height: 30px;
+}
+.card-tool-icon:hover {
+    color: #000;
+}
+.card-primary .card-tool-icon {
+    color: #eee;
+}
+.card-primary .card-tool-icon:hover {
+    color: #fff;
+}
+
+.card-ex > .card-body {
+    overflow: auto;
+    position: relative;
+}
+
+/* 全屏样式 */
+.card-ex-full .card-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}

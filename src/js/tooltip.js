@@ -39,7 +39,8 @@
         title: '',
         delay: 0,
         html: false,
-        container: false,
+        //container: false,
+        container: 'body',
         viewport: {
             selector: 'body',
             padding: 0

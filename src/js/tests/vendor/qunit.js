@@ -425,8 +425,8 @@ function verifyLoggingCallbacks() {
 		// Treat return value as window.onerror itself does,
 		// Only do our handling if not suppressed.
 		if ( ret !== true ) {
-			if ( QUnit.config.current ) {
-				if ( QUnit.config.current.ignoreGlobalErrors ) {
+			if ( QUnit.opts.current ) {
+				if ( QUnit.opts.current.ignoreGlobalErrors ) {
 					return true;
 				}
 				QUnit.pushFailure( error, filePath + ":" + linerNr );
@@ -1044,7 +1044,7 @@ Test.prototype = {
 		}
 
 		// Prioritize previously failed tests, detected from sessionStorage
-		priority = QUnit.config.reorder && defined.sessionStorage &&
+		priority = QUnit.opts.reorder && defined.sessionStorage &&
 				+sessionStorage.getItem( "qunit-test-" + this.module.name + "-" + this.testName );
 
 		return synchronize( run, priority );
@@ -1225,13 +1225,13 @@ QUnit.reset = function() {
 };
 
 QUnit.pushFailure = function() {
-	if ( !QUnit.config.current ) {
+	if ( !QUnit.opts.current ) {
 		throw new Error( "pushFailure() assertion outside test context, in " +
 			sourceFromStacktrace( 2 ) );
 	}
 
 	// Gets current test obj
-	var currentTest = QUnit.config.current;
+	var currentTest = QUnit.opts.current;
 
 	return currentTest.pushFailure.apply( currentTest, arguments );
 };
@@ -1365,7 +1365,7 @@ function only( testName, expected, callback, async ) {
 
 	if ( focused )  { return; }
 
-	QUnit.config.queue.length = 0;
+	QUnit.opts.queue.length = 0;
 	focused = true;
 
 	if ( arguments.length === 2 ) {
@@ -1436,7 +1436,7 @@ QUnit.assert = Assert.prototype = {
 	// Exports test.push() to the user API
 	// Alias of pushResult.
 	push: function( result, actual, expected, message, negative ) {
-		var currentAssert = this instanceof Assert ? this : QUnit.config.current.assert;
+		var currentAssert = this instanceof Assert ? this : QUnit.opts.current.assert;
 		return currentAssert.pushResult( {
 			result: result,
 			actual: actual,
@@ -1450,7 +1450,7 @@ QUnit.assert = Assert.prototype = {
 
 		// resultInfo = { result, actual, expected, message, negative }
 		var assert = this,
-			currentTest = ( assert instanceof Assert && assert.test ) || QUnit.config.current;
+			currentTest = ( assert instanceof Assert && assert.test ) || QUnit.opts.current;
 
 		// Backwards compatibility fix.
 		// Allows the direct use of global exported assertions and QUnit.assert.*
@@ -1583,7 +1583,7 @@ QUnit.assert = Assert.prototype = {
 		var actual, expectedType,
 			expectedOutput = expected,
 			ok = false,
-			currentTest = ( this instanceof Assert && this.test ) || QUnit.config.current;
+			currentTest = ( this instanceof Assert && this.test ) || QUnit.opts.current;
 
 		// 'expected' is optional unless doing string comparison
 		if ( message == null && typeof expected === "string" ) {
@@ -2039,7 +2039,7 @@ QUnit.dump = (function() {
 			join: join,
 			//
 			depth: 1,
-			maxDepth: QUnit.config.maxDepth,
+			maxDepth: QUnit.opts.maxDepth,
 
 			// This is the list of parsers, to modify them, use dump.setParser
 			parsers: {
@@ -2182,7 +2182,7 @@ QUnit.jsDump = QUnit.dump;
 
 	function applyCurrent( current ) {
 		return function() {
-			var assert = new Assert( QUnit.config.current );
+			var assert = new Assert( QUnit.opts.current );
 			current.apply( assert, arguments );
 		};
 	}
@@ -2243,7 +2243,7 @@ if ( typeof define === "function" && define.amd ) {
 	define( function() {
 		return QUnit;
 	} );
-	QUnit.config.autostart = false;
+	QUnit.opts.autostart = false;
 }
 
 /*
@@ -3374,7 +3374,7 @@ if ( typeof window === "undefined" || !window.document ) {
 // Re-initialize the configuration options
 QUnit.init = function() {
 	var tests, banner, result, qunit,
-		config = QUnit.config;
+		config = QUnit.opts;
 
 	config.stats = { all: 0, bad: 0 };
 	config.moduleStats = { all: 0, bad: 0 };
@@ -3427,7 +3427,7 @@ QUnit.init = function() {
 	}
 };
 
-var config = QUnit.config,
+var config = QUnit.opts,
 	collapseNext = false,
 	hasOwn = Object.prototype.hasOwnProperty,
 	defined = {
@@ -3826,7 +3826,7 @@ function storeFixture() {
 }
 
 function appendFilteredTest() {
-	var testId = QUnit.config.testId;
+	var testId = QUnit.opts.testId;
 	if ( !testId || testId.length <= 0 ) {
 		return "";
 	}
@@ -4003,7 +4003,7 @@ QUnit.testStart(function( details ) {
 
 	running = id( "qunit-testresult" );
 	if ( running ) {
-		bad = QUnit.config.reorder && defined.sessionStorage &&
+		bad = QUnit.opts.reorder && defined.sessionStorage &&
 			+sessionStorage.getItem( "qunit-test-" + details.module + "-" + details.name );
 
 		running.innerHTML = ( bad ?
@@ -4071,7 +4071,7 @@ QUnit.log(function( details ) {
 				expected.indexOf( "[object Object]" ) !== -1 ) {
 			message += "<tr class='test-message'><th>Message: </th><td>" +
 				"Diff suppressed as the depth of object is more than current max depth (" +
-				QUnit.config.maxDepth + ").<p>Hint: Use <code>QUnit.dump.maxDepth</code> to " +
+				QUnit.opts.maxDepth + ").<p>Hint: Use <code>QUnit.dump.maxDepth</code> to " +
 				" run with a higher max depth or <a href='" +
 				escapeText( setUrl( { maxDepth: -1 } ) ) + "'>" +
 				"Rerun</a> without max depth.</p></td></tr>";
