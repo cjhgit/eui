@@ -10,7 +10,7 @@
             topOffset: 300, // 滚动条距离顶部多少像素时显示返回顶部按钮
             duration: 700, // 返回顶部滚动时间(ms)
         };
-        var opts = $.extend({}, defaults, options);
+        var opts = $.extend({}, DEFAULTS, options);
 
         var $this = $(this);
 

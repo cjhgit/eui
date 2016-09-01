@@ -41,7 +41,7 @@ module.exports = function (grunt) {
             options: {
                 separator: ';',
                 stripBanners: true,
-                banner: '/*! hello - v1.2.3 - 2014-2-4 */'
+                banner: '/*! eUI - v1.0.0 */'
             },
             test: {
                 src: [
@@ -89,7 +89,6 @@ module.exports = function (grunt) {
                 files: {
                     'dist/css/eui.min.css': [
                         "dist/css/eui.css",
-                        "src/box/box.css",
                         "src/totop/totop.css"
                     ]
                     /*
@@ -97,6 +96,13 @@ module.exports = function (grunt) {
 
                     ]
                     */
+                }
+            },
+            reset: {
+                files: {
+                    'dist/css/eui-reset.min.css': [
+                        "dist/css/eui-reset.css",
+                    ]
                 }
             },
             simple: {
@@ -120,7 +126,7 @@ module.exports = function (grunt) {
                     yuicompress: false
                 },
                 files: {
-                    "dist/css/eui.css": "src/less/bootstrap.less",
+                    "dist/css/eui.css": "src/less/eui.less",
                     "dist/css/toastr.css": "src/toastr/toastr.less",
                     "dist/css/timeline.css": "src/less/timeline.less"
                 }
@@ -132,7 +138,16 @@ module.exports = function (grunt) {
                 },
                 files: {
                 }
-            }
+            },
+            reset:{
+                options: {
+                    compress: false,
+                    yuicompress: false
+                },
+                files: {
+                    "dist/css/eui-reset.css": "src/less/eui-reset.less",
+                }
+            },
         },
         clean: {
             dist: 'dist/js',
@@ -149,7 +164,8 @@ module.exports = function (grunt) {
     // 测试
     grunt.registerTask('default',['less:default', 'cssmin', 'concat:test', 'uglify:test']);
     // 发布
-    grunt.registerTask('dist', ['less:dist', 'concat:dist', 'uglify:dist', 'uglify:dist2']);
-
+    grunt.registerTask('dist', ['less:default', 'concat:dist', 'uglify:dist', 'uglify:dist2']);
+    // reset
+    grunt.registerTask('reset',['less:reset', 'cssmin:reset']);
     //grunt.registerTask('clean', ['clean:dist']);
 };

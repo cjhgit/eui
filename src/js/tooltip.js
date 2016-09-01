@@ -102,7 +102,7 @@
         var defaults = this.getDefaults();
 
         this._options && $.each(this._options, function (key, value) {
-            if (defaults[key] != value) options[key] = value
+            if (DEFAULTS[key] != value) options[key] = value
         });
 
         return options

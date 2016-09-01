@@ -9,7 +9,7 @@
         var defaults = {
             offset: 0
         };
-        var opts = $.extend({}, defaults, options);
+        var opts = $.extend({}, DEFAULTS, options);
 
         var $this = $(this);
         var initPos = $this.offset().top;

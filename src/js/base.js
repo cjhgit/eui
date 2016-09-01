@@ -60,6 +60,38 @@
 
     };
 
+    // 背景遮罩层
+    eui.overlay = function (option) {
+        if (option === 'hide') {
+            var $overlay = $('#eui-overlay');
+            $overlay.hide();
+        } else {
+            var opts = $.extend({}, eui.overlay.DEFAULT, option);
+            var $overlay = $('#eui-overlay');
+            if ($overlay.length) {
+                $overlay.show();
+            } else {
+                $overlay = $('<div id="eui-overlay" class="eui-overlay"></div>');
+                $overlay.css({
+                    backgroundColor: opts.bgColor,
+                    opacity: opts.opacity
+                });
+                $overlay.on('click', function () {
+
+                });
+                $(document.body).append($overlay);
+            }
+        }
+    };
+
+    eui.overlay.DEFAULT = {
+        bgColor: '#000',
+        opacity: 0.3,
+        zIndex: 10000,
+        onClick: function () {},
+        clickHide: false
+    };
+
     window.eui = eui;
 })(jQuery);
 

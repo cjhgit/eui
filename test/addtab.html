@@ -9,12 +9,14 @@
 
 
 <title>ADBC</title>
-<link rel="stylesheet" href="../dep/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="../dep/add-tabs/bootstrap-addtabs.css">
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/add-tabs/bootstrap-addtabs.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
 
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
-<script src="../dep/add-tabs/bootstrap-addtabs.js"></script>
+
+<script src="../src/add-tabs/bootstrap-addtabs.js"></script>
 
 <!--[if lt IE 9]>
   <script src="theme/js/html5shiv.min.js"></script>
@@ -38,6 +40,7 @@
 <body>
 <header class="topbar admin-header">
     <div class="brand">
+        <button id="test" class="btn btn-primary" type="button">测试一下</button>
         <strong>LOGO IN HERE</strong>
         <small></small>
     </div>
@@ -58,7 +61,7 @@
     <div id="tabs">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+            <li role="presentation" class="nav-item active"><a class="nav-link" href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">

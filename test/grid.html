@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表格</title>
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<style>
+/*.column-id {
+	width: 80px;
+}
+.column-name {
+}
+.column-category {
+	width: 100px;
+}
+.column-price {
+	width: 100px;
+}
+.column-on-sale {
+	width: 100px;
+}
+.column-operate {
+	width: 100px;
+}
+.column-num {
+	width: 100px;
+}*/
+</style>
+</head>
+
+<body>
+<div class="ead-container-main">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card card-ead">
+                <div class="card-header">
+                    <div class="card-title">标题</div>
+                </div>
+                <div class="card-body">
+                    内容
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-ead">
+                <div class="card-header">
+                    <div class="card-title">标题</div>
+                </div>
+                <div class="card-body">
+                    内容
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-ead">
+                <div class="card-header">
+                    <div class="card-title">标题</div>
+                </div>
+                <div class="card-body">
+                    内容
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            内容
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card card-ead">
+                <div class="card-header">
+                    <div class="card-title">标题</div>
+                </div>
+                <div class="card-body">
+                    内容
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dist/js/eui.min.js"></script>
+
+<script>
+//全选插件
+//checkall_name   操作全选的复选框name
+//checkbox_name   被操作的复选框的name  name值可不统一 设置包含值 以XXX开头 自己修改
+(function ($) {
+    $.fn.check = function (options) {
+        var defaults = {
+            checkall_name: "checkall_name", //全选框name
+            checkbox_name: "checkbox_name" //被操作的复选框name
+        },
+        ops = $.extend(DEFAULTS, options);
+        e = $("input[name='" + ops.checkall_name + "']"), //全选
+        f = $("input[name='" + ops.checkbox_name + "']"), //单选
+        g = f.length; //被操作的复选框数量
+        f.click(function () {
+            $("input[name ='" + ops.checkbox_name + "']:checked").length == $("input[name='" + ops.checkbox_name + "']").length ? e.attr("checked", !0) : e.attr("checked", !1);
+        }), e.click(function () {
+            for (i = 0; g > i; i++) f[i].checked = this.checked;
+        });
+    };
+})(jQuery);
+
+function deleteFeedback(id) {
+	if (confirm("你确定删除该商品吗？")) {
+		alert("删除" + id);
+	}
+}
+
+function read(id) {
+	alert("已读" + id);
+}
+
+function unread(id) {
+	alert("未读" + id);
+}
+
+$(document).ready(function(e) {
+    //调用全选插件
+    //$.fn.check({ checkall_name: "checkall", checkbox_name: "check" })
+	/* 全选操作 */
+	$("#select-all").click(function() {
+		if ($(this).is(':checked') == true) {
+			// 全选
+			$("input[name='article-select']").attr("checked",true);
+		} else {
+			$("input[name='article-select']").attr("checked",false);
+		}
+	});
+
+	/* 批量操作确定 */
+	$("#operate-ok").click(function() {
+
+		var type = $("#operate-type").children('option:selected').val();
+		if (type == 0) {
+			alert("请选择操作类型");
+		} else if (type == 1) {
+			alert("批量删除");
+			$("input[name='article-select']:checked").each(function(){
+				alert($(this).val());
+			});
+		} else if (type == 2) {
+			alert("批量移动");
+		}
+	});
+
+	$("#search-input").click(function() {
+		var type = $("#article-cat").children('option:selected').val();
+		if (type == 0) {
+			alert("全部");
+		} else if (type == 1) {
+
+
+		} else if (type == 2) {
+			alert("批量移动");
+		}
+
+	});
+
+	/* 选择页数 */
+	$('#select-page').change(function() {
+		var page = $(this).children('option:selected').val(); // 选中的页数
+		window.location.href = "admin/feedback?page=" + page;
+	});
+
+	/* 搜索按钮 */
+	$("#search-btn").click(function() {
+		var category = $("#category").children('option:selected').val();
+		var brand = $("#brand").children('option:selected').val();
+		var type = $("#type").children('option:selected').val(); // 促销类型
+
+
+
+	});
+});
+
+</script>
+</body>
+</html>

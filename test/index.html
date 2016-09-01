@@ -17,266 +17,273 @@
 <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body class="theme-default">
-<!-- 侧栏 -->
-<aside class="esidebar" id="sidebar">
-    <ul class="eui-sidemenu" id="menu">
-        <div class="emenu-header">
-            <img class="emenu-manager-img" src="img/user1.jpg">
-        </div>
-        <div class="emenu-header-small">
-            <div class="emenu-small-icon">EUI</div>
-        </div>
-        <li>
-            <a href="doc.html" target="frame" title="首页2"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">文档</span><span class="label label-info pull-right">new</span></a>
-        </li>
-        <li>
-            <a href="doc.html" target="frame" title="文档"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">首页2</span></a>
-        </li>
-        <li>
-            <a href="#" title="组件"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">组件</span><i class="fa arrow"></i></a>
-            <ul>
-                <li><a href="table.html" target="frame"><span class="menu-lable">表格</span></a></li>
-                <li><a href="banner.html" target="_blank"><span class="menu-lable">Banner 超大屏幕</span></a></li>
-                <li><a href="dialog.html" target="frame"><span class="menu-lable">Dialog 弹出框</span></a></li>
-                <li><a href="media.html" target="frame"><span class="menu-lable">Media 媒体对象</span></a></li>
-                <li><a href="step.html" target="frame"><span class="menu-lable">Step 步骤条</span></a></li>
-                <li><a href="timeline.html" target="frame"><span class="menu-lable">Timeline 时间轴</span></a></li>
-                <li><a href="toastr.html" target="_blank"><span class="menu-lable">Toast 提示消息</span></a></li>
-                <li><a href="widget.html" target="frame"><span class="menu-lable">Widget 小部件</span></a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">JS插件</span><i class="fa arrow"></i></a>
-            <ul>
-                <li><a href="totop.html" target="frame"><span class="menu-lable">ToTop 返回顶部</span></a></li>
-                <li><a href="sticky.html" target="_blank"><span class="menu-lable">Sticky 固定元素</span></a></li>
-                <li><a href="smooth-scroll.html" target="frame"><span class="menu-lable">平滑滚动</span></a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">第三方库</span><i class="fa arrow"></i></a>
-            <ul>
-                <li><a href="animation.html" target="frame"><span class="menu-lable">动画</span><span class="label label-info pull-right">Hot</span></a></li>
-                <li><a href="umeditor.html" target="frame"><span class="menu-lable">umeditor</span></a></li>
-                <li><a href="form-valid.html" target="frame"><span class="menu-lable">表单验证</span></a></li>
-                <li><a href="addtab.html" target="frame"><span class="menu-lable">addTabs</span></a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">示例页面</span><i class="fa arrow"></i></a>
-            <ul>
-                <li>
-                    <a href="#"><span class="menu-lable">邮箱</span><i class="fa arrow"></i></a>
-                    <ul>
-                        <li><a href="mail-box.html" target="frame"><span class="menu-lable">收件箱</span></a></li>
-                        <li><a href="mail-detail.html" target="frame"><span class="menu-lable">查看邮件</span></a></li>
-                        <li><a href="mail-new.html" target="frame"><span class="menu-lable">写信</span></a></li>
-                    </ul>
-                </li>
-                <li><a href="login.html"><span class="menu-lable">主页</span><i class="fa arrow"></i></a>
-                    <ul>
-                        <li><a href="animation.html" target="frame"><span class="menu-lable">主页示例1</span></a></li>
-                        <li><a href="500.html" target="frame"><span class="menu-lable">文章详情</span></a></li>
-                    </ul>
-                </li>
-                <li><a href="404.html" target="frame"><span class="menu-lable">404页面</span></a></li>
-                <li><a href="500.html" target="frame"><span class="menu-lable">500页面</span></a></li>
-                <li><a href="login.html" target="frame"><span class="menu-lable">登陆界面</span></a></li>
-                <li><a href="register.html" target="frame"><span class="menu-lable">注册界面</span></a></li>
-                <li><a href="login.html"><span class="menu-lable">博客</span><i class="fa arrow"></i></a>
-                    <ul>
-                        <li><a href="animation.html" target="frame"><span class="menu-lable">文章列表</span></a></li>
-                        <li><a href="500.html" target="frame"><span class="menu-lable">文章详情</span></a></li>
-                    </ul>
-                </li>
-                <li><a href="#" target="frame"><span class="menu-lable">相册</span></a></li>
-                <li><a href="http://www.baidu.com" target="frame"><span class="menu-lable">百度</span></a></li>
-                <li><a href="example/index.html" target="_blank"><span class="menu-lable">企业模板</span></a></li>
-            </ul>
-        </li>
-    </ul>
-</aside>
-<!-- /侧栏 -->
-<!-- 主体内容 -->
-<div class="econtent">
-    <nav class="econtent-header navbar navbar-light navbar-fix-top" role="navigation">
-        <div class="navbar-header">
-            <!--<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
-                <span class="sr-only">切换导航</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>-->
-            <a id="menu-minimalize" class="btn btn-primary navbar-btn btn-min"><i class="fa fa-bars"></i></a>
-        </div>
-            <ul class="nav navbar-nav">
-                <li class="nav-item active"><a class="nav-link" href="description.html" target="frame">网站首页</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#">设置</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item"><a class="nav-link" href="mail-box.html" target="frame"><i class="fa fa-envelope"></i> <span class="label label-warning">16</span></a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-bell"></i> <span class="label label-primary">8</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">你有 16 条未读消息</a></li>
-                        <li><a href="#">10 条新回复</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">查看所有 </a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a id="theme" class="nav-link dropdown-toggle" href="#">主题</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                        小丽 <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">消息中心</a></li>
-                        <li><a href="#">账号设置</a></li>
-                        <li class="divider"></li>
-                        <li><a href="login.html">退出</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-    </nav>
-    <iframe id="right-frame" class="econtent-body econtent-frame" name="frame" src="description.html"></iframe>
-    <footer class="econtent-footer">
-        <p class="efooter-copyright">Theme by <a href="https://github.com/cjhgithub/eui" target="_blank">eUI</a></p>
-    </footer>
-</div>
-<!-- /主体内容 -->
-<!-- 右下角悬浮按钮 -->
-<div id="chat-box-toggle" class="float-btn btn btn-primary btn-circle">
-    <i class="fa fa-bell"></i>
-</div>
-<!-- 设置 -->
-<div id="side-setting" class="sidebar-container">
-    <ul class="nav nav-tabs nav-justified">
-        <li class="nav-item active">
-            <a href="#tab71" class="nav-link" data-toggle="tab"><i class="fa fa-laptop"></i>主题</a>
-        </li>
-        <li class="nav-item"><a href="#tab72" class="nav-link" data-toggle="tab">通知</a></li>
-        <li class="nav-item"><a href="#tab73" class="nav-link" data-toggle="tab">进度</a></li>
-    </ul>
-    <div class="tab-content">
-        <div id="tab71" class="tab-pane fade in active">
-            <h3>主题</h3>
-            <div class="settings-item">
-                <a id="theme-default" class="theme-default" href="" title="默认主题"></a>
+<body class="theme-default" data-theme="default">
+<div class="ewrap">
+    <!-- 侧栏 -->
+    <aside class="esidebar" id="sidebar">
+        <ul class="eui-sidemenu" id="menu">
+            <div class="emenu-header">
+                <img class="emenu-manager-img" src="img/user1.jpg">
             </div>
-            <div class="settings-item">
-                <a id="theme-blue" class="theme-blue" href="" title="蓝色主题"></a>
+            <div class="emenu-header-small">
+                <div class="emenu-small-icon">EUI</div>
             </div>
-            <div class="settings-item">
-                <a id="theme-green" class="theme-green" href="" title="绿色主题"></a>
+            <li>
+                <a href="doc.html" target="frame" title="文档"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">文档</span><span class="label label-info pull-right">new</span></a>
+            </li>
+            <li>
+                <a href="#" title="组件"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">组件</span><i class="fa arrow"></i></a>
+                <ul>
+                    <li><a href="table.html" target="frame"><span class="menu-lable">表格</span></a></li>
+                    <li><a href="grid.html" target="frame"><span class="menu-lable">布局</span></a></li>
+                    <li><a href="banner.html" target="_blank"><span class="menu-lable">Banner 超大屏幕</span></a></li>
+                    <li><a href="dialog.html" target="frame"><span class="menu-lable">Dialog 弹出框</span></a></li>
+                    <li><a href="media.html" target="frame"><span class="menu-lable">Media 媒体对象</span></a></li>
+                    <li><a href="step.html" target="frame"><span class="menu-lable">Step 步骤条</span></a></li>
+                    <li><a href="timeline.html" target="frame"><span class="menu-lable">Timeline 时间轴</span></a></li>
+                    <li><a href="toastr.html" target="_blank"><span class="menu-lable">Toast 提示消息</span></a></li>
+                    <li><a href="widget.html" target="frame"><span class="menu-lable">Widget 小部件</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="menu-icon fa fa-bar-chart"></i><span class="menu-lable">JS插件</span><i class="fa arrow"></i></a>
+                <ul>
+                    <li><a href="totop.html" target="frame"><span class="menu-lable">ToTop 返回顶部</span></a></li>
+                    <li><a href="sticky.html" target="_blank"><span class="menu-lable">Sticky 固定元素</span></a></li>
+                    <li><a href="smooth-scroll.html" target="frame"><span class="menu-lable">平滑滚动</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">第三方库</span><i class="fa arrow"></i></a>
+                <ul>
+                    <li><a href="animation.html" target="frame"><span class="menu-lable">动画</span><span class="label label-info pull-right">Hot</span></a></li>
+                    <li><a href="umeditor.html" target="frame"><span class="menu-lable">umeditor</span></a></li>
+                    <li><a href="form-valid.html" target="frame"><span class="menu-lable">表单验证</span></a></li>
+                    <li><a href="addtab.html" target="frame"><span class="menu-lable">addTabs</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="menu-icon fa fa-flask"></i><span class="menu-lable">示例页面</span><i class="fa arrow"></i></a>
+                <ul>
+                    <li><a href="index2.html" target="_blank"><span class="menu-lable">首页（非iframe）</span></a> </li>
+                    <li><a href="index_tab.html" target="_blank"><span class="menu-lable">首页（Tab）</span></a> </li>
+                    <li><a href="main.html" target="frame"><span class="menu-lable">工作台</span></a> </li>
+                    <li>
+                        <a href="#"><span class="menu-lable">邮箱</span><i class="fa arrow"></i></a>
+                        <ul>
+                            <li><a href="mail-box.html" target="frame"><span class="menu-lable">收件箱</span></a></li>
+                            <li><a href="mail-detail.html" target="frame"><span class="menu-lable">查看邮件</span></a></li>
+                            <li><a href="mail-new.html" target="frame"><span class="menu-lable">写信</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="login.html"><span class="menu-lable">主页</span><i class="fa arrow"></i></a>
+                        <ul>
+                            <li><a href="animation.html" target="frame"><span class="menu-lable">主页示例1</span></a></li>
+                            <li><a href="500.html" target="frame"><span class="menu-lable">文章详情</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="404.html" target="frame"><span class="menu-lable">404页面</span></a></li>
+                    <li><a href="500.html" target="frame"><span class="menu-lable">500页面</span></a></li>
+                    <li><a href="login.html" target="frame"><span class="menu-lable">登陆界面</span></a></li>
+                    <li><a href="register.html" target="frame"><span class="menu-lable">注册界面</span></a></li>
+                    <li><a href="login.html"><span class="menu-lable">博客</span><i class="fa arrow"></i></a>
+                        <ul>
+                            <li><a href="animation.html" target="frame"><span class="menu-lable">文章列表</span></a></li>
+                            <li><a href="500.html" target="frame"><span class="menu-lable">文章详情</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" target="frame"><span class="menu-lable">相册</span></a></li>
+                    <li><a href="http://www.baidu.com" target="frame"><span class="menu-lable">百度</span></a></li>
+                    <li><a href="example/index.html" target="_blank"><span class="menu-lable">企业模板</span></a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <!-- /侧栏 -->
+    <!-- 主体内容 -->
+    <div class="econtent">
+        <nav class="econtent-header navbar navbar-light navbar-fix-top">
+            <div class="ead-container">
+                <div class="navbar-header">
+                    <!--<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>-->
+                    <a id="menu-minimalize" class="btn btn-primary navbar-btn btn-min"><i class="fa fa-bars"></i></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active"><a class="nav-link" href="description.html" target="frame">网站首页</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">设置</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a class="nav-link" href="mail-box.html" target="frame"><i class="fa fa-envelope"></i> <span class="label label-warning">16</span></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-bell"></i> <span class="label label-primary">8</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">你有 16 条未读消息</a></li>
+                            <li><a href="#">10 条新回复</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">查看所有 </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a id="theme" class="nav-link dropdown-toggle" href="#">设置</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                            小丽 <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">消息中心</a></li>
+                            <li><a href="#">账号设置</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-
-        </div>
-        <div id="tab72" class="tab-pane fade">
-            <div>
-                <h3>标题2</h3>
-                <p>这是一段文字。</p>
+        </nav>
+        <iframe id="right-frame" class="econtent-body econtent-frame" name="frame" src="description.html"></iframe>
+        <footer class="econtent-footer">
+            <div class="ead-container-main">
+                <p class="efooter-copyright">Theme by <a href="https://github.com/cjhgithub/eui" target="_blank">eUI</a></p>
             </div>
-        </div>
-        <div id="tab73" class="tab-pane fade">
-            <div>
-                <h3>标题2</h3>
-                <p>这是一段文字。</p>
+        </footer>
+    </div>
+    <!-- /主体内容 -->
+    <!-- 右下角悬浮按钮 -->
+    <div id="chat-box-toggle" class="float-btn btn btn-primary btn-circle">
+        <i class="fa fa-bell"></i>
+    </div>
+    <!-- 设置 -->
+    <div id="side-setting" class="sidebar-container">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item active">
+                <a href="#tab71" class="nav-link" data-toggle="tab"><i class="fa fa-laptop"></i>主题</a>
+            </li>
+            <li class="nav-item"><a href="#tab72" class="nav-link" data-toggle="tab">通知</a></li>
+            <li class="nav-item"><a href="#tab73" class="nav-link" data-toggle="tab">进度</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="tab71" class="tab-pane fade in active">
+                <h3>主题</h3>
+                <div class="settings-item">
+                    <a id="theme-default" class="theme-default" href="" title="默认主题"></a>
+                </div>
+                <div class="settings-item">
+                    <a id="theme-blue" class="theme-blue" href="" title="蓝色主题"></a>
+                </div>
+                <div class="settings-item">
+                    <a id="theme-green" class="theme-green" href="" title="绿色主题"></a>
+                </div>
+                <hr>
+                <label><input id="wrap-check" type="checkbox">固定宽度</label>
+            </div>
+            <div id="tab72" class="tab-pane fade">
+                <div>
+                    <h3>标题2</h3>
+                    <p>这是一段文字。</p>
+                </div>
+            </div>
+            <div id="tab73" class="tab-pane fade">
+                <div>
+                    <h3>标题2</h3>
+                    <p>这是一段文字。</p>
+                </div>
             </div>
         </div>
     </div>
+    <!-- 聊天窗口 -->
+    <div id="chat-box" class="chat-box fadeInRight animated active">
+        <div class="chat-box-header" draggable="true">
+            <small class="chat-date pull-right">
+                2015.9.1
+            </small> 与 Beau-zihan 聊天中
+        </div>
+        <div id="chat-box-body" class="chat-box-body">
+            <div class="left">
+                <div class="author-name">
+                    Beau-zihan <small class="chat-date">
+                    10:02
+                </small>
+                </div>
+                <div class="chat-message active">
+                    你好
+                </div>
+
+            </div>
+            <div class="right">
+                <div class="author-name">
+                    游客
+                    <small class="chat-date">
+                        11:24
+                    </small>
+                </div>
+                <div class="chat-message">
+                    你好，请问H+有帮助文档吗？
+                </div>
+            </div>
+            <div class="left">
+                <div class="author-name">
+                    Beau-zihan
+                    <small class="chat-date">
+                        08:45
+                    </small>
+                </div>
+                <div class="chat-message active">
+                    有，购买的H+源码包中有帮助文档，位于docs文件夹下
+                </div>
+            </div>
+            <div class="right">
+                <div class="author-name">
+                    游客
+                    <small class="chat-date">
+                        11:24
+                    </small>
+                </div>
+                <div class="chat-message">
+                    那除了帮助文档还提供什么样的服务？
+                </div>
+            </div>
+            <div class="left">
+                <div class="author-name">
+                    Beau-zihan
+                    <small class="chat-date">
+                        08:45
+                    </small>
+                </div>
+                <div class="chat-message active">
+                    1.所有源码(未压缩、带注释版本)；
+                    <br> 2.说明文档；
+                    <br> 3.终身免费升级服务；
+                    <br> 4.必要的技术支持；
+                    <br> 5.付费二次开发服务；
+                    <br> 6.授权许可；
+                    <br> ……
+                    <br>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-chat">
+            <div class="input-group input-group-sm">
+                <input type="text" class="form-control"> <span class="input-group-btn"> <button
+                class="btn btn-primary" type="button">发送
+            </button> </span>
+            </div>
+        </div>
+    </div>
+    <!-- /聊天窗口 -->
 </div>
-<!-- 聊天窗口 -->
-<div id="chat-box" class="chat-box fadeInRight animated active">
-    <div class="chat-box-header" draggable="true">
-        <small class="chat-date pull-right">
-            2015.9.1
-        </small> 与 Beau-zihan 聊天中
-    </div>
-    <div id="chat-box-body" class="chat-box-body">
-        <div class="left">
-            <div class="author-name">
-                Beau-zihan <small class="chat-date">
-                10:02
-            </small>
-            </div>
-            <div class="chat-message active">
-                你好
-            </div>
 
-        </div>
-        <div class="right">
-            <div class="author-name">
-                游客
-                <small class="chat-date">
-                    11:24
-                </small>
-            </div>
-            <div class="chat-message">
-                你好，请问H+有帮助文档吗？
-            </div>
-        </div>
-        <div class="left">
-            <div class="author-name">
-                Beau-zihan
-                <small class="chat-date">
-                    08:45
-                </small>
-            </div>
-            <div class="chat-message active">
-                有，购买的H+源码包中有帮助文档，位于docs文件夹下
-            </div>
-        </div>
-        <div class="right">
-            <div class="author-name">
-                游客
-                <small class="chat-date">
-                    11:24
-                </small>
-            </div>
-            <div class="chat-message">
-                那除了帮助文档还提供什么样的服务？
-            </div>
-        </div>
-        <div class="left">
-            <div class="author-name">
-                Beau-zihan
-                <small class="chat-date">
-                    08:45
-                </small>
-            </div>
-            <div class="chat-message active">
-                1.所有源码(未压缩、带注释版本)；
-                <br> 2.说明文档；
-                <br> 3.终身免费升级服务；
-                <br> 4.必要的技术支持；
-                <br> 5.付费二次开发服务；
-                <br> 6.授权许可；
-                <br> ……
-                <br>
-            </div>
-        </div>
-
-
-    </div>
-    <div class="form-chat">
-        <div class="input-group input-group-sm">
-            <input type="text" class="form-control"> <span class="input-group-btn"> <button
-            class="btn btn-primary" type="button">发送
-        </button> </span>
-        </div>
-    </div>
-</div>
-<!-- /聊天窗口 -->
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 <script src="../src/eadmin/eadmin.js"></script>
-<script src="../dep/metis-menu/metisMenu.js"></script>
 <script src="../dep/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="js/index.js"></script>
 </body>

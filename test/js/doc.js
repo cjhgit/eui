@@ -37,6 +37,33 @@ $(document).ready(function() {
 
     $('#test').button();
 
+    // popover
+    $('#show-qrcode').popover({
+        html : true,
+        title: function() {
+            return '113';
+        },
+        content: function() {
+            return $("#qrcode-demo").html();
+            //return '456';
+        }
+    });
+
+    $('#btn-tips-1').on('click', function () {
+
+    });
+
+    $('#btn-tips-1').on('mouseover', function () {
+        eui.tips('Hi，我是tips', '#btn-tips-1');
+    });
+
+    // tip
+
+
+    /*eui.tips('我是另外一个tips，只不过我长得跟之前那位稍有些不一样。', '#btn-tips-1', {
+        tips: [1, '#3595CC'],
+        time: 4000,
+    });*/
 });
 
 

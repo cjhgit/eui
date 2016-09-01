@@ -5,9 +5,9 @@
 <title>表格</title>
 <link rel="stylesheet" href="../dist/css/eui.min.css">
 <link rel="stylesheet" href="../src/eadmin/eadmin.css">
-<link rel="stylesheet" href="../dep/css/fontAwesome/font-awesome.min.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
 <style>
-.column-id {
+/*.column-id {
 	width: 80px;
 }
 .column-name {
@@ -26,12 +26,13 @@
 }
 .column-num {
 	width: 100px;
-}
+}*/
 </style>
 </head>
 
 <body>
-<div class="mycontainer">
+<div class="ead-container-main">
+    <!--
 	<div class="row">
     	<ul class="breadcrumb pull-left">
             <li><a href="#">首页</a></li>
@@ -80,134 +81,131 @@
             <input class="btn btn-default" id="search-btn" type="button" value="搜索" />
         </form>
     </div>
+    -->
     <div class="row">
-    	<table class="table table-hover table-striped">
-            <thead>
-                <tr>
-                	<th class="column-id"><input id="select-all" type="checkbox" value="0" />编号</th>
-                    <th class="column-name">名称</th>
-                    <th class="column-category">分类</th>
-                    <th class="column-price">价格</th>
-                    <th class="column-num">库存</th>
-                    <th class="column-on-sale">上架</th>
-                    <th class="column-on-sale">新品</th>
-                    <th class="column-on-sale">热销</th>
-                    <th class="column-on-sale">特价</th>
-                    <th class="column-operate">操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                	<td><input type="checkbox" name="article-select" value="1" />1</td>
-                    <td>苹果</td>
-                    <td>水果</td>
-                    <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                    <td>14.0</td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                   	<td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td>
-                        <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
-                    </td>
-                </tr>
-				<tr>
-                	<td><input type="checkbox" name="article-select" value="1" />1</td>
-                    <td>苹果</td>
-                    <td>水果</td>
-                    <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                    <td>14.0</td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                   	<td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td>
-                        <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
-                    </td>
-                </tr>
-                <tr>
-                	<td><input type="checkbox" name="article-select" value="1" />1</td>
-                    <td>苹果</td>
-                    <td>水果</td>
-                    <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                    <td>14.0</td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                   	<td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td>
-                        <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
-                    </td>
-                </tr>
-                <tr>
-                	<td><input type="checkbox" name="article-select" value="1" />1</td>
-                    <td>苹果</td>
-                    <td>水果</td>
-                    <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                    <td>14.0</td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                   	<td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td>
-                        <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
-                    </td>
-                </tr>
-                <tr>
-                	<td><input type="checkbox" name="article-select" value="1" />1</td>
-                    <td>苹果</td>
-                    <td>水果</td>
-                    <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
-                    <td>14.0</td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                   	<td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td><a href="javascript:;" onclick="read(1)"><img src="images/admin/icon_yes.gif" /></a></td>
-                    <td>
-                        <a href=""><img src="images/admin/icon_view.gif" title="查看" /></a>  <a href="javascript:;"><img src="images/admin/icon_edit.gif" title="编辑" /></a> <a href="javascript:;" onclick="deleteFeedback(1)"><img src="images/admin/icon_drop.gif" title="删除" /></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-	    <div class="form-inline pull-left">
-	    	<select class="form-control" name="selectAge" id="operate-type">
-	            <option value="0">请选择...</option>
-	            <option value="1">批量删除</option>
-	            <option value="2">转移到分类</option>
-	        </select>
-	        <a id="operate-ok" class="btn btn-default" href="javascript:;">确定</a>
-	    </div>
-    </div>
-    <div class="row">
-    	<div class="page pull-right">
-	    	<span class="page-text">共 27 个记录，第 </span>
-	        <select class="admin-select" id="select-page">
-	            <option value="1">1</option>
-	            <option value="2">2</option>
-	            <option value="3">3</option>
-	        </select>
-	        <span class="page-text"> / 2页，每页 </span>
-	        <input class="admin-input page-size" type="text" value="15" />
-	        <span class="page-unable">第一页</span>
-	        <span class="page-unable">上一页</span>
-	        <a class="page-enable" href="">下一页</a>
-	        <a class="page-enable" href="">最末页</a>
-	    </div>
+        <div class="card card-ead">
+            <div class="card-header">
+                <div class="card-title">示例表格</div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-default btn-sm" type="button"><i class="fa fa-plus"></i> 添加</button>
+                        <button class="btn btn-default btn-sm" type="button"><i class="fa fa-edit"></i> 修改</button>
+                        <button class="btn btn-default btn-sm" type="button"><i class="fa fa-trash"></i> 删除</button>
+                        <button class="btn btn-default btn-sm" type="button"><i class="fa fa-refresh"></i> 刷新</button>
+                    </div>
+                </div>
+                <table class="table table-hover table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="column-id"><input id="select-all" type="checkbox" value="0" /></th>
+                        <th class="column-name">名称</th>
+                        <th class="column-category">分类</th>
+                        <th class="column-price">价格</th>
+                        <th class="column-num">库存</th>
+                        <th class="column-on-sale">状态</th>
+                        <th class="column-operate">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox" name="article-select" value="1" /></td>
+                        <td>苹果</td>
+                        <td>水果</td>
+                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
+                        <td>14.0</td>
+                        <td><span class="label label-success">已完成</span></td>
+                        <td>
+                            <a class="btn btn-success btn-xs"><i class="fa fa-eye"></i> 查看</a>
+                            <a class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> 修改</a>
+                            <a class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="article-select" value="1" /></td>
+                        <td>苹果</td>
+                        <td>水果</td>
+                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
+                        <td>14.0</td>
+                        <td><span class="label label-success">已完成</span></td>
+                        <td>
+                            <a class="btn btn-success btn-xs"><i class="fa fa-eye"></i> 查看</a>
+                            <a class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> 修改</a>
+                            <a class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="article-select" value="1" /></td>
+                        <td>苹果</td>
+                        <td>水果</td>
+                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
+                        <td>14.0</td>
+                        <td><span class="label label-success">已完成</span></td>
+                        <td>
+                            <a class="btn btn-success btn-xs"><i class="fa fa-eye"></i> 查看</a>
+                            <a class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> 修改</a>
+                            <a class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="article-select" value="1" /></td>
+                        <td>苹果</td>
+                        <td>水果</td>
+                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
+                        <td>14.0</td>
+                        <td><span class="label label-warning">未完成</span></td>
+                        <td>
+                            <a class="btn btn-success btn-xs"><i class="fa fa-eye"></i> 查看</a>
+                            <a class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> 修改</a>
+                            <a class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="article-select" value="1" /></td>
+                        <td>苹果</td>
+                        <td>水果</td>
+                        <td><img src="images/brand/CgQIzlS0rjiALZMwAAAVDhVhLjQ221_100-40.jpg" alt="安踏"/></td>
+                        <td>14.0</td>
+                        <td><span class="label label-warning">未完成</span></td>
+                        <td>
+                            <a class="btn btn-success btn-xs"><i class="fa fa-eye"></i> 查看</a>
+                            <a class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> 修改</a>
+                            <a class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <a href="javascript:;">
+                                    <span>&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="javascript:;" data-page="2">2</a></li>
+                            <li><a href="javascript:;" data-page="3">3</a></li>
+                            <li><a href="javascript:;" data-page="4">4</a></li>
+                            <li><a href="javascript:;" data-page="5">5</a></li>
+                            <li>
+                                <a href="javascript:;"  data-page="2" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    </div>
-
-
-    <div class="admin-section margin-top-10px">
-    	<p class="copyright">版权所有 © 2015-2016 Eshop</p>
     </div>
 </div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 
 <script>
-
 //全选插件
 //checkall_name   操作全选的复选框name
 //checkbox_name   被操作的复选框的name  name值可不统一 设置包含值 以XXX开头 自己修改
@@ -217,7 +215,7 @@
             checkall_name: "checkall_name", //全选框name
             checkbox_name: "checkbox_name" //被操作的复选框name
         },
-        ops = $.extend(defaults, options);
+        ops = $.extend(DEFAULTS, options);
         e = $("input[name='" + ops.checkall_name + "']"), //全选
         f = $("input[name='" + ops.checkbox_name + "']"), //单选
         g = f.length; //被操作的复选框数量

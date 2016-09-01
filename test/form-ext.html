@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单拓展 - eUI</title>
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+    <style>
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<div class="ead-container-main">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">插件介绍</div>
+                <div class="panel-body">
+                    <p>jQuery validate 是一个表单验证插件。。。</p>
+                    <a href="http://www.runoob.com/jquery/jquery-plugin-validate.html">更多介绍</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">所有表单</div>
+                <div class="panel-body">
+                    <form id="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">学校</label>
+                            <div class="col-md-6">
+                                <input id="school" class="form-control" name="name" type="text" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">密码</label>
+                            <div class="col-md-6">
+                                <input id="password" class="form-control" name="password" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">确认密码</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control" name="password2" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">性别</label>
+
+                            <div class="col-md-6">
+                                <div class="radio">
+                                    <label><input type="radio" name="sex"> 男</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="sex"> 女</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">爱好</label>
+
+                            <div class="col-md-6">
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">运动</label>
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">读书</label>
+                                <label class="checkbox-inline"><input class="" type="checkbox" name="hobby">旅游</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">爱好</label>
+
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label><input class="" type="checkbox" name="hobby">运动</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input class="" type="checkbox" name="hobby">读书</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label class=""><input class="" type="checkbox" name="hobby">旅游</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary" type="submit">确定</button>
+                                <button class="btn btn-default" type="submit">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dist/js/eui.min.js"></script>
+<script src="../src/typeahead.js"></script>
+<script>
+
+    $('#school').typeahead({
+        source: [
+            { id: 1, name: 'Toronto' },
+            { id: 2, name: 'Montreal' },
+            { id: 3, name: 'New York' },
+            { id: 4, name: 'Buffalo' },
+            { id: 5, name: 'Boston' },
+            { id: 6, name: 'Columbus' },
+            { id: 7, name: 'Dallas' },
+            { id: 8, name: 'Vancouver' },
+            { id: 9, name: 'Seattle' },
+            { id: 10, name: 'Los Angeles' }
+        ],
+        itemSelected: function() {
+
+        }
+    });
+    $('#school').on('input', function () {
+        /*if ($(this).val() === '2') {
+            $('#school-id').typeahead({
+                source: [
+                    { id: 1, name: '111' },
+                    { id: 2, name: '222' },
+                    { id: 3, name: '333' },
+                    { id: 4, name: '444' },
+                    { id: 5, name: '555' },
+                    { id: 6, name: '666' },
+                ],
+                itemSelected: function() {
+
+                }
+            });
+        }*/
+    });
+</script>
+
+</body>
+</html>

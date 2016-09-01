@@ -8,13 +8,15 @@
 <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
 </head>
 <body>
-<div class="mycontainer">
+<div class="ead-container-main">
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <header class="panel-heading">模态框</header>
                 <div class="panel-body">
                     <p>可使用class来快速改变按钮的颜色，如.btn-primary</p>
+                    <button id="test" class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-form">测试</button>
+
                     <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-form">表单模态框</button>
                     <button id="show-login-dialog" class="btn btn-primary" type="button">表单模态框</button>
 
@@ -220,11 +222,29 @@
         </div>
     </div>
 </form>
+<div id="asd" style="width: 100px;height: 300px;background-color: #f00;border:1px solid #000;">
+    <div style="width: 100px;height: 100px;background-color: #f90;"></div>
+</div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 <script>
     $(document).ready(function() {
+        eui.msg('你好啊，我亲爱的朋友');
+
+        $('#test').on('click', function () {
+            eui.dialog({
+                type: 1,
+                //title: false,
+                content: $('#asd')
+            });
+        });
+
         $('#show-login-dialog').on('click', function () {
+            eui.dialog({
+                type: 1,
+                content: $('#asd')
+            });
+            /*
             eui.dialog({
                 type: 1,
                 shade: false,
@@ -236,6 +256,7 @@
                     eui.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', {time: 5000, icon:6});
                 }
             });
+            */
 
         })
         $('#modal-event').on('show.bs.modal', function() {

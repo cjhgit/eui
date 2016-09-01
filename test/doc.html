@@ -422,8 +422,8 @@
                 <div class="bs-example">
                     <ul class="pagination">
                         <li class="disabled">
-                            <a href="javascript:;" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
+                            <a href="javascript:;">
+                                <span>&laquo;</span>
                             </a>
                         </li>
                         <li class="active"><a href="#">1</a></li>
@@ -1369,7 +1369,7 @@
                     <a tabindex="0" class="btn btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">
                         可消失的弹出框</a>
 
-                    <a tabindex="0" class="btn btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">
+                    <a id="show-qrcode" tabindex="0" class="btn btn-danger" role="button">
                         显示二维码</a>
 
                 </div>
@@ -1513,6 +1513,16 @@
                     <button id="btn-frame" class="btn btn-warning">iframe</button>
                 </div>
                 <div class="highlight"><pre><code class="language-html" data-lang="html">eui.msg('你好啊');</code></pre></div>
+
+                <h1 id="link-tip" class="page-header">Tip</h1>
+
+                <h2 id="">实例</h2>
+                <p>这是一个简单的实例。</p>
+                <div class="bs-example" data-example-id="glyphicons-general">
+                    <button id="btn-tips-1" class="btn btn-warning">tip</button>
+                </div>
+                <div class="highlight"><pre><code class="language-html" data-lang="html">eui.msg('你好啊');</code></pre></div>
+
 
                 <p>eui.dialog(options)</p>
                 <p>eui.alert(content, options, yes)</p>
@@ -1698,11 +1708,12 @@
         </ul>
     </div>
 </footer>
-
+<div id="qrcode-demo" class="qrcode-demo">
+    <img class="qrcode" src="img/banner1.jpg">
+</div>
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
 <script src="../src/js/dialog.js"></script>
-<script src="../src/eadmin/eadmin.js"></script>
 <script src="../dist/js/affix.js"></script>
 <script src="../edoc/docs.js"></script>
 <script src="../dep/zero-clipboard/ZeroClipboard.js"></script>

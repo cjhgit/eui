@@ -37,11 +37,11 @@ $.fn.addtabs = function (options) {
 
 
     obj.on('mouseover', '.close-tab', function () {
-        $(this).removeClass('glyphicon-remove').addClass('glyphicon-remove-circle');
+        $(this).removeClass('fa-remove').addClass('fa-edit');
     })
 
     obj.on('mouseout', '.close-tab', function () {
-        $(this).removeClass('glyphicon-remove-circle').addClass('glyphicon-remove');
+        $(this).removeClass('fa-edit').addClass('fa-remove');
     })
 
     $(window).resize(function () {
@@ -59,12 +59,15 @@ window.Addtabs = {
         //如果TAB不存在，创建一个新的TAB
         if (!$("#" + id)[0]) {
             //创建新TAB的title
+            console.log('不存在');
 
             var title = $('<li>', {
+                'class': 'nav-item',
                 'role': 'presentation',
                 'id': 'tab_' + id
             }).append(
                 $('<a>', {
+                    'class': 'nav-link',
                     'href': '#' + id,
                     'aria-controls': id,
                     'role': 'tab',
@@ -75,7 +78,7 @@ window.Addtabs = {
             //是否允许关闭
             if (Addtabs.options.close) {
                 title.append(
-                    $('<i>',{class:'close-tab glyphicon glyphicon-remove'})
+                    $('<i>',{class:'close-tab fa fa-remove'})
                 );
             }
             //创建新TAB的内容
@@ -129,14 +132,14 @@ window.Addtabs = {
         element = obj.find('.nav-tabs');
         //创建下拉标签
         var dropdown = $('<li>', {
-            'class': 'dropdown pull-right hide tabdrop'
+            'class': 'nav-item dropdown pull-right hide tabdrop'
         }).append(
             $('<a>', {
-                'class': 'dropdown-toggle',
+                'class': 'nav-link dropdown-toggle',
                 'data-toggle': 'dropdown',
                 'href': '#'
             }).append(
-                $('<i>', {'class': "glyphicon glyphicon-align-justify"})
+                $('<i>', {'class': "fa fa-trash"})
             ).append(
                 $('<b>', {'class': 'caret'})
             )
@@ -168,7 +171,8 @@ window.Addtabs = {
             });
 
         //如果有超出的，显示下拉标签
-        if (collection > 0) {
+        if (false) {
+            console.log('显示下拉菜单');
             dropdown.removeClass('hide');
             if (dropdown.find('.active').length == 1) {
                 dropdown.addClass('active');

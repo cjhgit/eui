@@ -82,7 +82,10 @@
             border: 1px solid transparent;
             border-radius: @border-radius-base @border-radius-base 0 0;
             &:hover {
-                border-color: @nav-tabs-link-hover-border-color @nav-tabs-link-hover-border-color @nav-tabs-border-color;
+                color: @brand-primary;
+                background-color: transparent;
+                border-color: transparent;
+
             }
         }
 
@@ -94,7 +97,7 @@
                 color: @nav-tabs-active-link-hover-color;
                 background-color: transparent;
                 border-color: transparent;
-                border-bottom: 1px solid #80b600;
+                border-bottom: 2px solid @brand-primary;
                 cursor: default;
             }
         }

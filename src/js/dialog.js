@@ -13,19 +13,43 @@
 
     var anims = ['eui-anim', 'eui-anim-01', 'eui-anim-02', 'eui-anim-03', 'eui-anim-04', 'eui-anim-05', 'eui-anim-06'];
 
-    eui._end = {};
-
-    eui.index = 0;
-
-    // 五种原始层模式
-    eui._type = ['dialog', 'page', 'iframe', 'loading', 'tips'];
-
-    // 屏蔽Enter触发弹层
-    eui._enter = function (e) {
-        if (e.keyCode === 13) e.preventDefault();
+    // 对话框类
+    var Dialog = function (option) {
+        this.index = ++Dialog.index;
+        this.opts = $.extend({}, Dialog.DEFAULTS, option);
+        this.init();
     };
 
-    eui._record = function ($dialog) {
+    Dialog.VERSION = '1.0.0';
+
+    // 默认配置
+    Dialog.DEFAULTS = {
+        type: 0, // 0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+        shade: 0.3,
+        fix: true, // 是否固定位置
+        move: '.eui-dialog-header',
+        title: '信息', // 标题
+        offset: 'auto',
+        area: 'auto',
+        closeBtn: 1,
+        time: 0, // 0表示不自动关闭
+        zIndex: 1000000,
+        maxWidth: 1000,
+        shift: 0,
+        icon: -1,
+        scrollbar: false, // 是否允许浏览器滚动条
+        tips: 2,
+        anim: 'eui-anim' // 动画
+    };
+
+    // 五种原始层模式
+    Dialog._type = ['dialog', 'page', 'iframe', 'loading', 'tips'];
+
+    Dialog._end = {};
+
+    Dialog.index = 0;
+
+    Dialog._record = function ($dialog) {
         var area = [
             $dialog.outerWidth(),
             $dialog.outerHeight(),
@@ -36,44 +60,22 @@
         $dialog.attr({area: area});
     };
 
-    eui._rescollbar = function (index) {
+    Dialog._rescollbar = function (index) {
         if ($html.attr('eui-full') == index) {
             eui.enableScrollbar();
             $html.removeAttr('eui-full');
         }
     };
 
-    // 对话框类
-    var Dialog = function (setings) {
-        this.index = ++eui.index;
-        this.opts = $.extend({}, Dialog.DEFAULTS, setings);
-        this.creat();
+    // 屏蔽Enter触发弹层
+    Dialog._enter = function (e) {
+        if (e.keyCode === 13) e.preventDefault();
     };
 
-    Dialog.VERSION = '1.0.0';
-
-    // 默认配置
-    Dialog.DEFAULTS = {
-        type: 0, // 0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
-        shade: 0.3,
-        fix: true,
-        move: '.eui-dialog-header',
-        title: '信息', // 标题
-        offset: 'auto',
-        area: 'auto',
-        closeBtn: 1,
-        time: 0, // 0表示不自动关闭
-        zIndex: 1000000,
-        maxWidth: 360,
-        shift: 0,
-        icon: -1,
-        scrollbar: false, // 是否允许浏览器滚动条
-        tips: 2,
-        anim: 'eui-anim' // 动画
-    };
+    Dialog.pt = Dialog.prototype;
 
     // 容器
-    Dialog.prototype.vessel = function (conType, callback) {
+    Dialog.pt.vessel = function (conType, callback) {
         var that = this,
             times = that.index,
             opts = that.opts;
@@ -87,10 +89,10 @@
         opts.zIndex = zIndex;
         callback([
             // 遮罩
-            opts.shade ? ('<div class="eui-dialog-shade" id="eui-dialog-shade' + times + '" times="' + times + '" style="' + ('z-index:' + (zIndex - 1) + '; background-color:' + (opts.shade[1] || '#000') + '; opacity:' + (opts.shade[0] || opts.shade) + '; filter:alpha(opacity=' + (opts.shade[0] * 100 || opts.shade * 100) + ');') + '"></div>') : '',
+            opts.shade ? ('<div class="eui-dialog-shade" id="eui-dialog-shade' + times + '" times="' + times + '" style="' + ('z-index:' + (zIndex - 1) + '; background-color:' + (opts.shade[1] || '#000') + '; opacity:' + (opts.shade[0] || opts.shade) + ';') + '"></div>') : '',
 
             // 主体
-            '<div class="eui-dialog ' + (anims[opts.shift] || '') + (' eui-dialog-' + eui._type[opts.type]) + (((opts.type == 0 || opts.type == 2) && !opts.shade) ? ' eui-dialog-border' : '') + ' ' + (opts.skin || '') + '" id="eui-dialog' + times + '" type="' + eui._type[opts.type] + '" times="' + times + '" showtime="' + opts.time + '" conType="' + (conType ? 'object' : 'string') + '" style="z-index: ' + zIndex + '; width:' + opts.area[0] + ';height:' + opts.area[1] + (opts.fix ? '' : ';position:absolute;') + '">'
+            '<div class="eui-dialog ' + (anims[opts.shift] || '') + (' eui-dialog-' + Dialog._type[opts.type]) + (((opts.type == 0 || opts.type == 2) && !opts.shade) ? ' eui-dialog-border' : '') + ' ' + (opts.skin || '') + '" id="eui-dialog' + times + '" type="' + Dialog._type[opts.type] + '" times="' + times + '" showtime="' + opts.time + '" conType="' + (conType ? 'object' : 'string') + '" style="z-index: ' + zIndex + '; width:' + opts.area[0] + ';height:' + opts.area[1] + (opts.fix ? '' : ';position:absolute;') + '">'
             + (conType && opts.type != 2 ? '' : titleHTML)
             + '<div id="' + (opts.id || '') + '" class="eui-dialog-body' + ((opts.type == 0 && opts.icon !== -1) ? ' eui-dialog-padding' : '') + (opts.type == 3 ? ' eui-dialog-loading' + opts.icon : '') + '">'
             + (opts.type == 0 && opts.icon !== -1 ? '<i class="eui-dialog-ico eui-dialog-ico' + opts.icon + '"></i>' : '')
@@ -114,8 +116,8 @@
         return that;
     };
 
-    // 创建骨架
-    Dialog.prototype.creat = function () {
+    // 初始化
+    Dialog.pt.init = function () {
         var that = this,
             opts = that.opts,
             times = that.index,
@@ -172,15 +174,14 @@
                 }();
             }() : $body.append(html[1]);
             that.$dialog = $('#eui-dialog' + times);
-            //opts.scrollbar || $html.css('overflow', 'hidden').attr('eui-full', times);
 
             $html.attr('eui-full', times);
             opts.scrollbar || eui.disableScrollbar();
         })._auto(times);
 
-        $(document).off('keydown', eui._enter).on('keydown', eui._enter);
+        $(document).off('keydown', Dialog._enter).on('keydown', Dialog._enter);
         that.$dialog.on('keydown', function (e) {
-            $(document).off('keydown', eui._enter);
+            $(document).off('keydown', Dialog._enter);
         });
 
         // 坐标自适应浏览器窗口尺寸
@@ -200,7 +201,7 @@
     };
 
     // 自适应
-    Dialog.prototype._auto = function (index) {
+    Dialog.pt._auto = function (index) {
         var opts = this.opts;
         var $dialog = $('#eui-dialog' + index);
         if (opts.area[0] === '' && opts.maxWidth > 0) {
@@ -234,7 +235,7 @@
     };
 
     // 计算坐标
-    Dialog.prototype.offset = function () {
+    Dialog.pt.offset = function () {
         var that = this,
             opts = that.opts,
             $dialog = that.$dialog;
@@ -266,7 +267,7 @@
     };
 
     // Tips
-    Dialog.prototype.tips = function () {
+    Dialog.pt.tips = function () {
         var that = this,
             opts = that.opts,
             $dialog = that.$dialog;
@@ -331,7 +332,7 @@
     }
 
     // 拖拽层
-    Dialog.prototype.move = function () {
+    Dialog.pt.move = function () {
         var that = this,
             opts = that.opts, conf = {
             setY: 0,
@@ -405,7 +406,7 @@
         return that;
     };
 
-    Dialog.prototype.callback = function () {
+    Dialog.pt.callback = function () {
         var that = this,
             $dialog = that.$dialog,
             opts = that.opts;
@@ -470,11 +471,11 @@
             }
         });
 
-        opts.end && (eui._end[that.index] = opts.end);
+        opts.end && (Dialog._end[that.index] = opts.end);
     };
 
     // 需依赖原型的对外方法
-    Dialog.prototype.openLayer = function () {
+    Dialog.pt.openLayer = function () {
         var that = this;
 
         //置顶当前窗口
@@ -491,8 +492,8 @@
     };
 
     // 对话框
-    eui.dialog = function (deliver) {
-        var dialog = new Dialog(deliver);
+    eui.dialog = function (options) {
+        var dialog = new Dialog(options);
         return dialog.index;
     };
 
@@ -621,9 +622,9 @@
             type = $dialog.attr('type');
         var titHeight = $dialog.find('.eui-dialog-header').outerHeight() || 0;
         var btnHeight = $dialog.find('.eui-dialog-footer').outerHeight() || 0;
-        if (type === eui._type[1] || type === eui._type[2]) {
+        if (type === Dialog._type[1] || type === Dialog._type[2]) {
             $dialog.css(options);
-            if (type === eui._type[2]) {
+            if (type === Dialog._type[2]) {
                 $dialog.find('iframe').css({
                     height: parseFloat(options.height) - titHeight - btnHeight
                 });
@@ -635,11 +636,11 @@
     eui.min = function (index, options) {
         var $dialog = $('#eui-dialog' + index);
         var titHeight = $dialog.find('.eui-dialog-header').outerHeight() || 0;
-        eui._record($dialog);
+        Dialog._record($dialog);
         eui.style(index, {width: 180, height: titHeight, overflow: 'hidden'});
         $dialog.find('.eui-dialog-min').hide();
         $dialog.attr('type') === 'page' && $dialog.find('eui-dialog-iframe').hide();
-        eui._rescollbar(index);
+        Dialog._rescollbar(index);
     };
 
     // 还原
@@ -657,14 +658,14 @@
         $dialog.find('.eui-dialog-max').removeClass('eui-dialog-maxmin');
         $dialog.find('.eui-dialog-min').show();
         $dialog.attr('type') === 'page' && $dialog.find('eui-dialog-iframe').show();
-        eui._rescollbar(index);
+        Dialog._rescollbar(index);
     };
 
     // 全屏
     eui.full = function (index) {
         var $dialog = $('#eui-dialog' + index),
             timer;
-        eui._record($dialog);
+        Dialog._record($dialog);
         if (!$html.attr('eui-full')) {
             $html.css('overflow', 'hidden').attr('eui-full', index);
         }
@@ -683,7 +684,7 @@
 
     // 修改标题
     eui.title = function (name, index) {
-        var $header = $('#eui-dialog' + (index || eui.index)).find('.eui-dialog-header');
+        var $header = $('#eui-dialog' + (index || Dialog.index)).find('.eui-dialog-header');
         $header.html(name);
     };
 
@@ -695,7 +696,7 @@
             return;
         }
 
-        if (type === eui._type[1] && $dialog.attr('conType') === 'object') {
+        if (type === Dialog._type[1] && $dialog.attr('conType') === 'object') {
             $dialog.children(':not(.eui-dialog-body)').remove();
             for (var i = 0; i < 2; i++) {
                 $dialog.find('.eui-dialog-wrap').unwrap().hide();
@@ -705,10 +706,10 @@
             $dialog.remove();
         }
         $('#eui-dialog-moves, #eui-dialog-shade' + index).remove();
-        eui._rescollbar(index);
-        $(document).off('keydown', eui._enter);
-        typeof eui._end[index] === 'function' && eui._end[index]();
-        delete eui._end[index];
+        Dialog._rescollbar(index);
+        $(document).off('keydown', Dialog._enter);
+        typeof Dialog._end[index] === 'function' && Dialog._end[index]();
+        delete Dialog._end[index];
     };
 
     // 关闭所有层

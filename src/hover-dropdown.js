@@ -42,7 +42,7 @@
                 hideEvent   = 'hide.bs.dropdown',
                 // shownEvent  = 'shown.bs.dropdown',
                 // hiddenEvent = 'hidden.bs.dropdown',
-                settings = $.extend(true, {}, defaults, options, data),
+                settings = $.extend(true, {}, DEFAULTS, options, data),
                 timeout, timeoutHover;
 
             $parent.hover(function (event) {
@@ -105,14 +105,14 @@
                 window.clearTimeout(timeout);
                 // restart hover timer
                 window.clearTimeout(timeoutHover);
-                
-                // delay for hover event.  
+
+                // delay for hover event.
                 timeoutHover = window.setTimeout(function () {
                     $allDropdowns.find(':focus').blur();
 
                     if(settings.instantlyCloseOthers === true)
                         $allDropdowns.removeClass('open');
-                    
+
                     // clear timer for hover event
                     window.clearTimeout(timeoutHover);
                     $this.attr('aria-expanded', 'true');

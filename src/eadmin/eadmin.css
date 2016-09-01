@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 /* 滚动条样式 */
 ::-webkit-scrollbar {
     width: 8px;
@@ -17,12 +12,21 @@
     background: #999;
 }
 
-/* 悬浮按钮 */
-.float-btn {
-    position: fixed;
-    z-index: 2000;
-    right: 20px;
-    bottom: 20px;
+/* 拓展 eui-admin */
+.row-col { /* 减少 row 和 col-sm-12 嵌套使用 */
+    margin-left: -15px;
+    margin-right: -15px;
+
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.row-col:before,
+.row-col:after {
+    clear: both;
+    content: " ";
+    display: table;
 }
 
 /*  */
@@ -70,13 +74,29 @@
 }
 
 /* 布局 */
-
-.mycontainer {
-    padding: 50px 30px;
+.ead-container {
+    padding: 0 30px;
     margin-right: auto;
     margin-left: auto;
 }
-
+.ead-container:before,
+.ead-container:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+.ead-container-main {
+    padding: 10px 30px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.fixed-width .ewrap {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+.ewrap {
+}
 .esidebar {
     position: fixed;
     top: 0;
@@ -89,7 +109,7 @@
     overflow: hidden;
 }
 
-/* 侧栏菜单组件 */
+/* 侧栏菜单Sidemenu组件 */
 .eui-sidemenu {
     position: relative;
     z-index: 1000;
@@ -133,6 +153,7 @@
 }
 /* 菜单-子菜单 */
 .eui-sidemenu ul {
+    /*display: none;*/ /* 加上去可以避免菜单闪烁，但会造成菜单打开时很慢 */
     width: 100%;
 }
 .eui-sidemenu ul li > a {
@@ -179,14 +200,22 @@
 }
 .emenu-header-small {
     display: none;
+    height: 62px;
     background-color: #293949;
 }
 .emenu-small-icon {
     color: #eee;
-    height: 60px;
-    padding-left: 20px;
-    line-height: 60px;
+    width: 70px;
+    height: 62px;
+    text-align: center;
+    line-height: 62px;
     font-size: 18px;
+}
+.emenu-small-logo {
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 20px;
 }
 
 /* 菜单缩小 */
@@ -243,7 +272,7 @@
 .econtent-body {
     position: absolute;
     top: 60px;
-    bottom: 40px;
+    bottom: 0;
     width: 100%;
     overflow: auto;
 }
@@ -270,14 +299,6 @@
     outline: none;
 }
 .econtent-header .badge {
-}
-
-/* 首页页脚 */
-.efooter-copyright {
-    width: 200px;
-    margin-top: 10px;
-    margin-left: 20px;
-    color: #999;
 }
 
 .sidebar-container {
@@ -447,3 +468,31 @@ nav.page-tabs {
 }
 
 /* 404页面 */
+
+
+/* 表格 */
+.card-ead {}
+.card-ead table {
+    margin-top: 10px;
+}
+
+.card-ead .pagination {
+    float: right;
+}
+
+
+
+/* 悬浮按钮 */
+.float-btn {
+    position: fixed;
+    z-index: 2000;
+    right: 20px;
+    bottom: 20px;
+}
+
+/* 下面样式不作为 eadmin 的一部分 */
+
+/* 首页页脚 */
+.efooter-copyright {
+    color: #999;
+}

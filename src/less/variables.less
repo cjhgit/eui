@@ -215,7 +215,7 @@
 // TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
 //** Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
-@input-border-radius:            @border-radius-base;
+@input-border-radius:            0;
 //** Large `.form-control` border radius
 @input-border-radius-large:      @border-radius-large;
 //** Small `.form-control` border radius
@@ -256,18 +256,16 @@
 //** Background for the dropdown menu.
 @dropdown-bg:                    #fff;
 //** Dropdown menu `border-color`.
-@dropdown-border:                rgba(0,0,0,.15);
-//** Dropdown menu `border-color` **for IE8**.
-@dropdown-fallback-border:       #ccc;
+@dropdown-border:                #eee;
 //** Divider color for between dropdown items.
 @dropdown-divider-bg:            #eee;
 
 //** Dropdown link text color.
-@dropdown-link-color:            #555;
+@dropdown-link-color:            #666;
 //** Hover color for dropdown links.
 @dropdown-link-hover-color:      #555;
 //** Hover background for dropdown links.
-@dropdown-link-hover-bg:         #f1f1f1;
+@dropdown-link-hover-bg:         #f3f3f3;
 
 //** Active dropdown menu item text color.
 @dropdown-link-active-color:     @component-active-color;

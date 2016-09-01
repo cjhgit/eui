@@ -18,3 +18,13 @@
 .form-avatar-box {
     position: relative;
 }
+
+/* 二维码 */
+.qrcode-demo {
+    display: none;
+}
+.qrcode,
+.qrcode-demo img {
+    width: 100px;
+    height: 100px;
+}
