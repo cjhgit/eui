@@ -229,14 +229,17 @@
 <script src="../dist/js/eui.min.js"></script>
 <script>
     $(document).ready(function() {
-        eui.msg('你好啊，我亲爱的朋友');
+        //eui.msg('你好啊，我亲爱的朋友');
 
         $('#test').on('click', function () {
-            eui.dialog({
+            layer.load(1, {
+  
+});
+            /*eui.dialog({
                 type: 1,
                 //title: false,
                 content: $('#asd')
-            });
+            });*/
         });
 
         $('#show-login-dialog').on('click', function () {

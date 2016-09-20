@@ -3,9 +3,6 @@
 //
 
 .nav {
-    margin-bottom: 0;
-    padding-left: 0; // 覆盖默认的 ul/ol
-    list-style: none;
     &:extend(.clearfix all);
 
     .nav-item {
@@ -15,11 +12,9 @@
         .nav-link {
             position: relative;
             display: block;
-            padding: @nav-link-padding;
             &:hover,
             &:focus {
                 text-decoration: none;
-                background-color: @nav-link-hover-bg;
             }
         }
 
@@ -76,6 +71,7 @@
 
         // Actual tabs (as links)
         .nav-link {
+            padding: @nav-link-padding;
             margin-right: 2px;
             color: @nav-tabs-active-link-hover-color;
             line-height: @line-height-base;
@@ -114,6 +110,7 @@
 
         // Actual tabs (as links)
         .nav-link {
+            padding: @nav-link-padding;
             //color: #55595c; TODO
             font-size: 16px;
             line-height: @line-height-base;
@@ -185,7 +182,13 @@
 
         // Links rendered as pills
         .nav-link {
+            padding: @nav-link-padding;
             border-radius: @nav-pills-border-radius;
+
+            &:hover,
+            &:focus {
+                background-color: @nav-pills-hover-bg;
+            }
         }
         + .nav-item {
             margin-left: 2px;
@@ -193,11 +196,12 @@
 
         // Active state
         &.active .nav-link {
+            background-color: @brand-primary;
+
             &,
             &:hover,
             &:focus {
                 color: @nav-pills-active-link-hover-color;
-                background-color: @nav-pills-active-link-hover-bg;
             }
         }
     }

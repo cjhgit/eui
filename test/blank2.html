@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>空白页面</title>
+<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../src/eadmin/eadmin.css">
+<link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+<style>
+   .box {
+       display: none;
+       width: 200px;
+       height: 100px;
+       background-color: #f00;
+   }
+</style>
+</head>
+
+<body>
+<div class="ead-container-main">
+    <div class="row">
+
+    </div>
+</div>
+</div>
+<div id="box" class="box">
+
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../dist/js/eui.min.js"></script>
+
+<script>
+
+    $.extend(eui.Dialog.DEFAULTS, {
+        closeBtn: false,
+        shadeClose: true,
+        type: 1,
+        title: false,
+        shade: [0.4, '#000']
+        //shade: [0.8, '#fff']
+    });
+
+
+    eui.disableScrollbar();
+    eui.enableScrollbar();
+    /*eui.dialog({
+        content: $('#box'),
+
+    });*/
+
+    $('#box').dialog();
+
+    /*setTimeout(function () {
+        $('#box').dialog('hide');
+        setTimeout(function () {
+            $('#box').dialog();
+
+        }, 1000);
+    }, 1000);*/
+
+
+    //eui.msg('呵呵哒');
+    /*$.extend(eui.overlay.DEFAULT, {
+        bgColor: '#f00',
+        opacity: 1
+    });*/
+
+    /*eui.overlay();
+
+    setTimeout(function() {
+        eui.overlay('hide');
+    }, 1000);*/
+
+
+</script>
+</body>
+</html>

@@ -337,25 +337,25 @@ $(function () {
 
     $carousel.appendTo('body')
     $('[data-slide]').first().trigger('click')
-    assert.strictEqual($carousel.data('bs.carousel').options.interval, 1814)
+    assert.strictEqual($carousel.data('bs.carousel').opts.interval, 1814)
     $carousel.remove()
 
     $carousel.appendTo('body').attr('data-modal', 'foobar')
     $('[data-slide]').first().trigger('click')
-    assert.strictEqual($carousel.data('bs.carousel').options.interval, 1814, 'even if there is an data-modal attribute set')
+    assert.strictEqual($carousel.data('bs.carousel').opts.interval, 1814, 'even if there is an data-modal attribute set')
     $carousel.remove()
 
     $carousel.appendTo('body')
     $('[data-slide]').first().trigger('click')
     $carousel.attr('data-interval', 1860)
     $('[data-slide]').first().trigger('click')
-    assert.strictEqual($carousel.data('bs.carousel').options.interval, 1814, 'attributes should be read only on initialization')
+    assert.strictEqual($carousel.data('bs.carousel').opts.interval, 1814, 'attributes should be read only on initialization')
     $carousel.remove()
 
     $carousel.attr('data-interval', false)
     $carousel.appendTo('body')
     $carousel.bootstrapCarousel(1)
-    assert.strictEqual($carousel.data('bs.carousel').options.interval, false, 'data attribute has higher priority than default options')
+    assert.strictEqual($carousel.data('bs.carousel').opts.interval, false, 'data attribute has higher priority than default options')
     $carousel.remove()
   })
 

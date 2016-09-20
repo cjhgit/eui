@@ -81,7 +81,7 @@ window.eadmin = {
 
     var SideMenu = function (element, options) {
         this.$element = $(element);
-        this.options = $.extend({}, SideMenu.DEFAULTS, options);
+        this.opts = $.extend({}, SideMenu.DEFAULTS, options);
         this.transitioning = null;
 
         this.init();
@@ -103,9 +103,9 @@ window.eadmin = {
 
     SideMenu.prototype.init = function () {
         var $this = this;
-        var activeClass = this.options.activeClass;
-        var collapseClass = this.options.collapseClass;
-        var collapseInClass = this.options.collapseInClass;
+        var activeClass = this.opts.activeClass;
+        var collapseClass = this.opts.collapseClass;
+        var collapseInClass = this.opts.collapseInClass;
 
         this
             .$element
@@ -125,7 +125,7 @@ window.eadmin = {
             .addClass(collapseClass);
 
         //add the 'doubleTapToGo' class to active items if needed
-        if (this.options.doubleTapToGo) {
+        if (this.opts.doubleTapToGo) {
             this
                 .$element
                 .find('li.' + activeClass)
@@ -143,13 +143,13 @@ window.eadmin = {
                 var self = $(this);
                 var $parent = self.parent('li');
                 var $list = $parent.children('ul');
-                if ($this.options.preventDefault) {
+                if ($this.opts.preventDefault) {
                     e.preventDefault();
                 }
                 if (self.attr('aria-disabled') === 'true') {
                     return;
                 }
-                if ($parent.hasClass(activeClass) && !$this.options.doubleTapToGo) {
+                if ($parent.hasClass(activeClass) && !$this.opts.doubleTapToGo) {
                     $this.hide($list);
                     self.attr('aria-expanded', false);
                 } else {
@@ -157,12 +157,12 @@ window.eadmin = {
                     self.attr('aria-expanded', true);
                 }
 
-                if ($this.options.onTransitionStart) {
-                    $this.options.onTransitionStart();
+                if ($this.opts.onTransitionStart) {
+                    $this.opts.onTransitionStart();
                 }
 
                 //Do we need to enable the double tap
-                if ($this.options.doubleTapToGo) {
+                if ($this.opts.doubleTapToGo) {
                     //if we hit a second time on the link and the href is valid, navigate to that url
                     if ($this.doubleTapToGo(self) && self.attr('href') !== '#' && self.attr('href') !== '') {
                         e.stopPropagation();
@@ -193,10 +193,10 @@ window.eadmin = {
     };
 
     SideMenu.prototype.show = function (el) {
-        var activeClass = this.options.activeClass;
-        var collapseClass = this.options.collapseClass;
-        var collapseInClass = this.options.collapseInClass;
-        var collapsingClass = this.options.collapsingClass;
+        var activeClass = this.opts.activeClass;
+        var collapseClass = this.opts.collapseClass;
+        var collapseInClass = this.opts.collapseInClass;
+        var collapsingClass = this.opts.collapsingClass;
         var $this = $(el);
         var $parent = $this.parent('li');
         if (this.transitioning || $this.hasClass(collapseInClass)) {
@@ -205,7 +205,7 @@ window.eadmin = {
 
         $parent.addClass(activeClass);
 
-        if (this.options.toggle) {
+        if (this.opts.toggle) {
             this.hide($parent.siblings().children('ul.' + collapseInClass).attr('aria-expanded', false));
         }
 
@@ -216,8 +216,8 @@ window.eadmin = {
 
         this.transitioning = 1;
         var complete = function () {
-            if (this.transitioning && this.options.onTransitionEnd) {
-                this.options.onTransitionEnd();
+            if (this.transitioning && this.opts.onTransitionEnd) {
+                this.opts.onTransitionEnd();
             }
             $this
                 .removeClass(collapsingClass)
@@ -236,10 +236,10 @@ window.eadmin = {
     };
 
     SideMenu.prototype.hide = function (el) {
-        var activeClass = this.options.activeClass;
-        var collapseClass = this.options.collapseClass;
-        var collapseInClass = this.options.collapseInClass;
-        var collapsingClass = this.options.collapsingClass;
+        var activeClass = this.opts.activeClass;
+        var collapseClass = this.opts.collapseClass;
+        var collapseInClass = this.opts.collapseInClass;
+        var collapsingClass = this.opts.collapsingClass;
         var $this = $(el);
 
         if (this.transitioning || !$this.hasClass(collapseInClass)) {
@@ -257,8 +257,8 @@ window.eadmin = {
         this.transitioning = 1;
 
         var complete = function () {
-            if (this.transitioning && this.options.onTransitionEnd) {
-                this.options.onTransitionEnd();
+            if (this.transitioning && this.opts.onTransitionEnd) {
+                this.opts.onTransitionEnd();
             }
             this.transitioning = 0;
             $this

@@ -14,9 +14,9 @@
   // ======================
 
   var Affix = function (element, options) {
-    this.options = $.extend({}, Affix.DEFAULTS, options)
+    this.opts = $.extend({}, Affix.DEFAULTS, options)
 
-    this.$target = $(this.options.target)
+    this.$target = $(this.opts.target)
       .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
       .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
 
@@ -75,7 +75,7 @@
     if (!this.$element.is(':visible')) return
 
     var height       = this.$element.height()
-    var offset       = this.options.offset
+    var offset       = this.opts.offset
     var offsetTop    = offset.top
     var offsetBottom = offset.bottom
     var scrollHeight = Math.max($(document).height(), $(document.body).height())

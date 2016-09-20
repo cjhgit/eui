@@ -3616,7 +3616,7 @@ function toolbarChanged() {
 
 	// Detect if field is a select menu or a checkbox
 	if ( "selectedIndex" in field ) {
-		value = field.options[ field.selectedIndex ].value || undefined;
+		value = field.opts[ field.selectedIndex ].value || undefined;
 	} else {
 		value = field.checked ? ( field.defaultValue || true ) : undefined;
 	}
@@ -3667,7 +3667,7 @@ function applyUrlParams() {
 		filter = id( "qunit-filter-input" ).value;
 
 	selectedModule = modulesList ?
-		decodeURIComponent( modulesList.options[ modulesList.selectedIndex ].value ) :
+		decodeURIComponent( modulesList.opts[ modulesList.selectedIndex ].value ) :
 		undefined;
 
 	window.location = setUrl({

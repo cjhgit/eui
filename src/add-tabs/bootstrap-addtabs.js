@@ -8,7 +8,7 @@
 
 $.fn.addtabs = function (options) {
     obj = $(this);
-    Addtabs.options = $.extend({
+    Addtabs.opts = $.extend({
         content: '', //直接指定所有页面TABS内容
         close: true, //是否可以关闭
         monitor: 'body', //监视的区域
@@ -20,11 +20,11 @@ $.fn.addtabs = function (options) {
     }, options || {});
 
 
-    $(Addtabs.options.monitor).on('click', '[data-addtab]', function () {
+    $(Addtabs.opts.monitor).on('click', '[data-addtab]', function () {
         Addtabs.add({
             id: $(this).attr('data-addtab'),
             title: $(this).attr('title') ? $(this).attr('title') : $(this).html(),
-            content: Addtabs.options.content ? Addtabs.options.content : $(this).attr('content'),
+            content: Addtabs.opts.content ? Addtabs.opts.content : $(this).attr('content'),
             url: $(this).attr('url'),
             ajax: $(this).attr('ajax') ? true : false
         });
@@ -45,7 +45,7 @@ $.fn.addtabs = function (options) {
     })
 
     $(window).resize(function () {
-        obj.find('iframe').attr('height', Addtabs.options.iframeHeight);
+        obj.find('iframe').attr('height', Addtabs.opts.iframeHeight);
         Addtabs.drop();
     });
 
@@ -76,7 +76,7 @@ window.Addtabs = {
             );
 
             //是否允许关闭
-            if (Addtabs.options.close) {
+            if (Addtabs.opts.close) {
                 title.append(
                     $('<i>',{class:'close-tab fa fa-remove'})
                 );
@@ -91,11 +91,11 @@ window.Addtabs = {
             //是否指定TAB内容
             if (opts.content) {
                 content.append(opts.content);
-            } else if (Addtabs.options.iframeUse && !opts.ajax) {//没有内容，使用IFRAME打开链接
+            } else if (Addtabs.opts.iframeUse && !opts.ajax) {//没有内容，使用IFRAME打开链接
                 content.append(
                     $('<iframe>', {
                         'class': 'iframeClass',
-                        'height': Addtabs.options.iframeHeight,
+                        'height': Addtabs.opts.iframeHeight,
                         'frameborder': "no",
                         'border': "0",
                         'src': opts.url
@@ -126,7 +126,7 @@ window.Addtabs = {
         $("#tab_" + id).remove();
         $("#" + id).remove();
         Addtabs.drop();
-        Addtabs.options.callback();
+        Addtabs.opts.callback();
     },
     drop: function () {
         element = obj.find('.nav-tabs');

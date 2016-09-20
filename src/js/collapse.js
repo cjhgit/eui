@@ -16,18 +16,18 @@
 
     var Collapse = function (element, options) {
         this.$element = $(element);
-        this.options = $.extend({}, Collapse.DEFAULTS, options);
+        this.opts = $.extend({}, Collapse.DEFAULTS, options);
         this.$trigger = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
             '[data-toggle="collapse"][data-target="#' + element.id + '"]');
         this.transitioning = null;
 
-        if (this.options.parent) {
+        if (this.opts.parent) {
             this.$parent = this.getParent()
         } else {
             this.addAriaAndCollapsedClass(this.$element, this.$trigger)
         }
 
-        if (this.options.toggle) this.toggle()
+        if (this.opts.toggle) this.toggle()
     };
 
     Collapse.VERSION = '3.3.6';
@@ -139,8 +139,8 @@
     };
 
     Collapse.prototype.getParent = function () {
-        return $(this.options.parent)
-            .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
+        return $(this.opts.parent)
+            .find('[data-toggle="collapse"][data-parent="' + this.opts.parent + '"]')
             .each($.proxy(function (i, element) {
                 var $element = $(element);
                 this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)

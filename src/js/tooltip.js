@@ -16,7 +16,7 @@
 
     var Tooltip = function (element, options) {
         this.type = null;
-        this.options = null;
+        this.opts = null;
         this.enabled = null;
         this.timeout = null;
         this.hoverState = null;
@@ -51,32 +51,32 @@
         this.enabled = true;
         this.type = type;
         this.$element = $(element);
-        this.options = this.getOptions(options);
-        this.$viewport = this.options.viewport && $($.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : (this.options.viewport.selector || this.options.viewport))
+        this.opts = this.getOptions(options);
+        this.$viewport = this.opts.viewport && $($.isFunction(this.opts.viewport) ? this.opts.viewport.call(this, this.$element) : (this.opts.viewport.selector || this.opts.viewport))
         this.inState = {click: false, hover: false, focus: false};
 
-        if (this.$element[0] instanceof document.constructor && !this.options.selector) {
+        if (this.$element[0] instanceof document.constructor && !this.opts.selector) {
             throw new Error('`selector` option must be specified when initializing ' + this.type + ' on the window.document object!')
         }
 
-        var triggers = this.options.trigger.split(' ');
+        var triggers = this.opts.trigger.split(' ');
 
         for (var i = triggers.length; i--;) {
             var trigger = triggers[i];
 
             if (trigger == 'click') {
-                this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
+                this.$element.on('click.' + this.type, this.opts.selector, $.proxy(this.toggle, this))
             } else if (trigger != 'manual') {
                 var eventIn = trigger == 'hover' ? 'mouseenter' : 'focusin';
                 var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout';
 
-                this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this));
-                this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
+                this.$element.on(eventIn + '.' + this.type, this.opts.selector, $.proxy(this.enter, this));
+                this.$element.on(eventOut + '.' + this.type, this.opts.selector, $.proxy(this.leave, this))
             }
         }
 
-        this.options.selector ?
-            (this._options = $.extend({}, this.options, {trigger: 'manual', selector: ''})) :
+        this.opts.selector ?
+            (this._options = $.extend({}, this.opts, {trigger: 'manual', selector: ''})) :
             this.fixTitle()
     };
 
@@ -130,11 +130,11 @@
 
         self.hoverState = 'in';
 
-        if (!self.options.delay || !self.options.delay.show) return self.show();
+        if (!self.opts.delay || !self.opts.delay.show) return self.show();
 
         self.timeout = setTimeout(function () {
             if (self.hoverState == 'in') self.show()
-        }, self.options.delay.show)
+        }, self.opts.delay.show)
     };
 
     Tooltip.prototype.isInStateTrue = function () {
@@ -164,11 +164,11 @@
 
         self.hoverState = 'out';
 
-        if (!self.options.delay || !self.options.delay.hide) return self.hide();
+        if (!self.opts.delay || !self.opts.delay.hide) return self.hide();
 
         self.timeout = setTimeout(function () {
             if (self.hoverState == 'out') self.hide()
-        }, self.options.delay.hide)
+        }, self.opts.delay.hide)
     };
 
     Tooltip.prototype.show = function () {
@@ -189,11 +189,11 @@
             $tip.attr('id', tipId);
             this.$element.attr('aria-describedby', tipId);
 
-            if (this.options.animation) $tip.addClass('fade');
+            if (this.opts.animation) $tip.addClass('fade');
 
-            var placement = typeof this.options.placement == 'function' ?
-                this.options.placement.call(this, $tip[0], this.$element[0]) :
-                this.options.placement;
+            var placement = typeof this.opts.placement == 'function' ?
+                this.opts.placement.call(this, $tip[0], this.$element[0]) :
+                this.opts.placement;
 
             var autoToken = /\s?auto?\s?/i;
             var autoPlace = autoToken.test(placement);
@@ -205,7 +205,7 @@
                 .addClass(placement)
                 .data('bs.' + this.type, this);
 
-            this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element);
+            this.opts.container ? $tip.appendTo(this.opts.container) : $tip.insertAfter(this.$element);
             this.$element.trigger('inserted.bs.' + this.type);
 
             var pos = this.getPosition();
@@ -307,7 +307,7 @@
         var $tip = this.tip();
         var title = this.getTitle();
 
-        $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title);
+        $tip.find('.tooltip-inner')[this.opts.html ? 'html' : 'text'](title);
         $tip.removeClass('fade in top bottom left right');
     }
 
@@ -385,7 +385,7 @@
         var delta = {top: 0, left: 0};
         if (!this.$viewport) return delta;
 
-        var viewportPadding = this.options.viewport && this.options.viewport.padding || 0;
+        var viewportPadding = this.opts.viewport && this.opts.viewport.padding || 0;
         var viewportDimensions = this.getPosition(this.$viewport);
 
         if (/right|left/.test(placement)) {
@@ -412,7 +412,7 @@
     Tooltip.prototype.getTitle = function () {
         var title;
         var $e = this.$element;
-        var o = this.options;
+        var o = this.opts;
 
         title = $e.attr('data-original-title')
             || (typeof o.title == 'function' ? o.title.call($e[0]) : o.title);
@@ -428,7 +428,7 @@
 
     Tooltip.prototype.tip = function () {
         if (!this.$tip) {
-            this.$tip = $(this.options.template);
+            this.$tip = $(this.opts.template);
             if (this.$tip.length != 1) {
                 throw new Error(this.type + ' `template` option must consist of exactly 1 top-level element!')
             }

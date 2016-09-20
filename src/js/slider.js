@@ -6,7 +6,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-+function ($) {
+;(function ($) {
     'use strict';
 
     var SELETOR_INDICATORS = '.eui-slider-indicators';
@@ -17,43 +17,127 @@
 
     // 轮播图类
     var Slider = function (element, options) {
-        this.$element = $(element);
-        this.$indicators = this.$element.find(SELETOR_INDICATORS);
-        this.options = options;
-        this.paused = null; // 是否已经停止滑动
-        this.sliding = null; // 是否正在滑动
-        this.interval = null;
-        this.$active = null;
-        this.$items = null;
+        var that = this;
 
-        this.options.keyboard && this.$element.on('keydown.eui.slider', $.proxy(this.keydown, this));
+        that.$element = $(element);
+        that.$indicators = that.$element.find(SELETOR_INDICATORS);
+        that.opts = options;
+        that.paused = null; // 是否已经停止滑动
+        that.sliding = null; // 是否正在滑动
+        that.interval = null;
+        that.$active = null;
+        that.$items = null;
 
-        this.options.pause == 'hover' && !('ontouchstart' in document.documentElement) && this.$element
-            .on('mouseenter.eui.slider', $.proxy(this.pause, this))
-            .on('mouseleave.eui.slider', $.proxy(this.cycle, this))
+        that.curIndex = 0;
+        that.$list = that.$element.find('.eui-slider-inner');
+        that.$items = that.$list.children();
+        var count = that.$items.length;
+        that.count = count;
+        // 复制item
+        // 复制后面
+        that.pad = that.opts.column - 1;
+        if (that.pad < 1) {
+            that.pad = 1;
+        }
+        for (var i = 0; i < that.pad; i++) {
+            var $copy = that.$items.eq(i).clone(true);
+            $copy.addClass('copy');
+            $copy.removeClass('active');
+            that.$list.append($copy);
+        }
+        // 复制前面
+        for (var i = 0; i < that.pad; i++) {
+            var $copy = that.$items.eq(count - (i + 1)).clone(true);
+            $copy.addClass('copy');
+            $copy.removeClass('active');
+            that.$list.prepend($copy);
+        }
+
+        function resize() {
+            that.itemWidth = that.$element.width() / that.opts.column;
+            var width = that.itemWidth * (count + 2 * (that.pad));
+            //that.$list.hide();
+            that.$list.width(width);
+            that.$list.children().width(that.itemWidth);
+        };
+
+        resize();
+
+
+
+        var offset = that.pad * that.itemWidth * -1; // TODO
+
+
+        that.disableTransition();
+        that.offset(offset, false);
+
+        that.$element.resize(function () {
+            resize();
+        });
+
+        that.opts.keyboard && that.$element.on('keydown.eui.slider', $.proxy(that.keydown, that));
+
+        that.opts.pause == 'hover' && !('ontouchstart' in document.documentElement) && that.$element
+            .on('mouseenter.eui.slider', $.proxy(that.pause, that))
+            .on('mouseleave.eui.slider', $.proxy(that.cycle, that));
+
+
     };
 
-    Slider.VERSION = '3.3.6';
+    Slider.VERSION = '2.0.0';
+    Slider.v = 2.00;
 
     Slider.TRANSITION_DURATION = 600;
 
     Slider.DEFAULTS = {
-        interval: 5000,
+        interval: 5000, // 自动循环每个项目之间延迟的时间量。如果为 false，轮播将不会自动循环
         pause: 'hover',
-        wrap: true,
-        keyboard: true
+        loop: true, // 轮播是否循环播放
+        keyboard: true,
+        column: 1,
     };
 
-    Slider.prototype.keydown = function (e) {
+    Slider.pt = Slider.prototype;
+
+    Slider.pt.offset = function (offset, anim) {
+        var that = this;
+
+        if (anim) {
+            that.$list.animate({
+                'margin-left': offset + 'px'
+            }, 500)
+        } else {
+            that.$list.css('margin-left', offset + 'px');
+        }
+
+        //that.$list.css('transform', 'translate3d(' + offset + 'px, 0px, 0px)');
+    };
+
+    Slider.pt.disableTransition = function () {
+        var that = this;
+
+        //that.$list.css('transition', 'inherit');
+    };
+
+    Slider.pt.enableTransition = function () {
+        var that = this;
+
+        //that.$list.css('transition', 'transform .6s ease-in-out');
+        //that.$list.css('transition', 'all .6s ease-in-out');
+    };
+
+    Slider.pt.keydown = function (e) {
+        var that = this;
+
         if (/input|textarea/i.test(e.target.tagName)) {
             return;
         }
         switch (e.which) {
             case 37:
-                this.prev();
+                that.prev();
                 break;
             case 39:
-                this.next();
+                that.next();
                 break;
             default:
                 return;
@@ -62,99 +146,169 @@
         e.preventDefault()
     };
 
-    Slider.prototype.cycle = function (e) {
-        e || (this.paused = false);
+    Slider.pt.cycle = function (e) {
+        var that = this;
 
-        this.interval && clearInterval(this.interval);
+        e || (that.paused = false);
 
-        this.options.interval
-        && !this.paused
-        && (this.interval = setInterval($.proxy(this.next, this), this.options.interval));
+        that.interval && clearInterval(that.interval);
 
-        return this;
+        that.opts.interval
+        && !that.paused
+        && (that.interval = setInterval($.proxy(that.next, that), that.opts.interval));
+
+        return that;
     };
 
-    Slider.prototype.getItemIndex = function (item) {
-        this.$items = item.parent().children(SELECTOR_ITEM);
-        return this.$items.index(item || this.$active);
+    Slider.pt.getIndex = function () {
+        var that = this;
+
+        return that.curIndex
     };
 
-    Slider.prototype.getItemForDirection = function (direction, active) {
-        var activeIndex = this.getItemIndex(active);
-        var willWrap = (direction == 'prev' && activeIndex === 0)
-            || (direction == 'next' && activeIndex == (this.$items.length - 1));
-        if (willWrap && !this.options.wrap) {
+    Slider.pt.getItemIndex = function (item) {
+        var that = this;
+
+        that.$items = item.parent().children(SELECTOR_ITEM);
+        return that.$items.index(item || that.$active);
+    };
+
+    /**
+     * 获取下一个要显示的item
+     * @param {string} direction 'prev' or 'next'
+     * @param active
+     * @returns {*}
+     */
+    Slider.pt.getItemForDirection = function (direction, active) {
+        var that = this;
+
+        var activeIndex = that.getItemIndex(active);
+        /*var willWrap = (direction == 'prev' && activeIndex === 0)
+            || (direction == 'next' && activeIndex == (that.count - 1));
+        if (willWrap && !that.opts.wrap) {
             return active;
-        }
+        }*/
+
         var delta = direction == 'prev' ? -1 : 1;
-        var itemIndex = (activeIndex + delta) % this.$items.length;
-        return this.$items.eq(itemIndex)
+        var itemIndex = (activeIndex + delta);
+        if (itemIndex > that.count + that.pad - 1) {
+            itemIndex = that.pad;
+        }
+        if (itemIndex < that.pad -  1) { // TODO
+            itemIndex = that.count + that.pad - 1;
+        }
+        return that.$items.eq(itemIndex)
     };
 
     // 滑动到某个轮播项
-    Slider.prototype.to = function (pos) {
+    Slider.pt.to = function (pos) {
         var that = this;
-        var activeIndex = this.getItemIndex(this.$active = this.$element.find(SELECTOR_ITEM + '.active'));
 
-        if (pos > (this.$items.length - 1) || pos < 0) {
+        var activeIndex = that.getItemIndex(that.$active = that.$element.find(SELECTOR_ITEM + '.active'));
+
+        if (pos < 0 || pos > that.count - 1) {
             return;
         }
 
-        if (this.sliding) {
-            return this.$element.one(EVENT_SLID, function () {
+        if (that.sliding) {
+            return that.$element.one(EVENT_SLID, function () {
                 that.to(pos)
             });
         }// yes, "slid"
 
-        if (activeIndex == pos) {
-            return this.pause().cycle();
+        if (that.curIndex == pos) {
+            return that.pause().cycle();
         }
 
-        return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos));
+        var preIndex = that.curIndex;
+        that.curIndex = pos;
+
+        return that.slide(pos > preIndex ? 'next' : 'prev', that.$items.eq(pos));
     };
 
-    Slider.prototype.pause = function (e) {
-        e || (this.paused = true);
+    Slider.pt.pause = function (e) {
+        var that = this;
 
-        if (this.$element.find('.next, .prev').length && $.support.transition) {
-            this.$element.trigger($.support.transition.end);
-            this.cycle(true);
+        e || (that.paused = true);
+
+        if (that.$element.find('.next, .prev').length && $.support.transition) {
+            that.$element.trigger($.support.transition.end);
+            that.cycle(true);
         }
 
-        this.interval = clearInterval(this.interval);
+        that.interval = clearInterval(that.interval);
 
-        return this;
+        return that;
     };
 
-    Slider.prototype.next = function () {
-        if (this.sliding) {
+    Slider.pt.next = function () {
+        var that = this;
+
+        if (that.curIndex === (that.count - 1) && !that.opts.loop) {
             return;
         }
-        return this.slide('next');
-    };
 
-    Slider.prototype.prev = function () {
-        if (this.sliding) {
+        that.curIndex++;
+        if (that.curIndex > that.count - 1) {
+            that.curIndex = 0;
+        }
+
+        if (that.sliding) {
             return;
         }
-        return this.slide('prev');
+        that.$active = that.$element.find(SELECTOR_ITEM + '.active')
+        var activeIndex = that.$active.index();
+        if (activeIndex === that.count + that.pad - 1) {
+            var offset = that.itemWidth * (that.pad - 1) * -1;
+            that.offset(offset, false);
+        }
+        return that.slide('next');
+    };
+
+    Slider.pt.prev = function () {
+        var that = this;
+
+        if (that.curIndex === 0 && !that.opts.loop) {
+            return;
+        }
+
+        that.curIndex--;
+        if (that.curIndex < 0) {
+            that.curIndex = that.count - 1;
+        }
+
+        if (that.sliding) {
+            return;
+        }
+        that.$active = that.$element.find(SELECTOR_ITEM + '.active')
+        var activeIndex = that.$active.index();
+        if (activeIndex === that.pad - 1) {
+            var offset = that.itemWidth * (that.count + that.pad - 1) * -1;
+            that.offset(offset, false);
+            that.$active.removeClass('active');
+            that.$list.find(SELECTOR_ITEM).eq(that.count + that.pad - 1).addClass('active');
+        }
+        return that.slide('prev');
     };
 
     /**
      * 切换
-     * @param type
-     * @param next
+     * @param type 'next' or 'prev'
+     * @param next 跳转到的item
      * @returns {*}
      */
-    Slider.prototype.slide = function (type, next) {
-        var $active = this.$element.find(SELECTOR_ITEM + '.active');
-        var $next = next || this.getItemForDirection(type, $active);
-        var isCycling = this.interval;
-        var direction = type == 'next' ? 'left' : 'right';
+    Slider.pt.slide = function (type, next) {
         var that = this;
+        that.enableTransition();
+
+        var $active = that.$element.find(SELECTOR_ITEM + '.active');
+        var $next = next || that.getItemForDirection(type, $active);
+        var isCycling = that.interval;
+        var direction = type == 'next' ? 'left' : 'right';
+        var that = that;
 
         if ($next.hasClass('active')) {
-            return (this.sliding = false);
+            return (that.sliding = false);
         }
 
         var relatedTarget = $next[0];
@@ -162,47 +316,115 @@
             relatedTarget: relatedTarget,
             direction: direction
         });
-        this.$element.trigger(slideEvent);
+        that.$element.trigger(slideEvent);
         if (slideEvent.isDefaultPrevented()) {
             return;
         }
 
-        this.sliding = true;
+        that.sliding = true;
 
-        isCycling && this.pause();
+        isCycling && that.pause();
 
-        if (this.$indicators.length) {
-            this.$indicators.find('.active').removeClass('active');
-            var $nextIndicator = $(this.$indicators.children()[this.getItemIndex($next)]);
+        if (that.$indicators.length) {
+            that.$indicators.find('.active').removeClass('active');
+            var $nextIndicator = $(that.$indicators.children()[that.getIndex()]);
             $nextIndicator && $nextIndicator.addClass('active')
         }
 
         var slidEvent = $.Event(EVENT_SLID, {relatedTarget: relatedTarget, direction: direction}); // yes, "slid"
-        if ($.support.transition && this.$element.hasClass('slide')) {
-            $next.addClass(type);
-            $next[0].offsetWidth;// force reflow
-            $active.addClass(direction);
-            $next.addClass(direction);
+        //if (false) {
+        if ($.support.transition && that.$element.hasClass('slide')) {
+
+            var offset = $next.index() * -1 * that.itemWidth; // TODO
+            that.offset(offset, true);
+
+            $active.removeClass('active');
+            $next.addClass('active');
+            that.sliding = false;
+            that.$element.trigger(slidEvent);
+
             $active
                 .one('bsTransitionEnd', function () {
-                    $next.removeClass([type, direction].join(' ')).addClass('active');
-                    $active.removeClass(['active', direction].join(' '));
-                    that.sliding = false;
+                    that.disableTransition();
+                    //that.$list.css('transform', 'translate3d(' + offset + 'px, 0px, 0px)');
+                    //$next.removeClass([type, direction].join(' ')).addClass('active');
+                    //$active.removeClass(['active', direction].join(' '));
+                    /*that.sliding = false;
                     setTimeout(function () {
                         that.$element.trigger(slidEvent)
-                    }, 0);
+                    }, 0);*/
                 })
                 .emulateTransitionEnd(Slider.TRANSITION_DURATION);
         } else {
+            var offset = $next.index() * -1 * that.itemWidth; // TODO
+            that.offset(offset, true);
             $active.removeClass('active');
             $next.addClass('active');
-            this.sliding = false;
-            this.$element.trigger(slidEvent);
+            that.sliding = false;
+            that.$element.trigger(slidEvent);
         }
 
-        isCycling && this.cycle();
+        isCycling && that.cycle();
 
-        return this;
+        return that;
+    };
+
+    Slider.pt.slideTo = function (pos) {
+        pos = parseInt(pos);
+
+        var that = this;
+        if (that.curIndex === pos) {
+            return false;
+        }
+
+        var isCycling = that.interval;
+
+        var slideEvent = $.Event(EVENT_SLIDER, {
+            //relatedTarget: relatedTarget, TODO
+            //direction: direction
+        });
+        that.$element.trigger(slideEvent);
+        if (slideEvent.isDefaultPrevented()) {
+            return;
+        }
+
+        that.sliding = true;
+
+        isCycling && that.pause();
+
+        if (that.$indicators.length) {
+            that.$indicators.find('.active').removeClass('active');
+            var $nextIndicator = $(that.$indicators.children()[pos]);
+            $nextIndicator && $nextIndicator.addClass('active')
+        }
+
+        //var slidEvent = $.Event(EVENT_SLID, {relatedTarget: relatedTarget, direction: direction}); // yes, "slid"
+
+        if ($.support.transition && that.$element.hasClass('slide')) {
+
+            var offset = (pos + that.pad) * -1 * that.itemWidth; // TODO
+            that.offset(offset, true);
+
+            that.$items.eq(that.curIndex).removeClass('active');
+            that.$items.eq(pos).addClass('active');
+
+            that.sliding = false;
+            //that.$element.trigger(slidEvent);
+
+        } else {
+            var offset = $next.index() * -1 * that.itemWidth; // TODO
+            that.offset(offset, true);
+            $active.removeClass('active');
+            $next.addClass('active');
+            that.sliding = false;
+            that.$element.trigger(slidEvent);
+        }
+
+        isCycling && that.cycle();
+
+        that.curIndex = pos;
+
+        return that;
     };
 
     // 轮播插件定义
@@ -254,7 +476,7 @@
         Plugin.call($target, options);
 
         if (slideIndex) {
-            $target.data('eui.slider').to(slideIndex);
+            $target.data('eui.slider').slideTo(slideIndex);
         }
 
         e.preventDefault();
@@ -270,4 +492,4 @@
             Plugin.call($slider, $slider.data());
         });
     });
-}(jQuery);
+})(jQuery);

@@ -46,9 +46,9 @@
         var title = this.getTitle();
         var content = this.getContent();
 
-        $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title);
+        $tip.find('.popover-title')[this.opts.html ? 'html' : 'text'](title);
         $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events
-            this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
+            this.opts.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
             ](content);
 
         $tip.removeClass('fade top bottom left right in');
@@ -66,7 +66,7 @@
 
     Popover.prototype.getContent = function () {
         var $e = this.$element;
-        var o = this.options;
+        var o = this.opts;
 
         return $e.attr('data-content')
             || (typeof o.content == 'function' ?

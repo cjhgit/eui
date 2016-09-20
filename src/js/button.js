@@ -12,7 +12,7 @@
     // 按钮类定义
     var Button = function (element, options) {
         this.$element = $(element);
-        this.options = $.extend({}, Button.DEFAULTS, options);
+        this.opts = $.extend({}, Button.DEFAULTS, options);
         this.isLoading = false;
     };
 
@@ -36,7 +36,7 @@
 
         // push to event loop to allow forms to submit
         setTimeout($.proxy(function () {
-            $el[val](data[state] == null ? this.options[state] : data[state]);
+            $el[val](data[state] == null ? this.opts[state] : data[state]);
 
             if (state == 'loadingText') {
                 this.isLoading = true;

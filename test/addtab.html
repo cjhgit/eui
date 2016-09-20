@@ -29,7 +29,7 @@
             Addtabs.add({
                id: $(this).attr('addtabs'),
                title: $(this).attr('title') ? $(this).attr('title') : $(this).html(),
-               content: Addtabs.options.content ? Addtabs.options.content : $(this).attr('content'),
+               content: Addtabs.opts.content ? Addtabs.opts.content : $(this).attr('content'),
                url: $(this).attr('url'),
                ajax: $(this).attr('ajax') ? true : false
             })

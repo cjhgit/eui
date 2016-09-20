@@ -4289,7 +4289,7 @@ jQuery.extend({
 		select: {
 			get: function( elem ) {
 				var value, option,
-					options = elem.options,
+					options = elem.opts,
 					index = elem.selectedIndex,
 					one = elem.type === "select-one" || index < 0,
 					values = one ? null : [],
@@ -4326,7 +4326,7 @@ jQuery.extend({
 
 			set: function( elem, value ) {
 				var optionSet, option,
-					options = elem.options,
+					options = elem.opts,
 					values = jQuery.makeArray( value ),
 					i = options.length;
 
@@ -6117,8 +6117,8 @@ jQuery.fn.extend({
 
 			// If this is a select, ensure that it displays empty (#12336)
 			// Support: IE<9
-			if ( elem.options && jQuery.nodeName( elem, "select" ) ) {
-				elem.options.length = 0;
+			if ( elem.opts && jQuery.nodeName( elem, "select" ) ) {
+				elem.opts.length = 0;
 			}
 		}
 
@@ -6775,7 +6775,7 @@ jQuery.fn.extend({
 		});
 	},
 
-	wrap: function( html ) {
+	loop: function( html ) {
 		var isFunction = jQuery.isFunction( html );
 
 		return this.each(function(i) {
@@ -9196,7 +9196,7 @@ Tween.prototype = {
 		this.elem = elem;
 		this.prop = prop;
 		this.easing = easing || "swing";
-		this.options = options;
+		this.opts = options;
 		this.start = this.now = this.cur();
 		this.end = end;
 		this.unit = unit || ( jQuery.cssNumber[ prop ] ? "" : "px" );
@@ -9212,17 +9212,17 @@ Tween.prototype = {
 		var eased,
 			hooks = Tween.propHooks[ this.prop ];
 
-		if ( this.options.duration ) {
+		if ( this.opts.duration ) {
 			this.pos = eased = jQuery.easing[ this.easing ](
-				percent, this.options.duration * percent, 0, 1, this.options.duration
+				percent, this.opts.duration * percent, 0, 1, this.opts.duration
 			);
 		} else {
 			this.pos = eased = percent;
 		}
 		this.now = ( this.end - this.start ) * eased + this.start;
 
-		if ( this.options.step ) {
-			this.options.step.call( this.elem, this.now, this );
+		if ( this.opts.step ) {
+			this.opts.step.call( this.elem, this.now, this );
 		}
 
 		if ( hooks && hooks.set ) {

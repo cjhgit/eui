@@ -1,5 +1,5 @@
 ﻿/**
- * 对话框插件
+ * Dialog 对话框插件
  *
  * v1.0.0
  */
@@ -21,6 +21,7 @@
     };
 
     Dialog.VERSION = '1.0.0';
+    Dialog.v = 1.00;
 
     // 默认配置
     Dialog.DEFAULTS = {
@@ -168,7 +169,13 @@
                     $body.append(html[1]);
                 }() : function () {
                     if (!content.parents('.eui-dialog')[0]) {
-                        content.show().addClass('eui-dialog-wrap').wrap(html[1]);
+                        content.show().addClass('eui-dialog-wrap');
+                        if (typeof content.wrap == 'function') { // TODO 加个判断，解决一个特殊的bug
+                            content.wrap(html[1]);
+                        } else {
+                            content.loop(html[1]);
+                        }
+
                         $('#eui-dialog' + times).find('.eui-dialog-body').before(titleHTML);
                     }
                 }();
@@ -438,7 +445,7 @@
             }
         });
 
-        //取消
+        // 取消
         function cancel() {
             var close = opts.cancel && opts.cancel(that.index, $dialog);
             close === false || eui.close(that.index);
@@ -749,6 +756,33 @@
             }
         }, options));
     };
+
+    window.eui.Dialog = Dialog;
+
+    function Plugin(options) {
+        return $(this).each(function () {
+
+            var $this = $(this);
+
+            var data = $this.data('eui.alert');
+
+            if (options === 'hide') {
+                var index = $this.data('dialog-index');
+                //data['hide'];
+                eui.close(index);
+            } else {
+                var opt = $.extend({}, options, {
+                    type: 1,
+                    content: $(this),
+                })
+                var index = eui.dialog(opt);
+                $this.data('dialog-index', index);
+            }
+        });
+    }
+
+    // 支持jQuery
+    $.fn.dialog = Plugin;
 
     // RequireJS
     if (typeof define === 'function') {

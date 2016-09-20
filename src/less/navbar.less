@@ -10,8 +10,7 @@
 .navbar {
     position: relative;
     min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-    margin-bottom: @navbar-margin-bottom;
-    border: 1px solid transparent;
+    border: none;
 
     // Prevent floats from breaking the navbar
     &:extend(.clearfix all);
@@ -225,6 +224,7 @@
     margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
 
     .nav-link {
+        padding: @nav-link-padding;
         padding-top: 10px;
         padding-bottom: 10px;
         color: @gray-dark;
@@ -421,7 +421,7 @@
             &:hover,
             &:focus {
                 color: @navbar-light-link-hover-color;
-                background-color: @navbar-light-link-hover-bg;
+                background-color: transparent;
             }
         }
         > .active .nav-link {
@@ -459,7 +459,7 @@
             &,
             &:hover,
             &:focus {
-                background-color: @navbar-light-link-active-bg;
+                background-color: transparent;
                 color: @navbar-light-link-active-color;
             }
         }

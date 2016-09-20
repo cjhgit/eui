@@ -5,42 +5,34 @@
 // Wrapper for the slide container and indicators
 .eui-slider {
     position: relative;
+    overflow: hidden;
 }
 
 .eui-slider-inner {
+    //.transition-transform(~'0.6s ease-in-out');
+    //transition: all 0.6s;
     position: relative;
     overflow: hidden;
     width: 100%;
 
     > .item {
-        display: none;
+        /*display: none;*/
+        float: left;
         position: relative;
         .transition(.6s ease-in-out left);
 
         // Account for jankitude on images
         > img,
         > a > img {
-            &:extend(.img-responsive);
             line-height: 1;
         }
 
+        /*
         // WebKit CSS3 transforms for supported devices
         @media all and (transform-3d), (-webkit-transform-3d) {
             .transition-transform(~'0.6s ease-in-out');
             .backface-visibility(~'hidden');
             .perspective(1000px);
-
-            &.next,
-            &.active.right {
-                .translate3d(100%, 0, 0);
-                left: 0;
-            }
-
-            &.prev,
-            &.active.left {
-                .translate3d(-100%, 0, 0);
-                left: 0;
-            }
 
             &.next.left,
             &.prev.right,
@@ -49,43 +41,13 @@
                 left: 0;
             }
         }
-    }
-
-    > .active,
-    > .next,
-    > .prev {
-        display: block;
+        */
     }
 
     > .active {
+        display: block;
         left: 0;
     }
-
-    > .next,
-    > .prev {
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
-
-    > .next {
-        left: 100%;
-    }
-    > .prev {
-        left: -100%;
-    }
-    > .next.left,
-    > .prev.right {
-        left: 0;
-    }
-
-    > .active.left {
-        left: -100%;
-    }
-    > .active.right {
-        left: 100%;
-    }
-
 }
 
 // Left/right controls for nav
@@ -126,39 +88,27 @@
 
     // Toggles
     .icon-prev,
-    .icon-next,
-    .glyphicon-chevron-left,
-    .glyphicon-chevron-right {
+    .icon-next {
         position: absolute;
         top: 50%;
         margin-top: -10px;
         z-index: 5;
         display: inline-block;
-    }
-    .icon-prev,
-    .glyphicon-chevron-left {
-        left: 50%;
-        margin-left: -10px;
-    }
-    .icon-next,
-    .glyphicon-chevron-right {
-        right: 50%;
-        margin-right: -10px;
-    }
-    .icon-prev,
-    .icon-next {
         width: 20px;
         height: 20px;
         line-height: 1;
         font-family: serif;
     }
-
     .icon-prev {
+        left: 50%;
+        margin-left: -10px;
         &:before {
             content: '\2039'; // SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
         }
     }
     .icon-next {
+        right: 50%;
+        margin-right: -10px;
         &:before {
             content: '\203a'; // SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
         }
@@ -234,8 +184,6 @@
 
     // Scale up the controls a smidge
     .eui-slider-control {
-        .glyphicon-chevron-left,
-        .glyphicon-chevron-right,
         .icon-prev,
         .icon-next {
             width: (@slider-control-font-size * 1.5);
@@ -243,11 +191,9 @@
             margin-top: (@slider-control-font-size / -2);
             font-size: (@slider-control-font-size * 1.5);
         }
-        .glyphicon-chevron-left,
         .icon-prev {
             margin-left: (@slider-control-font-size / -2);
         }
-        .glyphicon-chevron-right,
         .icon-next {
             margin-right: (@slider-control-font-size / -2);
         }

@@ -16,8 +16,8 @@
   function ScrollSpy(element, options) {
     this.$body          = $(document.body);
     this.$scrollElement = $(element).is(document.body) ? $(window) : $(element);
-    this.options        = $.extend({}, ScrollSpy.DEFAULTS, options);
-    this.selector       = (this.options.target || '') + ' .nav li > a';
+    this.opts        = $.extend({}, ScrollSpy.DEFAULTS, options);
+    this.selector       = (this.opts.target || '') + ' .nav li > a';
     this.offsets        = [];
     this.targets        = [];
     this.activeTarget   = null;
@@ -72,9 +72,9 @@
   }
 
   ScrollSpy.prototype.process = function () {
-    var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+    var scrollTop    = this.$scrollElement.scrollTop() + this.opts.offset
     var scrollHeight = this.getScrollHeight()
-    var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+    var maxScroll    = this.opts.offset + scrollHeight - this.$scrollElement.height()
     var offsets      = this.offsets
     var targets      = this.targets
     var activeTarget = this.activeTarget
@@ -125,7 +125,7 @@
 
   ScrollSpy.prototype.clear = function () {
     $(this.selector)
-      .parentsUntil(this.options.target, '.active')
+      .parentsUntil(this.opts.target, '.active')
       .removeClass('active')
   }
 

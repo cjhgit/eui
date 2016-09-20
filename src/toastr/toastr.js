@@ -418,7 +418,7 @@
             }
 
             function getOptions() {
-                return $.extend({}, getDefaults(), toastr.options);
+                return $.extend({}, getDefaults(), toastr.opts);
             }
 
             function removeToast($toastElement) {

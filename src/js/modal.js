@@ -12,7 +12,7 @@
 
     // 对话框类
     var Modal = function (element, options) {
-        this.options = options;
+        this.opts = options;
         this.$body = $(document.body);
         this.$element = $(element);
         this.$dialog = this.$element.find('.modal-dialog');
@@ -23,10 +23,10 @@
         this.ignoreBackdropClick = false;
 
         // 如果是远程内容,就加载,并触发loaded.bs.modal事件
-        if (this.options.remote) {
+        if (this.opts.remote) {
             this.$element
                 .find('.modal-content')
-                .load(this.options.remote, $.proxy(function () {
+                .load(this.opts.remote, $.proxy(function () {
                     this.$element.trigger('loaded.bs.modal')
                 }, this))
         }
@@ -165,7 +165,7 @@
 
     // 按 esc 键隐藏对话框
     Modal.prototype.escape = function () {
-        if (this.isShown && this.options.keyboard) {
+        if (this.isShown && this.opts.keyboard) {
             this.$element.on('keydown.dismiss.bs.modal', $.proxy(function (e) {
                 e.which == 27 && this.hide()
             }, this))
@@ -202,7 +202,7 @@
         var that = this;
         var animate = this.$element.hasClass('fade') ? 'fade' : '';
 
-        if (this.isShown && this.options.backdrop) {
+        if (this.isShown && this.opts.backdrop) {
             var doAnimate = $.support.transition && animate;
 
             this.$backdrop = $(document.createElement('div'))
@@ -215,7 +215,7 @@
                     return;
                 }
                 if (e.target !== e.currentTarget) return;
-                this.options.backdrop == 'static'
+                this.opts.backdrop == 'static'
                     ? this.$element[0].focus()
                     : this.hide();
             }, this));
