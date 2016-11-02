@@ -1,0 +1,100 @@
+
+    * {
+        box-sizing: border-box;
+    }
+/* PAGE MAIN
+-------------------------------------------------------------------*/
+	body {margin: 0; padding: 0; font: 12px/1.5 Arial, Helvetica, sans-serif; color: #333; background-color: #eee;}
+
+
+
+/* PAGE SECTIONS
+-------------------------------------------------------------------*/
+	#layout {width: 682px; margin: 0 auto;}
+
+	.wrapper {width: 840px; padding: 15px 20px; border: 1px solid #e5e5e5; border-bottom-width: 3px; overflow: hidden;}
+
+
+/* 8-COLUMN GRID; (60px Column x 20px Gutter)
+-------------------------------------------------------------------*/
+	.eightCol, .sixCol, .fiveCol, .fourCol, .threeCol, .twoCol, .oneCol {float: left; margin: 0 10px;}
+
+	.eightCol {width: 620px;}
+	.sixCol {width: 460px;}		/* (80*6)-20 */
+	.fiveCol {width: 380px;}
+	.fourCol {width: 300px;}
+	.threeCol {width: 220px;}
+	.twoCol {width: 140px;}
+	.oneCol {width: 60px;}
+
+
+
+/* PAGE HEADINGS
+-------------------------------------------------------------------*/
+	h1 {font-size: 2em; text-shadow: 0 2px #fbfbfb;}	/* 24px */
+	h2 {font-size: 1.75em;}		/* 21px */
+	h3 {font-size: 1.5em;}		/* 18px */
+	h4 {font-size: 1.167em;}	/* 14px */
+	h5 {font-size: 1em;}		/* 12px */
+	h6 {font-size: 0.833em;}	/* 10px */
+
+	h1, h2 {font-weight: bold; color: #313131;}
+	h3, h4, h5, h6 {margin: 0; padding: 0; font-weight: bold; color: #666;}
+
+	.wrapper > h3 {margin: 0 10px 30px 10px; border-bottom: 1px solid #bfbab0;}
+	.stack > h4 {margin: 0 0 20px 0; border-bottom: 1px solid #bfbab0;}
+
+
+
+/* PAGE CONTENT
+-------------------------------------------------------------------*/
+	p {margin: 0; padding: 0 0 1em 0; line-height: 1.75em;}
+
+	label {font-weight: bold; cursor: pointer;}
+	label[title] {cursor: help;}
+
+	.left {float: left;}
+	.right {float: right;}
+	.noFloat {float: none;}
+
+	.clr {clear: both;}
+	.clrLeft {clear: left;}
+	.clrRight {clear: right;}
+
+	.quarter {width: 25%;}
+	.half {width: 50%;}
+	.threeQuarter {width: 75%;}
+	.full {width: 100%;}
+
+	.even {background-color: #f9f9f9;}
+	.odd {background-color: #fcfcfc;}
+
+	span.caption {font-weight: bold; color: #313131;}
+
+	input.error {background-color: #F33; color: white;}
+
+
+
+/* ELEMENT GROUPING
+-------------------------------------------------------------------*/
+	.stack label {display: block;}
+
+	.stack ul {list-style: none; margin: 0; padding: 0; overflow: hidden;}
+	.stack ul li {margin: 0 20px 10px 0;}
+	.stack ul li.lastChild {margin-right: 0;}
+
+	input.number {width: 2.5em;}
+
+
+
+/* PAGE-SPECIFIC
+-------------------------------------------------------------------*/
+	#staticBox {width: 150px; height: 150px; margin: 0 0 2em 0; padding: 15px 0; color: #666; text-align: center; border: 2px solid #3399ff; background-color: #c4dff2;}
+	#positionedBox {padding: 10px;width: 50px; height: 50px; color: #fbfbfb; text-align: center; border: 2px solid #006699; background-color: #6fafc8; opacity: 0.7;}
+
+	#presets {width: 150px; margin: 15px 0 10px; padding: 0 0 1.5em 1.75em;}
+	#presets a, #presets a:visited {display: inline-block; width: 100%; height: 20px; color: black; text-decoration: none; border-bottom: 1px solid #bfbab0;}
+
+	#presets a:hover {background-color: #ededed;}
+
+	#code {height: 100px;}

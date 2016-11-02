@@ -85,7 +85,7 @@
     }
 
     if (scrollTop >= maxScroll) {
-      return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      return activeTarget != (i = targets[targets.length - 1]) && this._activate(i)
     }
 
     if (activeTarget && scrollTop < offsets[0]) {
@@ -97,11 +97,11 @@
       activeTarget != targets[i]
         && scrollTop >= offsets[i]
         && (offsets[i + 1] === undefined || scrollTop < offsets[i + 1])
-        && this.activate(targets[i])
+        && this._activate(targets[i])
     }
   }
 
-  ScrollSpy.prototype.activate = function (target) {
+  ScrollSpy.prototype._activate = function (target) {
     this.activeTarget = target
 
     this.clear()

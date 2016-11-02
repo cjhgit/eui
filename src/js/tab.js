@@ -1,17 +1,10 @@
 /**
- * Bootstrap: tab.js v3.3.6
- * http://getbootstrap.com/javascript/#tabs
- *
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * 标签页 tab.js v3.3.6
  */
-
-
-+function ($) {
+;(function ($) {
     'use strict';
 
     // TAB 类定义
-
     var Tab = function (element) {
         // jscs:disable requireDollarBeforejQueryAssignment
         this.element = $(element);
@@ -31,7 +24,6 @@
 
         if (!selector) {
             selector = $this.attr('href'); // 没有则从href得到
-            selector = selector && selector.replace(/.*(?=#[^\s]*$)/, ''); // strip for ie7
         }
 
         if ($this.parent('.nav-item').hasClass('active')) {
@@ -55,8 +47,8 @@
 
         var $target = $(selector);
 
-        this.activate($this.closest('.nav-item'), $ul);
-        this.activate($target, $target.parent(), function () {
+        this._activate($this.closest('.nav-item'), $ul);
+        this._activate($target, $target.parent(), function () {
             $previous.trigger({
                 type: 'hidden.bs.tab',
                 relatedTarget: $this[0]
@@ -68,15 +60,14 @@
         })
     };
 
-    // 这方法不应该放到原型上，应该做成私有方法
-    Tab.prototype.activate = function (element, container, callback) {
+    Tab.prototype._activate = function (element, container, callback) {
         var $active = container.find('> .active');
         var transition = callback
             && $.support.transition
             && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length);
 
         function next() {
-            // 让之前的处于激活状态处于激活状态
+            // 让之前的处于激活状态取消激活状态
             $active
                 .removeClass('active')
                 .find('> .dropdown-menu > .active')
@@ -158,4 +149,4 @@
         .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)
         .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler);
 
-}(jQuery);
+})(jQuery);

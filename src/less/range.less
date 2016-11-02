@@ -1,0 +1,110 @@
+.range {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+.range.range-horizontal {
+    width: 210px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.range.range-horizontal .range-track {
+    height: 4px;
+    width: 100%;
+    margin-top: -5px;
+    top: 50%;
+    left: 0;
+}
+
+.range.range-horizontal .range-selection {
+    height: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+.range.range-horizontal .range-handle {
+    margin-left: -10px;
+    margin-top: -5px;
+}
+
+.range.range-horizontal .range-handle.triangle {
+    border-width: 0 10px 10px 10px;
+    width: 0;
+    height: 0;
+    border-bottom-color: #0480be;
+    margin-top: 0;
+}
+
+.range.range-vertical {
+    height: 210px;
+    width: 20px;
+}
+
+.range.range-vertical .range-track {
+    width: 10px;
+    height: 100%;
+    margin-left: -5px;
+    left: 50%;
+    top: 0;
+}
+
+.range.range-vertical .range-selection {
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.range.range-vertical .range-handle {
+    margin-left: -5px;
+    margin-top: -10px;
+}
+
+.range.range-vertical .range-handle.triangle {
+    border-width: 10px 0 10px 10px;
+    width: 1px;
+    height: 1px;
+    border-left-color: #0480be;
+    margin-left: 0;
+}
+
+.range input {
+    display: none;
+}
+
+.range .tooltip-inner {
+    white-space: nowrap;
+}
+
+.range-track {
+    position: absolute;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.range-selection {
+    position: absolute;
+    background-color: #3eaef2;
+}
+
+.range-handle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #0e9aef;
+}
+/*.range-handle:active {
+    width: 20px;
+    height: 20px;
+}*/
+.range-handle.round {
+    border-radius: 8px;
+}
+/*.range-handle.round:active {
+    border-radius: 10px;
+}*/
+.range-handle.triangle {
+    background: transparent none;
+}

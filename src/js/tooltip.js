@@ -1,18 +1,9 @@
-/* ========================================================================
- * Bootstrap: tooltip.js v3.3.6
- * http://getbootstrap.com/javascript/#tooltip
- * Inspired by the original jQuery.tipsy by Jason Frame
- * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
+/**
+ * EUI Tooltip v1.0.0
+ */
 
 +function ($) {
     'use strict';
-
-    // TOOLTIP PUBLIC CLASS DEFINITION
-    // ===============================
 
     var Tooltip = function (element, options) {
         this.type = null;
@@ -26,7 +17,7 @@
         this.init('tooltip', element, options)
     };
 
-    Tooltip.VERSION = '3.3.6';
+    Tooltip.VERSION = '1.0.0';
 
     Tooltip.TRANSITION_DURATION = 150;
 
@@ -506,9 +497,6 @@
     $.fn.tooltip = Plugin;
     $.fn.tooltip.Constructor = Tooltip;
 
-
-    // TOOLTIP NO CONFLICT
-    // ===================
 
     $.fn.tooltip.noConflict = function () {
         $.fn.tooltip = old;

@@ -37,7 +37,6 @@
         // push to event loop to allow forms to submit
         setTimeout($.proxy(function () {
             $el[val](data[state] == null ? this.opts[state] : data[state]);
-
             if (state == 'loadingText') {
                 this.isLoading = true;
                 $el.addClass(d).attr(d, d);

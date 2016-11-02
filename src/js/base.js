@@ -92,6 +92,17 @@
         clickHide: false
     };
 
+    $.fn.fullscreen = function (option) {
+        return $(this).each(function () {
+            if (option === 'cancel') {
+                $(this).removeClass('eui-fullscreen');
+            } else if (option === 'toggle') {
+                $(this).toggleClass('eui-fullscreen');
+            } else {
+                $(this).addClass('eui-fullscreen');
+            }
+        });
+    };
+
     window.eui = eui;
 })(jQuery);
-

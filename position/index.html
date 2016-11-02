@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>元素定位插件</title>
+    <link rel="stylesheet" href="css/layout.css"/>
+
+
+</head>
+
+<body>
+
+<div id="content">
+    <br><br><br><br>
+    <!-- LAYOUT -->
+    <div id="layout">
+
+        <h1>Element Place (jQuery)</h1>
+
+        <!-- SECTION 1 -->
+        <div class="wrapper odd">
+            <h3>Demo</h3>
+
+            <div class="threeCol">
+                <div id="staticBox">#staticBox</div>
+                <div id="positionedBox">#positionedBox</div>
+            </div>
+
+            <div class="fiveCol">
+                <!-- GROUPED ELEMENTS -->
+                <div class="stack">
+
+                    <h4>Options</h4>
+
+                    <ul>
+                        <li class="threeCol">
+                            <label for="position"
+                                   title="The CSS position property that should be applied to the selected HTML element.">Position: </label>
+                            <select id="position" class="full">
+                                <option value="absolute" selected="selected">Absolute (default)</option>
+                                <option value="fixed">Fixed</option>
+                            </select>
+                        </li>
+                        <li class="twoCol lastChild">
+                            <label for="z"
+                                   title="The CSS z-index value that should be applied to the selected HTML element.">Z-Index: </label>
+                            <input type="text" id="z" value="1000" class="number"/>
+                        </li>
+                        <li class="threeCol">
+                            <label for="relativeTo"
+                                   title="The HTML element, window or document object, relative to which the selected HTML element will be positioned.">Relative
+                                to: </label>
+                            <select id="relativeTo" class="full">
+                                <option value="window">Window/Viewport (default)</option>
+                                <option value="document">Document</option>
+                                <option value="#layout">#layout</option>
+                                <option value="div.wrapper">div.wrapper</option>
+                                <option value="#staticBox" selected="selected">#staticBox</option>
+                            </select>
+                        </li>
+                        <li class="twoCol lastChild">
+                            <br/>
+                            <label for="includeMargin" style="display: inline;"
+                                   title="If true, margins of the relative to element are added to the calculation.">Include
+                                Margin? </label>
+                            <input type="checkbox" id="includeMargin" value="true"/>
+                        </li>
+                        <li class="threeCol">
+                            <label for="x"
+                                   title="The horizontal alignment of the selected HTML element relative to the specified HTML element, window or document object.">X: </label>
+                            <select id="x" class="full">
+                                <option value="left">Left (default)</option>
+                                <option value="leftEdge" selected="selected">Left Edge</option>
+                                <option value="right">Right</option>
+                                <option value="rightEdge">Right Edge</option>
+                                <option value="center">Center</option>
+                                <option value="overlay">Overlay</option>
+                            </select>
+                        </li>
+                        <li class="twoCol lastChild">
+                            <label for="offsetX"
+                                   title="The amount of spacing to add or take away from the set vertical position of the selected HTML element.">Offset: </label>
+                            <input type="text" id="offsetX" value="0" class="number"/>
+                        </li>
+                        <li class="threeCol">
+                            <label for="y"
+                                   title="The vertical alignment of the selected HTML element relative to the specified HTML element, window or document object.">Y: </label>
+                            <select id="y" class="full">
+                                <option value="top">Top (default)</option>
+                                <option value="topEdge">Top Edge</option>
+                                <option value="bottom">Bottom</option>
+                                <option value="bottomEdge" selected="selected">Bottom Edge</option>
+                                <option value="center">Center</option>
+                                <option value="overlay">Overlay</option>
+                            </select>
+                        </li>
+                        <li class="twoCol lastChild">
+                            <label for="offsetY"
+                                   title="The amount of spacing to add or take away from the set vertical position of the selected HTML element.">Offset: </label>
+                            <input type="text" id="offsetY" value="0" class="number"/>
+                        </li>
+
+                        <li class="threeCol">
+                            <label for="boundingBox"
+                                   title="The HTML element, window or document object; boundaries of which are used to bound an element inside a region.">Bounding
+                                Box: </label>
+                            <select id="boundingBox" class="full">
+                                <option value="window" selected="selected">Window/Viewport (default)</option>
+                                <option value="document">Document</option>
+                                <option value="#layout">#layout</option>
+                                <option value="div.wrapper">div.wrapper</option>
+                            </select>
+                        </li>
+                        <li class="twoCol lastChild" style="margin-bottom: 0;">
+                            <label for="inBoundX" style="display: inline;"
+                                   title="If true, the selected HTML element is kept inside the left/right edge of the bounding box.">inBoundX: </label>
+                            <input type="checkbox" id="inBoundX" value="true" checked="checked"/>
+                        </li>
+                        <li class="twoCol lastChild" style="margin-bottom: 0;">
+                            <label for="inBoundY" style="display: inline; margin-bottom: 0"
+                                   title="If true, the selected HTML element is kept inside the top/bottom edge of the bounding box.">inBoundY: </label>
+                            <input type="checkbox" id="inBoundY" value="true" checked="checked"/>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- END GROUPED ELEMENTS -->
+            </div>
+
+            <div class="stack eightCol">
+                <h4>Code</h4>
+
+                <textarea id="code" class="full"></textarea>
+            </div>
+
+        </div>
+        <!-- END SECTION 1 -->
+
+    </div>
+    <!-- END LAYOUT -->
+
+    <!--DEMO end-->
+
+</div>
+<script src="../dep/jquery/jquery-1.10.2.min.js"></script>
+<script src="../src/js/position.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+</body>
+</html>

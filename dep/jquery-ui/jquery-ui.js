@@ -2691,7 +2691,7 @@ $.widget( "ui.droppable", {
 		tolerance: "intersect",
 
 		// callbacks
-		activate: null,
+		_activate: null,
 		deactivate: null,
 		drop: null,
 		out: null,
@@ -4513,7 +4513,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		zIndex: 1000,
 
 		// callbacks
-		activate: null,
+		_activate: null,
 		beforeStop: null,
 		change: null,
 		deactivate: null,
@@ -5799,7 +5799,7 @@ var accordion = $.widget( "ui.accordion", {
 		},
 
 		// callbacks
-		activate: null,
+		_activate: null,
 		beforeActivate: null
 	},
 
@@ -12885,7 +12885,7 @@ var tabs = $.widget( "ui.tabs", {
 		show: null,
 
 		// callbacks
-		activate: null,
+		_activate: null,
 		beforeActivate: null,
 		beforeLoad: null,
 		load: null

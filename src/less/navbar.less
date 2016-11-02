@@ -260,11 +260,13 @@
         margin: 0;
 
         .nav-item {
-            float: left;
             .nav-link {
                 padding-top: @navbar-padding-vertical;
                 padding-bottom: @navbar-padding-vertical;
             }
+        }
+        & > .nav-item {
+            float: left;
         }
     }
 }
@@ -393,6 +395,7 @@
 
         @include hover-focus {
             color: @navbar-light-hover-color;
+            background-color: #f3f3f3;
         }
         }
 
@@ -422,6 +425,13 @@
             &:focus {
                 color: @navbar-light-link-hover-color;
                 background-color: transparent;
+            }
+        }
+        .dropdown-menu .nav-link {
+            &:hover,
+            &:focus {
+                color: @navbar-light-link-hover-color;
+                background-color: #f3f3f3;
             }
         }
         > .active .nav-link {

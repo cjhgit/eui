@@ -5,7 +5,9 @@
 <title>空白页面</title>
 <link rel="stylesheet" href="../dist/css/eui.min.css">
 <link rel="stylesheet" href="../src/eadmin/eadmin.css">
+    <link rel="stylesheet" href="../src/resizable.css">
 <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
+
 <style>
     .icon {
         display: inline-block;
@@ -105,17 +107,137 @@
         -ms-transform: rotate(90deg);
         transform: rotate(90deg);
     }
+    .ttt {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 150px;
+        height: 150px;
+        background-color: #f00;
+    }
+    .ttt-box {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 300px;
+        height: 300px;
+        background-color: #09c;
+    }
+    .sort-list {}
+    .sort-list li {
+        width: 200px;
+        height: 30px;
+        margin-bottom: 5px;
+        background-color: #f09;
+    }
+    .eui-rotate-handle {
+        position: absolute;
+        top: -4px;
+        left: 50%;
+        width: 7px;
+        height: 7px;
+        margin-top: -20px;
+        background-color: #fff;
+        border: 1px solid #08a1ef;
+        cursor: e-resize;
+    }
+    .aaa {
+        width: 220px;
+        height: 200px;
+        background-color: #009f95;
+    }
 </style>
 </head>
 
 <body>
+<div id="aaa" class="aaa"></div>
+<div id="ttt-box" class="ttt-box">
+    <div id="ttt" class="ttt">
+        <div class="hander">这里拖到</div>
+    </div>
+</div>
+
 <i class="icon icon-loading fa-pulse"></i>
 <i class="fa fa-angle-up fa-spin"></i>
 <p class="text fa-spin">呵呵</p>
+<button id="enable" type="button">enable</button>
+<button id="disable" type="button">disable</button>
+<ul id="sort-list" class="sort-list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<!--<div id="d" class="dialog">
+    <header class="dialog-header">
+        <h3 class="dialog-title">这是标题</h3>
+    </header>
+    <div class="dialog-body">这是内容</div>
+</div>-->
+<input id="demo-input" class="form-control">
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
 <script src="../dist/js/eui.min.js"></script>
+<script src="../src/js/draggable.js"></script>
+<script src="../src/js/resizable.js"></script>
+<script src="../src/js/ratateable.js"></script>
+<script src="../src/js/sortable.js"></script>
+
 <script>
-    eui.alert('hello');
+    $('#ttt').draggable({
+        containment: document
+        //axis: 'y',
+        //hander: '.hander'
+    });
+    $('#ttt').resizable({
+        //handles: 's, se, e',
+    });
+    $("#ttt").rotateable({
+        //handle: ".yuan",
+    });
+
+    $('#sort-list').sortable();
+
+    $('#enable').on('click', function () {
+
+        $('#ttt').draggable('enable');
+        $('#ttt').resizable('enable');
+    });
+
+    $('#disable').on('click', function () {
+        console.log(1);
+        $('#ttt').draggable('disable');
+        $('#ttt').resizable('disable');
+    });
+
+
+    $('#ttt').fullscreen('toggle');
+    $('#ttt').fullscreen('toggle');
+
+    $('#ttt-box').on('click', function (e) {
+        console.log('click', e.originalEvent.detail);
+    })
+
+    $('#ttt-box')[0].addEventListener('dblclick', function (e) {
+        console.log('dblclick', e.detail);
+        e.stopPropagation();
+    }, false);
+
+     $('#ttt-box').on('mousedown', function (e) {
+        console.log('mousedown');
+        e.stopPropagation();
+    })
+
+      $('#ttt-box').on('mouseup', function (e) {
+        console.log('mouseup');
+    })
+
+    $('#aaa').dialog({
+        //size: '50px'
+    });
+
+    eui.alert('heh');
+    //eui.msg(1);
 </script>
 </body>
 </html>

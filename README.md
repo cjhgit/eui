@@ -15,4 +15,4 @@ MIT
 
 
 eui.min.css 110K
-eui.min.js 39K
+eui.min.js 39K 55K
