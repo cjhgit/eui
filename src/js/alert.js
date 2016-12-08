@@ -1,25 +1,23 @@
 /**
- * Alert
- * v1.0.0
+ * EUI alert.js v1.0.0
  *
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * https://github.com/cjhgit/eui
  */
 
-+function ($) {
+;(function ($) {
     'use strict';
 
     var dismiss = '[data-dismiss="alert"]';
-    var SELECTOR_ALERT = '.eui-alert';
-    var EVEMT_CLOSE = 'close.eui.alert';
-    var EVEMT_CLOSED = 'closed.eui.alert';
+    var SELECTOR_ALERT = '.alert';
+    var EVEMT_CLOSE = 'close.ui.alert';
+    var EVEMT_CLOSED = 'closed.ui.alert';
 
     // ALERT CLASS DEFINITION
     var Alert = function (el) {
         $(el).on('click', dismiss, this.close);
     };
 
-    Alert.VERSION = '3.3.6';
+    Alert.VERSION = '1.3.0';
 
     Alert.TRANSITION_DURATION = 150;
 
@@ -57,7 +55,7 @@
 
         $.support.transition && $parent.hasClass('fade') ?
             $parent
-                .one('bsTransitionEnd', removeElement)
+                .one('uiTransitionEnd', removeElement)
                 .emulateTransitionEnd(Alert.TRANSITION_DURATION) :
             removeElement();
     };
@@ -69,11 +67,11 @@
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
-            var data = $this.data('eui.alert');
+            var data = $this.data('ui.alert');
 
             if (!data) {
                 data = new Alert(this);
-                $this.data('eui.alert', data);
+                $this.data('ui.alert', data);
             }
             if (typeof option == 'string') {
                 data[option].call($this)
@@ -99,6 +97,6 @@
     // ALERT DATA-API
     // ==============
 
-    $(document).on('click.eui.alert.data-api', dismiss, Alert.prototype.close);
+    $(document).on('click.ui.alert.data-api', dismiss, Alert.prototype.close);
 
-}(jQuery);
+})(jQuery);

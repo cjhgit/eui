@@ -1,8 +1,10 @@
 /**
- * EUI Tooltip v1.0.0
+ * EUI: tooltip.js v1.0.0
+ *
+ * https://github.com/cjhgit/eui
  */
 
-+function ($) {
+;(function ($) {
     'use strict';
 
     var Tooltip = function (element, options) {
@@ -18,7 +20,6 @@
     };
 
     Tooltip.VERSION = '1.0.0';
-
     Tooltip.TRANSITION_DURATION = 150;
 
     Tooltip.DEFAULTS = {
@@ -30,15 +31,16 @@
         title: '',
         delay: 0,
         html: false,
-        //container: false,
-        container: 'body',
+        container: 'body', // false
         viewport: {
             selector: 'body',
             padding: 0
         }
     };
 
-    Tooltip.prototype.init = function (type, element, options) {
+    var fn = Tooltip.prototype;
+
+    fn.init = function (type, element, options) {
         this.enabled = true;
         this.type = type;
         this.$element = $(element);
@@ -71,11 +73,11 @@
             this.fixTitle()
     };
 
-    Tooltip.prototype.getDefaults = function () {
+    fn.getDefaults = function () {
         return Tooltip.DEFAULTS;
     };
 
-    Tooltip.prototype.getOptions = function (options) {
+    fn.getOptions = function (options) {
         options = $.extend({}, this.getDefaults(), this.$element.data(), options);
 
         if (options.delay && typeof options.delay == 'number') {
@@ -88,7 +90,7 @@
         return options
     };
 
-    Tooltip.prototype.getDelegateOptions = function () {
+    fn.getDelegateOptions = function () {
         var options = {};
         var defaults = this.getDefaults();
 
@@ -99,13 +101,13 @@
         return options
     };
 
-    Tooltip.prototype.enter = function (obj) {
+    fn.enter = function (obj) {
         var self = obj instanceof this.constructor ?
-            obj : $(obj.currentTarget).data('bs.' + this.type);
+            obj : $(obj.currentTarget).data('ui.' + this.type);
 
         if (!self) {
             self = new this.constructor(obj.currentTarget, this.getDelegateOptions());
-            $(obj.currentTarget).data('bs.' + this.type, self)
+            $(obj.currentTarget).data('ui.' + this.type, self)
         }
 
         if (obj instanceof $.Event) {
@@ -128,7 +130,7 @@
         }, self.opts.delay.show)
     };
 
-    Tooltip.prototype.isInStateTrue = function () {
+    fn.isInStateTrue = function () {
         for (var key in this.inState) {
             if (this.inState[key]) return true
         }
@@ -136,13 +138,13 @@
         return false;
     };
 
-    Tooltip.prototype.leave = function (obj) {
+    fn.leave = function (obj) {
         var self = obj instanceof this.constructor ?
-            obj : $(obj.currentTarget).data('bs.' + this.type);
+            obj : $(obj.currentTarget).data('ui.' + this.type);
 
         if (!self) {
             self = new this.constructor(obj.currentTarget, this.getDelegateOptions());
-            $(obj.currentTarget).data('bs.' + this.type, self)
+            $(obj.currentTarget).data('ui.' + this.type, self)
         }
 
         if (obj instanceof $.Event) {
@@ -162,8 +164,8 @@
         }, self.opts.delay.hide)
     };
 
-    Tooltip.prototype.show = function () {
-        var e = $.Event('show.bs.' + this.type);
+    fn.show = function () {
+        var e = $.Event('show.ui.' + this.type);
 
         if (this.hasContent() && this.enabled) {
             this.$element.trigger(e);
@@ -194,10 +196,10 @@
                 .detach()
                 .css({top: 0, left: 0, display: 'block'})
                 .addClass(placement)
-                .data('bs.' + this.type, this);
+                .data('ui.' + this.type, this);
 
             this.opts.container ? $tip.appendTo(this.opts.container) : $tip.insertAfter(this.$element);
-            this.$element.trigger('inserted.bs.' + this.type);
+            this.$element.trigger('inserted.ui.' + this.type);
 
             var pos = this.getPosition();
             var actualWidth = $tip[0].offsetWidth;
@@ -224,7 +226,7 @@
 
             var complete = function () {
                 var prevHoverState = that.hoverState;
-                that.$element.trigger('shown.bs.' + that.type);
+                that.$element.trigger('shown.ui.' + that.type);
                 that.hoverState = null;
 
                 if (prevHoverState == 'out') that.leave(that)
@@ -232,13 +234,13 @@
 
             $.support.transition && this.$tip.hasClass('fade') ?
                 $tip
-                    .one('bsTransitionEnd', complete)
+                    .one('uiTransitionEnd', complete)
                     .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
                 complete()
         }
     };
 
-    Tooltip.prototype.applyPlacement = function (offset, placement) {
+    fn.applyPlacement = function (offset, placement) {
         var $tip = this.tip();
         var width = $tip[0].offsetWidth;
         var height = $tip[0].offsetHeight;
@@ -288,13 +290,13 @@
         this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)
     };
 
-    Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {
+    fn.replaceArrow = function (delta, dimension, isVertical) {
         this.arrow()
             .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
             .css(isVertical ? 'top' : 'left', '')
     };
 
-    Tooltip.prototype.setContent = function () {
+    fn.setContent = function () {
         var $tip = this.tip();
         var title = this.getTitle();
 
@@ -302,16 +304,16 @@
         $tip.removeClass('fade in top bottom left right');
     }
 
-    Tooltip.prototype.hide = function (callback) {
+    fn.hide = function (callback) {
         var that = this;
         var $tip = $(this.$tip);
-        var e = $.Event('hide.bs.' + this.type);
+        var e = $.Event('hide.ui.' + this.type);
 
         function complete() {
             if (that.hoverState != 'in') $tip.detach();
             that.$element
                 .removeAttr('aria-describedby')
-                .trigger('hidden.bs.' + that.type);
+                .trigger('hidden.ui.' + that.type);
             callback && callback()
         }
 
@@ -323,7 +325,7 @@
 
         $.support.transition && $tip.hasClass('fade') ?
             $tip
-                .one('bsTransitionEnd', complete)
+                .one('uiTransitionEnd', complete)
                 .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
             complete();
 
@@ -332,18 +334,18 @@
         return this
     };
 
-    Tooltip.prototype.fixTitle = function () {
+    fn.fixTitle = function () {
         var $e = this.$element;
         if ($e.attr('title') || typeof $e.attr('data-original-title') != 'string') {
             $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
         }
     };
 
-    Tooltip.prototype.hasContent = function () {
+    fn.hasContent = function () {
         return this.getTitle()
     };
 
-    Tooltip.prototype.getPosition = function ($element) {
+    fn.getPosition = function ($element) {
         $element = $element || this.$element;
 
         var el = $element[0];
@@ -351,7 +353,7 @@
 
         var elRect = el.getBoundingClientRect();
         if (elRect.width == null) {
-            // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
+            // width and height are missing in IE8, so compute them manually
             elRect = $.extend({}, elRect, {width: elRect.right - elRect.left, height: elRect.bottom - elRect.top})
         }
         var elOffset = isBody ? {top: 0, left: 0} : $element.offset();
@@ -361,7 +363,7 @@
         return $.extend({}, elRect, scroll, outerDims, elOffset)
     };
 
-    Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {
+    fn.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {
         return placement == 'bottom' ? {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2} :
             placement == 'top' ? {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2} :
                 placement == 'left' ? {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth} :
@@ -372,7 +374,7 @@
 
     };
 
-    Tooltip.prototype.getViewportAdjustedDelta = function (placement, pos, actualWidth, actualHeight) {
+    fn.getViewportAdjustedDelta = function (placement, pos, actualWidth, actualHeight) {
         var delta = {top: 0, left: 0};
         if (!this.$viewport) return delta;
 
@@ -400,7 +402,7 @@
         return delta
     };
 
-    Tooltip.prototype.getTitle = function () {
+    fn.getTitle = function () {
         var title;
         var $e = this.$element;
         var o = this.opts;
@@ -411,13 +413,13 @@
         return title
     };
 
-    Tooltip.prototype.getUID = function (prefix) {
+    fn.getUID = function (prefix) {
         do prefix += ~~(Math.random() * 1000000);
         while (document.getElementById(prefix));
         return prefix
     };
 
-    Tooltip.prototype.tip = function () {
+    fn.tip = function () {
         if (!this.$tip) {
             this.$tip = $(this.opts.template);
             if (this.$tip.length != 1) {
@@ -427,29 +429,29 @@
         return this.$tip
     };
 
-    Tooltip.prototype.arrow = function () {
+    fn.arrow = function () {
         return (this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow'))
     };
 
-    Tooltip.prototype.enable = function () {
+    fn.enable = function () {
         this.enabled = true
     };
 
-    Tooltip.prototype.disable = function () {
+    fn.disable = function () {
         this.enabled = false
     };
 
-    Tooltip.prototype.toggleEnabled = function () {
+    fn.toggleEnabled = function () {
         this.enabled = !this.enabled
     };
 
-    Tooltip.prototype.toggle = function (e) {
+    fn.toggle = function (e) {
         var self = this;
         if (e) {
-            self = $(e.currentTarget).data('bs.' + this.type);
+            self = $(e.currentTarget).data('ui.' + this.type);
             if (!self) {
                 self = new this.constructor(e.currentTarget, this.getDelegateOptions());
-                $(e.currentTarget).data('bs.' + this.type, self)
+                $(e.currentTarget).data('ui.' + this.type, self)
             }
         }
 
@@ -462,11 +464,11 @@
         }
     };
 
-    Tooltip.prototype.destroy = function () {
+    fn.destroy = function () {
         var that = this;
         clearTimeout(this.timeout);
         this.hide(function () {
-            that.$element.off('.' + that.type).removeData('bs.' + that.type);
+            that.$element.off('.' + that.type).removeData('ui.' + that.type);
             if (that.$tip) {
                 that.$tip.detach()
             }
@@ -483,11 +485,11 @@
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
-            var data = $this.data('bs.tooltip');
+            var data = $this.data('ui.tooltip');
             var options = typeof option == 'object' && option;
 
             if (!data && /destroy|hide/.test(option)) return;
-            if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)));
+            if (!data) $this.data('ui.tooltip', (data = new Tooltip(this, options)));
             if (typeof option == 'string') data[option]()
         })
     }
@@ -503,4 +505,4 @@
         return this;
     }
 
-}(jQuery);
+})(jQuery);

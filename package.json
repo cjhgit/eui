@@ -1,6 +1,6 @@
 {
   "name": "eui",
-  "version": "0.1.0",
+  "version": "16.12",
   "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",

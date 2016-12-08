@@ -2,7 +2,10 @@
  * Complete 输入框输入提示插件
  * v1.0.0
  *
- * https://github.com/cjhgit/eui-complete
+ * Depends:
+ *  ui.core.js
+ *
+ * https://github.com/cjhgit/eui
  */
 
 !function ($) {
@@ -12,7 +15,7 @@
         this.init(element, options);
     }
 
-    Complete.VERSION = '1.0.0';
+    Complete.VERSION = '1.3.0';
     Complete.v = 1.00;
 
     Complete.DEFAULTS = {
@@ -118,7 +121,6 @@
 
         //  Handle AJAX source
         ajaxer: function () {
-            console.log('er')
             var that = this,
                 query = that.$element.val();
 
@@ -156,7 +158,6 @@
 
         //  Execute an AJAX request
         ajaxExecute: function(query) {
-            console.log('ajax执行')
             this.ajaxToggleLoadClass(true);
 
             // Cancel last call if already in progress
@@ -164,22 +165,18 @@
 
             var params = this.ajax.preDispatch ? this.ajax.preDispatch(query) : { query : query };
             var jAjax = (this.ajax.method === "post") ? $.post : $.get;
-            console.log(params);
             this.ajax.xhr = jAjax(this.ajax.url, params, $.proxy(this.ajaxLookup, this));
             this.ajax.timerId = null;
-            console.log('运行'+this.ajax.url);
             $.ajax({
                 url: this.ajax.url,
                 dataType: 'JSON',
                 success: function () {
-                    console.log('成功');
                 }
             });
         },
 
         //  Perform a lookup in the AJAX results
         ajaxLookup: function (data) {
-            console.log('ajaxLookup');
             var items;
 
             this.ajaxToggleLoadClass(false);
@@ -533,12 +530,12 @@
 
     $.fn.complete.Constructor = Complete;
 
-    window.eui = window.eui || {};
-    window.eui.Complete = Complete;
+    window.UI = window.UI || {};
+    window.UI.Complete = Complete;
 
     //  DOM-ready call for the Data API (no-JS implementation)
     //
-    //  Note: As of Bootstrap v2.0 this feature may be disabled using $('body').off('.data-api')
+    //  Note: As of Bootstrap v2.0 this feature may be disabled using $('body').off('.data-api') TODO
     //  More info here: https://github.com/twitter/bootstrap/tree/master/js
     //
     $(function () {

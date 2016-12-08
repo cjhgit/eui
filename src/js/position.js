@@ -1,7 +1,12 @@
 /**
+ * EUI: position.js v1.3.0
  * 位置插件，可以根据某个元素快速定位另一个元素的位置
+ *
+ * https://github.com/cjhgit/eui
  */
 ;(function($) {
+    'use strict';
+
 	var elems = new Array();
 
 	// observe window resize

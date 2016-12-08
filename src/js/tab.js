@@ -1,23 +1,25 @@
 /**
- * 标签页 tab.js v3.3.6
+ * EUI: tab.js v1.3.0
+ *
+ * https://github.com/cjhgit/eui
  */
+
 ;(function ($) {
     'use strict';
 
     // TAB 类定义
     var Tab = function (element) {
-        // jscs:disable requireDollarBeforejQueryAssignment
         this.element = $(element);
-        // jscs:enable requireDollarBeforejQueryAssignment
     };
 
-    Tab.VERSION = '3.3.6';
+    Tab.VERSION = '1.3.0';
 
     Tab.TRANSITION_DURATION = 150;
-    //Tab.SELECTOR_ITEM = '.nav-item';
+
+    var fn = Tab.prototype;
 
     // 用于切换触发区与相关事件,并在里面调用切换面板的activate
-    Tab.prototype.show = function () {
+    fn.show = function () {
         var $this = this.element;
         var $ul = $this.closest('ul:not(.dropdown-menu)'); // 找到触发区的容器
         var selector = $this.data('target'); // 取得对应的面板的CSS表达式
@@ -31,10 +33,10 @@
         }
 
         var $previous = $ul.find('.active:last .link-item'); // 获得被激活的链接之前的链接
-        var hideEvent = $.Event('hide.bs.tab', {
+        var hideEvent = $.Event('hide.ui.tab', {
             relatedTarget: $this[0]
         });
-        var showEvent = $.Event('show.bs.tab', {
+        var showEvent = $.Event('show.ui.tab', {
             relatedTarget: $previous[0]
         });
 
@@ -50,17 +52,17 @@
         this._activate($this.closest('.nav-item'), $ul);
         this._activate($target, $target.parent(), function () {
             $previous.trigger({
-                type: 'hidden.bs.tab',
+                type: 'hidden.ui.tab',
                 relatedTarget: $this[0]
             });
             $this.trigger({
-                type: 'shown.bs.tab',
+                type: 'shown.ui.tab',
                 relatedTarget: $previous[0]
             });
         })
     };
 
-    Tab.prototype._activate = function (element, container, callback) {
+    fn._activate = function (element, container, callback) {
         var $active = container.find('> .active');
         var transition = callback
             && $.support.transition
@@ -103,7 +105,7 @@
 
         $active.length && transition ?
             $active
-                .one('bsTransitionEnd', next)
+                .one('uiTransitionEnd', next)
                 .emulateTransitionEnd(Tab.TRANSITION_DURATION) :
             next();
 
@@ -117,10 +119,10 @@
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
-            var data = $this.data('bs.tab');
+            var data = $this.data('ui.tab');
 
             if (!data) {
-                $this.data('bs.tab', (data = new Tab(this)));
+                $this.data('ui.tab', (data = new Tab(this)));
             }
             if (typeof option == 'string') {
                 data[option]();
@@ -146,7 +148,7 @@
     };
 
     $(document)
-        .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)
-        .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler);
+        .on('click.ui.tab.data-api', '[data-toggle="tab"]', clickHandler)
+        .on('click.ui.tab.data-api', '[data-toggle="pill"]', clickHandler);
 
 })(jQuery);

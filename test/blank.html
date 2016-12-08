@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>空白页面</title>
-<link rel="stylesheet" href="../dist/css/eui.min.css">
+<link rel="stylesheet" href="../dist/css/ui.min.css">
 <link rel="stylesheet" href="../src/eadmin/eadmin.css">
     <link rel="stylesheet" href="../src/resizable.css">
 <link rel="stylesheet" href="../dep/font-awesome/font-awesome.min.css">
@@ -130,7 +130,7 @@
         margin-bottom: 5px;
         background-color: #f09;
     }
-    .eui-rotate-handle {
+    .ui-rotate-handle {
         position: absolute;
         top: -4px;
         left: 50%;
@@ -142,9 +142,18 @@
         cursor: e-resize;
     }
     .aaa {
+        position: absolute;
+        right: 20px;
+        top: 20px;
         width: 220px;
         height: 200px;
         background-color: #009f95;
+    }
+
+    .dialog-msg .dialog-body {
+        color: #0e9aef;
+        background-color: #fff;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
     }
 </style>
 </head>
@@ -177,67 +186,36 @@
 </div>-->
 <input id="demo-input" class="form-control">
 <script src="../dep/jquery/jquery-1.10.2.min.js"></script>
-<script src="../dist/js/eui.min.js"></script>
+<script src="../dist/js/ui.js"></script>
 <script src="../src/js/draggable.js"></script>
 <script src="../src/js/resizable.js"></script>
-<script src="../src/js/ratateable.js"></script>
+<script src="../src/js/rotateable.js"></script>
 <script src="../src/js/sortable.js"></script>
 
 <script>
-    $('#ttt').draggable({
+
+    /*$('#ttt').draggable({
         containment: document
         //axis: 'y',
         //hander: '.hander'
     });
+     */
     $('#ttt').resizable({
         //handles: 's, se, e',
     });
     $("#ttt").rotateable({
-        //handle: ".yuan",
+        //handle: ".hander",
     });
 
     $('#sort-list').sortable();
 
-    $('#enable').on('click', function () {
-
-        $('#ttt').draggable('enable');
-        $('#ttt').resizable('enable');
-    });
-
-    $('#disable').on('click', function () {
-        console.log(1);
-        $('#ttt').draggable('disable');
-        $('#ttt').resizable('disable');
-    });
 
 
     $('#ttt').fullscreen('toggle');
     $('#ttt').fullscreen('toggle');
 
-    $('#ttt-box').on('click', function (e) {
-        console.log('click', e.originalEvent.detail);
-    })
 
-    $('#ttt-box')[0].addEventListener('dblclick', function (e) {
-        console.log('dblclick', e.detail);
-        e.stopPropagation();
-    }, false);
 
-     $('#ttt-box').on('mousedown', function (e) {
-        console.log('mousedown');
-        e.stopPropagation();
-    })
-
-      $('#ttt-box').on('mouseup', function (e) {
-        console.log('mouseup');
-    })
-
-    $('#aaa').dialog({
-        //size: '50px'
-    });
-
-    eui.alert('heh');
-    //eui.msg(1);
 </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 
 // Base styles
 
-.eui-alert {
+.alert {
     padding: @alert-padding;
     margin-bottom: @line-height-computed;
     border: 1px solid transparent;
@@ -18,7 +18,7 @@
     }
 
     // Provide class for links that match alerts
-    .eui-alert-link {
+    .alert-link {
         font-weight: @alert-link-font-weight;
     }
 
@@ -37,8 +37,8 @@
 //
 // Expand the right padding and account for the close button's positioning.
 
-.eui-alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
-.eui-alert-dismissible {
+.alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissible {
     padding-right: (@alert-padding + 20);
 
     // Adjust close link position
@@ -54,18 +54,18 @@
 //
 // Generate contextual modifier classes for colorizing the alert.
 
-.eui-alert-success {
+.alert-success {
     .alert-variant(@alert-success-bg; @alert-success-border; @alert-success-text);
 }
 
-.eui-alert-info {
+.alert-info {
     .alert-variant(@alert-info-bg; @alert-info-border; @alert-info-text);
 }
 
-.eui-alert-warning {
+.alert-warning {
     .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-text);
 }
 
-.eui-alert-danger {
+.alert-danger {
     .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
 }

@@ -1,17 +1,11 @@
 /**
- * Bootstrap: popover.js v3.3.6
- * http://getbootstrap.com/javascript/#popovers
+ * EUI: popover.js v1.3.0
  *
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * https://github.com/cjhgit/eui
  */
 
-
-+function ($) {
+;(function ($) {
     'use strict';
-
-    // POPOVER PUBLIC CLASS DEFINITION
-    // ===============================
 
     var Popover = function (element, options) {
         this.init('popover', element, options);
@@ -21,7 +15,7 @@
         throw new Error('Popover requires tooltip.js');
     }
 
-    Popover.VERSION = '3.3.6';
+    Popover.VERSION = '1.3.0';
 
     Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
         placement: 'right',
@@ -34,14 +28,15 @@
     // NOTE: POPOVER 继承 tooltip.js
 
     Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype);
+    var fn = Popover.prototype;
 
     Popover.prototype.constructor = Popover;
 
-    Popover.prototype.getDefaults = function () {
+    fn.getDefaults = function () {
         return Popover.DEFAULTS
     };
 
-    Popover.prototype.setContent = function () {
+    fn.setContent = function () {
         var $tip = this.tip();
         var title = this.getTitle();
         var content = this.getContent();
@@ -60,11 +55,11 @@
         }
     };
 
-    Popover.prototype.hasContent = function () {
+    fn.hasContent = function () {
         return this.getTitle() || this.getContent();
     };
 
-    Popover.prototype.getContent = function () {
+    fn.getContent = function () {
         var $e = this.$element;
         var o = this.opts;
 
@@ -74,25 +69,21 @@
                 o.content);
     };
 
-    Popover.prototype.arrow = function () {
+    fn.arrow = function () {
         return (this.$arrow = this.$arrow || this.tip().find('.arrow'))
     };
-
-
-    // POPOVER PLUGIN DEFINITION
-    // =========================
 
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
-            var data = $this.data('bs.popover');
+            var data = $this.data('ui.popover');
             var options = typeof option == 'object' && option;
 
             if (!data && /destroy|hide/.test(option)) {
                 return;
             }
             if (!data) {
-                $this.data('bs.popover', (data = new Popover(this, options)));
+                $this.data('ui.popover', (data = new Popover(this, options)));
             }
             if (typeof option == 'string') {
                 data[option]();
@@ -109,5 +100,4 @@
         $.fn.popover = old;
         return this;
     }
-
-}(jQuery);
+})(jQuery);

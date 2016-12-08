@@ -1,10 +1,14 @@
 /**
- * 基本框架
+ * EUI: base.js v1.3.0
+ *
+ * https://github.com/cjhgit/eui
  */
 
 ;(function ($) {
-    var eui = {
-        version: '1.0'
+    'use strict';
+
+    var UI = {
+        version: '1.3.0'
     };
 
     var bodyIsOverflowing;
@@ -14,18 +18,18 @@
     var $body = $(document.body);
 
     // 检查是否有滚动条,并计算滚动条宽度
-    eui._checkScrollbar = function () {
+    UI._checkScrollbar = function () {
         var fullWindowWidth = window.innerWidth;
         if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
             var documentElementRect = document.documentElement.getBoundingClientRect();
             fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left);
         }
         bodyIsOverflowing = document.body.clientWidth < fullWindowWidth;
-        scrollbarWidth = eui._measureScrollbar();
+        scrollbarWidth = UI._measureScrollbar();
     };
 
     // 计算滚动条宽度的一种方法
-    eui._measureScrollbar = function () { // thx walsh
+    UI._measureScrollbar = function () { // thx walsh
         var scrollDiv = document.createElement('div');
         scrollDiv.className = 'modal-scrollbar-measure';
         $body.append(scrollDiv);
@@ -35,7 +39,7 @@
     };
 
     // 设置又内边距(估计和滚动条有关)
-    eui.setScrollbar = function () {
+    UI.setScrollbar = function () {
         var bodyPad = parseInt(($body.css('padding-right') || 0), 10);
         originalBodyPad = document.body.style.paddingRight || '';
         if (bodyIsOverflowing) {
@@ -44,13 +48,13 @@
     };
 
     // 禁用窗口滚动条
-    eui.disableScrollbar = function () {
-        eui._checkScrollbar();
-        eui.setScrollbar();
+    UI.disableScrollbar = function () {
+        UI._checkScrollbar();
+        UI.setScrollbar();
     };
 
     // 使用窗口滚动条
-    eui.enableScrollbar = function () {
+    UI.enableScrollbar = function () {
         $body.css({'padding-right': originalBodyPad});
         if ($body[0].style.removeProperty) {
             $body[0].style.removeProperty('overflow');
@@ -61,17 +65,17 @@
     };
 
     // 背景遮罩层
-    eui.overlay = function (option) {
+    UI.overlay = function (option) {
         if (option === 'hide') {
-            var $overlay = $('#eui-overlay');
+            var $overlay = $('#ui-overlay');
             $overlay.hide();
         } else {
-            var opts = $.extend({}, eui.overlay.DEFAULT, option);
-            var $overlay = $('#eui-overlay');
+            var opts = $.extend({}, UI.overlay.DEFAULT, option);
+            var $overlay = $('#ui-overlay');
             if ($overlay.length) {
                 $overlay.show();
             } else {
-                $overlay = $('<div id="eui-overlay" class="eui-overlay"></div>');
+                $overlay = $('<div id="ui-overlay" class="ui-overlay"></div>');
                 $overlay.css({
                     backgroundColor: opts.bgColor,
                     opacity: opts.opacity
@@ -84,7 +88,7 @@
         }
     };
 
-    eui.overlay.DEFAULT = {
+    UI.overlay.DEFAULT = {
         bgColor: '#000',
         opacity: 0.3,
         zIndex: 10000,
@@ -95,14 +99,15 @@
     $.fn.fullscreen = function (option) {
         return $(this).each(function () {
             if (option === 'cancel') {
-                $(this).removeClass('eui-fullscreen');
+                $(this).removeClass('ui-fullscreen');
             } else if (option === 'toggle') {
-                $(this).toggleClass('eui-fullscreen');
+                $(this).toggleClass('ui-fullscreen');
             } else {
-                $(this).addClass('eui-fullscreen');
+                $(this).addClass('ui-fullscreen');
             }
         });
     };
 
-    window.eui = eui;
+    window.UI = window.ui = UI;
+
 })(jQuery);

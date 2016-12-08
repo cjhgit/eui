@@ -1,8 +1,10 @@
 /**
- * eui-draggable
+ * EUI draggable.js v1.3.1
+ *
+ * https://github.com/cjhgit/eui
  */
-;
-(function ($) {
+
+;(function ($) {
     'use strict';
 
     function Draggable(elem, option) {
@@ -14,21 +16,21 @@
         axis: 'both',
         hander: false,
         containment: false,
-        //cancel
         //containment可选值：'parent', 'document', 'window', [x1, y1, x2, y2].
         drag: function(event, ui) {},
         start: function(event, ui) {},
-        stop: function(event, ui) {},
+        end: function(event, ui) {},
     };
 
-    Draggable.fn = Draggable.prototype;
+    var fn = Draggable.prototype;
 
-    Draggable.fn.init = function (elem, option) {
+    fn.init = function (elem, option) {
         var that = this;
 
         that.disabled = false;
         that.dragging = false;
         var $emem = $(elem);
+        that.$elem = $emem;
         that.elem = $emem[0];
 
         var xPage;
@@ -43,15 +45,14 @@
         that.opts = opts;
         var movePosition = opts.axis;
 
-        var hander = opts.hander ? $emem.find(opts.hander) : $emem;
-        that.hander = hander;
+        that.hander = opts.hander ? $emem.find(opts.hander) : $emem;
 
         //---初始化
-        father.css({'position': 'relative', 'overflow': 'hidden'}); // TODO 不能随便添加relative
+        //father.css({'position': 'relative', 'overflow': 'hidden'}); // TODO 不能随便添加relative
         $emem.css({'position': 'absolute'});
 
-        hander.data('pre-cursor', hander.css('cursor'));
-        hander.css({'cursor': 'move'});
+        that.hander.data('pre-cursor', that.hander.css('cursor'));
+        that.hander.css({'cursor': 'move'});
 
         var faWidth = father.width();
         var faHeight = father.height();
@@ -81,9 +82,9 @@
             }
         }
 
-        hander.mousedown(function (e) {
-            father.children().css({'zIndex': '0'});
-            $emem.css({'zIndex': '1'});
+        that.hander.on('mousedown.ui.draggable', function (e) {
+            //father.children().css({'zIndex': '0'});
+            //$emem.css({'zIndex': '1'});
             mDown = true;
             X = e.pageX;
             Y = e.pageY;
@@ -92,16 +93,16 @@
             return false;
         });
 
-        $(document).mouseup(function (e) {
+        $(document).on('mouseup.ui.draggable', function (e) {
             mDown = false;
 
             if (that.dragging) {
                 that.dragging = false;
-                that.opts.stop(e, that.elem);
+                that.opts.end(e, that.elem);
             }
         });
 
-        $(document).mousemove(function (e) {
+        $(document).on('mousemove.ui.draggable', function (e) {
             if (!mDown || that.disabled) {
                 return;
             }
@@ -182,14 +183,14 @@
         });
     };
 
-    Draggable.fn.enable = function () {
+    fn.enable = function () {
         var that = this;
 
         that.hander.css({'cursor': 'move'});
         that.disabled = false;
     };
 
-    Draggable.fn.disable = function () {
+    fn.disable = function () {
         var that = this;
 
         if (!that.disabled) {
@@ -198,13 +199,22 @@
         }
     };
 
+    fn.destroy = function () {
+        var that = this;
+
+        that.hander.css('cursor', that.hander.data('pre-cursor'));
+        that.$elem.removeData('ui.draggable');
+        that.hander.off('.ui.draggable');
+        $(document).off('.ui.draggable');
+    };
+
     $.fn.draggable = function (option) {
         return $(this).each(function () {
             var $this = $(this);
-            var data = $this.data('eui-draggable');
+            var data = $this.data('ui.draggable');
             if (!data) {
                 data = new Draggable(this, option);
-                $this.data('eui-draggable', data);
+                $this.data('ui.draggable', data);
             }
 
             if (typeof option === 'string') {

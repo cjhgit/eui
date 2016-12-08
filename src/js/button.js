@@ -1,12 +1,10 @@
 /**
- * Bootstrap: button.js v3.3.6
- * http://getbootstrap.com/javascript/#buttons
+ * EUI: button.js v1.3.0
  *
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * https://github.com/cjhgit/eui
  */
 
-+function ($) {
+;(function ($) {
     'use strict';
 
     // 按钮类定义
@@ -16,13 +14,15 @@
         this.isLoading = false;
     };
 
-    Button.VERSION = '3.3.6';
+    Button.VERSION = '1.3.0';
 
     Button.DEFAULTS = {
         loadingText: '加载中...'
     };
 
-    Button.prototype.setState = function (state) {
+    var fn = Button.prototype;
+
+    fn.setState = function (state) {
         var d = 'disabled';
         var $el = this.$element;
         var val = $el.is('input') ? 'val' : 'html';
@@ -47,7 +47,7 @@
         }, this), 0);
     };
 
-    Button.prototype.toggle = function () {
+    fn.toggle = function () {
         var changed = true;
         var $parent = this.$element.closest('[data-toggle="buttons"]');
 
@@ -77,11 +77,11 @@
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
-            var data = $this.data('bs.button');
+            var data = $this.data('ui.button');
             var options = typeof option == 'object' && option;
 
             if (!data) {
-                $this.data('bs.button', (data = new Button(this, options)));
+                $this.data('ui.button', (data = new Button(this, options)));
             }
 
             if (option == 'toggle') {
@@ -103,7 +103,7 @@
     };
 
     $(document)
-        .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {
+        .on('click.ui.button.data-api', '[data-toggle^="button"]', function (e) {
             var $btn = $(e.target).closest('.btn');
             Plugin.call($btn, 'toggle');
             if (!($(e.target).is('input[type="radio"]') || $(e.target).is('input[type="checkbox"]'))) {
@@ -117,8 +117,8 @@
                 }
             }
         })
-        .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {
+        .on('focus.ui.button.data-api blur.ui.button.data-api', '[data-toggle^="button"]', function (e) {
             $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type));
         });
 
-} (jQuery);
+})(jQuery);

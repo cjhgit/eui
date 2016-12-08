@@ -1,8 +1,11 @@
 /**
- * Range 滑块
+ * EUI: range.js v1.3.0
+ *
+ * https://github.com/cjhgit/eui
  */
 
 ;(function($) {
+    'use strict';
 
 	var Range = function(element, option) {
         var options = $.extend({}, Range.DEFAULTS, option)
@@ -152,14 +155,14 @@
 
 		over: false,
 		inDrag: false,
-		
+
 		showTooltip: function(){
 			this.tooltip.addClass('in');
 			//var left = Math.round(this.percent*this.width);
 			//this.tooltip.css('left', left - this.tooltip.outerWidth()/2);
 			this.over = true;
 		},
-		
+
 		hideTooltip: function(){
 			if (this.inDrag === false) {
 				this.tooltip.removeClass('in');
@@ -183,8 +186,8 @@
 			}
 			if (this.range) {
 				this.tooltipInner.text(
-					this.formater(this.value[0]) + 
-					' : ' + 
+					this.formater(this.value[0]) +
+					' : ' +
 					this.formater(this.value[1])
 				);
 				this.tooltip[0].style[this.stylePos] = this.size * (this.percentage[0] + (this.percentage[1] - this.percentage[0])/2)/100 - (this.orientation === 'vertical' ? this.tooltip.outerHeight()/2 : this.tooltip.outerWidth()/2) +'px';
@@ -225,8 +228,6 @@
 			}
 
 			this.percentage[this.dragged] = percentage;
-            console.log('内部2', this.value[0]);
-
 
 			if (this.touchCapable) {
 				// Touch: Bind touch events:
@@ -257,7 +258,7 @@
 		},
 
 		mousemove: function(ev) {
-			
+
 			// Touch: Get the original event:
 			if (this.touchCapable && ev.type === 'touchmove') {
 				ev = ev.originalEvent;

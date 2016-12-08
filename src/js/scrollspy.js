@@ -1,13 +1,10 @@
-/* ========================================================================
- * Bootstrap: scrollspy.js v3.3.6
- * http://getbootstrap.com/javascript/#scrollspy
- * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+/**
+ * EUI: scrollspy.js v1.3.0
+ *
+ * https://github.com/cjhgit/eui
+ */
 
-
-+function ($) {
+;(function ($) {
   'use strict';
 
   // SCROLLSPY CLASS DEFINITION
@@ -23,12 +20,12 @@
     this.activeTarget   = null;
     this.scrollHeight   = 0;
 
-    this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+    this.$scrollElement.on('scroll.ui.scrollspy', $.proxy(this.process, this))
     this.refresh()
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.3.6'
+  ScrollSpy.VERSION  = '1.3.0'
 
   ScrollSpy.DEFAULTS = {
     offset: 10
@@ -120,7 +117,7 @@
         .addClass('active')
     }
 
-    active.trigger('activate.bs.scrollspy')
+    active.trigger('activate.ui.scrollspy')
   }
 
   ScrollSpy.prototype.clear = function () {
@@ -136,10 +133,10 @@
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.scrollspy')
+      var data    = $this.data('ui.scrollspy')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+      if (!data) $this.data('ui.scrollspy', (data = new ScrollSpy(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -162,11 +159,11 @@
   // SCROLLSPY DATA-API
   // ==================
 
-  $(window).on('load.bs.scrollspy.data-api', function () {
+  $(window).on('load.ui.scrollspy.data-api', function () {
     $('[data-spy="scroll"]').each(function () {
       var $spy = $(this)
       Plugin.call($spy, $spy.data())
     })
   })
 
-}(jQuery);
+})(jQuery);

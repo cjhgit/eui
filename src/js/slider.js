@@ -1,19 +1,17 @@
 /**
- * 轮播插件
- * v1.0.0
+ * EUI: slider.js 1.3.0
  *
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * https://github.com/cjhgit/eui
  */
 
 ;(function ($) {
     'use strict';
 
-    var SELETOR_INDICATORS = '.eui-slider-indicators';
+    var SELETOR_INDICATORS = '.slider-indicators';
     var SELECTOR_ITEM = '.item';
-    var CLASS_SLIDER = 'eui-slider';
-    var EVENT_SLID = 'slid.eui.slider';
-    var EVENT_SLIDER = 'slide.eui.slider';
+    var CLASS_SLIDER = 'slider';
+    var EVENT_SLID = 'slid.ui.slider';
+    var EVENT_SLIDER = 'slide.ui.slider';
 
     // 轮播图类
     var Slider = function (element, options) {
@@ -29,7 +27,7 @@
         that.$items = null;
 
         that.curIndex = 0;
-        that.$list = that.$element.find('.eui-slider-inner');
+        that.$list = that.$element.find('.slider-inner');
         that.$items = that.$list.children();
         var count = that.$items.length;
         that.count = count;
@@ -75,16 +73,16 @@
             resize();
         });
 
-        that.opts.keyboard && that.$element.on('keydown.eui.slider', $.proxy(that.keydown, that));
+        that.opts.keyboard && that.$element.on('keydown.ui.slider', $.proxy(that.keydown, that));
 
         that.opts.pause == 'hover' && !('ontouchstart' in document.documentElement) && that.$element
-            .on('mouseenter.eui.slider', $.proxy(that.pause, that))
-            .on('mouseleave.eui.slider', $.proxy(that.cycle, that));
+            .on('mouseenter.ui.slider', $.proxy(that.pause, that))
+            .on('mouseleave.ui.slider', $.proxy(that.cycle, that));
 
 
     };
 
-    Slider.VERSION = '2.0.0';
+    Slider.VERSION = '1.3.0';
     Slider.v = 2.00;
 
     Slider.TRANSITION_DURATION = 600;
@@ -97,9 +95,9 @@
         column: 1,
     };
 
-    Slider.pt = Slider.prototype;
+    var fn = Slider.prototype;
 
-    Slider.pt.offset = function (offset, anim) {
+    fn.offset = function (offset, anim) {
         var that = this;
 
         if (anim) {
@@ -113,20 +111,20 @@
         //that.$list.css('transform', 'translate3d(' + offset + 'px, 0px, 0px)');
     };
 
-    Slider.pt.disableTransition = function () {
+    fn.disableTransition = function () {
         var that = this;
 
         //that.$list.css('transition', 'inherit');
     };
 
-    Slider.pt.enableTransition = function () {
+    fn.enableTransition = function () {
         var that = this;
 
         //that.$list.css('transition', 'transform .6s ease-in-out');
         //that.$list.css('transition', 'all .6s ease-in-out');
     };
 
-    Slider.pt.keydown = function (e) {
+    fn.keydown = function (e) {
         var that = this;
 
         if (/input|textarea/i.test(e.target.tagName)) {
@@ -146,7 +144,7 @@
         e.preventDefault()
     };
 
-    Slider.pt.cycle = function (e) {
+    fn.cycle = function (e) {
         var that = this;
 
         e || (that.paused = false);
@@ -160,13 +158,13 @@
         return that;
     };
 
-    Slider.pt.getIndex = function () {
+    fn.getIndex = function () {
         var that = this;
 
         return that.curIndex
     };
 
-    Slider.pt.getItemIndex = function (item) {
+    fn.getItemIndex = function (item) {
         var that = this;
 
         that.$items = item.parent().children(SELECTOR_ITEM);
@@ -179,7 +177,7 @@
      * @param active
      * @returns {*}
      */
-    Slider.pt.getItemForDirection = function (direction, active) {
+    fn.getItemForDirection = function (direction, active) {
         var that = this;
 
         var activeIndex = that.getItemIndex(active);
@@ -201,7 +199,7 @@
     };
 
     // 滑动到某个轮播项
-    Slider.pt.to = function (pos) {
+    fn.to = function (pos) {
         var that = this;
 
         var activeIndex = that.getItemIndex(that.$active = that.$element.find(SELECTOR_ITEM + '.active'));
@@ -226,7 +224,7 @@
         return that.slide(pos > preIndex ? 'next' : 'prev', that.$items.eq(pos));
     };
 
-    Slider.pt.pause = function (e) {
+    fn.pause = function (e) {
         var that = this;
 
         e || (that.paused = true);
@@ -241,7 +239,7 @@
         return that;
     };
 
-    Slider.pt.next = function () {
+    fn.next = function () {
         var that = this;
 
         if (that.curIndex === (that.count - 1) && !that.opts.loop) {
@@ -265,7 +263,7 @@
         return that.slide('next');
     };
 
-    Slider.pt.prev = function () {
+    fn.prev = function () {
         var that = this;
 
         if (that.curIndex === 0 && !that.opts.loop) {
@@ -297,7 +295,7 @@
      * @param next 跳转到的item
      * @returns {*}
      */
-    Slider.pt.slide = function (type, next) {
+    fn.slide = function (type, next) {
         var that = this;
         that.enableTransition();
 
@@ -344,7 +342,7 @@
             that.$element.trigger(slidEvent);
 
             $active
-                .one('bsTransitionEnd', function () {
+                .one('uiTransitionEnd', function () {
                     that.disableTransition();
                     //that.$list.css('transform', 'translate3d(' + offset + 'px, 0px, 0px)');
                     //$next.removeClass([type, direction].join(' ')).addClass('active');
@@ -369,7 +367,7 @@
         return that;
     };
 
-    Slider.pt.slideTo = function (pos) {
+    fn.slideTo = function (pos) {
         pos = parseInt(pos);
 
         var that = this;
@@ -431,13 +429,13 @@
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
-            var data = $this.data('eui.slider');
+            var data = $this.data('ui-slider');
             var options = $.extend({}, Slider.DEFAULTS, $this.data(), typeof option == 'object' && option);
             var action = typeof option == 'string' ? option : options.slide;
 
             if (!data) {
                 data = new Slider(this, options);
-                $this.data('eui.slider', data);
+                $this.data('ui-slider', data);
             }
             if (typeof option == 'number') {
                 data.to(option);
@@ -476,15 +474,15 @@
         Plugin.call($target, options);
 
         if (slideIndex) {
-            $target.data('eui.slider').slideTo(slideIndex);
+            $target.data('ui-slider').slideTo(slideIndex);
         }
 
         e.preventDefault();
     };
 
     $(document)
-        .on('click.eui.slider.data-api', '[data-slide]', clickHandler)
-        .on('click.eui.slider.data-api', '[data-slide-to]', clickHandler);
+        .on('click.ui.slider.data-api', '[data-slide]', clickHandler)
+        .on('click.ui.slider.data-api', '[data-slide-to]', clickHandler);
 
     $(window).on('load', function () {
         $('[data-ride="slider"]').each(function () {

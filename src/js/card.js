@@ -1,6 +1,7 @@
 /**
- * Card 插件
- * 时间：2016-3-17 00:08:24
+ * EUI card.js v1.3.0
+ *
+ * https://github.com/cjhgit/eui
  */
 
 ;(function ($) {
@@ -62,8 +63,10 @@
         }
     };
 
+    var fn = Card.prototype;
+
     // 初始化
-    Card.prototype.init = function () {
+    fn.init = function () {
         var opts = this.opts;
         var that = this;
 
@@ -116,7 +119,7 @@
     };
 
     // 生成菜单
-    Card.prototype.createMenu = function () {
+    fn.createMenu = function () {
         var that = this;
         var opts = this.opts;
         var $elem = this.$elem;
@@ -131,7 +134,6 @@
         this.$elem.on('click', '.dropdown-menu a', function (e) {
             var id = $(this).data('id');
             if (opts.menuCallback) {
-                console.log('这里');
                 opts.menuCallback(id, e);
             }
         });
@@ -141,7 +143,7 @@
     };
 
     // 收缩展开
-    Card.prototype.toggleSize = function (minus) {
+    fn.toggleSize = function (minus) {
         var that = this;
 
         minus.on('click', function () {
@@ -164,7 +166,7 @@
     };
 
     // 切换全屏
-    Card.prototype.toggleFull = function (ele) {
+    fn.toggleFull = function (ele) {
         var $elem = this.$elem;
         var opts = this.opts;
 
@@ -200,7 +202,7 @@
 
     };
 
-    Card.prototype.initMove = function (move) {
+    fn.initMove = function (move) {
         var $elem = this.$elem;
         var opts = this.opts;
 
@@ -252,9 +254,9 @@
         return this.each(function () {
             var $this = $(this);
             var opts = $.extend({}, Card.DEFAULTS, options);
-            var data = $this.data('eui-card');
+            var data = $this.data('ui-card');
             if (!data) {
-                $this.data('eui-card', (data = new Card($(this), opts)));
+                $this.data('ui-card', (data = new Card($(this), opts)));
             }
 
             if (typeof options == 'string') {

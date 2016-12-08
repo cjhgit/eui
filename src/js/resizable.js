@@ -1,6 +1,9 @@
 /**
- * Resizable
+ * EUI: resizable.js v1.3.1
+ *
+ * https://github.com/cjhgit/eui
  */
+
 ;(function ($) {
     'use strict';
 
@@ -14,8 +17,8 @@
         that.element = el;
         that.$elem = $(el);
 
-        that.resizing = false;
         that.opts = $.extend({}, Resizable.DEFAULTS, options);
+        that.resizing = false;
         that.maxHeight = that.opts.maxHeight;
         that.maxWidth = that.opts.maxWidth;
         that.minWidth = that.opts.minWidth;
@@ -36,10 +39,12 @@
         minHeight: 0,
         resize: function(event, ui) {},
         start: function(event, ui) {},
-        stop: function(event, ui) {}
+        end: function(event, ui) {}
     };
 
     var fn = Resizable.prototype;
+
+    fn.threshold = 10; // Threshold size
 
     /** Make itself draggable to the row */
     fn.draggable = false;
@@ -57,15 +62,13 @@
             for (var i = that.handles.length; i--;){
                 handles[that.handles[i]] = null;
             }
-        }
-        else if (typeof that.handles === 'string') {
+        } else if (typeof that.handles === 'string') {
             handles = {};
             var arr = that.handles.match(/([swne]+)/g);
             for (var i = arr.length; i--;){
                 handles[arr[i]] = null;
             }
-        }
-        else if (typeof that.handles === 'object') {
+        } else if (typeof that.handles === 'object') {
             handles = that.handles;
         }
         //default set of handles depends on position.
@@ -129,7 +132,6 @@
         handle.direction = direction;
 
         //detect self.within
-        //FIXME: may be painful if resizable is created on detached element
         var within = that.within === 'parent' ? that.element.parentNode : that.within;
         var position = that.$elem.parent().css('position');
         var parentTop;
@@ -143,7 +145,6 @@
         }
 
         var $handle = $(handle);
-        //draggy.hide();
         $handle.on('mousedown', function (e) {
             e.stopPropagation();
 
@@ -235,7 +236,7 @@
             that.down = false;
             if (that.resizing) {
                 that.resizing = false;
-                that.opts.stop(e, that.elem);
+                that.opts.end(e, that.elem);
             }
             //clear cursor & pointer-events
             /*css(root, {
@@ -252,8 +253,8 @@
 
         //append proper class
         handle.classList.add('resizable-handle-' + direction);
-        handle.classList.add('eui-scale');
-        handle.classList.add('eui-scale-' + direction);
+        handle.classList.add('ui-scale');
+        handle.classList.add('ui-scale-' + direction);
 
         return handle;
     };
@@ -272,27 +273,23 @@
         }
     };
 
-    /** deconstructor - removes any memory bindings */
     fn.destroy = function () {
         //remove all handles
         for (var hName in this.handles){
-            this.element.removeChild(this.handles[hName]);
+            $(this.handles[hName]).remove();
         }
 
-        //remove references
+        this.$elem.removeData('ui.resizable');
         this.element = null;
     };
-
-    /** Threshold size */
-    fn.threshold = 10;
 
     function Plugin(option) {
         return $(this).each(function () {
             var $this = $(this);
-            var data = $this.data('eui-resizable');
+            var data = $this.data('ui.resizable');
             if (!data) {
                 data = new Resizable(this, option);
-                $this.data('eui-resizable', data);
+                $this.data('ui.resizable', data);
             }
 
             if (typeof option === 'string') {

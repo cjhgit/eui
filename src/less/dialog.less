@@ -1,18 +1,8 @@
 //
 // 对话框
-//
-/*
-#layui_layer_skinlayercss {
-    display: none;
-    position: absolute;
-    width: 1989px;
-}
-*/
+
 // common
-.dialog-shade, .dialog {
-    position: fixed;
-    pointer-events: auto;
-}
+
 
 .dialog-shade {
     top: 0;
@@ -21,13 +11,35 @@
     height: 100%;
 }
 
+.dialog-shade, .dialog {
+    position: fixed;
+}
+
 .dialog {
-    top: 150px;
-    left: 0;
-    margin: 0;
-    padding: 0;
     background-color: #fff;
-    box-shadow: 1px 1px 50px rgba(0, 0, 0, .3);
+    border-radius: 2px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, .3);
+    animation-fill-mode: both;
+    animation-duration: .3s;
+}
+.dialog-header {
+    padding: 20px 80px 0 20px;
+    border-radius: 2px 2px 0 0;
+}
+.dialog-title {
+    color: #333;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dialog-body {
+    position: relative;
+    padding: 20px;
+    word-break: break-all;
+    overflow: hidden;
+    font-size: 14px;
+    overflow: auto;
 }
 
 .dialog-close {
@@ -40,58 +52,27 @@
 .dialog-close.icon-close:focus {
     text-decoration: none;
 }
-.dialog-body {
-    position: relative;
-}
-
-.dialog-border {
-    border: 1px solid #B2B2B2;
-    border: 1px solid rgba(0, 0, 0, .3);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
-}
-
-.dialog-moves {
-    position: absolute;
-    border: 3px solid #666;
-    border: 3px solid rgba(0, 0, 0, .5);
-    cursor: move;
-    background-color: #fff;
-    background-color: rgba(255, 255, 255, .3);
-    filter: alpha(opacity=50);
-}
 
 .dialog-load {
     background: url(img/loading-0.gif) #fff center center no-repeat;
 }
 .dialog-icon {
     position: absolute;
-    top: 16px;
-    left: 15px;
+    top: 12px;
+    left: 16px;
+    width: 32px;
+    height: 32px;
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    font-size: 32px !important;
-    line-height: 30px;
+    font-size: 32px!important;
+    line-height: 32px;
 }
 .dialog-ico {
     background: url(img/icon.png) no-repeat;
 }
 
-.dialog-dialog .dialog-ico,
-.dialog-setwin a,
-.dialog-footer a {
-    display: inline-block;
-    vertical-align: top;
-}
+
 
 /* 动画 */
-.dialog {
-    border-radius: 2px;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-duration: .3s;
-    animation-duration: .3s;
-}
 
 @-webkit-keyframes bounceIn {
     /* 默认 */
@@ -120,271 +101,31 @@
     }
 }
 
-.eui-anim {
+.anim-dialog {
     -webkit-animation-name: bounceIn;
     animation-name: bounceIn
 }
 
-@-webkit-keyframes bounceOut {
-    100% {
-        opacity: 0;
-        -webkit-transform: scale(.7);
-        transform: scale(.7)
-    }
-    30% {
-        -webkit-transform: scale(1.03);
-        transform: scale(1.03)
-    }
-    0% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-}
 
-@keyframes bounceOut {
-    100% {
-        opacity: 0;
-        -webkit-transform: scale(.7);
-        transform: scale(.7)
-    }
-    30% {
-        -webkit-transform: scale(1.03);
-        transform: scale(1.03)
-    }
-    0% {
-        -webkit-transform: scale(1);
-        transform: scale(1)
-    }
-}
-
-.eui-anim-close {
-    -webkit-animation-name: bounceOut;
-    animation-name: bounceOut;
-    -webkit-animation-duration: .2s;
-    animation-duration: .2s;
-}
-
-@-webkit-keyframes zoomInDown {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale(.1) translateY(-2000px);
-        transform: scale(.1) translateY(-2000px);
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out
-    }
-    60% {
-        opacity: 1;
-        -webkit-transform: scale(.475) translateY(60px);
-        transform: scale(.475) translateY(60px);
-        -webkit-animation-timing-function: ease-out;
-        animation-timing-function: ease-out
-    }
-}
-
-@keyframes zoomInDown {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale(.1) translateY(-2000px);
-        transform: scale(.1) translateY(-2000px);
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out
-    }
-    60% {
-        opacity: 1;
-        -webkit-transform: scale(.475) translateY(60px);
-        transform: scale(.475) translateY(60px);
-        -webkit-animation-timing-function: ease-out;
-        animation-timing-function: ease-out
-    }
-}
-
-.eui-anim-01 {
-    -webkit-animation-name: zoomInDown;
-    animation-name: zoomInDown
-}
-
-@-webkit-keyframes fadeInUpBig {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(2000px);
-        transform: translateY(2000px)
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0)
-    }
-}
-
-@keyframes fadeInUpBig {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(2000px);
-        transform: translateY(2000px)
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0)
-    }
-}
-
-.eui-anim-02 {
-    -webkit-animation-name: fadeInUpBig;
-    animation-name: fadeInUpBig
-}
-
-@-webkit-keyframes zoomInLeft {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale(.1) translateX(-2000px);
-        transform: scale(.1) translateX(-2000px);
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out
-    }
-    60% {
-        opacity: 1;
-        -webkit-transform: scale(.475) translateX(48px);
-        transform: scale(.475) translateX(48px);
-        -webkit-animation-timing-function: ease-out;
-        animation-timing-function: ease-out
-    }
-}
-
-@keyframes zoomInLeft {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale(.1) translateX(-2000px);
-        transform: scale(.1) translateX(-2000px);
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out
-    }
-    60% {
-        opacity: 1;
-        -webkit-transform: scale(.475) translateX(48px);
-        transform: scale(.475) translateX(48px);
-        -webkit-animation-timing-function: ease-out;
-        animation-timing-function: ease-out
-    }
-}
-
-.eui-anim-03 {
-    -webkit-animation-name: zoomInLeft;
-    animation-name: zoomInLeft
-}
-
-@-webkit-keyframes rollIn {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-100%) rotate(-120deg);
-        transform: translateX(-100%) rotate(-120deg)
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0px) rotate(0deg);
-        transform: translateX(0px) rotate(0deg)
-    }
-}
-
-@keyframes rollIn {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-100%) rotate(-120deg);
-        transform: translateX(-100%) rotate(-120deg)
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0px) rotate(0deg);
-        transform: translateX(0px) rotate(0deg)
-    }
-}
-
-.eui-anim-04 {
-    -webkit-animation-name: rollIn;
-    animation-name: rollIn
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0
-    }
-    100% {
-        opacity: 1
-    }
-}
-
-.eui-anim-05 {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn
-}
-
-@-webkit-keyframes shake {
-    0%, 100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-    }
-    10%, 30%, 50%, 70%, 90% {
-        -webkit-transform: translateX(-10px);
-        transform: translateX(-10px)
-    }
-    20%, 40%, 60%, 80% {
-        -webkit-transform: translateX(10px);
-        transform: translateX(10px)
-    }
-}
-
-@keyframes shake {
-    0%, 100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0)
-    }
-    10%, 30%, 50%, 70%, 90% {
-        -webkit-transform: translateX(-10px);
-        transform: translateX(-10px)
-    }
-    20%, 40%, 60%, 80% {
-        -webkit-transform: translateX(10px);
-        transform: translateX(10px)
-    }
-}
-
-.eui-anim-06 {
-    -webkit-animation-name: shake;
-    animation-name: shake
-}
-
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0
-    }
-    100% {
-        opacity: 1
-    }
-}
-
-/* 标题栏 */
-.dialog-header {
-    padding: 0 80px 0 20px;
-    height: 42px;
-    line-height: 42px;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-    color: #333;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-color: #F8F8F8;
-    border-radius: 2px 2px 0 0;
-}
 
 .dialog-setwin {
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 20px;
+    top: 20px;
     font-size: 0;
     line-height: initial;
 }
-
+.dialog-setwin a {
+    display: inline-block;
+    vertical-align: top;
+}
+.dialog-setwin .icon {
+    font-size: 16px;
+    color: #ccc;
+}
+.dialog-setwin .icon:hover {
+    color: #333;
+}
 .dialog-setwin a {
     position: relative;
     width: 16px;
@@ -441,77 +182,62 @@
     background-position: -180px -31px;
 }
 
-/* 按钮栏 */
 .dialog-footer {
     text-align: right;
-    padding: 0 10px 12px;
-    pointer-events: auto;
+    padding: 0 16px 16px;
 }
 
-.dialog-footer a {
-    height: 28px;
-    line-height: 28px;
-    margin: 0 6px;
-    padding: 0 15px;
+.dialog-footer .btn {
+    margin-left: 8px;
     border: 1px #dedede solid;
     background-color: #f1f1f1;
     color: #333;
-    border-radius: 2px;
-    font-weight: 400;
-    cursor: pointer;
-    text-decoration: none;
 }
 
-.dialog-footer a:hover {
+.dialog-footer .btn:hover {
     opacity: 0.9;
     text-decoration: none;
 }
 
-.dialog-footer a:active {
+.dialog-footer .btn:active {
     opacity: 0.7;
 }
 
-.dialog-footer .dialog-footer0 {
+.dialog-footer .dialog-btn0 {
     border-color: #4898d5;
     background-color: #2e8ded;
     color: #fff;
 }
 
-/* 定制化 */
-.dialog-dialog {
-    min-width: 260px;
+// common
+.dialog-common {
+    min-width: 280px;
 }
-
-.dialog-body {
-    position: relative;
-    padding: 20px;
-    line-height: 24px;
-    word-break: break-all;
-    overflow: hidden;
-    font-size: 14px;
-    overflow: auto;
+.dialog-common .dialog-ico {
+    display: inline-block;
+    vertical-align: top;
 }
-
-.dialog-dialog .dialog-body .dialog-ico {
+.dialog-common .dialog-body .dialog-ico {
     position: absolute;
     top: 16px;
     left: 15px;
     width: 30px;
     height: 30px;
 }
-// 显示图标时需要加间距
-.dialog-dialog .dialog-padding {
-    padding: 20px 20px 20px 55px;
+.dialog-common .dialog-padding { // 显示图标时需要加间距
+    padding: 16px 16px 16px 52px;
     text-align: left;
 }
 
 // page
-.dialog-page .dialog-body {
-    position: relative;
-    overflow: auto;
+.dialog-page {
     background-color: transparent;
 }
-
+.dialog-page .dialog-body {
+    position: relative;
+    padding: 0;
+    overflow: auto;
+}
 .dialog-page .dialog-footer {
     padding-top: 10px;
 }
@@ -571,7 +297,7 @@
     font-size: 12px;
     _float: left;
     border-radius: 3px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, .3);
     background-color: #FF9900;
     color: #fff;
 }
@@ -619,18 +345,6 @@
 }
 
 // prompt
-.dialog-prompt .dialog-input {
-    display: block;
-    width: 220px;
-    height: 30px;
-    margin: 0 auto;
-    line-height: 30px;
-    padding: 0 5px;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, .1) inset;
-    color: #333;
-}
-
 .dialog-prompt textarea.dialog-input {
     width: 300px;
     height: 100px;
@@ -643,13 +357,10 @@
     border: 1px solid #D3D4D3;
     box-shadow: none;
     min-width: 100px;
-    background-color: #000;
-    filter: alpha(opacity=60);
-    background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
+    background-color: #323232;
     border: none;
 }
-
 .dialog-msg .dialog-body {
     padding: 12px 25px;
     text-align: center;

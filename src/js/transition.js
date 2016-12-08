@@ -1,13 +1,10 @@
-/* ========================================================================
- * Bootstrap: transition.js v3.3.6
- * http://getbootstrap.com/javascript/#transitions
- * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+/**
+ * EUI: transition.js v1.3.0
+ *
+ * https://github.com/cjhgit/eui
+ */
 
-
-+function ($) {
+;(function ($) {
     'use strict';
 
     // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
@@ -36,7 +33,7 @@
     $.fn.emulateTransitionEnd = function (duration) {
         var called = false
         var $el = this
-        $(this).one('bsTransitionEnd', function () {
+        $(this).one('uiTransitionEnd', function () {
             called = true
         })
         var callback = function () {
@@ -51,7 +48,7 @@
 
         if (!$.support.transition) return
 
-        $.event.special.bsTransitionEnd = {
+        $.event.special.uiTransitionEnd = {
             bindType: $.support.transition.end,
             delegateType: $.support.transition.end,
             handle: function (e) {
@@ -60,4 +57,4 @@
         }
     })
 
-}(jQuery);
+})(jQuery);

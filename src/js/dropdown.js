@@ -1,12 +1,10 @@
 /**
- * Bootstrap: dropdown.js v3.3.6
- * http://getbootstrap.com/javascript/#dropdowns
+ * EUI: dropdown.js v1.2.0
  *
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * https://github.com/cjhgit/eui
  */
 
-+function ($) {
+;(function ($) {
     'use strict';
 
     // 下拉菜单类定义
@@ -15,10 +13,10 @@
     var toggle = '[data-toggle="dropdown"]';
 
     var Dropdown = function (element) {
-        $(element).on('click.bs.dropdown', this.toggle);
+        $(element).on('click.ui.dropdown', this.toggle);
     };
 
-    Dropdown.VERSION = '3.3.6';
+    Dropdown.VERSION = '1.3.0';
 
     function getParent($this) {
         var selector = $this.attr('data-target');
@@ -53,19 +51,21 @@
                 return;
             }
 
-            $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget));
+            $parent.trigger(e = $.Event('hide.ui.dropdown', relatedTarget));
 
             if (e.isDefaultPrevented()) {
                 return;
             }
 
             $this.attr('aria-expanded', 'false');
-            $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget));
+            $parent.removeClass('open').trigger($.Event('hidden.ui.dropdown', relatedTarget));
         })
     }
 
+    var fn = Dropdown.prototype;
+
     // 显示/隐藏下拉菜单
-    Dropdown.prototype.toggle = function (e) {
+    fn.toggle = function (e) {
         var $this = $(this);
 
         if ($this.is('.disabled, :disabled')) {
@@ -87,7 +87,7 @@
             }
 
             var relatedTarget = {relatedTarget: this};
-            $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget));
+            $parent.trigger(e = $.Event('show.ui.dropdown', relatedTarget));
 
             if (e.isDefaultPrevented()) {
                 return;
@@ -99,13 +99,13 @@
 
             $parent
                 .toggleClass('open')
-                .trigger($.Event('shown.bs.dropdown', relatedTarget));
+                .trigger($.Event('shown.ui.dropdown', relatedTarget));
         }
 
         return false;
     };
 
-    Dropdown.prototype.keydown = function (e) {
+    fn.keydown = function (e) {
         if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) {
             return;
         }
@@ -153,7 +153,7 @@
         $items.eq(index).trigger('focus');
     };
 
-    Dropdown.prototype.hoverover = function(e) {
+    fn.hoverover = function(e) {
         toggle(e);
     };
 
@@ -161,11 +161,11 @@
     function Plugin(option) {
         return this.each(function () {
             var $this = $(this);
-            var data = $this.data('bs.dropdown');
+            var data = $this.data('ui.dropdown');
 
             if (!data) {
                 data = new Dropdown(this);
-                $this.data('bs.dropdown', data);
+                $this.data('ui.dropdown', data);
             }
             if (typeof option == 'string') {
                 data[option].call($this);
@@ -184,13 +184,13 @@
     };
 
     $(document)
-        .on('click.bs.dropdown.data-api', clearMenus)
-        .on('click.bs.dropdown.data-api', '.dropdown form', function (e) {
+        .on('click.ui.dropdown.data-api', clearMenus)
+        .on('click.ui.dropdown.data-api', '.dropdown form', function (e) {
             e.stopPropagation();
         })
-        .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-        .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-        .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+        .on('click.ui.dropdown.data-api', toggle, Dropdown.prototype.toggle)
+        .on('keydown.ui.dropdown.data-api', toggle, Dropdown.prototype.keydown)
+        .on('keydown.ui.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
         //.on('mouseover', '[data-hover="dropdown"]', Dropdown.prototype.hoverover);
 
-}(jQuery);
+})(jQuery);

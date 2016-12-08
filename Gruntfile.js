@@ -15,12 +15,8 @@ module.exports = function (grunt) {
                 banner: '/*! <%=pkg.name%>-<%=pkg.version%>.js <%=grunt.template.today("yyyy-mm-dd") %>*/\n'
             },
             test: {
-                src: 'dist/js/eui.js',
-                dest: 'dist/js/eui.min.js'
-            },
-            custom: {
-                src: 'dist/js/eui-custom.js',
-                dest: 'dist/js/eui-custom.min.js'
+                src: 'dist/js/ui.js',
+                dest: 'dist/js/ui.min.js'
             },
             dist: {
                 options: {
@@ -37,7 +33,6 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'dist/js/totop.min.js': ['src/totop/totop.js'],
-                    'dist/js/eui.dialog.min.js': ['src/eui.dialog.js']
                 }
             },
             widget: {
@@ -46,7 +41,7 @@ module.exports = function (grunt) {
                     banner: '/*! <%=pkg.name%> <%= pkg.version %> | MIT License | chenjianhang.com/ */\n'
                 },
                 src: 'src/js/complete.js',
-                dest: 'dist/js/eui-complete.min.js'
+                dest: 'dist/js/ui-complete.min.js'
             },
         },
         concat: {
@@ -82,36 +77,7 @@ module.exports = function (grunt) {
 
                     //'src/hover-dropdown.js'
                 ],
-                dest: 'dist/js/eui.js'
-            },
-            custom: {
-                src: [
-                    'src/js/base.js',
-                    'src/js/selectable.js',
-                    'src/js/draggable.js',
-                    //'src/js/sortable.js',
-                    //'src/js/resizable.js',
-                    'src/js/position.js',
-                    //'src/js/alert.js',
-                    'src/js/button.js',
-                    'src/js/slider.js',
-                    //'src/js/collapse.js',
-                    'src/js/dialog.js',
-                    'src/js/dropdown.js',
-                    //'src/js/modal.js',
-                    'src/js/tooltip.js',
-                    'src/js/popover.js',
-                    //'src/js/scrollspy.js',
-                    'src/js/tab.js',
-                    'src/js/transition.js',
-                    // eUI 组件
-                    //'src/box/box.js',
-                    //'src/totop/totop.js'
-                    // 封装
-
-                    //'src/hover-dropdown.js'
-                ],
-                dest: 'dist/js/eui-custom.js'
+                dest: 'dist/js/ui.js'
             },
             dist: {
                 options: {
@@ -133,8 +99,8 @@ module.exports = function (grunt) {
             },
             compress: {
                 files: {
-                    'dist/css/eui.min.css': [
-                        "dist/css/eui.css",
+                    'dist/css/ui.min.css': [
+                        "dist/css/ui.css",
                         "src/totop/totop.css"
                     ]
                     /*
@@ -146,22 +112,15 @@ module.exports = function (grunt) {
             },
             reset: {
                 files: {
-                    'dist/css/eui-reset.min.css': [
-                        "dist/css/eui-reset.css",
-                    ]
-                }
-            },
-            custom: {
-                files: {
-                    'dist/css/eui-custom.min.css': [
-                        "dist/css/eui-custom.css",
+                    'dist/css/ui-reset.min.css': [
+                        "dist/css/ui-reset.css",
                     ]
                 }
             },
             widget: {
                 files: {
-                    'dist/css/eui-icon.min.css': [
-                        "dist/css/eui-icon.css",
+                    'dist/css/ui-icon.min.css': [
+                        "dist/css/ui-icon.css",
                     ]
                 }
             }
@@ -179,18 +138,9 @@ module.exports = function (grunt) {
                     yuicompress: false
                 },
                 files: {
-                    "dist/css/eui.css": "src/less/eui.less",
+                    "dist/css/ui.css": "src/less/ui.less",
                     "dist/css/toastr.css": "src/toastr/toastr.less",
                     "dist/css/timeline.css": "src/less/timeline.less"
-                }
-            },
-            custom:{
-                options: {
-                    compress: false,
-                    yuicompress: false
-                },
-                files: {
-                    "dist/css/eui-custom.css": "src/less/eui-custom.less",
                 }
             },
             dist: {
@@ -207,7 +157,7 @@ module.exports = function (grunt) {
                     yuicompress: false
                 },
                 files: {
-                    "dist/css/eui-icon.css": "src/less/icon.less",
+                    "dist/css/ui-icon.css": "src/less/icon.less",
                 }
             },
             reset:{
@@ -216,7 +166,7 @@ module.exports = function (grunt) {
                     yuicompress: false
                 },
                 files: {
-                    "dist/css/eui-reset.css": "src/less/eui-reset.less",
+                    "dist/css/ui-reset.css": "src/less/ui-reset.less",
                 }
             },
         },
@@ -238,8 +188,6 @@ module.exports = function (grunt) {
     grunt.registerTask('dist', ['less:default', 'concat:dist', 'uglify:dist', 'uglify:dist2']);
     // 组件
     grunt.registerTask('widget', ['less:widget', 'cssmin:widget']);
-    // custom
-    grunt.registerTask('custom', ['less:custom', 'cssmin:custom', 'concat:custom', 'uglify:custom',]);
     // reset
     grunt.registerTask('reset',['less:reset', 'cssmin:reset']);
     //grunt.registerTask('clean', ['clean:dist']);

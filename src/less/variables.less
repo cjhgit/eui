@@ -3,7 +3,7 @@
 //
 
 // 命名空间
-@namespac:             'eui-';
+@namespac:             'ui-';
 
 //== Colors
 //
@@ -48,7 +48,7 @@
 //** Link hover color set via `darken()` function.
 @link-hover-color:      darken(@link-color, 15%);
 //** Link hover decoration.
-@link-hover-decoration: underline; // underline
+@link-hover-decoration: none; // underline
 
 
 //== Typography
@@ -65,10 +65,10 @@
 // 优先字体：Helvetica Neue
 // 备用字体：Helvetica
 // 次级备用字体：Arial
-@font-family-eui:         "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+@font-family-ui:         "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
-@font-family-base:        @font-family-eui;
+@font-family-base:        @font-family-ui;
 
 @font-size-base:          14px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
@@ -434,7 +434,7 @@
 //##
 
 //=== Shared nav styles
-@nav-link-padding:                          10px 15px;
+@nav-link-padding:                          10px 16px;
 @nav-link-hover-bg:                         @gray-lighter;
 
 @nav-disabled-link-color:                   @gray-light;

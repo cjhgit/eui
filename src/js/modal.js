@@ -1,11 +1,8 @@
 /**
- * Bootstrap: modal.js v3.3.6
- * http://getbootstrap.com/javascript/#modals
+ * EUI: modal.js v1.3.0
  *
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * https://github.com/cjhgit/eui
  */
-
 
 +function ($) {
     'use strict';
@@ -22,7 +19,7 @@
         this.scrollbarWidth = 0;
         this.ignoreBackdropClick = false;
 
-        // 如果是远程内容,就加载,并触发loaded.bs.modal事件
+        // 如果是远程内容,就加载,并触发loaded.ui.modal事件
         if (this.opts.remote) {
             this.$element
                 .find('.modal-content')
@@ -32,7 +29,7 @@
         }
     };
 
-    Modal.VERSION = '3.3.6';
+    Modal.VERSION = '1.3.0';
 
     Modal.TRANSITION_DURATION = 300;
     Modal.BACKDROP_TRANSITION_DURATION = 150;
@@ -109,7 +106,7 @@
 
             transition ?
                 that.$dialog // wait for modal to slide in
-                    .one('bsTransitionEnd', function () {
+                    .one('uiTransitionEnd', function () {
                         that.$element.trigger('focus').trigger(e);
                     })
                     .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
@@ -147,7 +144,7 @@
 
         $.support.transition && this.$element.hasClass('fade') ?
             this.$element
-                .one('bsTransitionEnd', $.proxy(this.hideModal, this))
+                .one('uiTransitionEnd', $.proxy(this.hideModal, this))
                 .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
             this.hideModal()
     };
@@ -232,7 +229,7 @@
 
             doAnimate ?
                 this.$backdrop
-                    .one('bsTransitionEnd', callback)
+                    .one('uiTransitionEnd', callback)
                     .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
                 callback();
 
@@ -245,7 +242,7 @@
             };
             $.support.transition && this.$element.hasClass('fade') ?
                 this.$backdrop
-                    .one('bsTransitionEnd', callbackRemove)
+                    .one('uiTransitionEnd', callbackRemove)
                     .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
                 callbackRemove();
 
@@ -341,7 +338,7 @@
         return this;
     };
 
-    $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
+    $(document).on('click.ui.modal.data-api', '[data-toggle="modal"]', function (e) {
         var $this = $(this);
         var href = $this.attr('href');
         var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); // strip for ie7
