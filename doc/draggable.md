@@ -29,7 +29,7 @@
 
 类型： String | Array | Boolean，默认：false
 
-containment可选值：'parent', 'document', 'window', [x1, y1, x2, y2]
+containment可选值：'parent'、document、window、element、'selector'
 
 设置改属性后，元素只能在容易里面移动。
 

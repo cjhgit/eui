@@ -1,5 +1,5 @@
 /**
- * EUI draggable.js v1.3.1
+ * EUI draggable.js v17.5.1
  *
  * https://github.com/cjhgit/eui
  */
@@ -13,13 +13,12 @@
     }
 
     Draggable.DEFAULTS = {
-        axis: 'both',
+        axis: 'both', // 可选值 'x'、'y'、'both'
         hander: false,
-        containment: false,
-        //containment可选值：'parent', 'document', 'window', [x1, y1, x2, y2].
+        containment: false, // 可选值 'parent'、document、window、element、'selector'
         drag: function(event, ui) {},
         start: function(event, ui) {},
-        end: function(event, ui) {},
+        end: function(event, ui) {}
     };
 
     var fn = Draggable.prototype;
@@ -71,11 +70,15 @@
         var maxY = -1;//faHeight - thisHeight
 
         if (opts.containment) {
-            var $containment = $(opts.containment);
+            var $containment = (opts.containment === 'parent') ? $emem.parent() : $(opts.containment);
+
             maxX = $containment.width() - $emem.width();
             maxY = $containment.height() - $emem.height();
             if (opts.containment === window || opts.containment === document) {
                 minX = minY = 0;
+            } else if (opts.containment === 'parent') {
+                minX = 0
+                minY = 0
             } else {
                 minX = $containment.offset().left
                 minY = $containment.offset().top
